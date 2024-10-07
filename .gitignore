@@ -10,7 +10,8 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
-/[Aa]ssets/Scenes/Chikara.*
+/[Aa]ssets/Scenes/Chikara.unity
+/[Aa]ssets/Scenes/Chikara.unity.meta
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
