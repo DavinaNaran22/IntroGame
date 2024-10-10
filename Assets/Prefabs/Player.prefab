@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 3405767406887581819}
   - component: {fileID: 6423059120228014010}
   - component: {fileID: 201560534041888510}
+  - component: {fileID: 3646110318612368500}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -388,3 +389,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &3646110318612368500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8420453550813833447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba1aae48d788b848826dffc689fb8da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxesCollected: 0
+  collectBoxEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3646110318612368500}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: CollectBox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  repairText: {fileID: 0}

@@ -6,7 +6,7 @@ public class PickupBlock : MonoBehaviour
     public Transform boxContainer;
     public Rigidbody boxRb;
     public PlayerController playerController; // To change num of boxes collected
-    public float pickUpRange;
+    public float pickUpRange = 3f;
     private bool isHoldingItem = false;
     private bool canBePicked = true;
     private const float ADD_GROUND_Y = 0.26F; // To stop box from ending up halfway in the ground
