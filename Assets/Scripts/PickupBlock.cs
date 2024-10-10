@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PickupBlock : MonoBehaviour
@@ -6,11 +5,11 @@ public class PickupBlock : MonoBehaviour
     public Transform player;
     public Transform boxContainer;
     public Rigidbody boxRb;
+    public PlayerController playerController; // To change num of boxes collected
     public float pickUpRange;
     private bool isHoldingItem = false;
     private bool canBePicked = true;
     private const float ADD_GROUND_Y = 0.26F; // To stop box from ending up halfway in the ground
-    private int collected = 0; // Needs to be somewhere else
 
     // Start is called before the first frame update
     void Start()
@@ -63,8 +62,7 @@ public class PickupBlock : MonoBehaviour
             // If CanBePlacedOn is below, stop it from being grabbed
             if (GetLayerBelow() == LayerMask.NameToLayer("CanBePlacedOn"))
             {
-                collected++;
-                Debug.Log("Block has been placed on correct spot! " + collected + "/4");
+                playerController.collectBoxEvent.Invoke();
                 canBePicked = false;
             }
 
