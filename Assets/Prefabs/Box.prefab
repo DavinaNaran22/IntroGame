@@ -149,4 +149,5 @@ MonoBehaviour:
   player: {fileID: 0}
   boxContainer: {fileID: 0}
   boxRb: {fileID: 5679260605408737364}
-  pickUpRange: 4
+  playerController: {fileID: 0}
+  pickUpRange: 3
