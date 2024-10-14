@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1b7fa5b492b8a409944e2fbe14a848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  boxContainer: {fileID: 0}
+  player: {fileID: 4975677129833483988, guid: f20d453d4d4b4be438781fddd7a723a4, type: 3}
+  boxContainer: {fileID: 4975677129833483988, guid: f20d453d4d4b4be438781fddd7a723a4, type: 3}
   boxRb: {fileID: 5679260605408737364}
-  playerController: {fileID: 0}
+  playerController: {fileID: 3646110318612368500, guid: f20d453d4d4b4be438781fddd7a723a4, type: 3}
   pickUpRange: 3
