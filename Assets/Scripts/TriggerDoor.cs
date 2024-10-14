@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class TriggerDoor : MonoBehaviour
 {
+    private MeshRenderer meshRenderer; // To open/close door
+
+    private void Start()
+    {
+        meshRenderer = GetComponent<MeshRenderer>();
+    }
+
     // If player goes near door, open door
     private void OnTriggerEnter(Collider other)
     {
         if (other.name.Equals("Player"))
         {
-            Debug.Log("Door closing");
+            Debug.Log("Door opening");
+            meshRenderer.enabled = false;
         }
     }
 
@@ -18,7 +26,8 @@ public class TriggerDoor : MonoBehaviour
     {
         if (other.name.Equals("Player"))
         {
-            Debug.Log("Door opening");
+            Debug.Log("Door closing");
+            meshRenderer.enabled = true;
         }
     }
 }
