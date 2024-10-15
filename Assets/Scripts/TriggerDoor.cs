@@ -16,7 +16,6 @@ public class TriggerDoor : MonoBehaviour
     {
         if (other.name.Equals("Player"))
         {
-            Debug.Log("Door opening");
             meshRenderer.enabled = false;
         }
     }
@@ -26,7 +25,6 @@ public class TriggerDoor : MonoBehaviour
     {
         if (other.name.Equals("Player"))
         {
-            Debug.Log("Door closing");
             meshRenderer.enabled = true;
         }
     }
