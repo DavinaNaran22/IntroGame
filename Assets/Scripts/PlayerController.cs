@@ -4,9 +4,16 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
-    public int boxesCollected = 0;
+    private int boxesCollected;
     public UnityEvent collectBoxEvent = new UnityEvent();
     public TextMeshProUGUI repairText;
+    public int testing;
+
+    private void Start()
+    {
+
+        boxesCollected = 0;
+    }
 
     public void CollectBox()
     {
