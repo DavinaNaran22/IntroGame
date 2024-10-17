@@ -4537,6 +4537,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &530407578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 809342992180939374, guid: 25aca851b372b6944990c04260d38644, type: 3}
+  m_PrefabInstance: {fileID: 816885470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &535568579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5427,6 +5438,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.84
       objectReference: {fileID: 0}
+    - target: {fileID: 3815881663123548962, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2027115463}
+    - target: {fileID: 3815881663123548962, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: boxContainer
+      value: 
+      objectReference: {fileID: 1359568405}
     - target: {fileID: 4293568178250047583, guid: 25aca851b372b6944990c04260d38644, type: 3}
       propertyPath: m_Name
       value: Interior
@@ -5471,6 +5490,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5426327394331042344, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2027115463}
+    - target: {fileID: 5426327394331042344, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: boxContainer
+      value: 
+      objectReference: {fileID: 1359568405}
+    - target: {fileID: 5827226350330248310, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2027115463}
+    - target: {fileID: 5827226350330248310, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: boxContainer
+      value: 
+      objectReference: {fileID: 1359568405}
+    - target: {fileID: 6116023376259447138, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2027115463}
+    - target: {fileID: 6116023376259447138, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: boxContainer
+      value: 
+      objectReference: {fileID: 1359568405}
     - target: {fileID: 7444118865797749688, guid: 25aca851b372b6944990c04260d38644, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.81
@@ -5488,7 +5531,8 @@ PrefabInstance:
       value: 47.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7679564705443710068, guid: 25aca851b372b6944990c04260d38644, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25aca851b372b6944990c04260d38644, type: 3}
@@ -9318,6 +9362,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3476832895695878057, guid: 5860b948824794815872efc9b3be602c, type: 3}
   m_PrefabInstance: {fileID: 1357291703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1359568405 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7961130425439403355, guid: f20d453d4d4b4be438781fddd7a723a4, type: 3}
+  m_PrefabInstance: {fileID: 1411919281252334434}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1377067583
 GameObject:
@@ -14250,6 +14299,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3646110318612368500, guid: f20d453d4d4b4be438781fddd7a723a4, type: 3}
+      propertyPath: repairText
+      value: 
+      objectReference: {fileID: 530407578}
     - target: {fileID: 4975677129833483988, guid: f20d453d4d4b4be438781fddd7a723a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 502.98
@@ -14395,3 +14448,7 @@ SceneRoots:
   - {fileID: 791075823}
   - {fileID: 1024553063}
   - {fileID: 816885470}
+  - {fileID: 129935481}
+  - {fileID: 352928934}
+  - {fileID: 976611944}
+  - {fileID: 1196193064}
