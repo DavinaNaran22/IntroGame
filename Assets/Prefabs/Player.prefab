@@ -215,8 +215,8 @@ Transform:
   m_GameObject: {fileID: 6951972784025313702}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.053, y: 1.251, z: 1.33}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.053, y: 1.014, z: 0.355}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4975677129833483988}
@@ -401,7 +401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba1aae48d788b848826dffc689fb8da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxesCollected: 0
   collectBoxEvent:
     m_PersistentCalls:
       m_Calls:
@@ -418,3 +417,4 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   repairText: {fileID: 0}
+  testing: 0

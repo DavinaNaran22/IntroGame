@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PickupBlock : MonoBehaviour
@@ -5,7 +6,7 @@ public class PickupBlock : MonoBehaviour
     public Transform player;
     public Transform boxContainer;
     public Rigidbody boxRb;
-    public PlayerController playerController; // To change num of boxes collected
+    private PlayerController playerController; // To change num of boxes collected
     public float pickUpRange = 3f;
     private bool isHoldingItem = false;
     private bool canBePicked = true;
@@ -15,6 +16,7 @@ public class PickupBlock : MonoBehaviour
     void Start()
     {
         boxRb.isKinematic = true; // So block doesn't move
+        playerController = player.GetComponent<PlayerController>();
     }
 
     // Returns position of ground or of transform if no ground 
