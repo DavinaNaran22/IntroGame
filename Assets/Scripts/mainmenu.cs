@@ -5,12 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class mainmenu : MonoBehaviour
 {
-    //play button fucntion: load the game
-    public void play()
-    {
-        SceneManager.LoadSceneAsync(1);
-    }
-
+    // works when the application is built, does not work in unity as using editor
     public void quit()
     {
         Application.Quit();
