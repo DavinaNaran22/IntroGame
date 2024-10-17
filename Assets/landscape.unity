@@ -720,7 +720,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 12
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -803,7 +803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2027115463}
   followDistance: 5
-  moveSpeed: 3
+  moveSpeed: 6
 --- !u!54 &105783619
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2539,7 +2539,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 12
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -2622,7 +2622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2027115463}
   followDistance: 5
-  moveSpeed: 3
+  moveSpeed: 6
 --- !u!54 &527438802
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3694,7 +3694,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 12
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -3777,7 +3777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2027115463}
   followDistance: 5
-  moveSpeed: 3
+  moveSpeed: 6
 --- !u!54 &859645600
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6388,7 +6388,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 12
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -6471,7 +6471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2027115463}
   followDistance: 5
-  moveSpeed: 3
+  moveSpeed: 6
 --- !u!54 &1513738757
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8029,7 +8029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2027115463}
   followDistance: 5
-  moveSpeed: 3
+  moveSpeed: 6
 --- !u!136 &1975728250
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8049,7 +8049,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 12
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -8428,7 +8428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2027115463}
   followDistance: 5
-  moveSpeed: 3
+  moveSpeed: 6
 --- !u!136 &2023220182
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8448,7 +8448,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 12
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -8899,7 +8899,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 12
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -8982,7 +8982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2027115463}
   followDistance: 5
-  moveSpeed: 3
+  moveSpeed: 6
 --- !u!54 &2098872197
 Rigidbody:
   m_ObjectHideFlags: 0
