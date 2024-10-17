@@ -5528,7 +5528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7165472251448368812, guid: 25aca851b372b6944990c04260d38644, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -217.1
+      value: -224.72
       objectReference: {fileID: 0}
     - target: {fileID: 7165472251448368812, guid: 25aca851b372b6944990c04260d38644, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8005,8 +8005,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15
-  m_Height: 2
+  m_Radius: 20
+  m_Height: 10
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1150135819
@@ -8068,8 +8068,8 @@ Transform:
   m_GameObject: {fileID: 1150135817}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 252.7, y: 8.7, z: 420.1}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 266.4, y: 2.64, z: 420.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -8088,7 +8088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2027115463}
   followDistance: 5
-  moveSpeed: 6
+  moveSpeed: 9
 --- !u!54 &1150135823
 Rigidbody:
   m_ObjectHideFlags: 0
