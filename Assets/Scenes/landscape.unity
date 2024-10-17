@@ -5438,6 +5438,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 26.1
       objectReference: {fileID: 0}
+    - target: {fileID: 809342992180939374, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3815881663123548962, guid: 25aca851b372b6944990c04260d38644, type: 3}
       propertyPath: player
       value: 
@@ -5446,6 +5450,22 @@ PrefabInstance:
       propertyPath: boxContainer
       value: 
       objectReference: {fileID: 1359568405}
+    - target: {fileID: 4078865955914266109, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078865955914266109, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 146
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078865955914266109, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 579
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078865955914266109, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 327
+      objectReference: {fileID: 0}
     - target: {fileID: 4293568178250047583, guid: 25aca851b372b6944990c04260d38644, type: 3}
       propertyPath: m_Name
       value: Interior
