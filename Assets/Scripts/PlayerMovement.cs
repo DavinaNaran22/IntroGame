@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Reference: https://youtu.be/_QajrabyTJc?si=nzp2_JH6BUqClVuL
+
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
