@@ -5,12 +5,23 @@ using UnityEngine;
 public class Pause : MonoBehaviour
 {
     
-    public GameObject PauseScreen; 
-    // detect whether the esc key is pressed if so execute the pause_game function
-   
-    // pauses the game 
-   public void Pause_game()
+    public GameObject PauseScreen;
+    public bool Pause_active = false;
+
+    void Update()
     {
+        if (Pause_active == true)
+        {
+            Pause_game();
+        }
+        else {
+            Continue_game();
+        }
+    }
+    // pauses the game 
+    public void Pause_game()
+    {
+        Pause_active = true;
         PauseScreen.SetActive(true);
         // opens the pause screen that allows the user to choose options
         Time.timeScale = 0;
@@ -20,6 +31,7 @@ public class Pause : MonoBehaviour
     public void Continue_game()
     {
         // hides the pause screen
+        Pause_active = false;
         PauseScreen.SetActive(false);
         Time.timeScale = 1;
         // starts the game again
