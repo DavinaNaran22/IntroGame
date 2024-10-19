@@ -20,7 +20,7 @@ public class PickupBlock : MonoBehaviour
     }
 
     // Returns position of ground or of transform if no ground 
-    Vector3 getGroundPos()
+    private Vector3 getGroundPos()
     {
         RaycastHit hitInfo;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hitInfo, Mathf.Infinity, LayerMask.GetMask("Ground")))
@@ -30,8 +30,8 @@ public class PickupBlock : MonoBehaviour
         return transform.position;
     }
 
-    // Returns layer below block as int
-    int GetLayerBelow()
+    // Returns layer below block as layer int
+    private int GetLayerBelow()
     {
         RaycastHit hitInfo;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hitInfo, Mathf.Infinity))
@@ -46,7 +46,7 @@ public class PickupBlock : MonoBehaviour
     {
         Vector3 distanceToPlayer = player.position - transform.position;
         // If player isn't holding anything and presses grab button
-        if (!isHoldingItem && canBePicked && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.G)) // https://www.youtube.com/watch?v=8kKLUsn7tcg
+        if (!isHoldingItem && canBePicked && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.G))
         {
             isHoldingItem = true;
             transform.SetParent(boxContainer);
@@ -61,7 +61,7 @@ public class PickupBlock : MonoBehaviour
             isHoldingItem = false;
             transform.SetParent(null);
 
-            // If CanBePlacedOn is below, stop it from being grabbed
+            // If CanBePlacedOn is below, stop item from being picked up again
             if (GetLayerBelow() == LayerMask.NameToLayer("CanBePlacedOn"))
             {
                 playerController.collectBoxEvent.Invoke();
@@ -69,7 +69,7 @@ public class PickupBlock : MonoBehaviour
             }
 
             Vector3 groundPos = getGroundPos();
-            transform.SetPositionAndRotation(new Vector3(transform.position.x, groundPos.y + ADD_GROUND_Y, transform.position.z), Quaternion.identity);
+            transform.SetPositionAndRotation(new Vector3(transform.position.x, groundPos.y + ADD_GROUND_Y, transform.position.z), Quaternion.identity); // Put item on ground
             Debug.Log("Player has dropped their item");
         }
     }

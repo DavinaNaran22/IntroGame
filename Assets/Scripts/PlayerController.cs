@@ -11,14 +11,14 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        boxesCollected = 0;
+        boxesCollected = 0; // Have to assign value in Start() otherwise value gets overwritten
     }
 
-    public void CollectBox()
+    public void CollectBox() // Can be invoked by other scripts
     {
         boxesCollected++;
-        repairText.text = "Spaceship Repairs: " + boxesCollected + "/4";
-        Debug.Log("Boxes collected " + boxesCollected); // https://www.youtube.com/watch?v=djW7g6Bnyrc
+        repairText.text = "Spaceship Repairs: " + boxesCollected + "/4"; // Update text to having new value
+        Debug.Log("Boxes collected " + boxesCollected);
     }
 
 }
