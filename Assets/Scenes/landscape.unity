@@ -843,7 +843,7 @@ GameObject:
   - component: {fileID: 74821976}
   - component: {fileID: 74821978}
   m_Layer: 0
-  m_Name: Aliens
+  m_Name: backGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1230,7 +1230,7 @@ GameObject:
   - component: {fileID: 97549182}
   - component: {fileID: 97549181}
   m_Layer: 0
-  m_Name: alien16
+  m_Name: alien6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1389,7 +1389,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1826183288}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 698702163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &106468089
 PrefabInstance:
@@ -1845,7 +1845,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 632048540}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 698702163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &150459646
 PrefabInstance:
@@ -2530,7 +2530,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 405302005}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 698702163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &215582400
 GameObject:
@@ -4232,7 +4232,7 @@ GameObject:
   - component: {fileID: 405302004}
   - component: {fileID: 405302006}
   m_Layer: 0
-  m_Name: Aliens
+  m_Name: backGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5281,7 +5281,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1842443827}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 698702163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &527438801
 MonoBehaviour:
@@ -5505,7 +5505,7 @@ GameObject:
   - component: {fileID: 626328300}
   - component: {fileID: 626328302}
   m_Layer: 0
-  m_Name: Aliens
+  m_Name: backGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5633,7 +5633,7 @@ GameObject:
   - component: {fileID: 632048539}
   - component: {fileID: 632048541}
   m_Layer: 0
-  m_Name: Aliens
+  m_Name: backGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5959,6 +5959,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3476832895695878057, guid: 5860b948824794815872efc9b3be602c, type: 3}
   m_PrefabInstance: {fileID: 697429450}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &698702162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 698702163}
+  m_Layer: 0
+  m_Name: Aliens
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &698702163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698702162}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 527438800}
+  - {fileID: 209365368}
+  - {fileID: 147798057}
+  - {fileID: 1853125722}
+  - {fileID: 1628851555}
+  - {fileID: 97549187}
+  - {fileID: 1476818615}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &732227347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9705,7 +9743,7 @@ GameObject:
   - component: {fileID: 1221103573}
   - component: {fileID: 1221103575}
   m_Layer: 0
-  m_Name: Aliens
+  m_Name: backGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10984,7 +11022,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 626328301}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 698702163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1507351077
 PrefabInstance:
@@ -12033,7 +12071,7 @@ GameObject:
   - component: {fileID: 1628851550}
   - component: {fileID: 1628851549}
   m_Layer: 0
-  m_Name: alien15
+  m_Name: alien5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12192,7 +12230,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1221103574}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 698702163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1635504627
 PrefabInstance:
@@ -13102,7 +13140,7 @@ GameObject:
   - component: {fileID: 1826183287}
   - component: {fileID: 1826183289}
   m_Layer: 0
-  m_Name: Aliens
+  m_Name: backGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13363,7 +13401,7 @@ GameObject:
   - component: {fileID: 1842443823}
   - component: {fileID: 1842443828}
   m_Layer: 0
-  m_Name: Aliens
+  m_Name: backGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13567,7 +13605,7 @@ GameObject:
   - component: {fileID: 1853125717}
   - component: {fileID: 1853125716}
   m_Layer: 0
-  m_Name: alien14
+  m_Name: alien4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13726,7 +13764,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 74821977}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 698702163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1873608952
 PrefabInstance:
@@ -16358,12 +16396,6 @@ SceneRoots:
   - {fileID: 1465144641}
   - {fileID: 108464453}
   - {fileID: 1595867896}
-  - {fileID: 527438800}
-  - {fileID: 209365368}
-  - {fileID: 147798057}
-  - {fileID: 1853125722}
-  - {fileID: 1628851555}
-  - {fileID: 97549187}
-  - {fileID: 1476818615}
   - {fileID: 1411919281252334434}
+  - {fileID: 698702163}
   - {fileID: 791075823}
