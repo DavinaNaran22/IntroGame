@@ -12,6 +12,7 @@ public class CapsuleMovement : MonoBehaviour
     private Collider capsuleCollider;
     private Rigidbody rb;
     public PlayerHealth playerHealth;
+    public AlienDamageBar DamageBar;
 
     void Start()
     {
@@ -57,14 +58,15 @@ public class CapsuleMovement : MonoBehaviour
         {
             Debug.Log("Player collided with capsule");
 
-             
+
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(damageAmount);
+                DamageBar.TakeDamage(0.10f); //amount infliced on aliens
             }
             Debug.Log("Player Health after collision: " + playerHealth);
+
         }
+
     }
-
-
 }

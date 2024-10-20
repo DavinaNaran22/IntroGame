@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        Debug.Log("Health Bar is at " + currentHealth * 100 + "%");
         UpdateHealthBar();
     }
 
@@ -17,18 +18,18 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damagePercent)
     {
         currentHealth -= damagePercent;
-        if (currentHealth <= 0)
+        if (currentHealth <= 0.00)
         {
             Debug.Log("You are dead!");
+            
         }
-        Debug.Log("Player Health after damage: " + currentHealth);
+        Debug.Log("Player Health after damage: " + currentHealth * 100 + "%");
         UpdateHealthBar();
     }
 
     void UpdateHealthBar()
     {
         healthBarImage.fillAmount = currentHealth;
-        // Update the fill amount of the health bar image based on current health
-        Debug.Log("Health Bar Fill Amount: " + healthBarImage.fillAmount);
+        
     }
 }
