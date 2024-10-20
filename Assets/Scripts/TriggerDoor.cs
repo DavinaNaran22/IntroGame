@@ -16,7 +16,7 @@ public class TriggerDoor : MonoBehaviour
     {
         if (other.name.Equals("Player"))
         {
-            meshRenderer.enabled = false;
+            meshRenderer.enabled = false; // Hide the door
         }
     }
 
@@ -25,7 +25,7 @@ public class TriggerDoor : MonoBehaviour
     {
         if (other.name.Equals("Player"))
         {
-            meshRenderer.enabled = true;
+            meshRenderer.enabled = true; // Unhide the door 
         }
     }
 }
