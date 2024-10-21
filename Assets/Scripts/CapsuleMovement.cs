@@ -8,9 +8,11 @@ public class CapsuleMovement : MonoBehaviour
     public float followDistance = 5f; // Distance which capsule starts following
     public float moveSpeed = 3f; // Capsule speed following player
     private bool shouldFollow = false; // Flag to check if capsule should follow player
-
+    public float damageAmount = 0.05f; // 5% health reduction
     private Collider capsuleCollider;
     private Rigidbody rb;
+    public PlayerHealth playerHealth;
+    public AlienDamageBar DamageBar;
 
     void Start()
     {
@@ -55,7 +57,16 @@ public class CapsuleMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player collided with capsule");
-            // DECREASE HEALTH BAR
+
+
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damageAmount);
+                DamageBar.TakeDamage(0.10f); //amount infliced on aliens
+            }
+            Debug.Log("Player Health after collision: " + playerHealth);
+
         }
+
     }
 }
