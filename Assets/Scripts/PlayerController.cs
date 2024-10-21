@@ -5,20 +5,21 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     private int boxesCollected;
-    public UnityEvent collectBoxEvent = new UnityEvent(); // For other scripts to call
-    public TextMeshProUGUI repairText;
+    public UnityEvent collectBoxEvent = new UnityEvent();
+    //public TextMeshProUGUI repairText; don't want to use external assets :)
     public int testing;
 
     private void Start()
     {
-        boxesCollected = 0; // Have to assign value in Start() otherwise value gets overwritten
+
+        boxesCollected = 0;
     }
 
-    public void CollectBox() // Can be invoked by other scripts
+    public void CollectBox()
     {
         boxesCollected++;
-        repairText.text = "Spaceship Repairs: " + boxesCollected + "/4"; // Update text to having new value
-        Debug.Log("Boxes collected " + boxesCollected);
+        //repairText.text = "Spaceship Repairs: " + boxesCollected + "/4";
+        Debug.Log("Boxes collected " + boxesCollected); // https://www.youtube.com/watch?v=djW7g6Bnyrc
     }
 
 }
