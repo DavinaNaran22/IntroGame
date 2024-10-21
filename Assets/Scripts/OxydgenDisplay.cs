@@ -12,7 +12,7 @@ public class OxygenDisplay : MonoBehaviour
 
     void Start()
     {
-        currentOxygenTime = 3f; // Initialize full oxygen time
+        currentOxygenTime = totalOxygenTime; // Initialize full oxygen time
         UpdateOxygenText(); // Initialize the display
 
         // Ensure the countdown starts only when the button is pressed
