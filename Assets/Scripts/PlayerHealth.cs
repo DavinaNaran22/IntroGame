@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -23,7 +25,8 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damagePercent;
         if (currentHealth <= 0.00)
         {
-            Debug.Log("You are dead!");
+            Debug.Log("You Died!");
+            RestartScene();
             
         }
         Debug.Log("Player Health after damage: " + currentHealth * 100 + "%");
@@ -35,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5f); // Wait for 5 seconds
+            yield return new WaitForSeconds(8f); // Wait for 5 seconds
 
             if (currentHealth < maxHealth)
             {
@@ -51,4 +54,14 @@ public class PlayerHealth : MonoBehaviour
         healthBarImage.fillAmount = currentHealth;
         
     }
+
+    void RestartScene()
+    {
+        // Get the active scene's name
+        string landscape = SceneManager.GetActiveScene().name;
+
+        // Reload the current scene
+        SceneManager.LoadScene("landscape");
+    }
+
 }
