@@ -1625,7 +1625,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dc6a7437f11b95640b8bf1a89a03be16, type: 2}
+  - {fileID: 2100000, guid: e5a0274a8e09a0642bf4389106087819, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3758,7 +3758,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dc6a7437f11b95640b8bf1a89a03be16, type: 2}
+  - {fileID: 2100000, guid: e5a0274a8e09a0642bf4389106087819, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7239,6 +7239,10 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 870743797783103617, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: m_Name
+      value: Left corridor
+      objectReference: {fileID: 0}
     - target: {fileID: 3815881663123548962, guid: 25aca851b372b6944990c04260d38644, type: 3}
       propertyPath: player
       value: 
@@ -7362,6 +7366,10 @@ PrefabInstance:
     - target: {fileID: 7444118865797749688, guid: 25aca851b372b6944990c04260d38644, type: 3}
       propertyPath: m_LocalPosition.z
       value: 23.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880496335095621908, guid: 25aca851b372b6944990c04260d38644, type: 3}
+      propertyPath: m_Name
+      value: Corridors
       objectReference: {fileID: 0}
     - target: {fileID: 8997793846762980838, guid: 25aca851b372b6944990c04260d38644, type: 3}
       propertyPath: m_LocalScale.x
@@ -8358,7 +8366,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dc6a7437f11b95640b8bf1a89a03be16, type: 2}
+  - {fileID: 2100000, guid: e5a0274a8e09a0642bf4389106087819, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10322,7 +10330,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dc6a7437f11b95640b8bf1a89a03be16, type: 2}
+  - {fileID: 2100000, guid: e5a0274a8e09a0642bf4389106087819, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17766,7 +17774,7 @@ PrefabInstance:
     - target: {fileID: 3646110318612368500, guid: f20d453d4d4b4be438781fddd7a723a4, type: 3}
       propertyPath: repairText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1832914937}
     - target: {fileID: 4975677129833483988, guid: f20d453d4d4b4be438781fddd7a723a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 502.98
