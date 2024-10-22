@@ -8424,8 +8424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oxygenText: {fileID: 1392568344}
-  startButton: {fileID: 0}
-  totalOxygenTime: 7200
+  health: {fileID: 666035238}
 --- !u!1001 &1437355894
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CapsuleMovement : MonoBehaviour
 {
-    public Transform player;
+    public Transform player;  //access to the player's position
     public float followDistance = 5f; // Distance which capsule starts following
     public float moveSpeed = 3f; // Capsule speed following player
     private bool shouldFollow = false; // Flag to check if capsule should follow player
     public float damageAmount = 0.05f; // 5% health reduction
-    private Collider capsuleCollider;
+    private Collider capsuleCollider; //component of the capsule
     private Rigidbody rb;
     public PlayerHealth playerHealth;
     public AlienDamageBar DamageBar;
@@ -52,6 +52,7 @@ public class CapsuleMovement : MonoBehaviour
         }
     }
 
+    // Check if player collided with the capsule and generate damage to both
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))

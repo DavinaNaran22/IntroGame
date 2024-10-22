@@ -1,27 +1,29 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OxygenDisplay : MonoBehaviour
 {
-    public TextMeshProUGUI oxygenText; // Link this to a TextMeshPro UI element
-    public Button startButton; // Link this to your Button UI element
-    public float totalOxygenTime = 7200f; // 2 hours in seconds
+    public TextMeshProUGUI oxygenText; // display text for oxygen
+    public PlayerHealth health;  //object of player's health to access restart function
+    public const float totalOxygenTime = 7200f; // 2 hours in seconds
     private float currentOxygenTime;
-    private bool countdownStarted = false; // To track whether the countdown has started
+  
+
 
     void Start()
     {
         currentOxygenTime = totalOxygenTime; // Initialize full oxygen time
-        UpdateOxygenText(); // Initialize the display
-
-        // Ensure the countdown starts only when the button is pressed
-        startButton.onClick.AddListener(StartCountdown);
+        if(SceneManager.GetActiveScene().name == "landscape")
+        {
+            UpdateOxygenText();
+        }
     }
 
     void Update()
     {
-        if (countdownStarted && currentOxygenTime > 0)
+        if (currentOxygenTime > 0)
         {
             currentOxygenTime -= Time.deltaTime; // Decrease oxygen time over real time
             UpdateOxygenText();
@@ -31,14 +33,11 @@ public class OxygenDisplay : MonoBehaviour
             currentOxygenTime = 0; // Ensure the countdown stops at 0
             Debug.Log("Oxygen is run out :(");
             UpdateOxygenText();
-            Application.Quit();
+            health.RestartScene();
         }
     }
 
-    void StartCountdown()
-    {
-        countdownStarted = true; // Start the countdown
-    }
+    
 
     void UpdateOxygenText()
     {
