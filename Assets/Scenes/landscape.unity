@@ -12777,6 +12777,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.48
       objectReference: {fileID: 0}
+    - target: {fileID: 3405767406887581819, guid: f20d453d4d4b4be438781fddd7a723a4, type: 3}
+      propertyPath: crouchHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405767406887581819, guid: f20d453d4d4b4be438781fddd7a723a4, type: 3}
+      propertyPath: normalHeight
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3646110318612368500, guid: f20d453d4d4b4be438781fddd7a723a4, type: 3}
       propertyPath: repairText
       value: 

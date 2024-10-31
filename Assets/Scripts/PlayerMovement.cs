@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
 
     public float speed = 12f; // Speed of player
+    public float crouchSpeed = 6f; // Movement speed while crouching
+    public float crouchHeight = 0f; // Height when crouching
+    public float normalHeight = 3f; // Normal height of the player
 
     Vector3 velocity; // Velocity of player
     public float gravity = -9.81f; // Gravity of player
@@ -17,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded; // Is player on the ground
 
     public float jumpHeight = 3f; // Jump height
+    
+    bool isCrouching = false; // Tracks if the player is crouching
 
     // Update is called once per frame
     void Update()
@@ -30,6 +35,25 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = -2f; // Forces player down to ground
         }
+
+        // Toggle crouch state when the "C" key is pressed
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            isCrouching = !isCrouching; // Toggle crouching state
+        }
+
+        // Adjust height and speed based on crouch state
+        if (isCrouching)
+        {
+            controller.height = crouchHeight; // Set to crouch height
+            speed = crouchSpeed; // Slow down while crouching
+        }
+        else
+        {
+            controller.height = normalHeight; // Set to normal height
+            speed = 12f; // Reset speed to normal
+        }
+
 
         // Gets input from player
         float x = Input.GetAxis("Horizontal");
