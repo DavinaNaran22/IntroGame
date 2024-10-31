@@ -1562,8 +1562,7 @@ PrefabInstance:
       value: Stylized Astronaut
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 5593195910366287653, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
-    - {fileID: 5593195910366287650, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects:
     - {fileID: 5592274848502135240, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
     m_AddedGameObjects: []
@@ -12776,6 +12775,10 @@ PrefabInstance:
     - target: {fileID: 1462680754665807396, guid: f20d453d4d4b4be438781fddd7a723a4, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405767406887581819, guid: f20d453d4d4b4be438781fddd7a723a4, type: 3}
+      propertyPath: crouchSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3405767406887581819, guid: f20d453d4d4b4be438781fddd7a723a4, type: 3}
       propertyPath: crouchHeight
