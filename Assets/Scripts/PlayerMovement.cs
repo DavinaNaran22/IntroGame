@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     
     bool isCrouching = false; // Tracks if the player is crouching
 
+
     // Update is called once per frame
     void Update()
     {
