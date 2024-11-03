@@ -7,12 +7,21 @@ public class Pause : MonoBehaviour
     
     public GameObject PauseScreen;
     public bool Pause_active = false;
+    private GameObject playerCanvas; // Contains the hud text + healthbar
+
+    private void Start()
+    {
+        playerCanvas = GameObject.Find("PlayerCanvas");
+        playerCanvas.SetActive(false);
+        Debug.Log(playerCanvas.activeSelf);
+;    }
 
     void Update()
     {
         if (Pause_active == true)
         {
             Pause_game();
+            playerCanvas.SetActive(false);
         }
         else {
             Continue_game();
@@ -35,5 +44,7 @@ public class Pause : MonoBehaviour
         PauseScreen.SetActive(false);
         Time.timeScale = 1;
         // starts the game again
+        // show the player canvas
+        playerCanvas.SetActive(true);
     }
 }
