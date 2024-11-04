@@ -1,16 +1,41 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class OxygenPercent : MonoBehaviour
 {
     public Image OxygenBarImage;
     public TextMeshProUGUI oxygenText;
+    private bool initialDelayCompleted = false;
+
+    void Start()
+    {
+        // Start the delay coroutine
+        StartCoroutine(InitialDelay());
+    }
+
+    IEnumerator InitialDelay()
+    {
+        // Set the percentage to 100% for the initial 5 seconds
+        oxygenText.text = "Oxygen: 100%";
+
+        // Wait for 5 seconds
+        yield return new WaitForSeconds(14);
+
+        // Set flag to true after delay
+        initialDelayCompleted = true;
+    }
 
     void Update()
     {
-        UpdatePercentageText();
+        // Only update the percentage if the initial delay is completed
+        if (initialDelayCompleted)
+        {
+            UpdatePercentageText();
+        }
     }
+
 
     void UpdatePercentageText()
     {
