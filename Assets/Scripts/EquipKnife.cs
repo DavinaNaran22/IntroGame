@@ -8,12 +8,28 @@ public class EquipKnife : MonoBehaviour
     public GameObject knife;
     public Transform WeaponParent;
 
+    public float stabDistance = 4f;  // How far the knife will move forward
+    public float stabSpeed = 2f;      // How fast the knife will move
+    private Vector3 originalPosition;
+    private bool isStabbing = false;
+
     void Start()
     {
         knife.GetComponent<Rigidbody>().isKinematic = true;
+        originalPosition = knife.transform.localPosition;
     }
 
-    
+    void Update()
+    {
+        // Stabbing action
+        if (Input.GetKey(KeyCode.F) && !isStabbing)
+        {
+            StartCoroutine(Stab());
+        }
+    }
+
+
+
     //void Update()
     //{
     //    if (Input.GetKey(KeyCode.R))
@@ -37,7 +53,29 @@ public class EquipKnife : MonoBehaviour
         knife.transform.rotation = WeaponParent.transform.rotation;
         knife.GetComponent<MeshCollider>().enabled = false;
         knife.transform.SetParent(WeaponParent);
+        originalPosition = knife.transform.localPosition;
+    }
 
+    private IEnumerator Stab()
+    {
+        isStabbing = true;
+
+        // Move knife forward
+        Vector3 targetPosition = originalPosition + knife.transform.forward * stabDistance;
+        while (Vector3.Distance(knife.transform.localPosition, targetPosition) > 0.01f)
+        {
+            knife.transform.localPosition = Vector3.MoveTowards(knife.transform.localPosition, targetPosition, stabSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        // Retract knife back to original position
+        while (Vector3.Distance(knife.transform.localPosition, originalPosition) > 0.01f)
+        {
+            knife.transform.localPosition = Vector3.MoveTowards(knife.transform.localPosition, originalPosition, stabSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        isStabbing = false;
     }
 
     private void OnTriggerStay(Collider other)
