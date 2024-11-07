@@ -14,21 +14,21 @@ public class EquipWeapon : MonoBehaviour
     }
 
     
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.R))
-        {
-            Drop();
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKey(KeyCode.R))
+    //    {
+    //        Drop();
+    //    }
+    //}
 
-    void Drop()
-    {
-        WeaponParent.DetachChildren();
-        knife.transform.eulerAngles = new Vector3(knife.transform.position.x, knife.transform.position.z, knife.transform.position.y);
-        knife.GetComponent<Rigidbody>().isKinematic = false;
-        knife.GetComponent<MeshCollider>().enabled = true;
-    }
+    //void Drop()
+    //{
+    //    WeaponParent.DetachChildren();
+    //    knife.transform.eulerAngles = new Vector3(knife.transform.position.x, knife.transform.position.z, knife.transform.position.y);
+    //    knife.GetComponent<Rigidbody>().isKinematic = false;
+    //    knife.GetComponent<MeshCollider>().enabled = true;
+    //}
 
     void Equip()
     {
