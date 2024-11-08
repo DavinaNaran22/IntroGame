@@ -17,7 +17,7 @@ public class RayGun : MonoBehaviour
 
     void Update()
     {
-
+        // Shoots if gun is equipped
         if (equipGun.isEquipped && equipGun != null)
         {
             if (Input.GetMouseButton(0))
@@ -34,6 +34,7 @@ public class RayGun : MonoBehaviour
 
     void shootRay()
     {
+        // Shoots a ray from the camera to the mouse position
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, range))
         {

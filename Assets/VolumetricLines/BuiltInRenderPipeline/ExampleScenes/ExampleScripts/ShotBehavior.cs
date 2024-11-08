@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//https://www.youtube.com/watch?v=1rv8lv_TOc8
+
+using UnityEngine;
 using System.Collections;
 
 public class ShotBehavior : MonoBehaviour
@@ -7,7 +9,6 @@ public class ShotBehavior : MonoBehaviour
     public Vector3 m_target;
     public GameObject collisionExplosion;
     public float speed;
-
 
     
     void Update()
@@ -33,6 +34,7 @@ public class ShotBehavior : MonoBehaviour
     }
 
 
+    // Creates an explosion effect when the shot hits a target
     void explode()
     {
         if (collisionExplosion != null)

@@ -33,6 +33,7 @@ public class EquipGun : MonoBehaviour
 
     void Equip()
     {
+        // Attach gun to weapon parent
         isEquipped = true;
         gun.GetComponent<Rigidbody>().isKinematic = true;
         gun.transform.position = WeaponParent.transform.position;
@@ -43,6 +44,7 @@ public class EquipGun : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        // Equip gun if player is near
         if (other.gameObject.tag == "Player")
         {
             if(Input.GetKey(KeyCode.E))
