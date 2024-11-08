@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class ShotBehavior : MonoBehaviour
@@ -9,7 +9,7 @@ public class ShotBehavior : MonoBehaviour
     public float speed;
 
 
-    // Update is called once per frame
+    
     void Update()
     {
         // transform.position += transform.forward * Time.deltaTime * 300f;// The step size is equal to speed times frame time.
@@ -31,6 +31,7 @@ public class ShotBehavior : MonoBehaviour
     {
         m_target = target;
     }
+
 
     void explode()
     {

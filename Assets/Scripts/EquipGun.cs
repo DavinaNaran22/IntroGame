@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class EquipGun : MonoBehaviour
 {
     public GameObject gun;
-    
     public Transform WeaponParent;
 
     void Start()
@@ -38,7 +37,6 @@ public class EquipGun : MonoBehaviour
         gun.transform.rotation = WeaponParent.transform.rotation;
         gun.GetComponent<MeshCollider>().enabled = false;
         gun.transform.SetParent(WeaponParent);
-
     }
 
     private void OnTriggerStay(Collider other)
