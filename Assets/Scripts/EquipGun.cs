@@ -7,6 +7,7 @@ public class EquipGun : MonoBehaviour
 {
     public GameObject gun;
     public Transform WeaponParent;
+    public bool isEquipped = false;
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class EquipGun : MonoBehaviour
 
     void Equip()
     {
+        isEquipped = true;
         gun.GetComponent<Rigidbody>().isKinematic = true;
         gun.transform.position = WeaponParent.transform.position;
         gun.transform.rotation = WeaponParent.transform.rotation;

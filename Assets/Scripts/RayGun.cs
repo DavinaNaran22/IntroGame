@@ -1,3 +1,5 @@
+//https://www.youtube.com/watch?v=1rv8lv_TOc8
+
 using System.Collections;
 using UnityEngine;
 
@@ -7,6 +9,7 @@ public class RayGun : MonoBehaviour
     private float m_shootRateTimeStamp;
 
     public GameObject m_shotPrefab;
+    public EquipGun equipGun;
 
     RaycastHit hit;
     float range = 1000.0f;
@@ -15,12 +18,15 @@ public class RayGun : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButton(0))
+        if (equipGun.isEquipped && equipGun != null)
         {
-            if (Time.time > m_shootRateTimeStamp)
+            if (Input.GetMouseButton(0))
             {
-                shootRay();
-                m_shootRateTimeStamp = Time.time + shootRate;
+                if (Time.time > m_shootRateTimeStamp)
+                {
+                    shootRay();
+                    m_shootRateTimeStamp = Time.time + shootRate;
+                }
             }
         }
 
