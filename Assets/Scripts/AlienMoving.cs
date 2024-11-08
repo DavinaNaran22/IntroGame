@@ -7,7 +7,7 @@ public class AlienMoving : MonoBehaviour
     public Transform player;
     public float detectionRadius = 5f;
     public float moveSpeed = 2f;
-    public float rotationSpeed = 5f; // Speed of rotation
+    public float rotationSpeed = 5f; // Speed of rotation when pacing or facing the player
     public Vector2 paceAreaSize = new Vector2(5, 5);
 
     private Vector3 startPosition;
@@ -24,7 +24,12 @@ public class AlienMoving : MonoBehaviour
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (distanceToPlayer > detectionRadius)
+        if (distanceToPlayer <= detectionRadius)
+        {
+            // Face the player if within the detection radius
+            FacePlayer();
+        }
+        else
         {
             // Continue pacing if the player is outside the detection radius
             PaceAround();
@@ -51,6 +56,17 @@ public class AlienMoving : MonoBehaviour
         {
             SetNewTargetPosition();
         }
+    }
+
+    private void FacePlayer()
+    {
+        // Calculate direction to the player
+        Vector3 directionToPlayer = (player.position - transform.position).normalized;
+        directionToPlayer.y = 0; // Keep the rotation on the horizontal plane
+
+        // Rotate smoothly to face the player
+        Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     private void SetNewTargetPosition()
