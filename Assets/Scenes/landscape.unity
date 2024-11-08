@@ -3189,7 +3189,28 @@ MonoBehaviour:
   player: {fileID: 2027115463}
   detectionRadius: 15
   moveSpeed: 2
+  rotationSpeed: 5
   paceAreaSize: {x: 20, y: 20}
+--- !u!95 &775110482 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+  m_PrefabInstance: {fileID: 896675422}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &775110483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775110478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb50a6604224184cb6473189b7b3ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2027115463}
+  detectionRadius: 5
+  animator: {fileID: 775110482}
 --- !u!1001 &779212538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3765,7 +3786,55 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
       propertyPath: m_Name
-      value: alien character
+      value: GreenAlien
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7269242
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.32416752
+      objectReference: {fileID: 0}
+    - target: {fileID: 400062, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70250505
+      objectReference: {fileID: 0}
+    - target: {fileID: 400062, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.23847705
+      objectReference: {fileID: 0}
+    - target: {fileID: 400068, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9922169
+      objectReference: {fileID: 0}
+    - target: {fileID: 400068, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000009269629
+      objectReference: {fileID: 0}
+    - target: {fileID: 400068, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.000000022026237
+      objectReference: {fileID: 0}
+    - target: {fileID: 400068, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.124522105
+      objectReference: {fileID: 0}
+    - target: {fileID: 400072, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.73966247
+      objectReference: {fileID: 0}
+    - target: {fileID: 400072, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5958112
+      objectReference: {fileID: 0}
+    - target: {fileID: 400086, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.73966247
+      objectReference: {fileID: 0}
+    - target: {fileID: 400086, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5958112
       objectReference: {fileID: 0}
     - target: {fileID: 400116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
       propertyPath: m_LocalScale.x
@@ -3826,6 +3895,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
       insertIndex: -1
       addedObject: {fileID: 775110481}
+    - targetCorrespondingSourceObject: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 775110483}
   m_SourcePrefab: {fileID: 100100000, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
 --- !u!1001 &960469663
 PrefabInstance:
@@ -6816,6 +6888,7 @@ MonoBehaviour:
   player: {fileID: 2027115463}
   detectionRadius: 15
   moveSpeed: 2
+  rotationSpeed: 5
   paceAreaSize: {x: 20, y: 20}
 --- !u!1001 &1773015103
 PrefabInstance:
