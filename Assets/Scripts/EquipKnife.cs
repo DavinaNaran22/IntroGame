@@ -12,6 +12,7 @@ public class EquipKnife : MonoBehaviour
     public float stabSpeed = 2f;      // How fast the knife will move
     private Vector3 originalPosition;
     private bool isStabbing = false;
+    private bool isEquipped = false;
 
     void Start()
     {
@@ -22,7 +23,7 @@ public class EquipKnife : MonoBehaviour
     void Update()
     {
         // Stabbing action
-        if (Input.GetKey(KeyCode.F) && !isStabbing)
+        if (Input.GetKey(KeyCode.F) && isEquipped && !isStabbing)
         {
             StartCoroutine(Stab());
         }
@@ -54,6 +55,7 @@ public class EquipKnife : MonoBehaviour
         knife.GetComponent<MeshCollider>().enabled = false;
         knife.transform.SetParent(WeaponParent);
         originalPosition = knife.transform.localPosition;
+        isEquipped = true;
     }
 
     private IEnumerator Stab()
