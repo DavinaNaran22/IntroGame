@@ -5,7 +5,7 @@
 - G key to grab/drop objects
 - C key to crouch
 - E key to grab weapons
-- F to stab with knife
+- Left click to stab with knife and shoot with gun
 - Place/drop orange objects on yellow areas to progress
 
 ## Notes
