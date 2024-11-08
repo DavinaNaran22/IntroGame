@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AlienMoving : MonoBehaviour
 {
-
     public Transform player;
     public float detectionRadius = 5f;
     public float moveSpeed = 2f;
+    public float rotationSpeed = 5f; // Speed of rotation
     public Vector2 paceAreaSize = new Vector2(5, 5);
 
     private Vector3 startPosition;
@@ -33,6 +33,16 @@ public class AlienMoving : MonoBehaviour
 
     private void PaceAround()
     {
+        // Calculate direction to the target position
+        Vector3 direction = (targetPosition - transform.position).normalized;
+
+        // Rotate towards the target direction
+        if (direction != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+
         // Move towards the target position
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
@@ -59,5 +69,4 @@ public class AlienMoving : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
-
 }
