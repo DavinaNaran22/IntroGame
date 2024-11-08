@@ -23,7 +23,7 @@ public class EquipKnife : MonoBehaviour
     void Update()
     {
         // Stabbing action
-        if (Input.GetKey(KeyCode.F) && isEquipped && !isStabbing)
+        if (Input.GetMouseButton(0) && isEquipped && !isStabbing)
         {
             StartCoroutine(Stab());
         }
