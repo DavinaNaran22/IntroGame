@@ -49,6 +49,7 @@ public class EquipKnife : MonoBehaviour
 
     void Equip()
     {
+        // Attach knife to weapon parent
         knife.GetComponent<Rigidbody>().isKinematic = true;
         knife.transform.position = WeaponParent.transform.position;
         knife.transform.rotation = WeaponParent.transform.rotation;
