@@ -1072,7 +1072,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 34b1aa4cc54f54561a6ca9ae0ee3f5e4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ed7e9c97e9f2dd840998071a478c0009, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: 34b1aa4cc54f54561a6ca9ae0ee3f5e4, type: 3}
       propertyPath: m_Name
       value: cave_turn1
@@ -1216,7 +1216,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 34b1aa4cc54f54561a6ca9ae0ee3f5e4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ed7e9c97e9f2dd840998071a478c0009, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: 34b1aa4cc54f54561a6ca9ae0ee3f5e4, type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (1)
