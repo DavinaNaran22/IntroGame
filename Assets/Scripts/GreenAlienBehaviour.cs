@@ -10,12 +10,6 @@ public class GreenAlienBehavior : MonoBehaviour
     private bool playerNearby = false;
     private bool isDead = false; // Flag to check if the alien is dead
 
-    private void Start()
-    {
-        // Directly play the Idle animation for 5 seconds
-
-        StartCoroutine(WaitBeforeEscapeSequence()); // Wait for 5 seconds before starting the sequence
-    }
 
     private void Update()
     {
@@ -31,12 +25,7 @@ public class GreenAlienBehavior : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitBeforeEscapeSequence()
-    {
-        // Wait for 5 seconds before starting the escape sequence
-        yield return new WaitForSeconds(5f);
-        StartCoroutine(ExecuteEscapeSequence());
-    }
+ 
 
     private IEnumerator ExecuteEscapeSequence()
     {
