@@ -6,6 +6,7 @@ public class GreenAlienBehavior : MonoBehaviour
     public Transform player;
     public float detectionRadius = 5f;
     public Animator animator;
+    public PlayerEquipment playerEquipment;
 
     private bool playerNearby = false;
     private bool isDead = false; // Flag to check if the alien is dead
@@ -44,7 +45,10 @@ public class GreenAlienBehavior : MonoBehaviour
 
         // Continue with remaining states in sequence
         animator.SetTrigger("IdleWithGun");
-        yield return new WaitForSeconds(6f);
+        //yield return new WaitForSeconds(6f);
+        while (playerEquipment != null && !playerEquipment.IsWeaponEquipped()) {
+            yield return null;
+        }
 
         animator.SetTrigger("HitL");
         yield return new WaitForSeconds(1f);

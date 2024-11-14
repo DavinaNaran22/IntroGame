@@ -7,6 +7,7 @@ public class EquipKnife : MonoBehaviour
 {
     public GameObject knife;
     public Transform WeaponParent;
+    public PlayerEquipment playerEquipment;
 
     public float stabDistance = 4f;  // How far the knife will move forward
     public float stabSpeed = 2f;      // How fast the knife will move
@@ -30,23 +31,6 @@ public class EquipKnife : MonoBehaviour
     }
 
 
-
-    //void Update()
-    //{
-    //    if (Input.GetKey(KeyCode.R))
-    //    {
-    //        Drop();
-    //    }
-    //}
-
-    //void Drop()
-    //{
-    //    WeaponParent.DetachChildren();
-    //    knife.transform.eulerAngles = new Vector3(knife.transform.position.x, knife.transform.position.z, knife.transform.position.y);
-    //    knife.GetComponent<Rigidbody>().isKinematic = false;
-    //    knife.GetComponent<MeshCollider>().enabled = true;
-    //}
-
     void Equip()
     {
         // Attach knife to weapon parent
@@ -57,6 +41,11 @@ public class EquipKnife : MonoBehaviour
         knife.transform.SetParent(WeaponParent);
         originalPosition = knife.transform.localPosition;
         isEquipped = true;
+
+        if (playerEquipment != null)
+        {
+            playerEquipment.EquipKnife();
+        }
     }
 
     private IEnumerator Stab()
