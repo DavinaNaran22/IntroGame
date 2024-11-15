@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EquipKnife : MonoBehaviour
 {
     public GameObject knife;
-    public Transform WeaponParent;
+    private Transform WeaponParent;
 
     public float stabDistance = 4f;  // How far the knife will move forward
     public float stabSpeed = 2f;      // How fast the knife will move
@@ -18,6 +18,7 @@ public class EquipKnife : MonoBehaviour
     {
         knife.GetComponent<Rigidbody>().isKinematic = true;
         originalPosition = knife.transform.localPosition;
+        WeaponParent = GameObject.FindWithTag("WeaponParent").transform;
     }
 
     void Update()
