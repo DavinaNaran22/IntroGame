@@ -2866,6 +2866,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenAlien
       objectReference: {fileID: 0}
+    - target: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_TagString
+      value: Alien
+      objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7269242
@@ -4580,6 +4584,10 @@ PrefabInstance:
     - target: {fileID: 171952, guid: fdc7c645919f60047929b2f994266803, type: 3}
       propertyPath: m_Name
       value: Rhinoceros
+      objectReference: {fileID: 0}
+    - target: {fileID: 171952, guid: fdc7c645919f60047929b2f994266803, type: 3}
+      propertyPath: m_TagString
+      value: Alien
       objectReference: {fileID: 0}
     - target: {fileID: 483298, guid: fdc7c645919f60047929b2f994266803, type: 3}
       propertyPath: m_LocalScale.x
