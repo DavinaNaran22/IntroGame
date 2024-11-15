@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,12 +8,14 @@ public class CaveTransition: MonoBehaviour
 {
     public string scene;
     public Vector3 spawnPos;
+    private Boolean sceneNotLoaded = true;
     //when player enters cave switches scene
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && sceneNotLoaded) // Scene might get loaded mult times because of collider position
         {
             StartCoroutine(LoadAsyncScene());
+            sceneNotLoaded = false;
             other.transform.position = spawnPos;
         }
     }

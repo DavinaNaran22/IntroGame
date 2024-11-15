@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GreenAlienBehavior : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
     public float detectionRadius = 5f;
     public Animator animator;
 
@@ -12,6 +12,7 @@ public class GreenAlienBehavior : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindWithTag("Player").transform;
         // Directly play the Idle animation for 5 seconds
 
         StartCoroutine(WaitBeforeEscapeSequence()); // Wait for 5 seconds before starting the sequence

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CapsuleMovement : MonoBehaviour
 {
-    public Transform player;  //access to the player's position
+    private Transform player;  //access to the player's position
     public float followDistance = 5f; // Distance which capsule starts following
     public float moveSpeed = 3f; // Capsule speed following player
     private bool shouldFollow = false; // Flag to check if capsule should follow player
@@ -19,6 +19,7 @@ public class CapsuleMovement : MonoBehaviour
         // Get the capsule's collider component
         //capsuleCollider = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
