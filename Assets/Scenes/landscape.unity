@@ -246,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 3663032998346508965, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
   UIManager: {fileID: 6755697800134778453, guid: 0f2247a1212d7914ab909f9c4e166489, type: 3}
+  SpaceshipPart: {fileID: 7574814485825049976, guid: 5484d7160cc54bc4ab990deb5af88046, type: 3}
   spawnPoint: {x: 430.7, y: 1.58, z: 410.5}
 --- !u!1001 &47617720
 PrefabInstance:

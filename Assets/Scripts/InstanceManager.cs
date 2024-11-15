@@ -6,10 +6,10 @@ public class InstanceManager : MonoBehaviour
 {
     public GameObject player;
     public GameObject UIManager;
+    public GameObject SpaceshipPart;
 
     // Make spawnPoint appear in editor w/o making it public
-    [SerializeField]
-    private Vector3 spawnPoint;
+    [SerializeField] private Vector3 spawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,9 @@ public class InstanceManager : MonoBehaviour
             playerGO.name = "Player";
             GameObject uiGO = Instantiate(UIManager, Vector3.zero, Quaternion.identity);
             uiGO.name = "UIManager";
+
+            // This position is just to test instantiating the spaceship parts
+            Instantiate(SpaceshipPart, new Vector3(spawnPoint.x + 5f, spawnPoint.y, spawnPoint.z), Quaternion.identity);
         }
     }
 }

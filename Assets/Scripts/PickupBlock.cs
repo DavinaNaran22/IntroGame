@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class PickupBlock : MonoBehaviour
 {
-    public Transform player;
-    public Transform boxContainer;
-    public Rigidbody boxRb;
+    [SerializeField] private Transform player;
+    private Transform boxContainer;
+    private Rigidbody boxRb;
     private PlayerController playerController; // To change num of boxes collected
-    public float pickUpRange = 3f;
+    [SerializeField] private float pickUpRange = 3f;
     private bool isHoldingItem = false;
     private bool canBePicked = true;
     private const float ADD_GROUND_Y = 0.26F; // To stop box from ending up halfway in the ground
@@ -15,6 +15,13 @@ public class PickupBlock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //player = GameObject.FindWithTag("Player").transform;
+        GameObject playerGO = GameObject.FindWithTag("Player");
+        Debug.Log(playerGO);
+        player = playerGO.transform;
+        boxContainer = GameObject.FindWithTag("BoxContainer").transform;
+        boxRb = this.gameObject.GetComponent<Rigidbody>();
+
         boxRb.isKinematic = true; // So block doesn't move
         playerController = player.GetComponent<PlayerController>();
     }
@@ -46,7 +53,7 @@ public class PickupBlock : MonoBehaviour
     {
         Vector3 distanceToPlayer = player.position - transform.position;
         // If player isn't holding anything and presses grab button
-        if (!isHoldingItem && canBePicked && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.G)) // https://www.youtube.com/watch?v=8kKLUsn7tcg
+        if (!isHoldingItem && canBePicked && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E)) // https://www.youtube.com/watch?v=8kKLUsn7tcg
         {
             isHoldingItem = true;
             transform.SetParent(boxContainer);
@@ -56,7 +63,7 @@ public class PickupBlock : MonoBehaviour
         }
 
         // If player is holding something and presses grab button
-        else if (isHoldingItem && Input.GetKeyDown(KeyCode.G))
+        else if (isHoldingItem && Input.GetKeyDown(KeyCode.E))
         {
             isHoldingItem = false;
             transform.SetParent(null);

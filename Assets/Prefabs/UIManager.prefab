@@ -232,8 +232,6 @@ MonoBehaviour:
   taskText: {fileID: 6256835095779787318}
   progressText: {fileID: 2710954556849750548}
   progressBar: {fileID: 3812112218452462766}
-  aliens:
-  - {fileID: 0}
 --- !u!1 &2207688345553955228
 GameObject:
   m_ObjectHideFlags: 0
@@ -2309,7 +2307,7 @@ GameObject:
   - component: {fileID: 2306059510625709024}
   m_Layer: 5
   m_Name: RepairText
-  m_TagString: Untagged
+  m_TagString: RepairText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
