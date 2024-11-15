@@ -16,13 +16,13 @@ public class CaveTransition: MonoBehaviour
         {
             StartCoroutine(LoadAsyncScene());
             sceneNotLoaded = false;
-            other.transform.position = spawnPos;
         }
     }
 
     IEnumerator LoadAsyncScene()
     {
         Scene currScene = SceneManager.GetActiveScene();
+        GameObject player = GameObject.FindWithTag("Player");
 
         // Load new scene at the same time as current scene
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
@@ -33,7 +33,8 @@ public class CaveTransition: MonoBehaviour
         }
 
         // Move player and ui to new scene
-        SceneManager.MoveGameObjectToScene(GameObject.FindWithTag("Player"), SceneManager.GetSceneByName(scene));
+        SceneManager.MoveGameObjectToScene(player, SceneManager.GetSceneByName(scene));
+        player.transform.position = spawnPos;
         SceneManager.MoveGameObjectToScene(GameObject.FindWithTag("UIManager"), SceneManager.GetSceneByName(scene));
 
         //currScene.GetRootGameObjects.

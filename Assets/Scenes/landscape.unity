@@ -3797,7 +3797,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 1173840585}
-  WeaponParent: {fileID: 0}
   isEquipped: 0
 --- !u!65 &1173840590
 BoxCollider:
@@ -12145,7 +12144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: CaveScene
-  spawnPos: {x: 0, y: 0, z: 0}
+  spawnPos: {x: 2.5, y: 2.52, z: 8.8}
 --- !u!65 &2032375108
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12185,7 +12184,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knife: {fileID: 2088257497}
-  WeaponParent: {fileID: 0}
   stabDistance: 0.5
   stabSpeed: 10
 --- !u!65 &2088257500
