@@ -854,11 +854,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127705087}
   m_CullTransparentMesh: 1
---- !u!1 &133703589 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3663032998346508965, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
-  m_PrefabInstance: {fileID: 6107378903080259534}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &147798050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,10 +1040,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 208716460}
-  - component: {fileID: 208716461}
   m_Layer: 0
   m_Name: UIManager
-  m_TagString: Untagged
+  m_TagString: UIManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1071,18 +1065,6 @@ Transform:
   - {fileID: 1916092898}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &208716461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208716459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 550fa5a1e57055e4cb684cc1644c8924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &209365361
 GameObject:
   m_ObjectHideFlags: 0
@@ -5079,7 +5061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Interior
-  SpawnPos: {x: -34.009, y: -16.13, z: -19.24}
+  spawnPos: {x: 501.508, y: 9.105375, z: 437.419}
 --- !u!1 &1095253879
 GameObject:
   m_ObjectHideFlags: 0
@@ -14874,18 +14856,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 217271204662717590, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
   m_PrefabInstance: {fileID: 6107378903080259534}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2027115469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133703589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 550fa5a1e57055e4cb684cc1644c8924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2032375102
 GameObject:
   m_ObjectHideFlags: 0
@@ -15007,7 +14977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: CaveScene
-  SpawnPos: {x: 0, y: 0, z: 0}
+  spawnPos: {x: 0, y: 0, z: 0}
 --- !u!65 &2032375108
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20253,10 +20223,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5927507434497309798, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 82623869}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3663032998346508965, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2027115469}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
