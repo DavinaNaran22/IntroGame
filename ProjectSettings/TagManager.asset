@@ -9,6 +9,7 @@ TagManager:
   - WeaponParent
   - BoxContainer
   - RepairText
+  - RhinoAlien
   layers:
   - Default
   - TransparentFX

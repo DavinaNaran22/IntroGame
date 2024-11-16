@@ -9289,7 +9289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 171952, guid: fdc7c645919f60047929b2f994266803, type: 3}
       propertyPath: m_TagString
-      value: Alien
+      value: RhinoAlien
       objectReference: {fileID: 0}
     - target: {fileID: 483298, guid: fdc7c645919f60047929b2f994266803, type: 3}
       propertyPath: m_LocalScale.x
