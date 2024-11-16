@@ -30,15 +30,26 @@ public class GreenAlienBehavior : MonoBehaviour
     {
         if (isHit) return; // Prevent multiple hits
         isHit = true;
-        animator.SetTrigger("HitL");
-        StartCoroutine(ResetFromHit());
+        //animator.SetTrigger("HitL");
+        StartCoroutine(HandleHitSequence());
     }
 
-    private IEnumerator ResetFromHit()
+    private IEnumerator HandleHitSequence()
     {
+        animator.SetTrigger("HitL");
         yield return new WaitForSeconds(1f);
+        animator.SetTrigger("HitR");
+        yield return new WaitForSeconds(1f);
+        animator.SetTrigger("BackIdle");
         isHit = false;
     }
+
+
+    //private IEnumerator ResetFromHit()
+    //{
+    //    yield return new WaitForSeconds(1f);
+    //    isHit = false;
+    //}
 
 
 
@@ -47,7 +58,7 @@ public class GreenAlienBehavior : MonoBehaviour
         Debug.Log("Triggering Flight");
         // Flight animation for 10 seconds
         animator.SetTrigger("Flight");
-        yield return new WaitForSeconds(10f); // Duration for Flight
+        yield return new WaitForSeconds(10f); 
 
         // Transition to "GetGun"
         animator.SetTrigger("GetGun");
@@ -55,7 +66,7 @@ public class GreenAlienBehavior : MonoBehaviour
 
         // Transition to "Shot" after 10 seconds
         animator.SetTrigger("Shot");
-        yield return new WaitForSeconds(2f); // Adjust this duration as necessary
+        yield return new WaitForSeconds(2f); 
 
         // Continue with remaining states in sequence
         animator.SetTrigger("IdleWithGun");
@@ -68,11 +79,13 @@ public class GreenAlienBehavior : MonoBehaviour
             yield return null;
         }
 
-        animator.SetTrigger("HitL");
-        yield return new WaitForSeconds(1f);
+        animator.SetTrigger("BackIdle");
 
-        animator.SetTrigger("HitR");
-        yield return new WaitForSeconds(1f);
+        //animator.SetTrigger("HitL");
+        //yield return new WaitForSeconds(1f);
+
+        //animator.SetTrigger("HitR");
+        //yield return new WaitForSeconds(1f);
 
         // Set the Dead state and update isDead flag
         //animator.SetTrigger("Dead");
