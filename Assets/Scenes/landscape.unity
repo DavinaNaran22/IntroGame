@@ -4861,7 +4861,7 @@ MonoBehaviour:
   gun: {fileID: 1173840585}
   WeaponParent: {fileID: 82623869}
   isEquipped: 0
-  playerEquipment: {fileID: 0}
+  playerEquipment: {fileID: 2074995147}
 --- !u!65 &1173840590
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14013,7 +14013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knife: {fileID: 2088257497}
   WeaponParent: {fileID: 82623869}
-  playerEquipment: {fileID: 0}
+  playerEquipment: {fileID: 2074995147}
   stabDistance: 0.5
   stabSpeed: 10
 --- !u!65 &2088257500
