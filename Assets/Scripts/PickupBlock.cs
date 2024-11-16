@@ -1,9 +1,8 @@
 using System;
 using UnityEngine;
 
-public class PickupBlock : MonoBehaviour
+public class PickupBlock : FindPlayerTransform
 {
-    [SerializeField] private Transform player;
     private Transform boxContainer;
     private Rigidbody boxRb;
     private PlayerController playerController; // To change num of boxes collected
@@ -12,18 +11,20 @@ public class PickupBlock : MonoBehaviour
     private bool canBePicked = true;
     private const float ADD_GROUND_Y = 0.26F; // To stop box from ending up halfway in the ground
 
+    // Assign all the components related to the Player game object
+    void AssignPlayerComponents()
+    {
+        base.GetPlayerTransform();
+        playerController = Player.GetComponent<PlayerController>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        //player = GameObject.FindWithTag("Player").transform;
-        GameObject playerGO = GameObject.FindWithTag("Player");
-        Debug.Log(playerGO);
-        player = playerGO.transform;
+        AssignPlayerComponents();
         boxContainer = GameObject.FindWithTag("BoxContainer").transform;
         boxRb = this.gameObject.GetComponent<Rigidbody>();
-
         boxRb.isKinematic = true; // So block doesn't move
-        playerController = player.GetComponent<PlayerController>();
     }
 
     // Returns position of ground or of transform if no ground 
@@ -51,7 +52,9 @@ public class PickupBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 distanceToPlayer = player.position - transform.position;
+        AssignPlayerComponents();
+
+        Vector3 distanceToPlayer = Player.position - transform.position;
         // If player isn't holding anything and presses grab button
         if (!isHoldingItem && canBePicked && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E)) // https://www.youtube.com/watch?v=8kKLUsn7tcg
         {

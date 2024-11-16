@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1b7fa5b492b8a409944e2fbe14a848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  Player: {fileID: 0}
   pickUpRange: 3
 --- !u!54 &6510379844720593180
 Rigidbody:
