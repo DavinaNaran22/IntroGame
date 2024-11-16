@@ -74,11 +74,6 @@ public class GreenAlienBehavior : MonoBehaviour
         Destroy(laser, 2f);
     }
 
-
-
-
-
-
     public void TakeDamage()
     {
         if (isHit) return; // Prevent multiple hits
