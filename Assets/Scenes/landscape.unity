@@ -1462,6 +1462,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 656212527994545371, guid: 319543aa0100a4996a997233179b9ac8, type: 3}
   m_PrefabInstance: {fileID: 254167911}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &309001061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 309001062}
+  m_Layer: 0
+  m_Name: ShootingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &309001062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309001061}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.3395178, z: 0, w: 0.9405996}
+  m_LocalPosition: {x: -0.027, y: 1.392, z: 0.996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 775110480}
+  m_LocalEulerAnglesHint: {x: 0, y: -39.695, z: 0}
 --- !u!1001 &322694107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4721,11 +4752,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 533529398}
+  shootingPoint: {fileID: 309001062}
   detectionRadius: 15
   animator: {fileID: 775110482}
   playerEquipment: {fileID: 533529400}
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
-  shootRate: 0.5
+  shootRate: 0.4
 --- !u!65 &775110484
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5784,7 +5816,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 400116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 309001062}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
       insertIndex: -1
@@ -12217,7 +12252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd523cf352fcdd441812219a6424017d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootRate: 0.1
+  shootRate: 0.3
   m_shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   equipGun: {fileID: 1173840589}
 --- !u!1001 &1965569919

@@ -4,6 +4,7 @@ using UnityEngine;
 public class GreenAlienBehavior : MonoBehaviour
 {
     public Transform player;
+    public Transform shootingPoint;
     public float detectionRadius = 5f;
     public Animator animator;
     public PlayerEquipment playerEquipment;
@@ -34,13 +35,14 @@ public class GreenAlienBehavior : MonoBehaviour
             playerNearby = false;
         }
 
-
+        // Shoots at player if nearby and in idle pose with a gun state
         if (playerNearby && animator.GetCurrentAnimatorStateInfo(0).IsName("idle pose with a gun"))
         {
             AutoShootAtPlayer();
         }
     }
 
+    // Alien shoots at the player automatically
     private void AutoShootAtPlayer()
     {
         if (Time.time > m_shootRateTimeStamp)
@@ -50,9 +52,16 @@ public class GreenAlienBehavior : MonoBehaviour
         }
     }
 
+    // Alien shoots a laser at the player
     private void ShootLaserAtPlayer()
     {
-        GameObject laser = GameObject.Instantiate(shotPrefab, transform.position, Quaternion.identity);
+        if (shootingPoint == null)
+        {
+            Debug.LogError("Shooting point is not set for the alien.");
+            return;
+        }
+        
+        GameObject laser = GameObject.Instantiate(shotPrefab, shootingPoint.position, Quaternion.identity);
         Vector3 targetPosition = player.position;
 
         // Aim the laser at the player
@@ -78,6 +87,7 @@ public class GreenAlienBehavior : MonoBehaviour
         StartCoroutine(HandleHitSequence());
     }
 
+    // Sequence of states when alien gets hit
     private IEnumerator HandleHitSequence()
     {
         animator.SetTrigger("HitL");
@@ -89,14 +99,7 @@ public class GreenAlienBehavior : MonoBehaviour
     }
 
 
-    //private IEnumerator ResetFromHit()
-    //{
-    //    yield return new WaitForSeconds(1f);
-    //    isHit = false;
-    //}
-
-
-
+    // Sequence of states for alien
     private IEnumerator ExecuteEscapeSequence()
     {
         Debug.Log("Triggering Flight");
