@@ -70,13 +70,28 @@ public class EquipKnife : MonoBehaviour
         isStabbing = false;
     }
 
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Player")
+    //    {
+    //        if(Input.GetKey(KeyCode.E))
+    //        {
+    //            Equip();
+    //        }
+    //    }
+    //}
+
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
-            if(Input.GetKey(KeyCode.E))
+            Equip();
+
+            // Automatically find PlayerEquipment on the player
+            PlayerEquipment playerEquip = other.GetComponent<PlayerEquipment>();
+            if (playerEquip != null)
             {
-                Equip();
+                playerEquip.EquipKnife();
             }
         }
     }
