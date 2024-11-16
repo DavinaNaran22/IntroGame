@@ -3,20 +3,14 @@ using UnityEngine;
 
 public class GreenAlienBehavior : MonoBehaviour
 {
-    private Transform player;
+    public Transform player;
     public float detectionRadius = 5f;
     public Animator animator;
+    public PlayerEquipment playerEquipment;
 
     private bool playerNearby = false;
     private bool isDead = false; // Flag to check if the alien is dead
-
-    private void Start()
-    {
-        player = GameObject.FindWithTag("Player").transform;
-        // Directly play the Idle animation for 5 seconds
-
-        StartCoroutine(WaitBeforeEscapeSequence()); // Wait for 5 seconds before starting the sequence
-    }
+    private bool isHit = false;
 
     private void Update()
     {
@@ -32,19 +26,39 @@ public class GreenAlienBehavior : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitBeforeEscapeSequence()
+    public void TakeDamage()
     {
-        // Wait for 5 seconds before starting the escape sequence
-        yield return new WaitForSeconds(5f);
-        StartCoroutine(ExecuteEscapeSequence());
+        if (isHit) return; // Prevent multiple hits
+        isHit = true;
+        //animator.SetTrigger("HitL");
+        StartCoroutine(HandleHitSequence());
     }
+
+    private IEnumerator HandleHitSequence()
+    {
+        animator.SetTrigger("HitL");
+        yield return new WaitForSeconds(1f);
+        animator.SetTrigger("HitR");
+        yield return new WaitForSeconds(1f);
+        animator.SetTrigger("BackIdle");
+        isHit = false;
+    }
+
+
+    //private IEnumerator ResetFromHit()
+    //{
+    //    yield return new WaitForSeconds(1f);
+    //    isHit = false;
+    //}
+
+
 
     private IEnumerator ExecuteEscapeSequence()
     {
         Debug.Log("Triggering Flight");
         // Flight animation for 10 seconds
         animator.SetTrigger("Flight");
-        yield return new WaitForSeconds(10f); // Duration for Flight
+        yield return new WaitForSeconds(10f);
 
         // Transition to "GetGun"
         animator.SetTrigger("GetGun");
@@ -52,20 +66,30 @@ public class GreenAlienBehavior : MonoBehaviour
 
         // Transition to "Shot" after 10 seconds
         animator.SetTrigger("Shot");
-        yield return new WaitForSeconds(2f); // Adjust this duration as necessary
+        yield return new WaitForSeconds(2f);
 
         // Continue with remaining states in sequence
         animator.SetTrigger("IdleWithGun");
-        yield return new WaitForSeconds(6f);
+        //yield return new WaitForSeconds(6f);
+        while (playerEquipment != null && !playerEquipment.IsWeaponEquipped())
+        {
+            yield return null;
+        }
+        while (!isHit)
+        {
+            yield return null;
+        }
 
-        animator.SetTrigger("HitL");
-        yield return new WaitForSeconds(1f);
+        animator.SetTrigger("BackIdle");
 
-        animator.SetTrigger("HitR");
-        yield return new WaitForSeconds(1f);
+        //animator.SetTrigger("HitL");
+        //yield return new WaitForSeconds(1f);
+
+        //animator.SetTrigger("HitR");
+        //yield return new WaitForSeconds(1f);
 
         // Set the Dead state and update isDead flag
-        animator.SetTrigger("Dead");
-        isDead = true; // Mark the alien as dead
+        //animator.SetTrigger("Dead");
+        //isDead = true; // Mark the alien as dead
     }
 }

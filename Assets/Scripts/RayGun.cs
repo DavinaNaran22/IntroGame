@@ -42,7 +42,16 @@ public class RayGun : MonoBehaviour
             laser.GetComponent<ShotBehavior>().setTarget(hit.point);
             GameObject.Destroy(laser, 2f);
 
+            if (hit.collider.CompareTag("Alien"))
+            {
+                GreenAlienBehavior alien = hit.collider.GetComponent<GreenAlienBehavior>();
+                if (alien != null)
+                {
+                    alien.TakeDamage();
+                }
 
+
+            }
         }
 
     }

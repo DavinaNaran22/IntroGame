@@ -6,31 +6,15 @@ using UnityEngine.UI;
 public class EquipGun : MonoBehaviour
 {
     public GameObject gun;
-    private Transform WeaponParent;
+    public Transform WeaponParent;
     public bool isEquipped = false;
+    public PlayerEquipment playerEquipment;
 
     void Start()
     {
         gun.GetComponent<Rigidbody>().isKinematic = true;
-        WeaponParent = GameObject.FindWithTag("WeaponParent").transform;
     }
 
-    
-    //void Update()
-    //{
-    //    if (Input.GetKey(KeyCode.R))
-    //    {
-    //        Drop();
-    //    }
-    //}
-
-    //void Drop()
-    //{
-    //    WeaponParent.DetachChildren();
-    //    gun.transform.eulerAngles = new Vector3(gun.transform.position.x, gun.transform.position.z, gun.transform.position.y);
-    //    gun.GetComponent<Rigidbody>().isKinematic = false;
-    //    gun.GetComponent<MeshCollider>().enabled = true;
-    //}
 
     void Equip()
     {
@@ -41,16 +25,36 @@ public class EquipGun : MonoBehaviour
         gun.transform.rotation = WeaponParent.transform.rotation;
         gun.GetComponent<MeshCollider>().enabled = false;
         gun.transform.SetParent(WeaponParent);
+
+        if (playerEquipment != null)
+        {
+            playerEquipment.EquipGun();
+        }
     }
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    // Equip gun if player is near
+    //    if (other.gameObject.tag == "Player")
+    //    {
+    //        if(Input.GetKey(KeyCode.E))
+    //        {
+    //            Equip();
+    //        }
+    //    }
+    //}
 
     private void OnTriggerStay(Collider other)
     {
-        // Equip gun if player is near
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
-            if(Input.GetKey(KeyCode.E))
+            Equip();
+
+            // Automatically find PlayerEquipment on the player
+            PlayerEquipment playerEquip = other.GetComponent<PlayerEquipment>();
+            if (playerEquip != null)
             {
-                Equip();
+                playerEquip.EquipGun();
             }
         }
     }
