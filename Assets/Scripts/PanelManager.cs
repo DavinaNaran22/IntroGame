@@ -9,7 +9,7 @@ public class TaskManager : MonoBehaviour
     public TextMeshProUGUI taskText; // Task description text
     public TextMeshProUGUI progressText; // Progress percentage text
     public Image progressBar; // Image with fillAmount
-    private List<GameObject> aliens;
+    public List<GameObject> aliens;
 
     private int currentTaskIndex = 0;
 
@@ -17,12 +17,9 @@ public class TaskManager : MonoBehaviour
     {
         progressBar.fillAmount = 0f;
         UpdateTaskUI();
-
-        // UI is instantiated in landscape scene, so have to populate aliens list this way
-        aliens = new List<GameObject>(GameObject.FindGameObjectsWithTag("Alien"));
     }
 
-    
+
 
     // Function to check conditions for each task based on its index
     private bool IsTaskConditionMet()
@@ -32,8 +29,7 @@ public class TaskManager : MonoBehaviour
             case 0:
                 // Conditions for Task 0
                 //Example to test when alien1 is defeated.
-                // First alien is null if not in landscape scene
-                if (aliens[0] != null && !aliens[0].activeSelf)
+                if (!aliens[0].activeSelf)
                 {
                     return true;
                 }
@@ -79,11 +75,11 @@ public class TaskManager : MonoBehaviour
             CompleteTask();
         }
         {
-            
+
         }
     }
 
-        private void UpdateTaskUI()
+    private void UpdateTaskUI()
     {
         if (currentTaskIndex < tasks.Count)
         {
