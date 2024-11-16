@@ -10883,7 +10883,7 @@ MonoBehaviour:
   animator: {fileID: 1492018450}
   playerEquipment: {fileID: 533529400}
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
-  shootRate: 0.5
+  shootRate: 0.3
 --- !u!1001 &1773015103
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -88,6 +88,9 @@ public class RhinoAlienBehaviour : MonoBehaviour
         animator.SetTrigger("GetHit");
         yield return new WaitForSeconds(1f);
         animator.SetTrigger("BackShout");
+        yield return new WaitForSeconds(1f);
+        animator.SetTrigger("Attack3");
+        yield return new WaitForSeconds(1f);
         isHit = false;
     }
 
