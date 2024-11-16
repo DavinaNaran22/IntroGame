@@ -10,7 +10,7 @@ public class GreenAlienBehavior : MonoBehaviour
 
     private bool playerNearby = false;
     private bool isDead = false; // Flag to check if the alien is dead
-
+    private bool isHit = false;
 
     private void Update()
     {
@@ -26,7 +26,21 @@ public class GreenAlienBehavior : MonoBehaviour
         }
     }
 
- 
+    public void TakeDamage()
+    {
+        if (isHit) return; // Prevent multiple hits
+        isHit = true;
+        animator.SetTrigger("HitL");
+        StartCoroutine(ResetFromHit());
+    }
+
+    private IEnumerator ResetFromHit()
+    {
+        yield return new WaitForSeconds(1f);
+        isHit = false;
+    }
+
+
 
     private IEnumerator ExecuteEscapeSequence()
     {
@@ -49,6 +63,10 @@ public class GreenAlienBehavior : MonoBehaviour
         while (playerEquipment != null && !playerEquipment.IsWeaponEquipped()) {
             yield return null;
         }
+        while (!isHit)
+        {
+            yield return null;
+        }
 
         animator.SetTrigger("HitL");
         yield return new WaitForSeconds(1f);
@@ -57,7 +75,7 @@ public class GreenAlienBehavior : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         // Set the Dead state and update isDead flag
-        animator.SetTrigger("Dead");
-        isDead = true; // Mark the alien as dead
+        //animator.SetTrigger("Dead");
+        //isDead = true; // Mark the alien as dead
     }
 }
