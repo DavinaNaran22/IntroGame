@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class InventoryManager : MonoBehaviour
     public Button logsTabButton; // Reference to the Logs tab button
 
     private bool isInventoryOpen = false;
+    private PlayerInputActions inputActions;
 
     void Start()
     {
@@ -26,37 +28,65 @@ public class InventoryManager : MonoBehaviour
         ToggleTab("Inventory");
     }
 
-    void Update()
+    private void Awake()
     {
-        // Open inventory with "I"
-        if (Input.GetKeyDown(KeyCode.I) && !isInventoryOpen)
-        {
-            OpenInventory();
-        }
-        // Close inventory with "ESC"
-        else if (Input.GetKeyDown(KeyCode.Escape) && isInventoryOpen)
-        {
-            CloseInventory();
-        }
+        inputActions = new PlayerInputActions();
     }
+
+    private void OnEnable()
+    {
+        inputActions.Player.Enable();
+        inputActions.Player.Inventory.performed += ctx => OpenInventory();  // Listen for Inventory action
+        inputActions.Player.CloseInventory.performed += ctx => CloseInventory();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Player.Disable();
+        inputActions.Player.Inventory.performed -= ctx => OpenInventory();  // Listen for Inventory action
+        inputActions.Player.CloseInventory.performed -= ctx => CloseInventory();
+    }
+
+
+
+    //void Update()
+    //{
+    //    // Open inventory with "I"
+    //    if (Input.GetKeyDown(KeyCode.I) && !isInventoryOpen)
+    //    {
+    //        OpenInventory();
+    //    }
+    //    // Close inventory with "ESC"
+    //    else if (Input.GetKeyDown(KeyCode.Escape) && isInventoryOpen)
+    //    {
+    //        CloseInventory();
+    //    }
+    //}
 
     void OpenInventory()
     {
-        // Enable the inventory canvas and pause the game
-        inventoryCanvas.SetActive(true);
-        Time.timeScale = 0f; // Pause the game
-        isInventoryOpen = true;
+        if (!isInventoryOpen)
+        {
+            // Enable the inventory canvas and pause the game
+            inventoryCanvas.SetActive(true);
+            Time.timeScale = 0f; // Pause the game
+            isInventoryOpen = true;
 
-        // Default to the Inventory tab
-        ToggleTab("Inventory");
+            // Default to the Inventory tab
+            ToggleTab("Inventory");
+        }
+        
     }
 
     void CloseInventory()
     {
-        // Disable the inventory canvas and resume the game
-        inventoryCanvas.SetActive(false);
-        Time.timeScale = 1f; // Resume the game
-        isInventoryOpen = false;
+        if (isInventoryOpen)
+        {
+            // Disable the inventory canvas and resume the game
+            inventoryCanvas.SetActive(false);
+            Time.timeScale = 1f; // Resume the game
+            isInventoryOpen = false;
+        }
     }
 
     void ToggleTab(string tabName)
