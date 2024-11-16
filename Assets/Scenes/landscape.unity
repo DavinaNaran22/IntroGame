@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.002063206, g: 0.0019480612, b: 0.0021180937, a: 1}
+  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3544,6 +3544,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
+--- !u!4 &533529398 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 217271204662717590, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
+  m_PrefabInstance: {fileID: 533529397}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &537862249
 GameObject:
   m_ObjectHideFlags: 0
@@ -4666,6 +4671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413bb23fcdbaa0941b3b6fe6034571a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 533529398}
   detectionRadius: 15
   moveSpeed: 2
   rotationSpeed: 5
@@ -4687,8 +4693,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb50a6604224184cb6473189b7b3ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 5
+  player: {fileID: 533529398}
+  detectionRadius: 15
   animator: {fileID: 775110482}
+  playerEquipment: {fileID: 0}
 --- !u!1 &779174221
 GameObject:
   m_ObjectHideFlags: 0
@@ -7691,7 +7699,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 1173840585}
+  WeaponParent: {fileID: 0}
   isEquipped: 0
+  playerEquipment: {fileID: 0}
 --- !u!65 &1173840590
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10688,6 +10698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413bb23fcdbaa0941b3b6fe6034571a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   detectionRadius: 15
   moveSpeed: 2
   rotationSpeed: 5
@@ -17692,6 +17703,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knife: {fileID: 2088257497}
+  WeaponParent: {fileID: 0}
+  playerEquipment: {fileID: 0}
   stabDistance: 0.5
   stabSpeed: 10
 --- !u!65 &2088257500
