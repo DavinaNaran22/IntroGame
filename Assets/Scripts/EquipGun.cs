@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class EquipGun : MonoBehaviour
 {
@@ -9,10 +10,28 @@ public class EquipGun : MonoBehaviour
     public Transform WeaponParent;
     public bool isEquipped = false;
     public PlayerEquipment playerEquipment;
+    private PlayerInputActions inputActions;
 
     void Start()
     {
         gun.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
+    private void Awake()
+    {
+        inputActions = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Player.Enable();
+        inputActions.Player.Equip.performed += ctx => Equip();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Player.Disable();
+        inputActions.Player.Equip.performed -= ctx => Equip();
     }
 
 
@@ -32,21 +51,9 @@ public class EquipGun : MonoBehaviour
         }
     }
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    // Equip gun if player is near
-    //    if (other.gameObject.tag == "Player")
-    //    {
-    //        if(Input.GetKey(KeyCode.E))
-    //        {
-    //            Equip();
-    //        }
-    //    }
-    //}
-
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
+        if (other.CompareTag("Player") && inputActions.Player.Equip.ReadValue<float>() > 0.5f)
         {
             Equip();
 
