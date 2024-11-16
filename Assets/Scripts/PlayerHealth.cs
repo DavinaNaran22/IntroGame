@@ -23,37 +23,59 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damagePercent)
     {
         currentHealth -= damagePercent;
-        if (currentHealth <= 0.00)
+
+        if (currentHealth <= 0f)
         {
+            currentHealth = 0f; // Ensure health doesn't go negative
             Debug.Log("You Died!");
             RestartScene();
-            
         }
-        Debug.Log("Player Health after damage: " + currentHealth * 100 + "%");
-        UpdateHealthBar();
+        else
+        {
+            Debug.Log("Player Health after damage: " + currentHealth * 100 + "%");
+            UpdateHealthBar();
+        }
     }
 
-    // Coroutine to regenerate health
+    // restores health to 15%
     IEnumerator RegenerateHealth()
     {
         while (true)
         {
-            yield return new WaitForSeconds(8f); // Wait for 8 seconds
-
-            if (currentHealth < maxHealth)
+            if (currentHealth <= 0.05f && currentHealth > 0f) // If health is at or below 5% and player is alive
             {
-                currentHealth += 0.02f; // Restore 2% of health
-                currentHealth = Mathf.Min(currentHealth, maxHealth); // Ensure it doesn't exceed maxHealth
-                Debug.Log("Player Health after regeneration: " + currentHealth * 100 + "%");
-                UpdateHealthBar();
+                Debug.Log("Critical health! Waiting 8 seconds before regenerating...");
+                yield return new WaitForSeconds(8f); // Wait for 8 seconds
+
+                // Check again if the player is still alive (health not 0)
+                if (currentHealth > 0f && currentHealth <= 0.05f)
+                {
+                    currentHealth = 0.15f; // Restore health to 15%
+                    Debug.Log("Health restored to 15%!");
+                    UpdateHealthBar(); // Update the UI
+                }
             }
+
+            yield return null; // Wait for the next frame before checking conditions again
         }
     }
+
+
     void UpdateHealthBar()
     {
         healthBarImage.fillAmount = currentHealth;
-        
+
+        // Change color of health bar based on health
+        if (currentHealth <= 0.05f)
+        {
+            healthBarImage.color = Color.red; // Critical health
+        }
+        else
+        {
+            healthBarImage.color = Color.green; // Normal health
+        }
     }
+
 
     // called when player dies and returns to tile A.
     public void RestartScene()
