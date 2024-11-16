@@ -28,7 +28,14 @@ public class GreenAlienBehavior : MonoBehaviour
             playerNearby = true;
             StartCoroutine(ExecuteEscapeSequence());
         }
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("idle pose with a gun"))
+        else if (distanceToPlayer > detectionRadius && playerNearby)
+        {
+            // Reset playerNearby flag when player exits detection radius
+            playerNearby = false;
+        }
+
+
+        if (playerNearby && animator.GetCurrentAnimatorStateInfo(0).IsName("idle pose with a gun"))
         {
             AutoShootAtPlayer();
         }
