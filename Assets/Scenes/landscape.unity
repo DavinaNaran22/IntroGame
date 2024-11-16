@@ -3542,11 +3542,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3663032998346508965, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 533529400}
   m_SourcePrefab: {fileID: 100100000, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
 --- !u!4 &533529398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 217271204662717590, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
+  m_PrefabInstance: {fileID: 533529397}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &533529399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3663032998346508965, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
+  m_PrefabInstance: {fileID: 533529397}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &533529400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533529399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7dcdb5da4081e4c96619ff04379f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunEquipped: 0
+  knifeEquipped: 0
+--- !u!4 &533529401 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 750294155176702781, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
   m_PrefabInstance: {fileID: 533529397}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &537862249
@@ -4696,7 +4723,28 @@ MonoBehaviour:
   player: {fileID: 533529398}
   detectionRadius: 15
   animator: {fileID: 775110482}
-  playerEquipment: {fileID: 0}
+  playerEquipment: {fileID: 533529400}
+--- !u!65 &775110484
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775110478}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 4, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &779174221
 GameObject:
   m_ObjectHideFlags: 0
@@ -5742,6 +5790,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
       insertIndex: -1
       addedObject: {fileID: 775110483}
+    - targetCorrespondingSourceObject: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 775110484}
   m_SourcePrefab: {fileID: 100100000, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
 --- !u!1 &904951829
 GameObject:
@@ -7699,9 +7750,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 1173840585}
-  WeaponParent: {fileID: 0}
+  WeaponParent: {fileID: 533529401}
   isEquipped: 0
-  playerEquipment: {fileID: 0}
+  playerEquipment: {fileID: 533529400}
 --- !u!65 &1173840590
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17703,8 +17754,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knife: {fileID: 2088257497}
-  WeaponParent: {fileID: 0}
-  playerEquipment: {fileID: 0}
+  WeaponParent: {fileID: 533529401}
+  playerEquipment: {fileID: 533529400}
   stabDistance: 0.5
   stabSpeed: 10
 --- !u!65 &2088257500
