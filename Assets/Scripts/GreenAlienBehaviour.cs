@@ -8,6 +8,10 @@ public class GreenAlienBehavior : MonoBehaviour
     public Animator animator;
     public PlayerEquipment playerEquipment;
 
+    public GameObject shotPrefab;
+    public float shootRate = 0.5f;
+    private float m_shootRateTimeStamp;
+
     private bool playerNearby = false;
     private bool isDead = false; // Flag to check if the alien is dead
     private bool isHit = false;
@@ -24,7 +28,40 @@ public class GreenAlienBehavior : MonoBehaviour
             playerNearby = true;
             StartCoroutine(ExecuteEscapeSequence());
         }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("idle pose with a gun"))
+        {
+            AutoShootAtPlayer();
+        }
     }
+
+    private void AutoShootAtPlayer()
+    {
+        if (Time.time > m_shootRateTimeStamp)
+        {
+            ShootLaserAtPlayer();
+            m_shootRateTimeStamp = Time.time + shootRate;
+        }
+    }
+
+    private void ShootLaserAtPlayer()
+    {
+        GameObject laser = GameObject.Instantiate(shotPrefab, transform.position, Quaternion.identity);
+        Vector3 targetPosition = player.position;
+
+        // Aim the laser at the player
+        laser.transform.LookAt(targetPosition);
+
+        // Set laser's target position and make it move
+        laser.GetComponent<ShotBehavior>().setTarget(targetPosition);
+
+        // Destroy laser after a set time (e.g., 2 seconds)
+        Destroy(laser, 2f);
+    }
+
+
+
+
+
 
     public void TakeDamage()
     {
