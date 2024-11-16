@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class EquipKnife : MonoBehaviour
 {
@@ -15,10 +16,30 @@ public class EquipKnife : MonoBehaviour
     private bool isStabbing = false;
     private bool isEquipped = false;
 
+    private PlayerInputActions inputActions;
+    private bool playerInRange = false;
+
     void Start()
     {
         knife.GetComponent<Rigidbody>().isKinematic = true;
         originalPosition = knife.transform.localPosition;
+    }
+
+    private void Awake()
+    {
+        inputActions = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Player.Enable();
+        inputActions.Player.Equip.performed += ctx => Equip();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Player.Disable();
+        inputActions.Player.Equip.performed -= ctx => Equip();
     }
 
     void Update()
@@ -33,18 +54,21 @@ public class EquipKnife : MonoBehaviour
 
     void Equip()
     {
-        // Attach knife to weapon parent
-        knife.GetComponent<Rigidbody>().isKinematic = true;
-        knife.transform.position = WeaponParent.transform.position;
-        knife.transform.rotation = WeaponParent.transform.rotation;
-        knife.GetComponent<MeshCollider>().enabled = false;
-        knife.transform.SetParent(WeaponParent);
-        originalPosition = knife.transform.localPosition;
-        isEquipped = true;
-
-        if (playerEquipment != null)
+        if (playerInRange)
         {
-            playerEquipment.EquipKnife();
+            // Attach knife to weapon parent
+            knife.GetComponent<Rigidbody>().isKinematic = true;
+            knife.transform.position = WeaponParent.transform.position;
+            knife.transform.rotation = WeaponParent.transform.rotation;
+            knife.GetComponent<MeshCollider>().enabled = false;
+            knife.transform.SetParent(WeaponParent);
+            originalPosition = knife.transform.localPosition;
+            isEquipped = true;
+
+            if (playerEquipment != null)
+            {
+                playerEquipment.EquipKnife();
+            }
         }
     }
 
@@ -70,22 +94,16 @@ public class EquipKnife : MonoBehaviour
         isStabbing = false;
     }
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Player")
-    //    {
-    //        if(Input.GetKey(KeyCode.E))
-    //        {
-    //            Equip();
-    //        }
-    //    }
-    //}
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
+        if (other.CompareTag("Player"))
         {
-            Equip();
+            playerInRange = true;
+            if (inputActions.Player.Equip.ReadValue<float>() > 0)
+            {
+                Equip();
+            }
 
             // Automatically find PlayerEquipment on the player
             PlayerEquipment playerEquip = other.GetComponent<PlayerEquipment>();

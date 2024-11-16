@@ -11,6 +11,7 @@ public class EquipGun : MonoBehaviour
     public bool isEquipped = false;
     public PlayerEquipment playerEquipment;
     private PlayerInputActions inputActions;
+    private bool playerInRange = false;
 
     void Start()
     {
@@ -37,25 +38,32 @@ public class EquipGun : MonoBehaviour
 
     void Equip()
     {
-        // Attach gun to weapon parent
-        isEquipped = true;
-        gun.GetComponent<Rigidbody>().isKinematic = true;
-        gun.transform.position = WeaponParent.transform.position;
-        gun.transform.rotation = WeaponParent.transform.rotation;
-        gun.GetComponent<MeshCollider>().enabled = false;
-        gun.transform.SetParent(WeaponParent);
-
-        if (playerEquipment != null)
+        if (playerInRange)
         {
-            playerEquipment.EquipGun();
+            // Attach gun to weapon parent
+            isEquipped = true;
+            gun.GetComponent<Rigidbody>().isKinematic = true;
+            gun.transform.position = WeaponParent.transform.position;
+            gun.transform.rotation = WeaponParent.transform.rotation;
+            gun.GetComponent<MeshCollider>().enabled = false;
+            gun.transform.SetParent(WeaponParent);
+
+            if (playerEquipment != null)
+            {
+                playerEquipment.EquipGun();
+            }
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && inputActions.Player.Equip.ReadValue<float>() > 0.5f)
+        if (other.CompareTag("Player"))
         {
-            Equip();
+            playerInRange = true;
+            if (inputActions.Player.Equip.ReadValue<float>() > 0)
+            {
+                Equip();
+            }
 
             // Automatically find PlayerEquipment on the player
             PlayerEquipment playerEquip = other.GetComponent<PlayerEquipment>();
@@ -63,6 +71,14 @@ public class EquipGun : MonoBehaviour
             {
                 playerEquip.EquipGun();
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
         }
     }
 
