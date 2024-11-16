@@ -4671,7 +4671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413bb23fcdbaa0941b3b6fe6034571a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 690467031}
+  Player: {fileID: 690467031}
   detectionRadius: 15
   moveSpeed: 2
   rotationSpeed: 5
@@ -4693,7 +4693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb50a6604224184cb6473189b7b3ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 690467031}
+  Player: {fileID: 0}
   detectionRadius: 5
   animator: {fileID: 775110482}
   playerEquipment: {fileID: 0}
@@ -7333,7 +7333,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Interior
-  spawnPos: {x: 501.508, y: 9.105375, z: 437.419}
 --- !u!1 &1098549757
 GameObject:
   m_ObjectHideFlags: 0
@@ -10698,7 +10697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413bb23fcdbaa0941b3b6fe6034571a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 690467031}
+  Player: {fileID: 690467031}
   detectionRadius: 15
   moveSpeed: 2
   rotationSpeed: 5
@@ -17524,7 +17523,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: CaveScene
-  spawnPos: {x: 2.5, y: 2.52, z: 8.8}
 --- !u!65 &2032375108
 BoxCollider:
   m_ObjectHideFlags: 0
