@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AlienMoving : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
     public float detectionRadius = 5f;
     public float moveSpeed = 2f;
     public float rotationSpeed = 5f; // Speed of rotation when pacing or facing the player
@@ -18,6 +18,7 @@ public class AlienMoving : MonoBehaviour
         // Set the starting position as the center of the pacing area
         startPosition = transform.position;
         SetNewTargetPosition();
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     private void Update()

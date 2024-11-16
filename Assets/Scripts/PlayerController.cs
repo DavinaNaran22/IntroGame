@@ -7,11 +7,12 @@ public class PlayerController : MonoBehaviour
 {
     private int boxesCollected;
     public UnityEvent collectBoxEvent = new UnityEvent(); // For other scripts to invoke/call
-    public TextMeshProUGUI repairText;
+    private TextMeshProUGUI repairText;
 
     private void Start()
     {
         boxesCollected = 0; // Initialise here otherwise this gets the wrong value
+        repairText = GameObject.FindWithTag("RepairText").GetComponent<TextMeshProUGUI>();
     }
 
     public void CollectBox()

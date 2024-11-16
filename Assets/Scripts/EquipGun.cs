@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class EquipGun : MonoBehaviour
 {
     public GameObject gun;
-    public Transform WeaponParent;
+    private Transform WeaponParent;
     public bool isEquipped = false;
 
     void Start()
     {
         gun.GetComponent<Rigidbody>().isKinematic = true;
+        WeaponParent = GameObject.FindWithTag("WeaponParent").transform;
     }
 
     
