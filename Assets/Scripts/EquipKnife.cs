@@ -34,22 +34,24 @@ public class EquipKnife : MonoBehaviour
     {
         inputActions.Player.Enable();
         inputActions.Player.Equip.performed += ctx => Equip();
+        inputActions.Player.Stab.performed += ctx => StartStabbing();
     }
 
     private void OnDisable()
     {
         inputActions.Player.Disable();
         inputActions.Player.Equip.performed -= ctx => Equip();
+        inputActions.Player.Stab.performed -= ctx => StartStabbing();
     }
 
-    void Update()
-    {
-        // Stabbing action
-        if (Input.GetMouseButton(0) && isEquipped && !isStabbing)
-        {
-            StartCoroutine(Stab());
-        }
-    }
+    //void Update()
+    //{
+    //    // Stabbing action
+    //    if (Input.GetMouseButton(0) && isEquipped && !isStabbing)
+    //    {
+    //        StartCoroutine(Stab());
+    //    }
+    //}
 
 
     void Equip()
@@ -69,6 +71,14 @@ public class EquipKnife : MonoBehaviour
             {
                 playerEquipment.EquipKnife();
             }
+        }
+    }
+
+    void StartStabbing()
+    {
+        if (isEquipped && !isStabbing)
+        {
+            StartCoroutine(Stab());
         }
     }
 
