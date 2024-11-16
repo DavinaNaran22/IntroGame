@@ -37,7 +37,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
         }
 
         // Shoots at player if nearby and in idle pose with a gun state
-        if (playerNearby && animator.GetCurrentAnimatorStateInfo(0).IsName("idle pose with a gun"))
+        if (playerNearby && animator.GetCurrentAnimatorStateInfo(0).IsName("Attack(3)"))
         {
             AutoShootAtPlayer();
         }
@@ -86,11 +86,9 @@ public class RhinoAlienBehaviour : MonoBehaviour
     // Sequence of states when alien gets hit
     private IEnumerator HandleHitSequence()
     {
-        animator.SetTrigger("HitL");
+        animator.SetTrigger("GetHit");
         yield return new WaitForSeconds(1f);
-        animator.SetTrigger("HitR");
-        yield return new WaitForSeconds(1f);
-        animator.SetTrigger("BackIdle");
+        animator.SetTrigger("BackShout");
         isHit = false;
     }
 
@@ -98,21 +96,21 @@ public class RhinoAlienBehaviour : MonoBehaviour
     // Sequence of states for alien
     private IEnumerator ExecuteEscapeSequence()
     {
-        Debug.Log("Triggering Flight");
-        // Flight animation for 10 seconds
-        animator.SetTrigger("Flight");
+        Debug.Log("Triggering Idle");
+        // Idle animation for 10 seconds
+        animator.SetTrigger("Idle");
         yield return new WaitForSeconds(10f);
 
-        // Transition to "GetGun"
-        animator.SetTrigger("GetGun");
+        // Transition to "Jump"
+        animator.SetTrigger("Jump");
         yield return new WaitForSeconds(0);
 
-        // Transition to "Shot" after 10 seconds
-        animator.SetTrigger("Shot");
-        yield return new WaitForSeconds(2f);
+        // Transition to "Shout" after 10 seconds
+        animator.SetTrigger("Shout");
+        yield return new WaitForSeconds(1f);
 
         // Continue with remaining states in sequence
-        animator.SetTrigger("IdleWithGun");
+        animator.SetTrigger("Attack3");
         //yield return new WaitForSeconds(6f);
         while (playerEquipment != null && !playerEquipment.IsWeaponEquipped())
         {
@@ -123,14 +121,9 @@ public class RhinoAlienBehaviour : MonoBehaviour
             yield return null;
         }
 
-        animator.SetTrigger("BackIdle");
+        animator.SetTrigger("BackShout");
 
-        //animator.SetTrigger("HitL");
-        //yield return new WaitForSeconds(1f);
-
-        //animator.SetTrigger("HitR");
-        //yield return new WaitForSeconds(1f);
-
+        
         // Set the Dead state and update isDead flag
         //animator.SetTrigger("Dead");
         //isDead = true; // Mark the alien as dead
