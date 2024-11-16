@@ -5,6 +5,7 @@
 - C key to crouch
 - E key to grab weapons
 - Left click to stab with knife and shoot with gun
+- I key to open inventory
 
 ## Notes
 - Uses Git LFS
