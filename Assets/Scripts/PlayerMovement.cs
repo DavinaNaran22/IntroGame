@@ -27,8 +27,11 @@ public class PlayerMovement : Singleton<PlayerMovement>
     private PlayerInputActions inputActions;
     private Vector2 movementInput;
 
-    private void Awake()
+    // Overriding Singleton.Awake so input actions can be assigned
+    private new void Awake()
     {
+        base.Awake();
+        Debug.Log("After base awake");
         inputActions = new PlayerInputActions();
     }
 

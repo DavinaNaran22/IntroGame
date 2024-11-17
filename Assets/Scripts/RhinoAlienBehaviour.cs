@@ -19,6 +19,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
 
     private void Update()
     {
+        base.GetPlayerTransform();
         if (isDead) return; // Stop any further updates if the alien is dead
 
         float distanceToPlayer = Vector3.Distance(transform.position, Player.position);
