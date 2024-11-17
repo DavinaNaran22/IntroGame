@@ -15,16 +15,9 @@ public class Singleton<T> : MonoBehaviour where T : UnityEngine.Object
         if (Instance != null && Instance != this)
         {
             Debug.Log("There already exists a " + this.name);
-            Debug.Log(this);
+            Debug.Log(this.gameObject);
             // Only want one instance at any times (hence singleton)
-            try
-            {
-                Destroy(this.gameObject);
-            }
-            catch (Exception e)
-            {
-                Debug.Log("Error when deleting singleton: " + e);
-            }
+            Destroy(this.gameObject);
         }
         else
         {

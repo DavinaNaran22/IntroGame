@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : Singleton<PlayerMovement>
+public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
 
@@ -27,11 +27,8 @@ public class PlayerMovement : Singleton<PlayerMovement>
     private PlayerInputActions inputActions;
     private Vector2 movementInput;
 
-    // Overriding Singleton.Awake so input actions can be assigned
-    private new void Awake()
+    private void Awake()
     {
-        base.Awake();
-        Debug.Log("After base awake");
         inputActions = new PlayerInputActions();
     }
 
