@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : Singleton<PlayerMovement>
 {
@@ -23,6 +24,32 @@ public class PlayerMovement : Singleton<PlayerMovement>
     
     bool isCrouching = false; // Tracks if the player is crouching
 
+    private PlayerInputActions inputActions;
+    private Vector2 movementInput;
+
+    private void Awake()
+    {
+        inputActions = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Player.Enable();
+        inputActions.Player.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        inputActions.Player.Move.canceled += ctx => movementInput = Vector2.zero;
+        inputActions.Player.Jump.performed += ctx => Jump();
+        inputActions.Player.Crouch.performed += ctx => ToggleCrouch();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Player.Disable();
+        inputActions.Player.Move.performed -= ctx => movementInput = ctx.ReadValue<Vector2>();
+        inputActions.Player.Move.canceled -= ctx => movementInput = Vector2.zero;
+        inputActions.Player.Jump.performed -= ctx => Jump();
+        inputActions.Player.Crouch.performed -= ctx => ToggleCrouch();
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -35,12 +62,6 @@ public class PlayerMovement : Singleton<PlayerMovement>
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f; // Forces player down to ground
-        }
-
-        // Toggle crouch state when the "C" key is pressed
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            isCrouching = !isCrouching; // Toggle crouching state
         }
 
         // Adjust height and speed based on crouch state
@@ -56,22 +77,29 @@ public class PlayerMovement : Singleton<PlayerMovement>
         }
 
 
-        // Gets input from player
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        // Moves player in direction they are facing
-        Vector3 move = transform.right * x + transform.forward * z;
+        // Gets input from player and moves player in direction they are facing
+        Vector3 move = transform.right * movementInput.x + transform.forward * movementInput.y;
         controller.Move(move * speed * Time.deltaTime);
+
 
         // Applies gravity to player
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        // Makes player jump
-        if (Input.GetButtonDown("Jump") && isGrounded)
+    }
+
+    // Makes player jump
+    private void Jump()
+    {
+        if (isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Jump height
         }
+    }
+
+    // Toggles crouching state
+    private void ToggleCrouch()
+    {
+        isCrouching = !isCrouching; // Toggle crouching state
     }
 }

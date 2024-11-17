@@ -1,8 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class GreenAlienBehavior : FindPlayerTransform
+public class RhinoAlienBehaviour : MonoBehaviour
 {
+    public Transform player;
     public Transform shootingPoint;
     public float detectionRadius = 5f;
     public Animator animator;
@@ -18,10 +20,9 @@ public class GreenAlienBehavior : FindPlayerTransform
 
     private void Update()
     {
-        base.GetPlayerTransform();
         if (isDead) return; // Stop any further updates if the alien is dead
 
-        float distanceToPlayer = Vector3.Distance(transform.position, Player.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         if (distanceToPlayer <= detectionRadius && !playerNearby)
         {
@@ -36,7 +37,7 @@ public class GreenAlienBehavior : FindPlayerTransform
         }
 
         // Shoots at player if nearby and in idle pose with a gun state
-        if (playerNearby && animator.GetCurrentAnimatorStateInfo(0).IsName("idle pose with a gun"))
+        if (playerNearby && animator.GetCurrentAnimatorStateInfo(0).IsName("Attack(3)"))
         {
             AutoShootAtPlayer();
         }
@@ -60,7 +61,7 @@ public class GreenAlienBehavior : FindPlayerTransform
             Debug.LogError("Shooting point is not set for the alien.");
             return;
         }
-        
+
         GameObject laser = GameObject.Instantiate(shotPrefab, shootingPoint.position, Quaternion.identity);
         Vector3 targetPosition = player.position;
 
@@ -78,41 +79,41 @@ public class GreenAlienBehavior : FindPlayerTransform
     {
         if (isHit) return; // Prevent multiple hits
         isHit = true;
-        //animator.SetTrigger("HitL");
         StartCoroutine(HandleHitSequence());
     }
 
     // Sequence of states when alien gets hit
     private IEnumerator HandleHitSequence()
     {
-        animator.SetTrigger("HitL");
+        animator.SetTrigger("GetHit");
         yield return new WaitForSeconds(1f);
-        animator.SetTrigger("HitR");
+        animator.SetTrigger("BackShout");
         yield return new WaitForSeconds(1f);
-        animator.SetTrigger("BackIdle");
+        animator.SetTrigger("Attack3");
+        yield return new WaitForSeconds(1f);
         isHit = false;
     }
 
 
-    // Sequence of states for alien
+    //// Sequence of states for alien
     private IEnumerator ExecuteEscapeSequence()
     {
-        Debug.Log("Triggering Flight");
-        // Flight animation for 10 seconds
-        animator.SetTrigger("Flight");
+        Debug.Log("Triggering Idle");
+        // Idle animation for 10 seconds
+        animator.SetTrigger("Idle");
         yield return new WaitForSeconds(10f);
 
-        // Transition to "GetGun"
-        animator.SetTrigger("GetGun");
+        // Transition to "Jump"
+        animator.SetTrigger("Jump");
         yield return new WaitForSeconds(0);
 
-        // Transition to "Shot" after 10 seconds
-        animator.SetTrigger("Shot");
-        yield return new WaitForSeconds(2f);
+        // Transition to "Shout" after 10 seconds
+        animator.SetTrigger("Shout");
+        yield return new WaitForSeconds(1f);
 
         // Continue with remaining states in sequence
-        animator.SetTrigger("IdleWithGun");
-        //yield return new WaitForSeconds(6f);
+        animator.SetTrigger("Attack3");
+        yield return new WaitForSeconds(6f);
         while (playerEquipment != null && !playerEquipment.IsWeaponEquipped())
         {
             yield return null;
@@ -122,16 +123,15 @@ public class GreenAlienBehavior : FindPlayerTransform
             yield return null;
         }
 
-        animator.SetTrigger("BackIdle");
+        //animator.SetTrigger("GetHit");
+        animator.SetTrigger("BackShout");
 
-        //animator.SetTrigger("HitL");
-        //yield return new WaitForSeconds(1f);
 
-        //animator.SetTrigger("HitR");
-        //yield return new WaitForSeconds(1f);
-
-        // Set the Dead state and update isDead flag
-        //animator.SetTrigger("Dead");
-        //isDead = true; // Mark the alien as dead
+        //    // Set the Dead state and update isDead flag
+        //    //animator.SetTrigger("Dead");
+        //    //isDead = true; // Mark the alien as dead
+        //
     }
+
+
 }
