@@ -25,44 +25,30 @@ public class RayGun : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Player.Enable();
-        inputActions.Player.Stab.performed += ctx => Shoot();
     }
 
     private void OnDisable()
     {
         inputActions.Player.Disable();
-        inputActions.Player.Stab.performed -= ctx => Shoot();
     }
 
 
-    //void Update()
-    //{
-    //    // Shoots if gun is equipped
-    //    if (equipGun.isEquipped && equipGun != null)
-    //    {
-    //        if (Input.GetMouseButton(0))
-    //        {
-    //            if (Time.time > m_shootRateTimeStamp)
-    //            {
-    //                shootRay();
-    //                m_shootRateTimeStamp = Time.time + shootRate;
-    //            }
-    //        }
-    //    }
-    //}
-
-    void Shoot()
+    void Update()
     {
+        // Shoots if gun is equipped
         if (equipGun.isEquipped && equipGun != null)
         {
-            if (Time.time > m_shootRateTimeStamp)
+            if (inputActions.Player.Shoot.ReadValue<float>() > 0)
             {
-                shootRay();
-                m_shootRateTimeStamp = Time.time + shootRate;
+                if (Time.time > m_shootRateTimeStamp)
+                {
+                    shootRay();
+                    m_shootRateTimeStamp = Time.time + shootRate;
+                }
             }
         }
-    }
 
+    }
 
     void shootRay()
     {
@@ -81,22 +67,12 @@ public class RayGun : MonoBehaviour
                 {
                     alien.TakeDamage();
                 }
-            }
 
-
-
-            if (hit.collider.CompareTag("RhinoAlien"))
-            {
-                RhinoAlienBehaviour alien = hit.collider.GetComponent<RhinoAlienBehaviour>();
-                if (alien != null)
-                {
-                    alien.TakeDamage();
-                }
             }
         }
 
     }
 
-
-
 }
+
+
