@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   pickUpRange: 3
+  canBePicked: 1
 --- !u!54 &6510379844720593180
 Rigidbody:
   m_ObjectHideFlags: 0
