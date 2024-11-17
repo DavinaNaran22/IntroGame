@@ -4702,11 +4702,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb50a6604224184cb6473189b7b3ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 533529398}
+  Player: {fileID: 690467031}
   shootingPoint: {fileID: 309001062}
   detectionRadius: 15
   animator: {fileID: 775110482}
-  playerEquipment: {fileID: 533529400}
+  playerEquipment: {fileID: 0}
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 0.5
 --- !u!65 &775110484
@@ -5778,6 +5778,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
       insertIndex: -1
       addedObject: {fileID: 775110483}
+    - targetCorrespondingSourceObject: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 775110484}
   m_SourcePrefab: {fileID: 100100000, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
 --- !u!1 &904951829
 GameObject:
@@ -11071,11 +11074,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4668801327d6a743a4c4b9651c3d18a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 533529398}
+  Player: {fileID: 690467031}
   shootingPoint: {fileID: 1080118627}
   detectionRadius: 15
   animator: {fileID: 1492018450}
-  playerEquipment: {fileID: 533529400}
+  playerEquipment: {fileID: 0}
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 0.3
 --- !u!1001 &1773015103

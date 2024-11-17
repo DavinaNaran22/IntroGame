@@ -62,7 +62,7 @@ public class GreenAlienBehavior : FindPlayerTransform
         }
         
         GameObject laser = GameObject.Instantiate(shotPrefab, shootingPoint.position, Quaternion.identity);
-        Vector3 targetPosition = player.position;
+        Vector3 targetPosition = Player.position;
 
         // Aim the laser at the player
         laser.transform.LookAt(targetPosition);

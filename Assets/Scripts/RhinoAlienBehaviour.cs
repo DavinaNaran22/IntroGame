@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RhinoAlienBehaviour : MonoBehaviour
+public class RhinoAlienBehaviour : FindPlayerTransform
 {
-    public Transform player;
     public Transform shootingPoint;
     public float detectionRadius = 5f;
     public Animator animator;
@@ -22,7 +21,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
     {
         if (isDead) return; // Stop any further updates if the alien is dead
 
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, Player.position);
 
         if (distanceToPlayer <= detectionRadius && !playerNearby)
         {
@@ -63,7 +62,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
         }
 
         GameObject laser = GameObject.Instantiate(shotPrefab, shootingPoint.position, Quaternion.identity);
-        Vector3 targetPosition = player.position;
+        Vector3 targetPosition = Player.position;
 
         // Aim the laser at the player
         laser.transform.LookAt(targetPosition);
