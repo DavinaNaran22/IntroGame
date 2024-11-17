@@ -1,9 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class GreenAlienBehavior : MonoBehaviour
+public class GreenAlienBehavior : FindPlayerTransform
 {
-    public Transform player;
     public Transform shootingPoint;
     public float detectionRadius = 5f;
     public Animator animator;
@@ -19,9 +18,10 @@ public class GreenAlienBehavior : MonoBehaviour
 
     private void Update()
     {
+        base.GetPlayerTransform();
         if (isDead) return; // Stop any further updates if the alien is dead
 
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, Player.position);
 
         if (distanceToPlayer <= detectionRadius && !playerNearby)
         {
@@ -62,7 +62,7 @@ public class GreenAlienBehavior : MonoBehaviour
         }
         
         GameObject laser = GameObject.Instantiate(shotPrefab, shootingPoint.position, Quaternion.identity);
-        Vector3 targetPosition = player.position;
+        Vector3 targetPosition = Player.position;
 
         // Aim the laser at the player
         laser.transform.LookAt(targetPosition);
