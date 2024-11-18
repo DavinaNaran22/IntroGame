@@ -10,6 +10,7 @@ TagManager:
   - BoxContainer
   - RepairText
   - RhinoAlien
+  - ShipPartManager
   layers:
   - Default
   - TransparentFX
