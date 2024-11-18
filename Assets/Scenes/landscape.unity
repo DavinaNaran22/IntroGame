@@ -4679,7 +4679,6 @@ MonoBehaviour:
   moveSpeed: 2
   rotationSpeed: 5
   paceAreaSize: {x: 20, y: 20}
-  animator: {fileID: 0}
 --- !u!95 &775110482 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
@@ -7112,18 +7111,22 @@ MonoBehaviour:
     BoxToSpawn: {fileID: 7574814485825049976, guid: 5484d7160cc54bc4ab990deb5af88046, type: 3}
     SpawnPosition: {x: 417.00363, y: 0.73, z: 416.52396}
     SceneSpawnIn: landscape
+    BoxDestroyed: 0
   box2:
     BoxToSpawn: {fileID: 7574814485825049976, guid: 5484d7160cc54bc4ab990deb5af88046, type: 3}
     SpawnPosition: {x: 477.02176, y: 0.506, z: 425.86066}
     SceneSpawnIn: landscape
+    BoxDestroyed: 0
   box3:
     BoxToSpawn: {fileID: 7574814485825049976, guid: 5484d7160cc54bc4ab990deb5af88046, type: 3}
     SpawnPosition: {x: 441.53848, y: 1.8742752, z: 466.33853}
     SceneSpawnIn: landscape
+    BoxDestroyed: 0
   box4:
     BoxToSpawn: {fileID: 7574814485825049976, guid: 5484d7160cc54bc4ab990deb5af88046, type: 3}
     SpawnPosition: {x: 381.53833, y: 0.2806177, z: 406.348}
     SceneSpawnIn: landscape
+    BoxDestroyed: 0
   canAddBoxes: 1
 --- !u!4 &1055224485
 Transform:
@@ -7471,21 +7474,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7030b90a096234200932d5eacd534184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1055224483}
-        m_TargetAssemblyTypeName: InstantiateParts, Assembly-CSharp
-        m_MethodName: CanSpawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   scene: Interior
   spawnPoint: {x: 501.08, y: 9.105375, z: 437.419}
 --- !u!1 &1098549757
@@ -10875,7 +10863,6 @@ MonoBehaviour:
   moveSpeed: 2
   rotationSpeed: 5
   paceAreaSize: {x: 20, y: 20}
-  animator: {fileID: 0}
 --- !u!65 &1769293001
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17757,9 +17744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7030b90a096234200932d5eacd534184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChange:
-    m_PersistentCalls:
-      m_Calls: []
   scene: CaveScene
   spawnPoint: {x: 250.905, y: 13.527452, z: 400.021}
 --- !u!4 &2053106010 stripped
