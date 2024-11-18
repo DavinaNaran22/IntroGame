@@ -4742,6 +4742,7 @@ MonoBehaviour:
   moveSpeed: 2
   rotationSpeed: 5
   paceAreaSize: {x: 20, y: 20}
+  animator: {fileID: 0}
 --- !u!95 &775110482 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
@@ -9343,6 +9344,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9566128, guid: fdc7c645919f60047929b2f994266803, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -10844,6 +10849,7 @@ MonoBehaviour:
   moveSpeed: 2
   rotationSpeed: 5
   paceAreaSize: {x: 20, y: 20}
+  animator: {fileID: 0}
 --- !u!65 &1769293001
 BoxCollider:
   m_ObjectHideFlags: 0
