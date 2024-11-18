@@ -9,7 +9,6 @@ public class AlienMoving : MonoBehaviour
     public float moveSpeed = 2f;
     public float rotationSpeed = 5f; // Speed of rotation when pacing or facing the player
     public Vector2 paceAreaSize = new Vector2(5, 5);
-    public Animator animator;
 
     private Vector3 startPosition;
     private Vector3 targetPosition;
@@ -19,10 +18,6 @@ public class AlienMoving : MonoBehaviour
         // Set the starting position as the center of the pacing area
         startPosition = transform.position;
         SetNewTargetPosition();
-        if (animator != null)
-        {
-            animator.SetBool("isWalking", true);
-        }
     }
 
     private void Update()
@@ -33,10 +28,6 @@ public class AlienMoving : MonoBehaviour
         {
             // Face the player if within the detection radius
             FacePlayer();
-            if (animator != null)
-            {
-                animator.SetBool("isWalking", false);
-            }
         }
         else
         {
@@ -60,19 +51,10 @@ public class AlienMoving : MonoBehaviour
         // Move towards the target position
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
-        if (animator != null)
-        {
-            animator.SetBool("isWalking", true);
-        }
-
         // Check if we reached the target position, and set a new one if so
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
             SetNewTargetPosition();
-            if (animator != null)
-            {
-                animator.SetBool("isWalking", false);
-            }
         }
     }
 
