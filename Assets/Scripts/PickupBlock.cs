@@ -18,7 +18,7 @@ public class PickupBlock : FindPlayerTransform
     void AssignPlayerComponents()
     {
         base.GetPlayerTransform();
-        playerController = Player.GetComponent<PlayerController>();
+        if (playerController == null) playerController = Player.GetComponent<PlayerController>();
     }
 
     // Start is called before the first frame update
@@ -78,7 +78,10 @@ public class PickupBlock : FindPlayerTransform
                 Destroy(this.gameObject);
                 spawnBox.BoxDestroyed = true;
             }
-            Drop();
+            else
+            {
+                Drop();
+            }
         }
     }
 
