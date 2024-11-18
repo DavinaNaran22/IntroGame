@@ -119,6 +119,16 @@ public class EquipKnife : MonoBehaviour
                     break;
                 }
             }
+
+            if (hit.CompareTag("RhinoAlien"))
+            {
+                RhinoAlienBehaviour alien = hit.GetComponent<RhinoAlienBehaviour>();
+                if (alien != null)
+                {
+                    alien.TakeDamage();
+                    break;
+                }
+            }
         }
     }
 
