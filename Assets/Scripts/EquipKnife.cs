@@ -88,17 +88,21 @@ public class EquipKnife : MonoBehaviour
 
         // Move knife forward
         Vector3 targetPosition = originalPosition + knife.transform.forward * stabDistance;
-        while (Vector3.Distance(knife.transform.localPosition, targetPosition) > 0.01f)
+        Vector3 arcPosition = targetPosition + knife.transform.up * (stabDistance / 4);
+        while (Vector3.Distance(knife.transform.localPosition, arcPosition) > 0.01f)
         {
-            knife.transform.localPosition = Vector3.MoveTowards(knife.transform.localPosition, targetPosition, stabSpeed * Time.deltaTime);
+            knife.transform.localPosition = Vector3.MoveTowards(knife.transform.localPosition, arcPosition, stabSpeed * Time.deltaTime);
             DetectAlienHit();
             yield return null;
         }
+        knife.transform.localPosition = targetPosition;
+        DetectAlienHit();
+        yield return new WaitForSeconds(0.1f);
 
         // Retract knife back to original position
         while (Vector3.Distance(knife.transform.localPosition, originalPosition) > 0.01f)
         {
-            knife.transform.localPosition = Vector3.MoveTowards(knife.transform.localPosition, originalPosition, stabSpeed * Time.deltaTime);
+            knife.transform.localPosition = Vector3.MoveTowards(knife.transform.localPosition, originalPosition, stabSpeed * Time.deltaTime * 2);
             yield return null;
         }
 
