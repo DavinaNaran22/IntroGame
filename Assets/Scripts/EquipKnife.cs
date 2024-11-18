@@ -91,6 +91,7 @@ public class EquipKnife : MonoBehaviour
         while (Vector3.Distance(knife.transform.localPosition, targetPosition) > 0.01f)
         {
             knife.transform.localPosition = Vector3.MoveTowards(knife.transform.localPosition, targetPosition, stabSpeed * Time.deltaTime);
+            DetectAlienHit();
             yield return null;
         }
 
@@ -102,6 +103,23 @@ public class EquipKnife : MonoBehaviour
         }
 
         isStabbing = false;
+    }
+
+    private void DetectAlienHit()
+    {
+        Collider[] hits = Physics.OverlapSphere(knife.transform.position, 7f);
+        foreach (var hit in hits)
+        {
+            if (hit.CompareTag("Alien"))
+            {
+                GreenAlienBehavior alien = hit.GetComponent<GreenAlienBehavior>();
+                if (alien != null)
+                {
+                    alien.TakeDamage();
+                    break;
+                }
+            }
+        }
     }
 
 
