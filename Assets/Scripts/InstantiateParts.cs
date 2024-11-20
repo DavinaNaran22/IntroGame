@@ -1,46 +1,38 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class InstantiateParts : Singleton<InstantiateParts>
 {
-    [SerializeField] SpawnBox box1;
-    [SerializeField] SpawnBox box2;
-    [SerializeField] SpawnBox box3;
-    [SerializeField] SpawnBox box4;
-    public bool canAddBoxes = true;
+    [SerializeField] private GameObject SpaceshipPart;
+    [SerializeField] private Vector3 boxPos1 = new Vector3(417.003632f, 0.730000019f, 416.523956f);
+    [SerializeField] private Vector3 boxPos2 = new Vector3(477.021759f, 0.505999982f, 425.860657f);
+    [SerializeField] private Vector3 boxPos3 = new Vector3(441.538483f, 1.87427521f, 466.338531f);
+    [SerializeField] private Vector3 boxPos4 = new Vector3(381.53833f, 0.280617714f, 406.347992f);
+    private Boolean hasAddedParts = false;
 
-    // Can't add in Start() since it's only ever called once
-    // This is a problem if a scenes is loaded multiple times
-    // So parts are 'added' in Update()
     private void Update()
     {
-        if (canAddBoxes)
+        Scene activeScene = SceneManager.GetActiveScene();
+        if (activeScene.name == "landscape" && !hasAddedParts)
         {
-            AddPart(box1);
-            AddPart(box2);
-            AddPart(box3);
-            AddPart(box4);
-            canAddBoxes = false;
+            AddPart(boxPos1);
+            AddPart(boxPos2);
+            AddPart(boxPos3);
+            AddPart(boxPos4);
+            hasAddedParts = true;
+        }
+        if (activeScene.name != "landscape")
+        {
+            hasAddedParts = false;
         }
     }
 
-    // Instantiate box @ vector and assign it its spawn box
-    private void AddPart(SpawnBox box)
+    // Instantiate box @ vector
+    private void AddPart(Vector3 boxPos)
     {
-        if (box.CanInstantiate())
-        {
-            Debug.Log("Instantiating box at " + box.SpawnPosition);
-            GameObject boxGO = Instantiate(box.BoxToSpawn, box.SpawnPosition, Quaternion.identity);
-            boxGO.GetComponent<PickupBlock>().spawnBox = box;
-            
-        }
-    }
-
-    // Called when scene changes to allow boxes to spawn
-    public void CanSpawn()
-    {
-        canAddBoxes = true;
+        GameObject box = Instantiate(SpaceshipPart, boxPos, Quaternion.identity); 
     }
 }
-        
