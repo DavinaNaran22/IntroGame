@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.28676468, g: 0.28676468, b: 0.28676468, a: 1}
   m_FogMode: 3
@@ -38,13 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.002063206, g: 0.0019480612, b: 0.0021180937, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
-  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -278,7 +277,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_C (1)
@@ -557,7 +556,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (7)
@@ -625,7 +624,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A
@@ -698,7 +697,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A
@@ -709,7 +708,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1039703904}
+      addedObject: {fileID: 1039703907}
   m_SourcePrefab: {fileID: 100100000, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
 --- !u!4 &145686947 stripped
 Transform:
@@ -746,13 +745,90 @@ Transform:
   m_GameObject: {fileID: 180540478}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 255.9, y: 15.6, z: 405.8}
+  m_LocalPosition: {x: 7.37, y: 6.112198, z: 13.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1837845475}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &184568402
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1337358678914423229, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: repairText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110719774463065390, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285682193500642077, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285682193500642077, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285682193500642077, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285682193500642077, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285682193500642077, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285682193500642077, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285682193500642077, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999612
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285682193500642077, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -1.2535523e-18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285682193500642077, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.008809001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285682193500642077, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 3.0637953e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285682193500642077, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285682193500642077, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 1.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285682193500642077, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734059243528389235, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6eef166a8143965419f14630464b4b4c, type: 3}
 --- !u!1001 &187748052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -816,7 +892,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (15)
@@ -861,37 +937,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2095369989905462367, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
---- !u!1 &208158602
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 208158603}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &208158603
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208158602}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 250.905, y: 13.527452, z: 400.021}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &230603812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1244,7 +1289,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 34b1aa4cc54f54561a6ca9ae0ee3f5e4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: 34b1aa4cc54f54561a6ca9ae0ee3f5e4, type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A
@@ -1252,7 +1297,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 34b1aa4cc54f54561a6ca9ae0ee3f5e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1817483820}
   m_SourcePrefab: {fileID: 100100000, guid: 34b1aa4cc54f54561a6ca9ae0ee3f5e4, type: 3}
 --- !u!1001 &289162757
 PrefabInstance:
@@ -1317,7 +1365,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (11)
@@ -1390,7 +1438,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (13)
@@ -1498,7 +1546,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_C (2)
@@ -1574,7 +1622,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (6)
@@ -1650,7 +1698,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (14)
@@ -1795,7 +1843,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (16)
@@ -1903,7 +1951,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (15)
@@ -2011,7 +2059,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (18)
@@ -2119,7 +2167,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: d7364729e543e4805a3f6b41496f9eae, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (4)
@@ -2195,7 +2243,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (16)
@@ -2486,7 +2534,7 @@ Transform:
   m_GameObject: {fileID: 653086935}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 276.83, y: 15.6, z: 456.36}
+  m_LocalPosition: {x: 28.3, y: 6.112198, z: 64.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2556,7 +2604,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (11)
@@ -2695,7 +2743,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (2)
@@ -3277,7 +3325,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (17)
@@ -3491,7 +3539,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: d7364729e543e4805a3f6b41496f9eae, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (2)
@@ -3560,7 +3608,7 @@ Transform:
   m_GameObject: {fileID: 983977209}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 222.63, y: 15.6, z: 487.56}
+  m_LocalPosition: {x: -25.9, y: 6.112198, z: 95.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3630,7 +3678,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (5)
@@ -3648,7 +3696,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
   m_PrefabInstance: {fileID: 145686946}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &1039703904
+--- !u!64 &1039703907
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3733,7 +3781,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: d7364729e543e4805a3f6b41496f9eae, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (17)
@@ -3837,7 +3885,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A
@@ -3918,7 +3966,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 32a7426e15734484f921ba2766a06d14, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (14)
@@ -4018,7 +4066,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_C
@@ -4099,7 +4147,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (13)
@@ -4357,7 +4405,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 34b1aa4cc54f54561a6ca9ae0ee3f5e4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: d7364729e543e4805a3f6b41496f9eae, type: 2}
     - target: {fileID: 919132149155446097, guid: 34b1aa4cc54f54561a6ca9ae0ee3f5e4, type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (2)
@@ -4734,15 +4782,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cf22423d89624030bf41fedcba3854a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 250.93
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cf22423d89624030bf41fedcba3854a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.2378025
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cf22423d89624030bf41fedcba3854a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 398.06
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cf22423d89624030bf41fedcba3854a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4775,7 +4823,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 9cf22423d89624030bf41fedcba3854a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: 9cf22423d89624030bf41fedcba3854a, type: 3}
       propertyPath: m_Name
       value: Ground_Cave_A
@@ -4852,7 +4900,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_C (1)
@@ -4955,7 +5003,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (18)
@@ -5049,15 +5097,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 71e2a4b677cd74f87ab39c9cc86e6efb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 250.23
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 71e2a4b677cd74f87ab39c9cc86e6efb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.327803
+      value: 4.84
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 71e2a4b677cd74f87ab39c9cc86e6efb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 397.62
+      value: 5.56
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 71e2a4b677cd74f87ab39c9cc86e6efb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5090,7 +5138,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 71e2a4b677cd74f87ab39c9cc86e6efb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: 71e2a4b677cd74f87ab39c9cc86e6efb, type: 3}
       propertyPath: m_Name
       value: model
@@ -5262,7 +5310,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (12)
@@ -5398,7 +5446,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_C (1)
@@ -5501,7 +5549,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (10)
@@ -5711,7 +5759,7 @@ Transform:
   m_GameObject: {fileID: 1695245819}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 285.43, y: 15.6, z: 487.56}
+  m_LocalPosition: {x: 36.9, y: 6.112198, z: 95.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5743,7 +5791,7 @@ Transform:
   m_GameObject: {fileID: 1697816346}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 237.23, y: 15.6, z: 456.36}
+  m_LocalPosition: {x: -11.3, y: 6.112198, z: 64.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5775,7 +5823,7 @@ Transform:
   m_GameObject: {fileID: 1723249500}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 255.9, y: 15.6, z: 456.36}
+  m_LocalPosition: {x: 7.37, y: 6.112198, z: 64.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5875,10 +5923,12 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+  - {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5917,7 +5967,7 @@ Transform:
   m_GameObject: {fileID: 1761794024}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 162.53, y: 11.187802, z: 635.06}
+  m_LocalPosition: {x: -86, y: 1.7, z: 243}
   m_LocalScale: {x: 40, y: 20, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6091,7 +6141,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_C (2)
@@ -6109,6 +6159,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
   m_PrefabInstance: {fileID: 1814631149}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1817483817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 34b1aa4cc54f54561a6ca9ae0ee3f5e4, type: 3}
+  m_PrefabInstance: {fileID: 283382998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1817483820
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817483817}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1168786676106674611, guid: 34b1aa4cc54f54561a6ca9ae0ee3f5e4, type: 3}
 --- !u!1 &1818935889
 GameObject:
   m_ObjectHideFlags: 0
@@ -6134,7 +6211,7 @@ Transform:
   m_GameObject: {fileID: 1818935889}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 255.9, y: 15.6, z: 426.46}
+  m_LocalPosition: {x: 7.37, y: 6.112198, z: 34.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6283,7 +6360,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (8)
@@ -6359,7 +6436,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 34b1aa4cc54f54561a6ca9ae0ee3f5e4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: 34b1aa4cc54f54561a6ca9ae0ee3f5e4, type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (3)
@@ -6399,9 +6476,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859177181}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 1
-  m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.5
   m_Range: 10
@@ -6462,7 +6538,7 @@ Transform:
   m_GameObject: {fileID: 1859177181}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 255.387, y: 10.877802, z: 412.861}
+  m_LocalPosition: {x: 6.857, y: 1.3899997, z: 20.801}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6558,7 +6634,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (9)
@@ -6641,7 +6717,7 @@ PrefabInstance:
     - target: {fileID: -8832907690923769944, guid: 7965e55e17644450197bef8ae6595113, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 80e99f0fee278dd40bf3618dd8a21eee, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: -8679921383154817045, guid: 7965e55e17644450197bef8ae6595113, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.19468552
@@ -6697,7 +6773,7 @@ PrefabInstance:
     - target: {fileID: -2177348489872506450, guid: 7965e55e17644450197bef8ae6595113, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: d43ae590d6f04de48817c416343eaba7, type: 2}
+      objectReference: {fileID: 2100000, guid: 5d25ee016f0ee41f49ee4d7ea0fd6faf, type: 2}
     - target: {fileID: 919132149155446097, guid: 7965e55e17644450197bef8ae6595113, type: 3}
       propertyPath: m_Name
       value: CrystalAltarScene
@@ -6705,15 +6781,15 @@ PrefabInstance:
     - target: {fileID: 3116334284312630085, guid: 7965e55e17644450197bef8ae6595113, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 32a7426e15734484f921ba2766a06d14, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 5324335540819017740, guid: 7965e55e17644450197bef8ae6595113, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 5372104360625066931, guid: 7965e55e17644450197bef8ae6595113, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 80e99f0fee278dd40bf3618dd8a21eee, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -6860,7 +6936,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_C
@@ -7015,9 +7091,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038775182}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 1, g: 0.4165901, b: 0.41176474, a: 1}
   m_Intensity: 2
   m_Range: 6
@@ -7132,7 +7207,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e2405bd84f72f4a76a96eaa732b5df9f, type: 3}
       propertyPath: m_Name
       value: Cave_Wall_Rocks_A (3)
@@ -7208,7 +7283,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 44d9dfc871fbc4e8d9d958c7c9c42e67, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}
+      objectReference: {fileID: 2100000, guid: 8559646d456f945d9b019510125074e5, type: 2}
     - target: {fileID: 919132149155446097, guid: 44d9dfc871fbc4e8d9d958c7c9c42e67, type: 3}
       propertyPath: m_Name
       value: Wall_Mines_Entrance_A
@@ -7264,8 +7339,8 @@ SceneRoots:
   - {fileID: 653086936}
   - {fileID: 1695245820}
   - {fileID: 983977210}
+  - {fileID: 184568402}
   - {fileID: 1419387240}
   - {fileID: 1761794028}
   - {fileID: 1859177183}
   - {fileID: 1497884932}
-  - {fileID: 208158603}
