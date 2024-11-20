@@ -1,8 +1,9 @@
-using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     private int boxesCollected;
     public UnityEvent collectBoxEvent = new UnityEvent(); // For other scripts to invoke/call

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlienMoving : MonoBehaviour
+public class AlienMoving : FindPlayerTransform
 {
-    public Transform player;
     public float detectionRadius = 5f;
     public float moveSpeed = 2f;
     public float rotationSpeed = 5f; // Speed of rotation when pacing or facing the player
@@ -13,7 +12,7 @@ public class AlienMoving : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 targetPosition;
 
-    private void Start()
+    void Start()
     {
         // Set the starting position as the center of the pacing area
         startPosition = transform.position;
@@ -22,7 +21,8 @@ public class AlienMoving : MonoBehaviour
 
     private void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        base.GetPlayerTransform();
+        float distanceToPlayer = Vector3.Distance(transform.position, Player.position);
 
         if (distanceToPlayer <= detectionRadius)
         {
@@ -61,7 +61,7 @@ public class AlienMoving : MonoBehaviour
     private void FacePlayer()
     {
         // Calculate direction to the player
-        Vector3 directionToPlayer = (player.position - transform.position).normalized;
+        Vector3 directionToPlayer = (Player.position - transform.position).normalized;
         directionToPlayer.y = 0; // Keep the rotation on the horizontal plane
 
         // Rotate smoothly to face the player
