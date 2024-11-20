@@ -3,14 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - UIManager
-  - Alien
-  - WeaponParent
-  - BoxContainer
-  - RepairText
-  - RhinoAlien
-  - ShipPartManager
+  tags: []
   layers:
   - Default
   - TransparentFX

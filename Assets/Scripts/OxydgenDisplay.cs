@@ -1,20 +1,23 @@
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class OxygenDisplay : MonoBehaviour
 {
-    public Image OxygenBarImage; // Image for the oxygen bar
-    public PlayerHealth health; // Object of player's health to access restart function
-    public const float maxOxygen = 7200f; // Total oxygen time (2 hours in seconds)
+    public TextMeshProUGUI oxygenText; // display text for oxygen
+    public PlayerHealth health;  //object of player's health to access restart function
+    public const float totalOxygenTime = 7200f; // 2 hours in seconds
     private float currentOxygenTime;
+  
+
 
     void Start()
     {
-        currentOxygenTime = maxOxygen; // Initialize with full oxygen time (2 hours)
-        if (SceneManager.GetActiveScene().name == "landscape")
+        currentOxygenTime = totalOxygenTime; // Initialize full oxygen time
+        if(SceneManager.GetActiveScene().name == "landscape")
         {
-            UpdateOxygenBar();
+            UpdateOxygenText();
         }
     }
 
@@ -22,20 +25,34 @@ public class OxygenDisplay : MonoBehaviour
     {
         if (currentOxygenTime > 0)
         {
-            currentOxygenTime -= Time.deltaTime; // Decrease oxygen time over real-time
-            UpdateOxygenBar();
+            currentOxygenTime -= Time.deltaTime; // Decrease oxygen time over real time
+            UpdateOxygenText();
         }
         else if (currentOxygenTime <= 0)
         {
             currentOxygenTime = 0; // Ensure the countdown stops at 0
-            Debug.Log("Oxygen has run out :(");
-            health.RestartScene(); // Restart scene when oxygen runs out
+            Debug.Log("Oxygen is run out :(");
+            UpdateOxygenText();
+            health.RestartScene();
         }
     }
 
-    void UpdateOxygenBar()
+    
+
+    void UpdateOxygenText()
     {
-        // Update the fill amount of the oxygen bar based on current oxygen time
-        OxygenBarImage.fillAmount = currentOxygenTime / maxOxygen;
+        // Calculate time left
+        int hours = Mathf.FloorToInt(currentOxygenTime / 3600); // Get hours
+        int minutes = Mathf.FloorToInt((currentOxygenTime % 3600) / 60); // Get minutes
+        int seconds = Mathf.FloorToInt(currentOxygenTime % 60); // Get seconds
+
+        // Calculate percentage left
+        float percentage = (currentOxygenTime / totalOxygenTime) * 100f;
+
+        // Format time to always show two digits
+        string timeString = string.Format("{0:00}:{1:00}:{2:00}", hours, minutes, seconds);
+
+        // Update TextMeshPro UI
+        oxygenText.text = string.Format("Oxygen Levels: {0:0}%\nTime Left: {1}", percentage, timeString);
     }
 }
