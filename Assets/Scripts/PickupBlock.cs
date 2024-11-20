@@ -1,23 +1,24 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class PickupBlock : FindPlayerTransform
 {
+    [SerializeField] private float pickUpRange = 3f;
+    [SerializeField] private bool canBePicked = true;
     private Transform boxContainer;
     private Rigidbody boxRb;
     private PlayerController playerController; // To change num of boxes collected
-    [SerializeField] private float pickUpRange = 3f;
     private bool isHoldingItem = false;
-    [SerializeField] private bool canBePicked = true;
     private const float ADD_GROUND_Y = 0.26F; // To stop box from ending up halfway in the ground
-    public Scene scenePlacedIn;
+    public SpawnBox spawnBox;
 
     // Assign all the components related to the Player game object
     void AssignPlayerComponents()
     {
         base.GetPlayerTransform();
-        playerController = Player.GetComponent<PlayerController>();
+        if (playerController == null) playerController = Player.GetComponent<PlayerController>();
     }
 
     // Start is called before the first frame update
@@ -27,7 +28,6 @@ public class PickupBlock : FindPlayerTransform
         boxContainer = GameObject.FindWithTag("BoxContainer").transform;
         boxRb = this.gameObject.GetComponent<Rigidbody>();
         boxRb.isKinematic = true; // So block doesn't move
-        scenePlacedIn = SceneManager.GetActiveScene();
     }
 
     // Returns position of ground or of transform if no ground 
@@ -76,8 +76,12 @@ public class PickupBlock : FindPlayerTransform
                 playerController.collectBoxEvent.Invoke();
                 canBePicked = false;
                 Destroy(this.gameObject);
+                spawnBox.BoxDestroyed = true;
             }
-            Drop();
+            else
+            {
+                Drop();
+            }
         }
     }
 
@@ -86,24 +90,15 @@ public class PickupBlock : FindPlayerTransform
         isHoldingItem = true;
         transform.SetParent(boxContainer);
         transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity); // box moved to same position as parent (boxContainer) w/o rotating it
-        scenePlacedIn = SceneManager.GetActiveScene();
-        Debug.Log("Player is holding an item");
     }
 
-    private void Drop()
+    public void Drop()
     {
         Vector3 groundPos = getGroundPos();
         transform.SetPositionAndRotation(new Vector3(transform.position.x, groundPos.y + ADD_GROUND_Y, transform.position.z), Quaternion.identity);
-        Debug.Log("Player has dropped their item");
-        KeepBlockInScene();
-    }
-
-    // After dropping block, it should stay in the scene it's currently in
-    // I.e. shouldn't 'respawn' in scene it originated in
-    private void KeepBlockInScene()
-    {
         Scene activeScene = SceneManager.GetActiveScene();
+        spawnBox.UpdateBoxDetails(this.transform.position, activeScene.name);
+        // Acts as destory on load - can't figure out why this gets marked as destroy on load w/o this...
         SceneManager.MoveGameObjectToScene(this.gameObject, activeScene);
-        scenePlacedIn = activeScene;
     }
 }
