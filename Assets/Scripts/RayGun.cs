@@ -69,6 +69,15 @@ public class RayGun : MonoBehaviour
                 }
 
             }
+
+            if (hit.collider.CompareTag("RhinoAlien"))
+            {
+                RhinoAlienBehaviour alien = hit.collider.GetComponent<RhinoAlienBehaviour>();
+                if (alien != null)
+                {
+                    alien.TakeDamage();
+                }
+            }
         }
 
     }
