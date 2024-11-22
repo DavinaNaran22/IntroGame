@@ -81,6 +81,7 @@ public class LightningController : MonoBehaviour
         enabled = true; // Resume lightning behavior
     }
 
+    // Disable the lightning and audio
     public void DisableLightning()
     {
         enabled = false; // Stop lightning behavior

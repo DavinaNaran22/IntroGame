@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class WeatherManager : MonoBehaviour
 {
-    public RainController rainController;   // Reference to the RainController script
-    public FogController fogController;     // Reference to the FogController script
+    public RainController rainController; // Reference to the RainController script
+    public FogController fogController; // Reference to the FogController script
     public LightningController lightningController; // Reference to the LightningController script
 
     public float minWeatherInterval = 30f;  // Minimum time between weather changes

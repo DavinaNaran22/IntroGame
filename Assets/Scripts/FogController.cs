@@ -10,24 +10,27 @@ public class FogController : MonoBehaviour
 
     void Start()
     {
-        // Initialize fog settings
+        // Initialise fog settings
         RenderSettings.fog = true;
         RenderSettings.fogDensity = lightFogDensity; // Start with light fog
         currentFogDensity = lightFogDensity;
     }
 
+    // Increase fog density for heavy rain
     public void IncreaseFogDensity()
     {
         StopAllCoroutines(); // Stop any ongoing transitions
         StartCoroutine(TransitionFogDensity(heavyFogDensity));
     }
 
+    // Decrease fog density for light rain or no rain
     public void DecreaseFogDensity()
     {
         StopAllCoroutines(); // Stop any ongoing transitions
         StartCoroutine(TransitionFogDensity(lightFogDensity));
     }
 
+    // Coroutine to transition fog density over time
     private System.Collections.IEnumerator TransitionFogDensity(float targetDensity)
     {
         float elapsedTime = 0f;

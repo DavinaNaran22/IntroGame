@@ -33,6 +33,7 @@ public class RainController : MonoBehaviour
         StartLightRain();
     }
 
+    // Light rain
     public void StartLightRain()
     {
         elapsedTime = 0f;
@@ -41,6 +42,7 @@ public class RainController : MonoBehaviour
         SetRainParameters(lightRainRate, lightRainSpeed);
     }
 
+    // Heavy rain
     public void StartHeavyRain()
     {
         elapsedTime = 0f;
@@ -49,6 +51,7 @@ public class RainController : MonoBehaviour
         SetRainParameters(heavyRainRate, heavyRainSpeed);
     }
 
+    // Stop the rain
     public void StopRain()
     {
         isRaining = false;
@@ -57,6 +60,7 @@ public class RainController : MonoBehaviour
         rainParticleSystem.Stop();
     }
 
+    // Set rain parameters for the ParticleSystem
     void SetRainParameters(float emissionRate, float startSpeed)
     {
         var emission = rainParticleSystem.emission;
@@ -68,6 +72,7 @@ public class RainController : MonoBehaviour
     }
 
 
+    // Fog occurs with rain
     void Update()
     {
         if (isRaining)
