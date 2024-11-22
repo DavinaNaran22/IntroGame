@@ -12,12 +12,15 @@ public class RainController : MonoBehaviour
 
     private float elapsedTime = 0f;
     private bool isRaining = true;
+    public FogController fogController; // Reference to the FogController
+
 
     void Start()
     {
         // Start with light rain settings
         SetRainParameters(lightRainRate, lightRainSpeed);
     }
+
 
     void Update()
     {
@@ -40,6 +43,27 @@ public class RainController : MonoBehaviour
                 StopRain();
             }
         }
+
+
+        if (elapsedTime <= transitionTime)
+        {
+            // Gradually increase rain intensity
+            float t = elapsedTime / transitionTime;
+            float emissionRate = Mathf.Lerp(lightRainRate, heavyRainRate, t);
+            float startSpeed = Mathf.Lerp(lightRainSpeed, heavyRainSpeed, t);
+
+            SetRainParameters(emissionRate, startSpeed);
+
+            // Increase fog density as rain intensifies
+            fogController.IncreaseFogDensity();
+        }
+        else if (elapsedTime >= rainDuration)
+        {
+            // Gradually stop the rain and reduce fog density
+            StopRain();
+            fogController.DecreaseFogDensity();
+        }
+
     }
 
     void SetRainParameters(float emissionRate, float startSpeed)
