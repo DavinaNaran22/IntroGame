@@ -76,5 +76,21 @@ public class LightningController : MonoBehaviour
         audio1.SetActive(false);
     }
 
+    public void EnableLightning()
+    {
+        enabled = true; // Resume lightning behavior
+    }
+
+    public void DisableLightning()
+    {
+        enabled = false; // Stop lightning behavior
+        lightning1.SetActive(false);
+        lightning2.SetActive(false);
+        lightning3.SetActive(false);
+        audio1.SetActive(false);
+        CancelInvoke(); // Cancel any scheduled lightning or thunder
+    }
+
+
 
 }

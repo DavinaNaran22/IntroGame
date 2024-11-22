@@ -13810,6 +13810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1278034661}
+  - component: {fileID: 1278034662}
   m_Layer: 0
   m_Name: Weather
   m_TagString: Untagged
@@ -13835,6 +13836,23 @@ Transform:
   - {fileID: 2088863362}
   m_Father: {fileID: 690467031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1278034662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278034660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f0fb818f04f704589df4bdf0d2ac57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rainController: {fileID: 249464806}
+  fogController: {fileID: 2088863363}
+  lightningController: {fileID: 2035260054}
+  minWeatherInterval: 30
+  maxWeatherInterval: 120
 --- !u!1 &1322639369
 GameObject:
   m_ObjectHideFlags: 0

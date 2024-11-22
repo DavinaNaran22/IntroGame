@@ -15,10 +15,56 @@ public class RainController : MonoBehaviour
     public FogController fogController; // Reference to the FogController
 
 
+    //void Start()
+    //{
+    //    // Start with light rain settings
+    //    SetRainParameters(lightRainRate, lightRainSpeed);
+    //}
+
     void Start()
     {
-        // Start with light rain settings
+        // Automatically find the ParticleSystem if not assigned
+        if (rainParticleSystem == null)
+        {
+            rainParticleSystem = GetComponentInChildren<ParticleSystem>();
+        }
+
+        // Optionally start with light rain for testing
+        StartLightRain();
+    }
+
+    public void StartLightRain()
+    {
+        elapsedTime = 0f;
+        isRaining = true;
+        rainParticleSystem.Play();
         SetRainParameters(lightRainRate, lightRainSpeed);
+    }
+
+    public void StartHeavyRain()
+    {
+        elapsedTime = 0f;
+        isRaining = true;
+        rainParticleSystem.Play();
+        SetRainParameters(heavyRainRate, heavyRainSpeed);
+    }
+
+    public void StopRain()
+    {
+        isRaining = false;
+        var emission = rainParticleSystem.emission;
+        emission.rateOverTime = 0;
+        rainParticleSystem.Stop();
+    }
+
+    void SetRainParameters(float emissionRate, float startSpeed)
+    {
+        var emission = rainParticleSystem.emission;
+        var main = rainParticleSystem.main;
+
+        // Adjust emission rate and particle speed
+        emission.rateOverTime = emissionRate;
+        main.startSpeed = startSpeed;
     }
 
 
@@ -36,11 +82,20 @@ public class RainController : MonoBehaviour
                 float startSpeed = Mathf.Lerp(lightRainSpeed, heavyRainSpeed, t);
 
                 SetRainParameters(emissionRate, startSpeed);
+
+                if (fogController != null)
+                {
+                    fogController.IncreaseFogDensity();
+                }
             }
             else if (elapsedTime >= rainDuration)
             {
                 // Gradually stop the rain
                 StopRain();
+                if (fogController != null)
+                {
+                    fogController.DecreaseFogDensity();
+                }
             }
         }
 
@@ -66,28 +121,17 @@ public class RainController : MonoBehaviour
 
     }
 
-    void SetRainParameters(float emissionRate, float startSpeed)
-    {
-        var emission = rainParticleSystem.emission;
-        var main = rainParticleSystem.main;
 
-        // Set emission rate
-        emission.rateOverTime = emissionRate;
+    //void StopRain()
+    //{
+    //    // Gradually reduce emission to zero
+    //    var emission = rainParticleSystem.emission;
+    //    emission.rateOverTime = Mathf.Lerp(emission.rateOverTime.constant, 0, Time.deltaTime);
 
-        // Set start speed
-        main.startSpeed = startSpeed;
-    }
-
-    void StopRain()
-    {
-        // Gradually reduce emission to zero
-        var emission = rainParticleSystem.emission;
-        emission.rateOverTime = Mathf.Lerp(emission.rateOverTime.constant, 0, Time.deltaTime);
-
-        if (emission.rateOverTime.constant <= 0.1f)
-        {
-            isRaining = false;
-            rainParticleSystem.Stop();
-        }
-    }
+    //    if (emission.rateOverTime.constant <= 0.1f)
+    //    {
+    //        isRaining = false;
+    //        rainParticleSystem.Stop();
+    //    }
+    //}
 }
