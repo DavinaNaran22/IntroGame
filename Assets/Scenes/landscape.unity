@@ -1455,6 +1455,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 249464803}
+  - component: {fileID: 249464806}
   - component: {fileID: 249464805}
   - component: {fileID: 249464804}
   m_Layer: 0
@@ -6277,6 +6278,25 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &249464806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249464802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747d11d3e15abd744afdebce75687246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rainParticleSystem: {fileID: 249464805}
+  lightRainRate: 10
+  heavyRainRate: 200
+  lightRainSpeed: 5
+  heavyRainSpeed: 15
+  transitionTime: 40
+  rainDuration: 60
 --- !u!1001 &254167911
 PrefabInstance:
   m_ObjectHideFlags: 0
