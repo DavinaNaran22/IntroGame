@@ -20,7 +20,7 @@ public class LightningController : MonoBehaviour
         lightning3.SetActive(false);
         audio1.SetActive(false);
 
-        Invoke("CallLightning", 1.75f);
+        Invoke("CallLightning", 20.75f);
     }
 
     // Call the lightning, add time delays for flashing effect
@@ -58,7 +58,7 @@ public class LightningController : MonoBehaviour
         lightning3.SetActive(false);
 
         // Random time delay between lightnings
-        float rand = Random.Range(3.5f, 40f); // CHANGE TO LONGER TIME
+        float rand = Random.Range(37.5f, 78.7f);
         Invoke("CallLightning", rand);
     }
 
