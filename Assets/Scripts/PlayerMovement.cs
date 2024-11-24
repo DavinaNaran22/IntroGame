@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movementInput;
 
     public bool canMove = true;
+    public Vector3 lockCoords; // Used for exiting cockpit
 
     private void Awake()
     {
@@ -85,6 +86,17 @@ public class PlayerMovement : MonoBehaviour
         // Applies gravity to player
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        // If movement is locked and they press escape allow player to move
+        if (Input.GetKeyDown(KeyCode.Escape) && !canMove)
+        {
+            ToggleMovement();
+            if (lockCoords != null)
+            {
+                // Move to previous position before movement was locked
+                this.transform.position = lockCoords;
+            }
+        }
     }
 
     // Makes player jump

@@ -32,6 +32,8 @@ public class TeleportCockpit : FindPlayerTransform
         // If player is near door and presses e
         if (Vector3.Distance(this.transform.position, Player.position) < 5.5 && Input.GetKeyDown(KeyCode.E))
         {
+            playerScript.lockCoords = Player.position;
+
             Debug.Log("Teleported");
             // Teleport to chair
             Player.position = chairCoords; // Doesn't always teleport player...
