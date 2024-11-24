@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TeleportCockpit : FindPlayerTransform
@@ -9,6 +6,12 @@ public class TeleportCockpit : FindPlayerTransform
 
     [SerializeField] private Vector3 chairCoords;
     private PlayerMovement playerScript;
+    private PlayerInputActions inputActions;
+
+    private void Awake()
+    {
+        inputActions = new PlayerInputActions();
+    }
 
     private void Start()
     {
@@ -16,10 +19,23 @@ public class TeleportCockpit : FindPlayerTransform
         playerScript = Player.GetComponent<PlayerMovement>();
     }
 
-    void Update()
+    private void OnEnable()
     {
-        // If player is near door and presses e
-        if (Vector3.Distance(this.transform.position, Player.position) < 5.5 && Input.GetKeyDown(KeyCode.E))
+        inputActions.Player.Enable();
+        inputActions.Player.InteractDoor.performed += ctx => MoveToCockpit();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Player.Disable();
+        inputActions.Player.InteractDoor.performed -= ctx => MoveToCockpit();
+    }
+
+    // Move player to cockpit if they're near the door
+    private void MoveToCockpit()
+    {
+        // If player is near door
+        if (Vector3.Distance(this.transform.position, Player.position) < 5.5)
         {
             playerScript.lockCoords = Player.position;
             playerScript.MoveTo(chairCoords);
@@ -27,5 +43,4 @@ public class TeleportCockpit : FindPlayerTransform
             playerScript.ToggleMovement();
         }
     }
-
 }

@@ -17,7 +17,10 @@ public class PlayerController : Singleton<PlayerController>
     public void CollectBox()
     {
         boxesCollected++;
-        repairText.text = "Spaceship Repairs: " + boxesCollected + "/4";
+        if (repairText != null)
+        {
+            repairText.text = "Spaceship Repairs: " + boxesCollected + "/4";
+        }
         Debug.Log("Boxes collected " + boxesCollected);
     }
 

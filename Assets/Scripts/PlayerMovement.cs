@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     
     bool isCrouching = false; // Tracks if the player is crouching
 
-    private PlayerInputActions inputActions;
+    public PlayerInputActions inputActions;
     private Vector2 movementInput;
 
     public bool canMove = true;
@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Player.Move.canceled += ctx => movementInput = Vector2.zero;
         inputActions.Player.Jump.performed += ctx => Jump();
         inputActions.Player.Crouch.performed += ctx => ToggleCrouch();
+        inputActions.Player.ExitChair.performed += ctx => ExitChair();
     }
 
     private void OnDisable()
@@ -51,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Player.Move.canceled -= ctx => movementInput = Vector2.zero;
         inputActions.Player.Jump.performed -= ctx => Jump();
         inputActions.Player.Crouch.performed -= ctx => ToggleCrouch();
+        inputActions.Player.ExitChair.performed -= ctx => ExitChair();
     }
 
 
@@ -86,17 +88,6 @@ public class PlayerMovement : MonoBehaviour
         // Applies gravity to player
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-
-        // If movement is locked and they press escape allow player to move
-        if (Input.GetKeyDown(KeyCode.Escape) && !canMove)
-        {
-            ToggleMovement();
-            if (lockCoords != null)
-            {
-                // Move to previous position before movement was locked
-                MoveTo(lockCoords);
-            }
-        }
     }
 
     // Makes player jump
@@ -120,11 +111,15 @@ public class PlayerMovement : MonoBehaviour
         canMove = !canMove;
         if (canMove)
         {
-            inputActions.Player.Enable();
+            inputActions.Player.Move.Enable();
+            inputActions.Player.Jump.Enable();
+            inputActions.Player.Crouch.Enable();
         }
         else
         {
-            inputActions.Player.Disable();
+            inputActions.Player.Move.Disable();
+            inputActions.Player.Jump.Disable();
+            inputActions.Player.Crouch.Disable();
         }
     }
 
@@ -135,5 +130,19 @@ public class PlayerMovement : MonoBehaviour
         // Have to call this because character controller overrides player's position
         // And sometimes moving player (like above) doesn't work
         Physics.SyncTransforms();
+    }
+
+    // If movement is locked and allow player to move and if nesc. move them to previous coords
+    private void ExitChair()
+    {
+        if (!canMove)
+        {
+            ToggleMovement();
+            if (lockCoords != null)
+            {
+                // Move to previous position before movement was locked
+                MoveTo(lockCoords);
+            }
+        }
     }
 }
