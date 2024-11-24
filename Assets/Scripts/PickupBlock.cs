@@ -1,23 +1,41 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PickupBlock : FindPlayerTransform
 {
+    public SpawnBox spawnBox;
+    [SerializeField] private float pickUpRange = 3f;
+    [SerializeField] private bool canBePicked = true;
     private Transform boxContainer;
     private Rigidbody boxRb;
     private PlayerController playerController; // To change num of boxes collected
-    [SerializeField] private float pickUpRange = 3f;
     private bool isHoldingItem = false;
-    [SerializeField] private bool canBePicked = true;
     private const float ADD_GROUND_Y = 0.26F; // To stop box from ending up halfway in the ground
-    public Scene scenePlacedIn;
+    private PlayerInputActions inputActions;
+
+
+    private void Awake()
+    {
+        inputActions = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Player.Enable();
+        inputActions.Player.Equip.performed += ctx => ToggleEquip();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Player.Disable();
+        inputActions.Player.Equip.performed -= ctx => ToggleEquip();
+    }
 
     // Assign all the components related to the Player game object
     void AssignPlayerComponents()
     {
         base.GetPlayerTransform();
-        playerController = Player.GetComponent<PlayerController>();
+        if (playerController == null) playerController = Player.GetComponent<PlayerController>();
     }
 
     // Start is called before the first frame update
@@ -27,7 +45,6 @@ public class PickupBlock : FindPlayerTransform
         boxContainer = GameObject.FindWithTag("BoxContainer").transform;
         boxRb = this.gameObject.GetComponent<Rigidbody>();
         boxRb.isKinematic = true; // So block doesn't move
-        scenePlacedIn = SceneManager.GetActiveScene();
     }
 
     // Returns position of ground or of transform if no ground 
@@ -56,27 +73,18 @@ public class PickupBlock : FindPlayerTransform
     void Update()
     {
         AssignPlayerComponents();
+    }
 
+    private void ToggleEquip()
+    {
         Vector3 distanceToPlayer = Player.position - transform.position;
-        // If player isn't holding anything and presses grab button
-        if (!isHoldingItem && canBePicked && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E)) // https://www.youtube.com/watch?v=8kKLUsn7tcg
+        // If player isn't holding anything and presses equip button
+        if (!isHoldingItem && canBePicked && distanceToPlayer.magnitude <= pickUpRange)
         {
             Equip();
         }
-
-        // If player is holding something and presses grab button
-        else if (isHoldingItem && Input.GetKeyDown(KeyCode.E))
+        else if (isHoldingItem && inputActions.Player.Equip.IsPressed())
         {
-            isHoldingItem = false;
-            transform.SetParent(null);
-
-            // If CanBePlacedOn is below, stop it from being grabbed
-            if (GetLayerBelow() == LayerMask.NameToLayer("CanBePlacedOn"))
-            {
-                playerController.collectBoxEvent.Invoke();
-                canBePicked = false;
-                Destroy(this.gameObject);
-            }
             Drop();
         }
     }
@@ -86,24 +94,36 @@ public class PickupBlock : FindPlayerTransform
         isHoldingItem = true;
         transform.SetParent(boxContainer);
         transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity); // box moved to same position as parent (boxContainer) w/o rotating it
-        scenePlacedIn = SceneManager.GetActiveScene();
-        Debug.Log("Player is holding an item");
     }
 
-    private void Drop()
+    public void Drop()
     {
-        Vector3 groundPos = getGroundPos();
-        transform.SetPositionAndRotation(new Vector3(transform.position.x, groundPos.y + ADD_GROUND_Y, transform.position.z), Quaternion.identity);
-        Debug.Log("Player has dropped their item");
-        KeepBlockInScene();
+        isHoldingItem = false;
+        transform.SetParent(null);
+
+        // If CanBePlacedOn is below, stop it from being grabbed and destroy it
+        if (GetLayerBelow() == LayerMask.NameToLayer("CanBePlacedOn"))
+        {
+            PreventPickup();
+        }
+        else
+        {
+            // Actually drop the box
+            Vector3 groundPos = getGroundPos();
+            transform.SetPositionAndRotation(new Vector3(transform.position.x, groundPos.y + ADD_GROUND_Y, transform.position.z), Quaternion.identity);
+            Scene activeScene = SceneManager.GetActiveScene();
+            spawnBox.UpdateBoxDetails(this.transform.position, activeScene.name);
+            // Acts as destory on load - can't figure out why this gets marked as destroy on load w/o this...
+            SceneManager.MoveGameObjectToScene(this.gameObject, activeScene);
+        }
     }
 
-    // After dropping block, it should stay in the scene it's currently in
-    // I.e. shouldn't 'respawn' in scene it originated in
-    private void KeepBlockInScene()
+    // Prevents block from being picked up and destroys it
+    void PreventPickup()
     {
-        Scene activeScene = SceneManager.GetActiveScene();
-        SceneManager.MoveGameObjectToScene(this.gameObject, activeScene);
-        scenePlacedIn = activeScene;
+        playerController.collectBoxEvent.Invoke();
+        canBePicked = false;
+        Destroy(this.gameObject);
+        spawnBox.BoxDestroyed = true;
     }
 }

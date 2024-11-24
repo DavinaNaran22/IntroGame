@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,8 +6,9 @@ public class PlayerSceneTransition: MonoBehaviour
     [SerializeField] private string scene;
     [SerializeField] private Vector3 spawnPoint;
     private GameObject player;
+    private InstantiateParts PartsManager;
 
-    //when player enters trigger switch scene
+    // When player enters trigger switch scene
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -21,9 +19,11 @@ public class PlayerSceneTransition: MonoBehaviour
         }
     }
 
-    // When scene loaded, move player to spawn point
+    // When scene loaded, move player to spawn point and spawn boxes
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
+        PartsManager = GameObject.FindWithTag("ShipPartManager").GetComponent<InstantiateParts>();
+        PartsManager.CanSpawn();
         player.transform.position = spawnPoint;
     }
 }

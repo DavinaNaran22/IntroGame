@@ -12358,7 +12358,7 @@ GameObject:
   - component: {fileID: 1055224486}
   m_Layer: 0
   m_Name: ShipPartManager
-  m_TagString: Untagged
+  m_TagString: ShipPartManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12375,11 +12375,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b005b989021fba54080df8a20200eacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpaceshipPart: {fileID: 7574814485825049976, guid: 5484d7160cc54bc4ab990deb5af88046, type: 3}
-  boxPos1: {x: 417.00363, y: 0.73, z: 416.52396}
-  boxPos2: {x: 477.02176, y: 0.506, z: 425.86066}
-  boxPos3: {x: 441.53848, y: 1.8742752, z: 466.33853}
-  boxPos4: {x: 381.53833, y: 0.2806177, z: 406.348}
+  box1:
+    BoxToSpawn: {fileID: 7574814485825049976, guid: 5484d7160cc54bc4ab990deb5af88046, type: 3}
+    SpawnPosition: {x: 417.00363, y: 0.73, z: 416.52396}
+    SceneSpawnIn: landscape
+    BoxDestroyed: 0
+  box2:
+    BoxToSpawn: {fileID: 7574814485825049976, guid: 5484d7160cc54bc4ab990deb5af88046, type: 3}
+    SpawnPosition: {x: 477.02176, y: 0.506, z: 425.86066}
+    SceneSpawnIn: landscape
+    BoxDestroyed: 0
+  box3:
+    BoxToSpawn: {fileID: 7574814485825049976, guid: 5484d7160cc54bc4ab990deb5af88046, type: 3}
+    SpawnPosition: {x: 441.53848, y: 1.8742752, z: 466.33853}
+    SceneSpawnIn: landscape
+    BoxDestroyed: 0
+  box4:
+    BoxToSpawn: {fileID: 7574814485825049976, guid: 5484d7160cc54bc4ab990deb5af88046, type: 3}
+    SpawnPosition: {x: 381.53833, y: 0.2806177, z: 406.348}
+    SceneSpawnIn: landscape
+    BoxDestroyed: 0
+  canAddBoxes: 1
 --- !u!4 &1055224485
 Transform:
   m_ObjectHideFlags: 0

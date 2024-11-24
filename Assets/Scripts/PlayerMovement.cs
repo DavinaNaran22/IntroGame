@@ -24,8 +24,11 @@ public class PlayerMovement : MonoBehaviour
     
     bool isCrouching = false; // Tracks if the player is crouching
 
-    private PlayerInputActions inputActions;
+    public PlayerInputActions inputActions;
     private Vector2 movementInput;
+
+    public bool canMove = true;
+    public Vector3 lockCoords; // Used for exiting cockpit
 
     private void Awake()
     {
@@ -39,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Player.Move.canceled += ctx => movementInput = Vector2.zero;
         inputActions.Player.Jump.performed += ctx => Jump();
         inputActions.Player.Crouch.performed += ctx => ToggleCrouch();
+        inputActions.Player.ExitChair.performed += ctx => ExitChair();
     }
 
     private void OnDisable()
@@ -48,14 +52,15 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Player.Move.canceled -= ctx => movementInput = Vector2.zero;
         inputActions.Player.Jump.performed -= ctx => Jump();
         inputActions.Player.Crouch.performed -= ctx => ToggleCrouch();
+        inputActions.Player.ExitChair.performed -= ctx => ExitChair();
     }
 
 
     // Update is called once per frame
     void Update()
     {
-
         // Checks if player is on the ground
+            
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         // Resets velocity if player is on the ground
@@ -75,17 +80,14 @@ public class PlayerMovement : MonoBehaviour
             controller.height = normalHeight; // Set to normal height
             speed = 12f; // Reset speed to normal
         }
-
-
+            
         // Gets input from player and moves player in direction they are facing
         Vector3 move = transform.right * movementInput.x + transform.forward * movementInput.y;
         controller.Move(move * speed * Time.deltaTime);
 
-
         // Applies gravity to player
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-
     }
 
     // Makes player jump
@@ -101,5 +103,46 @@ public class PlayerMovement : MonoBehaviour
     private void ToggleCrouch()
     {
         isCrouching = !isCrouching; // Toggle crouching state
+    }
+
+    // Toggle whether play is allowed to move
+    public void ToggleMovement()
+    {
+        canMove = !canMove;
+        if (canMove)
+        {
+            inputActions.Player.Move.Enable();
+            inputActions.Player.Jump.Enable();
+            inputActions.Player.Crouch.Enable();
+        }
+        else
+        {
+            inputActions.Player.Move.Disable();
+            inputActions.Player.Jump.Disable();
+            inputActions.Player.Crouch.Disable();
+        }
+    }
+
+    // Moves player directly to specified position
+    public void MoveTo(Vector3 position)
+    {
+        this.transform.position = position;
+        // Have to call this because character controller overrides player's position
+        // And sometimes moving player (like above) doesn't work
+        Physics.SyncTransforms();
+    }
+
+    // If movement is locked and allow player to move and if nesc. move them to previous coords
+    private void ExitChair()
+    {
+        if (!canMove)
+        {
+            ToggleMovement();
+            if (lockCoords != null)
+            {
+                // Move to previous position before movement was locked
+                MoveTo(lockCoords);
+            }
+        }
     }
 }
