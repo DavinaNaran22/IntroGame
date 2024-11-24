@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     
     bool isCrouching = false; // Tracks if the player is crouching
 
-    private PlayerInputActions inputActions;
+    public PlayerInputActions inputActions;
     private Vector2 movementInput;
 
     private void Awake()
@@ -54,8 +54,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         // Checks if player is on the ground
+            
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         // Resets velocity if player is on the ground
@@ -75,17 +75,14 @@ public class PlayerMovement : MonoBehaviour
             controller.height = normalHeight; // Set to normal height
             speed = 12f; // Reset speed to normal
         }
-
-
+            
         // Gets input from player and moves player in direction they are facing
         Vector3 move = transform.right * movementInput.x + transform.forward * movementInput.y;
         controller.Move(move * speed * Time.deltaTime);
 
-
         // Applies gravity to player
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-
     }
 
     // Makes player jump
