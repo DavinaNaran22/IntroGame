@@ -36,8 +36,9 @@ public class TeleportCockpit : FindPlayerTransform
             // Teleport to chair
             Player.position = chairCoords; // Doesn't always teleport player...
             // Disable player movement
-            playerScript.inputActions.Player.Disable();
-
+            //playerScript.inputActions.Player.Disable();
+            playerScript.ToggleMovement();
+            //playerScript.SetPosition(chairCoords);
         }
     }
 

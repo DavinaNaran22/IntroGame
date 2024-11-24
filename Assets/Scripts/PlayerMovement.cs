@@ -24,8 +24,10 @@ public class PlayerMovement : MonoBehaviour
     
     bool isCrouching = false; // Tracks if the player is crouching
 
-    public PlayerInputActions inputActions;
+    private PlayerInputActions inputActions;
     private Vector2 movementInput;
+
+    public bool canMove = true;
 
     private void Awake()
     {
@@ -98,5 +100,19 @@ public class PlayerMovement : MonoBehaviour
     private void ToggleCrouch()
     {
         isCrouching = !isCrouching; // Toggle crouching state
+    }
+
+    // Toggle whether play is allowed to move
+    public void ToggleMovement()
+    {
+        canMove = !canMove;
+        if (canMove)
+        {
+            inputActions.Player.Enable();
+        }
+        else
+        {
+            inputActions.Player.Disable();
+        }
     }
 }
