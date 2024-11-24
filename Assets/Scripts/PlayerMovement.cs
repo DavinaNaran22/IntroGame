@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
             if (lockCoords != null)
             {
                 // Move to previous position before movement was locked
-                this.transform.position = lockCoords;
+                MoveTo(lockCoords);
             }
         }
     }
@@ -126,5 +126,14 @@ public class PlayerMovement : MonoBehaviour
         {
             inputActions.Player.Disable();
         }
+    }
+
+    // Moves player directly to specified position
+    public void MoveTo(Vector3 position)
+    {
+        this.transform.position = position;
+        // Have to call this because character controller overrides player's position
+        // And sometimes moving player (like above) doesn't work
+        Physics.SyncTransforms();
     }
 }

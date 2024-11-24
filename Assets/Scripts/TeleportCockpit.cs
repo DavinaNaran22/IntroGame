@@ -5,21 +5,10 @@ using UnityEngine;
 
 public class TeleportCockpit : FindPlayerTransform
 {
-
-    // If player is near door
-    // And presses e
-    // Then teleport player to cockpit
-    // Can't move body, can only rotate camera
-
-    // Can press escape to exit cockpit
-    // Should go back to the outside of door
-
     // Bonus - show text when near
 
-    [SerializeField] private Vector3 chairCoords; // 505.13 // Vector3(568.549011,11.0687943,505.584991)
+    [SerializeField] private Vector3 chairCoords;
     private PlayerMovement playerScript;
-    //[SerializeField] private Vector3 corridorCoords;
-    // Have script which teleports player?
 
     private void Start()
     {
@@ -33,14 +22,9 @@ public class TeleportCockpit : FindPlayerTransform
         if (Vector3.Distance(this.transform.position, Player.position) < 5.5 && Input.GetKeyDown(KeyCode.E))
         {
             playerScript.lockCoords = Player.position;
-
-            Debug.Log("Teleported");
-            // Teleport to chair
-            Player.position = chairCoords; // Doesn't always teleport player...
+            playerScript.MoveTo(chairCoords);
             // Disable player movement
-            //playerScript.inputActions.Player.Disable();
             playerScript.ToggleMovement();
-            //playerScript.SetPosition(chairCoords);
         }
     }
 
