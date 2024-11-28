@@ -2679,25 +2679,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1423147376}
   m_SourcePrefab: {fileID: 100100000, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
---- !u!1 &849481232
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 826187084}
-  - component: {fileID: 826187083}
-  - component: {fileID: 826187082}
-  - component: {fileID: 826187081}
-  m_Layer: 5
-  m_Name: KeypadCanvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!114 &826187081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2793,6 +2774,24 @@ GameObject:
   - component: {fileID: 849481233}
   m_Layer: 0
   m_Name: Foot_2_Right_end
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 826187084}
+  - component: {fileID: 826187083}
+  - component: {fileID: 826187082}
+  - component: {fileID: 826187081}
+  m_Layer: 5
+  m_Name: KeypadCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
