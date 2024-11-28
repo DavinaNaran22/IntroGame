@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6047822118260719821}
   - component: {fileID: 5470961048687369605}
   - component: {fileID: 6510379844720593180}
+  - component: {fileID: -5176933992367217324}
   m_Layer: 0
   m_Name: SpaceshipPart
   m_TagString: Untagged
@@ -120,6 +121,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  spawnBox:
+    BoxToSpawn: {fileID: 0}
+    SpawnPosition: {x: 0, y: 0, z: 0}
+    SceneSpawnIn: 
+    BoxDestroyed: 0
   pickUpRange: 3
   canBePicked: 1
 --- !u!54 &6510379844720593180
@@ -149,3 +155,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-5176933992367217324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7574814485825049976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to pick up
+  player: {fileID: 0}
