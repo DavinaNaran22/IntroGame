@@ -6633,11 +6633,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 53216950143203548, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -462.1
+      value: -366.1592
       objectReference: {fileID: 0}
     - target: {fileID: 53216950143203548, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -193.6
+      value: -206.2
       objectReference: {fileID: 0}
     - target: {fileID: 135467450338435247, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
       propertyPath: m_fontSize
@@ -7571,7 +7571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4079272381597856006, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.25
+      value: 25.5
       objectReference: {fileID: 0}
     - target: {fileID: 4687808587984878117, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
       propertyPath: repairText
@@ -7615,7 +7615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5934067258466744174, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
       propertyPath: orthographic size
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5934067258466744174, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -10107,6 +10107,18 @@ PrefabInstance:
     - target: {fileID: 400116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219263476551931338, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219263476551931338, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_Color.g
+      value: 0.19124424
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219263476551931338, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4859296346696214976, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -13591,6 +13603,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9566128, guid: fdc7c645919f60047929b2f994266803, type: 3}
       propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626316494532948220, guid: fdc7c645919f60047929b2f994266803, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626316494532948220, guid: fdc7c645919f60047929b2f994266803, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626316494532948220, guid: fdc7c645919f60047929b2f994266803, type: 3}
+      propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6742430670513802486, guid: fdc7c645919f60047929b2f994266803, type: 3}
