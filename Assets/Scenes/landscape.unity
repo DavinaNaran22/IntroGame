@@ -6633,11 +6633,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 53216950143203548, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -365.9
+      value: -462.1
       objectReference: {fileID: 0}
     - target: {fileID: 53216950143203548, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -205.2
+      value: -193.6
       objectReference: {fileID: 0}
     - target: {fileID: 135467450338435247, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
       propertyPath: m_fontSize
@@ -7615,10 +7615,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5934067258466744174, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
       propertyPath: m_HDR
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934067258466744174, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
-      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5934067258466744174, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
