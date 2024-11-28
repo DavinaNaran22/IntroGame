@@ -7595,7 +7595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4079272381597856006, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.25
+      value: 25.07
       objectReference: {fileID: 0}
     - target: {fileID: 4687808587984878117, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
       propertyPath: repairText
@@ -7639,7 +7639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5934067258466744174, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
       propertyPath: orthographic size
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5934067258466744174, guid: 4b7625199025ea84e880353480f6a4cd, type: 3}
       propertyPath: m_CullingMask.m_Bits
