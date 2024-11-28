@@ -6651,6 +6651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LogTab
       objectReference: {fileID: 0}
+    - target: {fileID: 474544645136297217, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -146.25
+      objectReference: {fileID: 0}
     - target: {fileID: 578692291073329449, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -6925,6 +6929,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4240786740383444717, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4518766666890721632, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7132,6 +7140,10 @@ PrefabInstance:
     - target: {fileID: 6718894011965375767, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
       propertyPath: m_CellSize.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865491982976251838, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
+      propertyPath: m_TagString
+      value: HoverText
       objectReference: {fileID: 0}
     - target: {fileID: 6949654184411210470, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
       propertyPath: m_AnchorMax.y
