@@ -5,9 +5,11 @@ public class TeleportCockpit : FindPlayerTransform
     // Bonus - show text when near
 
     [SerializeField] private Vector3 chairCoords;
-    private PlayerMovement playerScript;
+    [SerializeField] private GameObject keypad;
+    public PlayerMovement playerScript;
+    private MouseLook mouseLook;
     private PlayerInputActions inputActions;
-
+    public bool unlockedDoor = false;
     private void Awake()
     {
         inputActions = new PlayerInputActions();
@@ -17,6 +19,7 @@ public class TeleportCockpit : FindPlayerTransform
     {
         GetPlayerTransform();
         playerScript = Player.GetComponent<PlayerMovement>();
+        mouseLook = Player.GetComponentInChildren<MouseLook>();
     }
 
     private void OnEnable()
@@ -37,10 +40,21 @@ public class TeleportCockpit : FindPlayerTransform
         // If player is near door
         if (Vector3.Distance(this.transform.position, Player.position) < 5.5)
         {
-            playerScript.lockCoords = Player.position;
-            playerScript.MoveTo(chairCoords);
-            // Disable player movement
-            playerScript.ToggleMovement();
+            if (unlockedDoor)
+            {
+                playerScript.lockCoords = Player.position;
+                playerScript.MoveTo(chairCoords);
+                // Disable player movement
+                playerScript.canMove = false;
+                mouseLook.canLook = true;
+            }
+            else
+            {
+                // Show keypad
+                keypad.SetActive(true);
+                playerScript.canMove = false;
+                mouseLook.canLook = false;
+            }
         }
     }
 }
