@@ -45,14 +45,14 @@ public class TeleportCockpit : FindPlayerTransform
                 playerScript.lockCoords = Player.position;
                 playerScript.MoveTo(chairCoords);
                 // Disable player movement
-                playerScript.canMove = false;
+                playerScript.ToggleMovement();
                 mouseLook.canLook = true;
             }
             else
             {
                 // Show keypad
                 keypad.SetActive(true);
-                playerScript.canMove = false;
+                playerScript.ToggleMovement();
                 mouseLook.canLook = false;
             }
         }
