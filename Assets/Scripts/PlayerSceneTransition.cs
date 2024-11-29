@@ -3,20 +3,27 @@ using UnityEngine.SceneManagement;
 
 public class PlayerSceneTransition: MonoBehaviour
 {
-    [SerializeField] private string scene;
-    [SerializeField] private Vector3 spawnPoint;
+    [SerializeField] protected string scene;
+    [SerializeField] protected Vector3 spawnPoint;
     private GameObject player;
     private InstantiateParts PartsManager;
+    // If derived class needs to check something before changing scene
+    protected bool hasCheckCondition = false;
 
     // When player enters trigger switch scene
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !hasCheckCondition)
         {
-            player = other.gameObject;
-            SceneManager.LoadScene(scene);
-            SceneManager.sceneLoaded += OnSceneLoad;
+            LoadOtherScene(other.gameObject);
         }
+    }
+
+    protected void LoadOtherScene(GameObject Player)
+    {
+        player = Player;
+        SceneManager.LoadScene(scene);
+        SceneManager.sceneLoaded += OnSceneLoad;
     }
 
     // When scene loaded, move player to spawn point and spawn boxes

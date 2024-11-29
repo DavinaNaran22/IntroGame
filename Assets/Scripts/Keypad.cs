@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Keypad : FindPlayerTransform
 {
     [SerializeField] TMP_InputField keypadInput;
-    [SerializeField] TeleportCockpit doorScript;
+    [SerializeField] KeypadDoor doorScript;
     private const string CODE = "2836";
     private PlayerInputActions inputActions;
     private MouseLook mouseLook;
@@ -65,7 +65,7 @@ public class Keypad : FindPlayerTransform
         if (actualInput == CODE)
         {
             Debug.Log("CORRECT CODE");
-            //doorScript.unlockedDoor = true;
+            doorScript.unlockedDoor = true;
             ExitUI();
         }
     }
