@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class KeypadDoor : PlayerSceneTransition
 {
-    public bool unlockedDoor = false;
     public PlayerMovement playerScript;
     [SerializeField] private GameObject keypad;
     [SerializeField] private GameObject Player;
@@ -44,7 +43,7 @@ public class KeypadDoor : PlayerSceneTransition
     {
         // If player has unlocked the door and they enter trigger
         // Move them to new scene
-        if (unlockedDoor)
+        if (GameManager.unlockedDoor)
         {
             hasCheckCondition = false;
             Debug.Log("Moving to other scene because of keypad");
@@ -62,28 +61,5 @@ public class KeypadDoor : PlayerSceneTransition
         playerScript.canMove = false;
         mouseLook.canLook = false;
     }
-
-    //private void MoveToLandscape()
-    //{
-    //    // If player is near door
-    //    if (Vector3.Distance(this.transform.position, Player.position) < 5.5)
-    //    {
-    //        if (unlockedDoor)
-    //        {
-    //            playerScript.lockCoords = Player.position;
-    //            playerScript.MoveTo(chairCoords);
-    //            // Disable player movement
-    //            playerScript.canMove = false;
-    //            mouseLook.canLook = true;
-    //        }
-    //        else
-    //        {
-    //            // Show keypad
-    //            keypad.SetActive(true);
-    //            playerScript.canMove = false;
-    //            mouseLook.canLook = false;
-    //        }
-    //    }
-    //}
 }
 

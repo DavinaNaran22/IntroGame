@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         inputActions = new PlayerInputActions();
+        GameManager.player = this.gameObject;
     }
 
     private void OnEnable()
