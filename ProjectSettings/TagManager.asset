@@ -11,6 +11,8 @@ TagManager:
   - RepairText
   - RhinoAlien
   - ShipPartManager
+  - HoverText
+  - PlayerCanvas
   layers:
   - Default
   - TransparentFX
