@@ -3065,6 +3065,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1017054272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1017054274}
+  - component: {fileID: 1017054273}
+  m_Layer: 0
+  m_Name: Timeline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1017054273
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017054272}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: ec1736b4ac90e5b4c8288073192bff07, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -650762977679773663, guid: ec1736b4ac90e5b4c8288073192bff07, type: 2}
+    value: {fileID: 1482992022}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &1017054274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017054272}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 501.61, y: 7.88, z: 432.37003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1052928967 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2428201735608010852, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
@@ -3993,7 +4044,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 852362122780349617, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 501.61
+      value: 500.6
       objectReference: {fileID: 0}
     - target: {fileID: 852362122780349617, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4001,23 +4052,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 852362122780349617, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 431.89
+      value: 454.4
       objectReference: {fileID: 0}
     - target: {fileID: 852362122780349617, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 852362122780349617, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 852362122780349617, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 852362122780349617, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 852362122780349617, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4025,7 +4076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 852362122780349617, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 852362122780349617, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -4056,6 +4107,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+--- !u!95 &1482992022 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 238039305250496741, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+  m_PrefabInstance: {fileID: 1482992021}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1487489375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5834,9 +5890,10 @@ SceneRoots:
   - {fileID: 2132775566}
   - {fileID: 1788777689}
   - {fileID: 1724716615}
-  - {fileID: 482297694}
-  - {fileID: 519417029}
   - {fileID: 1947306955}
   - {fileID: 733944899}
   - {fileID: 1728608097}
   - {fileID: 1482992021}
+  - {fileID: 519417029}
+  - {fileID: 482297694}
+  - {fileID: 1017054274}
