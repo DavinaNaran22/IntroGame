@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KeypadDoor : PlayerSceneTransition
 {
     public PlayerMovement playerScript;
     [SerializeField] private GameObject keypad;
-    [SerializeField] private GameObject Player;
     private MouseLook mouseLook;
     private PlayerInputActions inputActions;
+    private GameObject Player;
+    private Transform playerTransform;
 
     private void Awake()
     {
@@ -17,7 +19,8 @@ public class KeypadDoor : PlayerSceneTransition
 
     private void Start()
     {
-        // Call parent start
+        Player = GameManager.player;
+        playerTransform = Player.GetComponent<Transform>();
         playerScript = Player.GetComponent<PlayerMovement>();
         mouseLook = Player.GetComponentInChildren<MouseLook>();
         hasCheckCondition = true; // Need to check that keycode has been entered first
@@ -41,17 +44,21 @@ public class KeypadDoor : PlayerSceneTransition
 
     private void MoveToLandscape()
     {
+        Player = GameManager.player;
         // If player has unlocked the door and they enter trigger
         // Move them to new scene
-        if (GameManager.unlockedDoor)
+        if (Vector3.Distance(this.transform.position, Player.GetComponent<Transform>().position) < 4)
         {
-            hasCheckCondition = false;
-            Debug.Log("Moving to other scene because of keypad");
-            base.LoadOtherScene(Player);
-        }
-        else
-        {
-            ShowKeypad();
+            if (GameManager.unlockedDoor)
+            {
+                hasCheckCondition = false;
+                Debug.Log("Moving to other scene because of keypad");
+                base.LoadOtherScene(Player);
+            }
+            else
+            {
+                ShowKeypad();
+            }
         }
     }
 

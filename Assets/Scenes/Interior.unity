@@ -5735,7 +5735,6 @@ MonoBehaviour:
   spawnPoint: {x: 500.89, y: 5.9, z: 438.24}
   playerScript: {fileID: 0}
   keypad: {fileID: 1947306954}
-  Player: {fileID: 1862595095}
 --- !u!1 &954616973
 GameObject:
   m_ObjectHideFlags: 0
@@ -6110,7 +6109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Right click to open keypad/unlock cockpit door
+  Text: Right Click to go to cockpit
   sphereRadius: 3
   hoverText: {fileID: 594057000}
 --- !u!1001 &1055170528
@@ -10565,11 +10564,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827955274}
   m_CullTransparentMesh: 1
---- !u!1 &1862595095 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 854904355033615558, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
-  m_PrefabInstance: {fileID: 1482992021}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1868385040
 GameObject:
   m_ObjectHideFlags: 0
