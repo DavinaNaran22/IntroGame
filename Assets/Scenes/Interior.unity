@@ -4409,6 +4409,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5456039554651119694, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: sphereRadius
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5466802570776562323, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_IsActive
       value: 1
