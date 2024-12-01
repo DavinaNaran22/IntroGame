@@ -360,6 +360,10 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -8174369368042542285, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
     value: {fileID: 1622667518}
+  - key: {fileID: 8304911521993398130, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4783947231387451561, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 1297720331}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &54898094
@@ -3914,6 +3918,82 @@ Transform:
   - {fileID: 797253305}
   m_Father: {fileID: 371316616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1297720327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1297720330}
+  - component: {fileID: 1297720329}
+  - component: {fileID: 1297720331}
+  m_Layer: 0
+  m_Name: StopCutscene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1297720329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297720327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ffcdf33be248444a75ac3d3c425d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraFollow: {fileID: 1622667512}
+--- !u!4 &1297720330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297720327}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 501.61, y: 7.88, z: 432.37003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1297720331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297720327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: c3e9892fe7dd9024fbe222036e50a2ac, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1297720329}
+          m_TargetAssemblyTypeName: CutsceneController, Assembly-CSharp
+          m_MethodName: EndCamera
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1299128644
 GameObject:
   m_ObjectHideFlags: 0
@@ -4236,7 +4316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 451699027006493129, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000008742278
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 451699027006493129, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4256,7 +4336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 451699027006493129, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000004371139
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 451699027006493129, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalRotation.z
@@ -5383,7 +5463,7 @@ Transform:
   m_GameObject: {fileID: 1622667511}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 531.4695, y: 8.2, z: 488.2997}
+  m_LocalPosition: {x: 500.6, y: 8.2, z: 453.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6659,3 +6739,4 @@ SceneRoots:
   - {fileID: 482297694}
   - {fileID: 1622667515}
   - {fileID: 54898094}
+  - {fileID: 1297720330}
