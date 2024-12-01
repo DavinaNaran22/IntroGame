@@ -6,12 +6,12 @@ public class PlayerNearText : MonoBehaviour
 {
     [SerializeField] private string Text;
     [SerializeField] private float sphereRadius = 3f;
-    private TextMeshProUGUI hoverText;
+    [SerializeField] private TextMeshProUGUI hoverText;
     private bool modifyingText = false;
 
     private void Start()
     {
-        hoverText = GameObject.FindWithTag("HoverText").GetComponent<TextMeshProUGUI>();
+        if (hoverText == null) hoverText = GameObject.FindWithTag("HoverText").GetComponent<TextMeshProUGUI>();
     }
 
     // Return true/false depending on whether player is near this game object

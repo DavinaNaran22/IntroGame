@@ -3273,17 +3273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1052928967 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2428201735608010852, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
-  m_PrefabInstance: {fileID: 898348826}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898348827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48d6ffccb3ee83b48ad21e0dccd7b314, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1052928968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3298,6 +3287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: Right click to open keypad/unlock cockpit door
   sphereRadius: 3
+  hoverText: {fileID: 0}
 --- !u!1001 &1055170528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3976,6 +3966,63 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 668254117}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1352790600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1352790603}
+  - component: {fileID: 1352790602}
+  - component: {fileID: 1352790601}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1352790601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352790600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be45927d4568eac4ba37b38e804859a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1352790602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352790600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df9346f915047047b44d35cf79ddd1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1352790603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352790600}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 492.0918, y: 6.507912, z: 436.91165}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1352841177 stripped
 GameObject:
@@ -6190,7 +6237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   keypadInput: {fileID: 862446323}
-  doorScript: {fileID: 1052928967}
+  doorScript: {fileID: 0}
 --- !u!1 &1991281953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2771261484669979908, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
@@ -6538,3 +6585,4 @@ SceneRoots:
   - {fileID: 482297694}
   - {fileID: 1622667515}
   - {fileID: 54898094}
+  - {fileID: 1352790603}
