@@ -28,13 +28,6 @@ public class PlayerNearText : MonoBehaviour
         return false;
     }
 
-    void OnDrawGizmosSelected()
-    {
-        // Draw a yellow sphere at the transform's position
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.position, sphereRadius);
-    }
-
     void Update()
     {
         // If the player is near this game object
