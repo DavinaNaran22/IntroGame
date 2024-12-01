@@ -3,6 +3,7 @@ using UnityEngine;
 public class KeypadDoor : PlayerSceneTransition
 {
     public PlayerMovement playerScript;
+    public bool keypadShowing = false;
     [SerializeField] private GameObject keypad;
     private MouseLook mouseLook;
     private PlayerInputActions inputActions;
@@ -48,7 +49,7 @@ public class KeypadDoor : PlayerSceneTransition
                 Debug.Log("Moving to other scene because of keypad");
                 base.LoadOtherScene(Player);
             }
-            else
+            else if (!keypadShowing)
             // Show them keypad
             {
                 ShowKeypad();
@@ -58,7 +59,10 @@ public class KeypadDoor : PlayerSceneTransition
 
     private void ShowKeypad()
     {
+        // Show keypad on screen
         keypad.SetActive(true);
+        keypadShowing = true;
+        // Stop movement and ability to look around
         playerScript.ToggleMovement();
         mouseLook.canLook = false;
     }

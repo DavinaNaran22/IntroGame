@@ -72,6 +72,7 @@ public class Keypad : FindPlayerTransform
     private void ExitUI()
     {
         this.gameObject.SetActive(false);
+        doorScript.keypadShowing = false;
         GameManager.Instance.player.GetComponent<PlayerMovement>().ToggleMovement();
         mouseLook.canLook = true;
     }

@@ -6570,6 +6570,7 @@ MonoBehaviour:
   scene: landscape
   spawnPoint: {x: 500.84717, y: 8.969, z: 443.06482}
   playerScript: {fileID: 238311874}
+  keypadShowing: 0
   keypad: {fileID: 1947306954}
 --- !u!1 &2139367348
 GameObject:
