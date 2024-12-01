@@ -379,6 +379,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &57307819 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2034179033855149247, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
+  m_PrefabInstance: {fileID: 1728608097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &57307821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57307819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: 
+  sphereRadius: 3
 --- !u!1 &70697735
 GameObject:
   m_ObjectHideFlags: 0
@@ -3441,6 +3460,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1800673725905789273, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &777749834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5124188637156683046, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &777749837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777749834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to equip
+  sphereRadius: 1.75
 --- !u!1 &797253304
 GameObject:
   m_ObjectHideFlags: 0
@@ -4247,6 +4285,10 @@ PrefabInstance:
       propertyPath: chairCoords.z
       value: 505.13
       objectReference: {fileID: 0}
+    - target: {fileID: 2492099497975136731, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: sphereRadius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2503935745537121772, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_Range
       value: 5000
@@ -4262,6 +4304,10 @@ PrefabInstance:
     - target: {fileID: 2503935745537121772, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2821899988594953747, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: sphereRadius
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2893311575886381697, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_LocalScale.y
@@ -4507,6 +4553,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7610184392361658931, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.487
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610184392361658931, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.549
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610184392361658931, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.227
+      objectReference: {fileID: 0}
     - target: {fileID: 7746147743396925449, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1227264
@@ -4574,6 +4632,18 @@ PrefabInstance:
     - target: {fileID: 7746147743397051099, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1742
+      objectReference: {fileID: 0}
+    - target: {fileID: 7791260610874639867, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.158
+      objectReference: {fileID: 0}
+    - target: {fileID: 7791260610874639867, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.606
+      objectReference: {fileID: 0}
+    - target: {fileID: 7791260610874639867, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.845
       objectReference: {fileID: 0}
     - target: {fileID: 7981231796903870643, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4704,6 +4774,33 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4265596453139673410, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2132775567}
+    - targetCorrespondingSourceObject: {fileID: 5103598266449559117, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2141401792}
+    - targetCorrespondingSourceObject: {fileID: 4821813308698709696, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 913959662}
+    - targetCorrespondingSourceObject: {fileID: 7200615796195160906, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1217937087}
+    - targetCorrespondingSourceObject: {fileID: 5124188637156683046, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 777749837}
+    - targetCorrespondingSourceObject: {fileID: 6216788302251579917, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 968953738}
+    - targetCorrespondingSourceObject: {fileID: 7609704740855268050, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2066790401}
+    - targetCorrespondingSourceObject: {fileID: 8726111647147414416, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1088120051}
+    - targetCorrespondingSourceObject: {fileID: 3573084778126927385, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1638161641}
+    - targetCorrespondingSourceObject: {fileID: 5377476074237352833, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1561588772}
     - targetCorrespondingSourceObject: {fileID: 7781150177999098673, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1052928968}
@@ -4713,6 +4810,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7781150177999098673, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &913959657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4821813308698709696, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &913959662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913959657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Pres E to equip
+  sphereRadius: 1.75
 --- !u!1 &917985429
 GameObject:
   m_ObjectHideFlags: 0
@@ -4985,6 +5101,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933926689}
   m_CullTransparentMesh: 1
+--- !u!1 &968953734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6216788302251579917, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &968953738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968953734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to equip
+  sphereRadius: 1.75
 --- !u!114 &993659926 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8690745600182681384, guid: ec2fa9dbba8eeb245a2a1becaa55d4e5, type: 3}
@@ -5313,7 +5448,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: Right click to open keypad/unlock cockpit door
   sphereRadius: 3
-  hoverText: {fileID: 0}
 --- !u!1001 &1055170528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5718,6 +5852,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060602418}
   m_CullTransparentMesh: 1
+--- !u!1 &1088120045 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8726111647147414416, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1088120051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088120045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to equip
+  sphereRadius: 1.75
 --- !u!1 &1109019246
 GameObject:
   m_ObjectHideFlags: 0
@@ -6249,6 +6402,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6721136270110395745, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1217937082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7200615796195160906, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1217937087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217937082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Pres E to equip
+  sphereRadius: 1.75
 --- !u!1 &1228663136
 GameObject:
   m_ObjectHideFlags: 0
@@ -7929,6 +8101,22 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.690499
       objectReference: {fileID: 0}
+    - target: {fileID: 5452075960120460221, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+      propertyPath: m_Height
+      value: 3.0779686
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452075960120460221, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+      propertyPath: m_Radius
+      value: 0.6309004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452075960120460221, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+      propertyPath: m_Center.y
+      value: 0.9080839
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452075960120460221, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+      propertyPath: m_Center.z
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5708108540996411605, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.54295063
@@ -8838,6 +9026,25 @@ Transform:
   - {fileID: 99101442}
   m_Father: {fileID: 371316616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1561588766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5377476074237352833, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1561588772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561588766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to equip
+  sphereRadius: 1.75
 --- !u!1001 &1566508397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9643,6 +9850,25 @@ Transform:
   - {fileID: 1578090534}
   m_Father: {fileID: 623524465}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1638161635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3573084778126927385, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1638161641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638161635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to equip
+  sphereRadius: 1.75
 --- !u!1 &1643627665 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1256151129932735245, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
@@ -9802,7 +10028,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2034179033855149247, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 57307821}
   m_SourcePrefab: {fileID: 100100000, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
 --- !u!1 &1743560742
 GameObject:
@@ -11872,6 +12101,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2066790394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7609704740855268050, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2066790401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066790394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to equip
+  sphereRadius: 1.75
 --- !u!114 &2117354159 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8690745600182681384, guid: ec2fa9dbba8eeb245a2a1becaa55d4e5, type: 3}
@@ -12267,6 +12515,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1868385041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2141401787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5103598266449559117, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2141401792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141401787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Pres E to equip
+  sphereRadius: 1.75
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

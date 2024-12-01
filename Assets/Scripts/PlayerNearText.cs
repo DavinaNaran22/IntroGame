@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -6,19 +5,13 @@ public class PlayerNearText : MonoBehaviour
 {
     [SerializeField] private string Text;
     [SerializeField] private float sphereRadius = 3f;
-    [SerializeField] private TextMeshProUGUI hoverText;
+    private TextMeshProUGUI hoverText;
     private bool modifyingText = false;
 
     private void Start()
     {
         hoverText = GameManager.Instance.hoverText;
-        //if (hoverText == null)  {
-        //    Debug.Log("hover text");
-        //    Debug.Log(GameObject.FindWithTag("HoverText"));
-        //    //Debug.Log(GameObject.FindWithTag("HoverText").TryGetComponent<TextMeshProUGUI>());
-        //    Debug.Log(GameObject.FindWithTag("HoverText").GetComponent<TextMeshProUGUI>());
-        //    hoverText = GameObject.FindWithTag("HoverText").GetComponent<TextMeshProUGUI>();
-        //}
+
     }
 
     // Return true/false depending on whether player is near this game object
@@ -33,6 +26,13 @@ public class PlayerNearText : MonoBehaviour
             }
         }
         return false;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position, sphereRadius);
     }
 
     void Update()
