@@ -3,7 +3,7 @@ using UnityEngine;
 public class KeypadDoor : PlayerSceneTransition
 {
     public PlayerMovement playerScript;
-    public bool keypadShowing = false;
+    public bool keypadShowing;
     [SerializeField] private GameObject keypad;
     private MouseLook mouseLook;
     private PlayerInputActions inputActions;
@@ -17,6 +17,7 @@ public class KeypadDoor : PlayerSceneTransition
 
     private void Start()
     {
+        keypadShowing = false;
         Player = GameManager.Instance.player;
         playerTransform = Player.GetComponent<Transform>();
         playerScript = Player.GetComponent<PlayerMovement>();
