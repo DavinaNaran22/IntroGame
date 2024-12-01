@@ -44,6 +44,7 @@ public class TeleportCockpit : MonoBehaviour
             playerScript.MoveTo(chairCoords);
             // Disable player movement
             playerScript.ToggleMovement();
+            playerScript.inChair = true;
             mouseLook.canLook = true;
         }
     }
