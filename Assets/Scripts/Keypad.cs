@@ -64,7 +64,7 @@ public class Keypad : FindPlayerTransform
         if (actualInput == CODE)
         {
             Debug.Log("CORRECT CODE");
-            GameManager.unlockedDoor = true;
+            GameManager.Instance.unlockedDoor = true;
             ExitUI();
         }
     }

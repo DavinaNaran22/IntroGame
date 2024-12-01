@@ -16,7 +16,7 @@ public class KeypadDoor : PlayerSceneTransition
 
     private void Start()
     {
-        Player = GameManager.player;
+        Player = GameManager.Instance.player;
         playerTransform = Player.GetComponent<Transform>();
         playerScript = Player.GetComponent<PlayerMovement>();
         mouseLook = Player.GetComponentInChildren<MouseLook>();
@@ -37,12 +37,12 @@ public class KeypadDoor : PlayerSceneTransition
 
     private void MoveToLandscape()
     {
-        Player = GameManager.player;
+        Player = GameManager.Instance.player;
         // If player has unlocked the door and they enter trigger
         // Move them to new scene
         if (Vector3.Distance(this.transform.position, Player.GetComponent<Transform>().position) < 4)
         {
-            if (GameManager.unlockedDoor)
+            if (GameManager.Instance.player)
             {
                 hasCheckCondition = false;
                 Debug.Log("Moving to other scene because of keypad");
