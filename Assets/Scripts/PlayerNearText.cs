@@ -11,7 +11,14 @@ public class PlayerNearText : MonoBehaviour
 
     private void Start()
     {
-        if (hoverText == null) hoverText = GameObject.FindWithTag("HoverText").GetComponent<TextMeshProUGUI>();
+        hoverText = GameManager.Instance.hoverText;
+        //if (hoverText == null)  {
+        //    Debug.Log("hover text");
+        //    Debug.Log(GameObject.FindWithTag("HoverText"));
+        //    //Debug.Log(GameObject.FindWithTag("HoverText").TryGetComponent<TextMeshProUGUI>());
+        //    Debug.Log(GameObject.FindWithTag("HoverText").GetComponent<TextMeshProUGUI>());
+        //    hoverText = GameObject.FindWithTag("HoverText").GetComponent<TextMeshProUGUI>();
+        //}
     }
 
     // Return true/false depending on whether player is near this game object

@@ -71,9 +71,6 @@ public class Keypad : FindPlayerTransform
 
     private void ExitUI()
     {
-        Debug.Log("door script in keypad");
-        Debug.Log(doorScript);
-        Debug.Log(doorScript.keypadShowing);
         doorScript.keypadShowing = false;
         GameManager.Instance.player.GetComponent<PlayerMovement>().ToggleMovement();
         mouseLook.canLook = true;
