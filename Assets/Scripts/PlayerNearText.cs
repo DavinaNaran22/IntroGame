@@ -49,8 +49,4 @@ public class PlayerNearText : MonoBehaviour
             modifyingText = false;
         }
     }
-
-
-
-
 }
