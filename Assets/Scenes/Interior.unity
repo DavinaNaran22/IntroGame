@@ -1631,6 +1631,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1644607759282451356, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &360710601 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2129159982847189647, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
+  m_PrefabInstance: {fileID: 1994837934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &371316615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2277,7 +2282,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4430787748333848057, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
   m_PrefabInstance: {fileID: 1994837934}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2021691869}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -3044,12 +3049,27 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 18de68840de45f549985da8201007d5a, type: 2}
+    - {fileID: 11400000, guid: 594a2d684b1b5f7459dfcca7364a0500, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 668201281}
           m_TargetAssemblyTypeName: CutsceneController, Assembly-CSharp
           m_MethodName: EndCamera
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 668201281}
+          m_TargetAssemblyTypeName: CutsceneController, Assembly-CSharp
+          m_MethodName: stopHUD
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3072,6 +3092,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraFollow: {fileID: 1622667512}
+  HUD: {fileID: 968383784}
+  progressButton: {fileID: 1109593771}
+  inventoryManager: {fileID: 1500691267}
+  inventoryCanvas: {fileID: 1948582329}
+  hovertext: {fileID: 2021691869}
+  minimapCanvas: {fileID: 360710601}
 --- !u!4 &668201282
 Transform:
   m_ObjectHideFlags: 0
@@ -5174,6 +5200,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933926689}
   m_CullTransparentMesh: 1
+--- !u!1 &968383784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3551634821664843731, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
+  m_PrefabInstance: {fileID: 1994837934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &968953734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6216788302251579917, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
@@ -6046,6 +6077,11 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000008470728, y: 0.0011934813, z: -0.00022597198}
     m_Extent: {x: 0.0022412613, y: 0.0028217856, z: 0.001599066}
   m_DirtyAABB: 0
+--- !u!1 &1109593771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5893871789818991943, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
+  m_PrefabInstance: {fileID: 1994837934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1113999383
 GameObject:
   m_ObjectHideFlags: 0
@@ -7932,7 +7968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 451699027006493129, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000008742278
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 451699027006493129, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7952,7 +7988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 451699027006493129, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000004371139
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 451699027006493129, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalRotation.z
@@ -8674,6 +8710,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498297048}
   m_CullTransparentMesh: 1
+--- !u!1 &1500691267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1412244449616398468, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
+  m_PrefabInstance: {fileID: 1994837934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1501883615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9610,7 +9651,7 @@ Transform:
   m_GameObject: {fileID: 1622667511}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 500.6, y: 8.2, z: 420.7}
+  m_LocalPosition: {x: 500.6, y: 8.2, z: 453.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10864,6 +10905,11 @@ MonoBehaviour:
   keypadInput: {fileID: 862446323}
   doorScript: {fileID: 2132775567}
   doorNearText: {fileID: 1782392757}
+--- !u!1 &1948582329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 578692291073329449, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
+  m_PrefabInstance: {fileID: 1994837934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1991281953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2771261484669979908, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
@@ -11829,6 +11875,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be45927d4568eac4ba37b38e804859a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2021691869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4665275700113060059, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
+  m_PrefabInstance: {fileID: 1994837934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2027445186
 GameObject:
   m_ObjectHideFlags: 0
