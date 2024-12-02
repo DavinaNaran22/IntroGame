@@ -33,6 +33,5 @@ public class PlayerSceneTransition: MonoBehaviour
         PartsManager = GameObject.FindWithTag("ShipPartManager").GetComponent<InstantiateParts>();
         PartsManager.CanSpawn();
         player.transform.position = spawnPoint;
-        GameManager.Instance.hoverText.text = "";
     }
 }
