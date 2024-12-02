@@ -24,6 +24,7 @@ public class PlayerSceneTransition: MonoBehaviour
         player = Player;
         SceneManager.LoadScene(scene);
         SceneManager.sceneLoaded += OnSceneLoad;
+        GameManager.Instance.hoverText.text = "";
     }
 
     // When scene loaded, move player to spawn point and spawn boxes
