@@ -3098,6 +3098,7 @@ MonoBehaviour:
   inventoryCanvas: {fileID: 1948582329}
   hovertext: {fileID: 2021691869}
   minimapCanvas: {fileID: 360710601}
+  cutscene: {fileID: 54898093}
 --- !u!4 &668201282
 Transform:
   m_ObjectHideFlags: 0

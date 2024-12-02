@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine.Playables;
 
 public class CutsceneController : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class CutsceneController : MonoBehaviour
     public GameObject hovertext;
     public GameObject minimapCanvas;
     
-
+    
     // Disable cinemachine camera so player can get control back
     // Enable progress button and hovertext on screen
     public void EndCamera()
