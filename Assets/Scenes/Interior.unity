@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
+  m_IndirectSpecularColor: {r: 0.002063206, g: 0.0019480612, b: 0.0021180937, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -300,6 +300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 54898094}
   - component: {fileID: 54898093}
+  - component: {fileID: 54898096}
   m_Layer: 0
   m_Name: CutSceneTimeline
   m_TagString: Untagged
@@ -317,7 +318,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -381,6 +382,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &54898096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54898092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4165833130658458024b89f282044d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayableDirector: {fileID: 54898093}
 --- !u!1 &57307819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2034179033855149247, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
@@ -3098,7 +3112,6 @@ MonoBehaviour:
   inventoryCanvas: {fileID: 1948582329}
   hovertext: {fileID: 2021691869}
   minimapCanvas: {fileID: 360710601}
-  cutscene: {fileID: 54898093}
 --- !u!4 &668201282
 Transform:
   m_ObjectHideFlags: 0
@@ -7375,6 +7388,7 @@ MonoBehaviour:
   unlockedDoor: 0
   player: {fileID: 1482992024}
   hoverText: {fileID: 526713595}
+  playFirstCutscene: 1
 --- !u!4 &1352790603
 Transform:
   m_ObjectHideFlags: 0

@@ -22,6 +22,7 @@ public class CutsceneController : MonoBehaviour
         cameraFollow.gameObject.SetActive(false);
         progressButton.SetActive(true);
         hovertext.SetActive(true);
+        //GameManager.Instance.playFirstCutscene = false;
     }
 
     // Hide all non-cutscene elements
