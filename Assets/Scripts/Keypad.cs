@@ -77,5 +77,6 @@ public class Keypad : FindPlayerTransform
         GameManager.Instance.player.GetComponent<PlayerMovement>().ToggleMovement();
         mouseLook.canLook = true;
         this.gameObject.SetActive(false);
+        GameManager.Instance.hoverText.text = "";
     }
 }
