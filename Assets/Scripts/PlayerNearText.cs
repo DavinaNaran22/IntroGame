@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerNearText : MonoBehaviour
 {
-    [SerializeField] private string Text;
+    public string Text;
     [SerializeField] private float sphereRadius = 3f;
     private TextMeshProUGUI hoverText;
     private bool modifyingText = false;

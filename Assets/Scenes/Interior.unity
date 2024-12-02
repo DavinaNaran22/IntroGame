@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: 
+  Text: Press E to equip camera
   sphereRadius: 3
 --- !u!1 &70697735
 GameObject:
@@ -3477,7 +3477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Press E to equip
+  Text: Press E to equip knife
   sphereRadius: 2.5
 --- !u!1 &797253304
 GameObject:
@@ -4345,6 +4345,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -7.4094
       objectReference: {fileID: 0}
+    - target: {fileID: 3575433162484873625, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.9524536
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575433162484873625, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.487541
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575433162484873625, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.600128
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715844201722970240, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.0350647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715844201722970240, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.498757
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715844201722970240, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.626602
+      objectReference: {fileID: 0}
     - target: {fileID: 3984129064145349843, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -4370,8 +4394,44 @@ PrefabInstance:
       value: 0.28007558
       objectReference: {fileID: 0}
     - target: {fileID: 4821813308698612448, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.68866
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821813308698612448, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.2155
+      value: -8.619034
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821813308698612448, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -28.54425
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821813308698612448, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8006462
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821813308698612448, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.43337065
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821813308698612448, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.3899676
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821813308698612448, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.13813336
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821813308698612448, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 53.292
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821813308698612448, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -57.606
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821813308698612448, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -11.269
       objectReference: {fileID: 0}
     - target: {fileID: 5103598266449257069, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_LocalScale.y
@@ -4379,7 +4439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5103598266449257069, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.859762
+      value: -6.974
       objectReference: {fileID: 0}
     - target: {fileID: 5103598266449257069, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4408,6 +4468,22 @@ PrefabInstance:
     - target: {fileID: 5341149426762128717, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383865826527444905, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.231262
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383865826527444905, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.486041
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383865826527444905, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.523392
+      objectReference: {fileID: 0}
+    - target: {fileID: 5456039554651119694, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: Text
+      value: Press E to equip oxygen tank
       objectReference: {fileID: 0}
     - target: {fileID: 5456039554651119694, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: sphereRadius
@@ -4440,6 +4516,14 @@ PrefabInstance:
     - target: {fileID: 6216788302251764829, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6216788302251764829, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6216788302251764829, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.78
       objectReference: {fileID: 0}
     - target: {fileID: 6331839496094800790, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_LocalScale.y
@@ -4556,6 +4640,18 @@ PrefabInstance:
     - target: {fileID: 7534965781303858898, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605906968221756752, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.293
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605906968221756752, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605906968221756752, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.844128
       objectReference: {fileID: 0}
     - target: {fileID: 7610184392361658931, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4729,6 +4825,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8024310899252524788, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.9939575
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024310899252524788, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.505541
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024310899252524788, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25.99913
+      objectReference: {fileID: 0}
     - target: {fileID: 8083880823484794980, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.4003779
@@ -4744,6 +4852,18 @@ PrefabInstance:
     - target: {fileID: 8692251320062391356, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_LocalPosition.y
       value: -5.4027
+      objectReference: {fileID: 0}
+    - target: {fileID: 8721930582733430284, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.7548218
+      objectReference: {fileID: 0}
+    - target: {fileID: 8721930582733430284, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.426541
+      objectReference: {fileID: 0}
+    - target: {fileID: 8721930582733430284, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.944
       objectReference: {fileID: 0}
     - target: {fileID: 8991013098724524229, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_Name
@@ -4773,11 +4893,16 @@ PrefabInstance:
     - {fileID: 496219717608121017, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     - {fileID: 295428513160362981, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     - {fileID: 295867488181817405, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+    - {fileID: 3332518313059086080, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+    - {fileID: 3135538758418669768, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4265596453139673410, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2132775567}
+    - targetCorrespondingSourceObject: {fileID: 6144732338022154820, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1782392757}
     - targetCorrespondingSourceObject: {fileID: 5103598266449559117, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2141401792}
@@ -4831,8 +4956,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Pres E to equip
-  sphereRadius: 1.75
+  Text: Press E to equip first aid kit
+  sphereRadius: 3
 --- !u!1 &917985429
 GameObject:
   m_ObjectHideFlags: 0
@@ -5122,7 +5247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Press E to equip
+  Text: Press E to equip gun
   sphereRadius: 3
 --- !u!114 &993659926 stripped
 MonoBehaviour:
@@ -5450,8 +5575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Right click to open keypad/unlock cockpit door
-  sphereRadius: 3
+  Text: Right click to go to cockpit
+  sphereRadius: 5
 --- !u!1001 &1055170528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5873,7 +5998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Press E to equip
+  Text: Press E to equip saw
   sphereRadius: 3
 --- !u!1 &1109019246
 GameObject:
@@ -6423,8 +6548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Pres E to equip
-  sphereRadius: 1.75
+  Text: Press E to equip first aid kit
+  sphereRadius: 3
 --- !u!1 &1228663136
 GameObject:
   m_ObjectHideFlags: 0
@@ -9047,7 +9172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Press E to equip
+  Text: Press E to equip file
   sphereRadius: 3
 --- !u!1001 &1566508397
 PrefabInstance:
@@ -9871,7 +9996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Press E to equip
+  Text: Press E to equip chisel
   sphereRadius: 3
 --- !u!1 &1643627665 stripped
 GameObject:
@@ -10170,6 +10295,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 99101442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1782392752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6144732338022154820, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1782392757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782392752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Right click to open keypad
+  sphereRadius: 5
 --- !u!1 &1788777688
 GameObject:
   m_ObjectHideFlags: 0
@@ -10775,6 +10919,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   keypadInput: {fileID: 862446323}
   doorScript: {fileID: 2132775567}
+  doorNearText: {fileID: 1782392757}
 --- !u!1 &1991281953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2771261484669979908, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
@@ -12122,7 +12267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Press E to equip
+  Text: Press E to equip axe
   sphereRadius: 3
 --- !u!114 &2117354159 stripped
 MonoBehaviour:
@@ -12536,8 +12681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Pres E to equip
-  sphereRadius: 1.75
+  Text: Press E to equip first aid kit
+  sphereRadius: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

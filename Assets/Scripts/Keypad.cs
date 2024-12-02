@@ -6,6 +6,7 @@ public class Keypad : FindPlayerTransform
 {
     [SerializeField] TMP_InputField keypadInput;
     [SerializeField] KeypadDoor doorScript;
+    [SerializeField] PlayerNearText doorNearText;
     private const string CODE = "2836";
     private PlayerInputActions inputActions;
     private MouseLook mouseLook;
@@ -65,6 +66,7 @@ public class Keypad : FindPlayerTransform
         {
             Debug.Log("CORRECT CODE");
             GameManager.Instance.unlockedDoor = true;
+            doorNearText.Text = "Right click to leave ship";
             ExitUI();
         }
     }
