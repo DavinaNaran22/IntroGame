@@ -6,6 +6,7 @@ public class ControlCutscene : MonoBehaviour
 {
     [SerializeField] PlayableDirector PlayableDirector;
     [SerializeField] CinemachineThirdPersonAim thirdPersonCam;
+
     private void Start()
     {
         // Only play cutscene if bool in game manager is true - in theory this should only happen once
