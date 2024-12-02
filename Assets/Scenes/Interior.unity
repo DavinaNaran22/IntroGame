@@ -3098,7 +3098,6 @@ MonoBehaviour:
   inventoryCanvas: {fileID: 1948582329}
   hovertext: {fileID: 2021691869}
   minimapCanvas: {fileID: 360710601}
-  cutscene: {fileID: 54898093}
 --- !u!4 &668201282
 Transform:
   m_ObjectHideFlags: 0
@@ -12685,8 +12684,8 @@ SceneRoots:
   - {fileID: 519417029}
   - {fileID: 482297694}
   - {fileID: 1622667515}
-  - {fileID: 54898094}
   - {fileID: 1352790603}
   - {fileID: 1026445026}
   - {fileID: 1994837934}
+  - {fileID: 54898094}
   - {fileID: 668201282}
