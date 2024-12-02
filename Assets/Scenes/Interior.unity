@@ -395,6 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayableDirector: {fileID: 54898093}
+  thirdPersonCam: {fileID: 1622667512}
 --- !u!1 &57307819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2034179033855149247, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
