@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     public PlayerInputActions inputActions;
     private Vector2 movementInput;
+    public bool inChair = false;
 
     public bool canMove = true;
     public Vector3 lockCoords; // Used for exiting cockpit
@@ -136,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
     // If movement is locked and allow player to move and if nesc. move them to previous coords
     private void ExitChair()
     {
-        if (!canMove)
+        if (!canMove && inChair)
         {
             ToggleMovement();
             if (lockCoords != null)

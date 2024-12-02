@@ -7,16 +7,24 @@ public class PlayerSceneTransition: MonoBehaviour
     [SerializeField] private Vector3 spawnPoint;
     private GameObject player;
     private InstantiateParts PartsManager;
+    protected bool hasCheckCondition = false;
 
-    // When player enters trigger switch scene
+    // When player enters trigger switch scene (and if no check condition)
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !hasCheckCondition)
         {
             player = other.gameObject;
             SceneManager.LoadScene(scene);
             SceneManager.sceneLoaded += OnSceneLoad;
         }
+    }
+    protected void LoadOtherScene(GameObject Player)
+    {
+        player = Player;
+        SceneManager.LoadScene(scene);
+        SceneManager.sceneLoaded += OnSceneLoad;
+        GameManager.Instance.hoverText.text = "";
     }
 
     // When scene loaded, move player to spawn point and spawn boxes
