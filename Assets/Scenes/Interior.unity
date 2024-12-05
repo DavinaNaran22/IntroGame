@@ -365,6 +365,42 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -8734798462634856404, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
     value: {fileID: 668201280}
+  - key: {fileID: 5709193570270722382, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 265964501}
+  - key: {fileID: 4881630818587020399, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 673015295}
+  - key: {fileID: -1918530207052932380, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 1007920073}
+  - key: {fileID: -7314384271108176758, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 767223015}
+  - key: {fileID: -7703306186404488569, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 1580231084}
+  - key: {fileID: -9108535003579024969, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 621989131}
+  - key: {fileID: -3811704807163261870, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 1319887459}
+  - key: {fileID: -5600001595290963923, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 1149693938}
+  - key: {fileID: -23871707662058868, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 224021367}
+  - key: {fileID: -1690259543025636706, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 1268128252}
+  - key: {fileID: 7263676727164638386, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 1848687689}
+  - key: {fileID: -532024088687824989, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 1005992483}
+  - key: {fileID: -8773063759582507281, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 1998524428}
+  - key: {fileID: -4087010653356685052, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 1851358024}
+  - key: {fileID: -7717644319384194917, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 1208201750}
+  - key: {fileID: -813092807759009089, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 392915405}
+  - key: {fileID: -1108179310233465130, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 756455718}
+  - key: {fileID: -764479333502389855, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
+    value: {fileID: 1604267106}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &54898094
@@ -1372,6 +1408,140 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219602013}
+  m_CullTransparentMesh: 1
+--- !u!1 &224021367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224021368}
+  - component: {fileID: 224021370}
+  - component: {fileID: 224021369}
+  m_Layer: 5
+  m_Name: Text5.5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &224021368
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224021367}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1383739020}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 280, y: 20}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &224021369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224021367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: An asteroid!? How much damage is there?
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &224021370
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224021367}
   m_CullTransparentMesh: 1
 --- !u!1 &229394218
 GameObject:
@@ -2595,7 +2765,7 @@ GameObject:
   - component: {fileID: 392915408}
   - component: {fileID: 392915407}
   m_Layer: 5
-  m_Name: Text13
+  m_Name: Text14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3986,7 +4156,7 @@ GameObject:
   - component: {fileID: 621989134}
   - component: {fileID: 621989133}
   m_Layer: 5
-  m_Name: Text4
+  m_Name: Text5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4895,7 +5065,7 @@ GameObject:
   - component: {fileID: 756455721}
   - component: {fileID: 756455720}
   m_Layer: 5
-  m_Name: Text14
+  m_Name: Text15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7305,7 +7475,7 @@ GameObject:
   - component: {fileID: 1005992486}
   - component: {fileID: 1005992485}
   m_Layer: 5
-  m_Name: Text9
+  m_Name: Text10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8399,7 +8569,7 @@ GameObject:
   - component: {fileID: 1149693941}
   - component: {fileID: 1149693940}
   m_Layer: 5
-  m_Name: Text6
+  m_Name: Text7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8421,7 +8591,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 130, y: 20}
+  m_AnchoredPosition: {x: 160, y: 20}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1149693940
@@ -8444,7 +8614,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Stay calm. Try to find some planet nearby so we can try to land there.
+  m_text: Stay calm. Try to find some planet nearby so we can land there.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8931,7 +9101,7 @@ GameObject:
   - component: {fileID: 1208201753}
   - component: {fileID: 1208201752}
   m_Layer: 5
-  m_Name: Text12
+  m_Name: Text13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9412,7 +9582,7 @@ GameObject:
   - component: {fileID: 1268128255}
   - component: {fileID: 1268128254}
   m_Layer: 5
-  m_Name: Text7
+  m_Name: Text8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9434,7 +9604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 300, y: 20}
+  m_AnchoredPosition: {x: 280, y: 20}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1268128254
@@ -9457,7 +9627,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I'll go gather some supplies. I'll be back.
+  m_text: I'll go gather some supplies. I'll be right back.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9750,7 +9920,7 @@ GameObject:
   - component: {fileID: 1319887462}
   - component: {fileID: 1319887461}
   m_Layer: 5
-  m_Name: Text5
+  m_Name: Text6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9772,7 +9942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 220, y: 20}
+  m_AnchoredPosition: {x: 200, y: 20}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319887461
@@ -9795,7 +9965,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: We've taken a lot of damage too. We're going to crash!
+  m_text: A lot! I can't fix it right now. I think we're going to crash!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10706,6 +10876,7 @@ RectTransform:
   - {fileID: 767223016}
   - {fileID: 1580231085}
   - {fileID: 621989132}
+  - {fileID: 224021368}
   - {fileID: 1319887460}
   - {fileID: 1149693939}
   - {fileID: 1268128253}
@@ -11215,7 +11386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 451699027006493129, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.00000008742278
       objectReference: {fileID: 0}
     - target: {fileID: 451699027006493129, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11235,7 +11406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 451699027006493129, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.00000004371139
       objectReference: {fileID: 0}
     - target: {fileID: 451699027006493129, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalRotation.z
@@ -12870,7 +13041,7 @@ GameObject:
   - component: {fileID: 1604267109}
   - component: {fileID: 1604267108}
   m_Layer: 5
-  m_Name: Text15
+  m_Name: Text16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14133,7 +14304,7 @@ GameObject:
   - component: {fileID: 1848687692}
   - component: {fileID: 1848687691}
   m_Layer: 5
-  m_Name: Text8
+  m_Name: Text9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14267,7 +14438,7 @@ GameObject:
   - component: {fileID: 1851358027}
   - component: {fileID: 1851358026}
   m_Layer: 5
-  m_Name: Text11
+  m_Name: Text12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14312,7 +14483,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CAPTAIN!! CAPTAIN!! HE'S DYING, WHERE'S THE FIRST AID KIT -
+  m_text: CAPTAIN!! CAPTAIN!! HE'S DYING, WHERE'S THE FIRST AID KIT?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15913,7 +16084,7 @@ GameObject:
   - component: {fileID: 1998524431}
   - component: {fileID: 1998524430}
   m_Layer: 5
-  m_Name: Text10
+  m_Name: Text11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
