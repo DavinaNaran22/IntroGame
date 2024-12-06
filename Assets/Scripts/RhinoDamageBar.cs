@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AlienDamageBar : MonoBehaviour
+public class RhinoDamageBar : MonoBehaviour
 {
     public Image damageBarImage; // UI Image representing health bar
     public const float maxAmount = 1f; // Max health (100%)
