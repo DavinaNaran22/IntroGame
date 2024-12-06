@@ -79,16 +79,17 @@ public class GreenAlienBehavior : FindPlayerTransform
     {
         if (isHit) return; // Prevent multiple hits
         isHit = true;
+        
         // Reduce health bar
         if (damageBar != null)
         {
-            damageBar.TakeDamage(0.2f); // Example: reduce 20% health
+            damageBar.TakeDamage(0.1f); // reduce 210% health
         }
         else
         {
             Debug.LogWarning("Damage bar not assigned!");
         }
-        //animator.SetTrigger("HitL");
+
         StartCoroutine(HandleHitSequence());
     }
 
@@ -143,5 +144,29 @@ public class GreenAlienBehavior : FindPlayerTransform
         // Set the Dead state and update isDead flag
         //animator.SetTrigger("Dead");
         //isDead = true; // Mark the alien as dead
+    }
+
+    private void OnEnable()
+    {
+        if (damageBar != null)
+        {
+            damageBar.OnAlienDied += HandleAlienDeath; // Subscribe to event
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (damageBar != null)
+        {
+            damageBar.OnAlienDied -= HandleAlienDeath; // Unsubscribe from event
+        }
+    }
+
+    private void HandleAlienDeath()
+    {
+        if (isDead) return; // Prevent duplicate calls
+        isDead = true;
+        animator.SetTrigger("Dead"); // Trigger "Dead" animation
+        Debug.Log("Alien has died!");
     }
 }

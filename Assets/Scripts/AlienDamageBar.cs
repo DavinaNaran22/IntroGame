@@ -7,6 +7,9 @@ public class AlienDamageBar : MonoBehaviour
     public const float maxAmount = 1f; // Max health (100%)
     private float currentAmount; // Current health
 
+    public delegate void AlienDiedHandler();
+    public event AlienDiedHandler OnAlienDied; // Event for alien death
+
     void Start()
     {
         currentAmount = maxAmount; // Initialize health to full
@@ -36,16 +39,19 @@ public class AlienDamageBar : MonoBehaviour
     // Handle alien's death (deactivation)
     void AlienDeath()
     {
-        gameObject.SetActive(false); // Deactivate the alien game object
+        //gameObject.SetActive(false); // Deactivate the alien game object
+        //Debug.Log("Alien has been deactivated.");
+        //if (transform.parent != null) // Check if the GameObject has a parent
+        //{
+        //    transform.parent.gameObject.SetActive(false); // Deactivate the parent
+        //}
+        //else
+        //{
+        //    Debug.Log("This object has no parent.");
+        //}
+
         Debug.Log("Alien has been deactivated.");
-        if (transform.parent != null) // Check if the GameObject has a parent
-        {
-            transform.parent.gameObject.SetActive(false); // Deactivate the parent
-        }
-        else
-        {
-            Debug.Log("This object has no parent.");
-        }
-        
+        OnAlienDied?.Invoke(); // Notify listeners that the alien has died
+
     }
 }
