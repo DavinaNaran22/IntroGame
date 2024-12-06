@@ -7,6 +7,7 @@ public class GreenAlienBehavior : FindPlayerTransform
     public float detectionRadius = 5f;
     public Animator animator;
     public PlayerEquipment playerEquipment;
+    public AlienDamageBar damageBar;
 
     public GameObject shotPrefab;
     public float shootRate = 0.5f;
@@ -78,6 +79,15 @@ public class GreenAlienBehavior : FindPlayerTransform
     {
         if (isHit) return; // Prevent multiple hits
         isHit = true;
+        // Reduce health bar
+        if (damageBar != null)
+        {
+            damageBar.TakeDamage(0.2f); // Example: reduce 20% health
+        }
+        else
+        {
+            Debug.LogWarning("Damage bar not assigned!");
+        }
         //animator.SetTrigger("HitL");
         StartCoroutine(HandleHitSequence());
     }

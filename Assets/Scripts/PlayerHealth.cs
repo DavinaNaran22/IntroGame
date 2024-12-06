@@ -17,8 +17,6 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         Debug.Log("Health Bar is at " + currentHealth * 100 + "%");
         UpdateHealthBar();
-
-       
     }
 
     
