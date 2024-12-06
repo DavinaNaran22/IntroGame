@@ -9,6 +9,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
     public Animator animator;
     public PlayerEquipment playerEquipment;
     public RhinoDamageBar damageBar;
+    public GameObject Healthlimit;
 
     public GameObject shotPrefab;
     public float shootRate = 0.5f;
@@ -72,6 +73,14 @@ public class RhinoAlienBehaviour : FindPlayerTransform
 
         // Set laser's target position and make it move
         laser.GetComponent<ShotBehavior>().setTarget(targetPosition);
+
+        // Damages player when alien fires lasers
+        PlayerHealth playerHealth = Healthlimit.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(0.03f); // Adjust damage percentage as needed
+            Debug.Log("Alien shot the player! Dealing damage.");
+        }
 
         // Destroy laser after a set time (e.g., 2 seconds)
         Destroy(laser, 2f);
