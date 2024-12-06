@@ -8,6 +8,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
     public float detectionRadius = 5f;
     public Animator animator;
     public PlayerEquipment playerEquipment;
+    public RhinoDamageBar damageBar;
 
     public GameObject shotPrefab;
     public float shootRate = 0.5f;
@@ -80,6 +81,17 @@ public class RhinoAlienBehaviour : FindPlayerTransform
     {
         if (isHit) return; // Prevent multiple hits
         isHit = true;
+
+        // Reduce health bar
+        if (damageBar != null)
+        {
+            damageBar.TakeDamage(0.1f); // reduce 10% health
+        }
+        else
+        {
+            Debug.LogWarning("Damage bar not assigned!");
+        }
+
         StartCoroutine(HandleHitSequence());
     }
 
@@ -126,12 +138,30 @@ public class RhinoAlienBehaviour : FindPlayerTransform
 
         //animator.SetTrigger("GetHit");
         animator.SetTrigger("BackShout");
+    }
 
+    private void OnEnable()
+    {
+        if (damageBar != null)
+        {
+            damageBar.OnAlienDied += HandleAlienDeath; // Subscribe to event
+        }
+    }
 
-        //    // Set the Dead state and update isDead flag
-        //    //animator.SetTrigger("Dead");
-        //    //isDead = true; // Mark the alien as dead
-        //
+    private void OnDisable()
+    {
+        if (damageBar != null)
+        {
+            damageBar.OnAlienDied -= HandleAlienDeath; // Unsubscribe from event
+        }
+    }
+
+    private void HandleAlienDeath()
+    {
+        if (isDead) return; // Prevent duplicate calls
+        isDead = true;
+        animator.SetTrigger("Dead"); // Trigger "Dead" animation
+        Debug.Log("Alien has died!");
     }
 
 

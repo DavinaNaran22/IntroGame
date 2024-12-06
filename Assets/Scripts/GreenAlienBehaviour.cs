@@ -83,7 +83,7 @@ public class GreenAlienBehavior : FindPlayerTransform
         // Reduce health bar
         if (damageBar != null)
         {
-            damageBar.TakeDamage(0.1f); // reduce 210% health
+            damageBar.TakeDamage(0.1f); // reduce 10% health
         }
         else
         {
@@ -134,16 +134,6 @@ public class GreenAlienBehavior : FindPlayerTransform
         }
 
         animator.SetTrigger("BackIdle");
-
-        //animator.SetTrigger("HitL");
-        //yield return new WaitForSeconds(1f);
-
-        //animator.SetTrigger("HitR");
-        //yield return new WaitForSeconds(1f);
-
-        // Set the Dead state and update isDead flag
-        //animator.SetTrigger("Dead");
-        //isDead = true; // Mark the alien as dead
     }
 
     private void OnEnable()
