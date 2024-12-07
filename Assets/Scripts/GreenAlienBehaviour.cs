@@ -11,7 +11,7 @@ public class GreenAlienBehavior : FindPlayerTransform
     public GameObject Healthlimit;
 
     public GameObject shotPrefab;
-    public float shootRate = 0.5f;
+    public float shootRate = 1f;
     private float m_shootRateTimeStamp;
 
     private bool playerNearby = false;
