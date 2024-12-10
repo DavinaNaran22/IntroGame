@@ -1,13 +1,14 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI; // Required for UI elements
+using TMPro; // Required for TextMeshPro
 
 public class MissionManager : MonoBehaviour
 {
     public GameObject player; // Reference to the player object
     public BoxCollider restrictedArea; // The area restricting movement
-    public TextMeshProUGUI promptText;  // Reference to the UI Text component
+    public TextMeshProUGUI promptText; // Reference to the TextMeshProUGUI component
+    public TextMeshProUGUI dialogueText; // Reference to the TextMeshProUGUI component for dialogue
     private bool photoTaken = false; // Tracks if the player has taken the photo
+    private bool dialogueShown = false; // Tracks if the dialogue has been shown
     private Vector3 minBounds; // Minimum bounds of the restricted area
     private Vector3 maxBounds; // Maximum bounds of the restricted area
     private CharacterController characterController; // Player's CharacterController
@@ -25,7 +26,10 @@ public class MissionManager : MonoBehaviour
             Debug.LogError("Player does not have a CharacterController component!");
         }
 
-        // Hide the prompt message at the start
+        // Show the initial dialogue
+        ShowDialogue("I need to take a picture of these creatures living on the planet.");
+
+        // Hide the prompt text at the start
         promptText.gameObject.SetActive(false);
     }
 
@@ -33,29 +37,55 @@ public class MissionManager : MonoBehaviour
     {
         if (!photoTaken)
         {
-            ShowPrompt();
-
-            // Restrict player movement within the bounds
-            RestrictPlayerMovement();
-
-            if (Input.GetKeyDown(KeyCode.M))
+            if (!dialogueShown)
             {
-                TakePhoto();
+                // Wait for the player to left-click to dismiss dialogue
+                if (Input.GetMouseButtonDown(0)) // Left mouse button
+                {
+                    HideDialogue();
+                    dialogueShown = true;
+                }
+            }
+            else
+            {
+                // Show the photo prompt once the dialogue is dismissed
+                ShowPrompt();
+
+                // Restrict player movement within the bounds
+                RestrictPlayerMovement();
+
+                if (Input.GetKeyDown(KeyCode.M))
+                {
+                    TakePhoto();
+                }
             }
         }
     }
 
     private void ShowPrompt()
     {
-        // Display the prompt message on the screen
+        // Display the photo prompt message
         promptText.gameObject.SetActive(true);
-        promptText.text = "Press M to take a photo";
+        promptText.text = "Press M to take a photo!";
     }
 
     private void HidePrompt()
     {
-        // Hide the prompt message from the screen
+        // Hide the photo prompt message
         promptText.gameObject.SetActive(false);
+    }
+
+    private void ShowDialogue(string message)
+    {
+        // Display dialogue on the screen
+        dialogueText.gameObject.SetActive(true);
+        dialogueText.text = message;
+    }
+
+    private void HideDialogue()
+    {
+        // Hide dialogue from the screen
+        dialogueText.gameObject.SetActive(false);
     }
 
     private void RestrictPlayerMovement()
