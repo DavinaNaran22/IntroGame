@@ -8,7 +8,7 @@ using UnityEngine;
 class PlayerData
 {
     // Data which should be saved - add whatever's relevant
-    public int health;
+    public float health;
     public bool unlockedDoor;
     public bool playFirstCutscene;
 }
@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject player;
     public TextMeshProUGUI hoverText;
     public bool playFirstCutscene;
+    public float playerHealth;
 
     // Save() and Load() are from Resource 10.1 Data Persistance on QMPlus
     // https://qmplus.qmul.ac.uk/pluginfile.php/3476919/mod_resource/content/0/Resource%2010.1%20Data%20Persistance.pdf
@@ -31,6 +32,7 @@ public class GameManager : Singleton<GameManager>
         PlayerData data = new PlayerData();
         data.unlockedDoor = unlockedDoor;
         data.playFirstCutscene = playFirstCutscene;
+        data.health = playerHealth;
 
         bf.Serialize(file, data);
         file.Close();
@@ -50,6 +52,7 @@ public class GameManager : Singleton<GameManager>
 
             unlockedDoor = data.unlockedDoor;
             playFirstCutscene = data.playFirstCutscene;
+            playerHealth = data.health;
             Debug.Log("Loaded Player data");
         }
         else
