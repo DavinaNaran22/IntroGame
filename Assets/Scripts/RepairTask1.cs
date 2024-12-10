@@ -1,10 +1,12 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI; // Required for UI elements
 
 public class MissionManager : MonoBehaviour
 {
     public GameObject player; // Reference to the player object
     public BoxCollider restrictedArea; // The area restricting movement
-    public string promptMessage = "Press M to take a photo!"; // Message shown to the player
+    public TextMeshProUGUI promptText;  // Reference to the UI Text component
     private bool photoTaken = false; // Tracks if the player has taken the photo
     private Vector3 minBounds; // Minimum bounds of the restricted area
     private Vector3 maxBounds; // Maximum bounds of the restricted area
@@ -22,6 +24,9 @@ public class MissionManager : MonoBehaviour
         {
             Debug.LogError("Player does not have a CharacterController component!");
         }
+
+        // Hide the prompt message at the start
+        promptText.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -42,8 +47,15 @@ public class MissionManager : MonoBehaviour
 
     private void ShowPrompt()
     {
-        // Display the prompt message (you can replace this with your UI logic)
-        Debug.Log(promptMessage);
+        // Display the prompt message on the screen
+        promptText.gameObject.SetActive(true);
+        promptText.text = "Press M to take a photo";
+    }
+
+    private void HidePrompt()
+    {
+        // Hide the prompt message from the screen
+        promptText.gameObject.SetActive(false);
     }
 
     private void RestrictPlayerMovement()
@@ -70,6 +82,7 @@ public class MissionManager : MonoBehaviour
         photoTaken = true;
         Debug.Log("Photo taken!");
         RemoveRestriction();
+        HidePrompt(); // Hide the prompt after taking a photo
     }
 
     private void RemoveRestriction()
