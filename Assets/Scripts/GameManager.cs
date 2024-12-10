@@ -24,7 +24,7 @@ public class GameManager : Singleton<GameManager>
     // https://qmplus.qmul.ac.uk/pluginfile.php/3476919/mod_resource/content/0/Resource%2010.1%20Data%20Persistance.pdf
     public void Save()
     {
-        string filename = Application.persistentDataPath + "/playInfo.data";
+        string filename = Application.persistentDataPath + "/playInfo.dat";
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Open(filename, FileMode.OpenOrCreate);
 
@@ -34,7 +34,7 @@ public class GameManager : Singleton<GameManager>
 
         bf.Serialize(file, data);
         file.Close();
-        Debug.Log("Player progess saved");
+        Debug.Log("Player progess saved at " + filename);
     }
 
     public void Load()
@@ -50,7 +50,11 @@ public class GameManager : Singleton<GameManager>
 
             unlockedDoor = data.unlockedDoor;
             playFirstCutscene = data.playFirstCutscene;
-            Debug.Log("Loading Player data");
+            Debug.Log("Loaded Player data");
+        }
+        else
+        {
+            Debug.Log("No file with player data at location " + filename + " so no loading of player data");
         }
     }
 }
