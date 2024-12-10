@@ -125,6 +125,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Camera"",
+                    ""type"": ""Button"",
+                    ""id"": ""7f25834f-cf56-46da-a49f-88f8f07b2fa6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -347,6 +356,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""ExitChair"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee04e591-7007-4f9e-919b-91713789bf67"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -366,6 +386,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_CloseInventory = m_Player.FindAction("CloseInventory", throwIfNotFound: true);
         m_Player_InteractDoor = m_Player.FindAction("InteractDoor", throwIfNotFound: true);
         m_Player_ExitChair = m_Player.FindAction("ExitChair", throwIfNotFound: true);
+        m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -438,6 +459,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_CloseInventory;
     private readonly InputAction m_Player_InteractDoor;
     private readonly InputAction m_Player_ExitChair;
+    private readonly InputAction m_Player_Camera;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -453,6 +475,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @CloseInventory => m_Wrapper.m_Player_CloseInventory;
         public InputAction @InteractDoor => m_Wrapper.m_Player_InteractDoor;
         public InputAction @ExitChair => m_Wrapper.m_Player_ExitChair;
+        public InputAction @Camera => m_Wrapper.m_Player_Camera;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -495,6 +518,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ExitChair.started += instance.OnExitChair;
             @ExitChair.performed += instance.OnExitChair;
             @ExitChair.canceled += instance.OnExitChair;
+            @Camera.started += instance.OnCamera;
+            @Camera.performed += instance.OnCamera;
+            @Camera.canceled += instance.OnCamera;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -532,6 +558,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ExitChair.started -= instance.OnExitChair;
             @ExitChair.performed -= instance.OnExitChair;
             @ExitChair.canceled -= instance.OnExitChair;
+            @Camera.started -= instance.OnCamera;
+            @Camera.performed -= instance.OnCamera;
+            @Camera.canceled -= instance.OnCamera;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -562,5 +591,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnCloseInventory(InputAction.CallbackContext context);
         void OnInteractDoor(InputAction.CallbackContext context);
         void OnExitChair(InputAction.CallbackContext context);
+        void OnCamera(InputAction.CallbackContext context);
     }
 }

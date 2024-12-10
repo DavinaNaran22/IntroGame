@@ -1,5 +1,6 @@
 using UnityEngine;
-using TMPro; // Required for TextMeshPro
+using UnityEngine.InputSystem; // Required for the new Input System
+using TMPro;
 
 public class MissionManager : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class MissionManager : MonoBehaviour
     public BoxCollider restrictedArea; // The area restricting movement
     public TextMeshProUGUI promptText; // Reference to the TextMeshProUGUI component
     public TextMeshProUGUI dialogueText; // Reference to the TextMeshProUGUI component for dialogue
+    public InputAction cameraAction; // Reference to the Camera input action
+
     private bool photoTaken = false; // Tracks if the player has taken the photo
     private bool dialogueShown = false; // Tracks if the dialogue has been shown
     private Vector3 minBounds; // Minimum bounds of the restricted area
@@ -31,6 +34,19 @@ public class MissionManager : MonoBehaviour
 
         // Hide the prompt text at the start
         promptText.gameObject.SetActive(false);
+
+        // Enable the camera action
+        cameraAction.Enable();
+
+        // Register the action's callback
+        cameraAction.performed += OnCameraAction;
+    }
+
+    private void OnDestroy()
+    {
+        // Unregister the action's callback and disable the action
+        cameraAction.performed -= OnCameraAction;
+        cameraAction.Disable();
     }
 
     private void Update()
@@ -39,6 +55,8 @@ public class MissionManager : MonoBehaviour
         {
             if (!dialogueShown)
             {
+                RestrictPlayerMovement();
+
                 // Wait for the player to left-click to dismiss dialogue
                 if (Input.GetMouseButtonDown(0)) // Left mouse button
                 {
@@ -48,16 +66,11 @@ public class MissionManager : MonoBehaviour
             }
             else
             {
-                // Show the photo prompt once the dialogue is dismissed
-                ShowPrompt();
-
                 // Restrict player movement within the bounds
                 RestrictPlayerMovement();
 
-                if (Input.GetKeyDown(KeyCode.M))
-                {
-                    TakePhoto();
-                }
+                // Show the photo prompt once the dialogue is dismissed
+                ShowPrompt();
             }
         }
     }
@@ -104,6 +117,14 @@ public class MissionManager : MonoBehaviour
         {
             Vector3 movementOffset = clampedPosition - playerPosition;
             characterController.Move(movementOffset);
+        }
+    }
+
+    private void OnCameraAction(InputAction.CallbackContext context)
+    {
+        if (!photoTaken && dialogueShown)
+        {
+            TakePhoto();
         }
     }
 
