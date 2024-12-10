@@ -105,9 +105,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Camera",
+                    "name": "TakePhoto",
                     "type": "Button",
-                    "id": "7f25834f-cf56-46da-a49f-88f8f07b2fa6",
+                    "id": "b986b7e2-7f1d-455f-8bd4-c9d260f0eeef",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DismissDialogue",
+                    "type": "Button",
+                    "id": "1a4a7c28-e18b-40c8-9cca-840253ca191b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -337,12 +346,23 @@
                 },
                 {
                     "name": "",
-                    "id": "ee04e591-7007-4f9e-919b-91713789bf67",
+                    "id": "a0fd6229-be60-4ff3-a678-e3044ac155da",
                     "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Camera",
+                    "action": "TakePhoto",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a5cd401e-7a91-483f-aa96-b79e3b8faa8a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DismissDialogue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

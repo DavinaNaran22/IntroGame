@@ -1,18 +1,42 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class MissionManager : MonoBehaviour
 {
-    public GameObject player; // Reference to the player object
-    public BoxCollider restrictedArea; // The area restricting movement
-    public TextMeshProUGUI promptText; // Reference to the TextMeshProUGUI component
-    public TextMeshProUGUI dialogueText; // Reference to the TextMeshProUGUI component for dialogue
+    public GameObject player; 
+    public BoxCollider restrictedArea; 
+    public TextMeshProUGUI promptText; 
+    public TextMeshProUGUI dialogueText;
 
-    private bool photoTaken = false; // Tracks if the player has taken the photo
-    private bool dialogueShown = false; // Tracks if the dialogue has been shown
+    private bool photoTaken = false; 
+    private bool dialogueShown = false; 
     private Vector3 minBounds; // Minimum bounds of the restricted area
     private Vector3 maxBounds; // Maximum bounds of the restricted area
-    private CharacterController characterController; // Player's CharacterController
+    private CharacterController characterController; 
+    private PlayerInputActions inputActions;
+
+
+    // New input system for taking photos and dismissing dialogue
+    private void Awake()
+    {
+        inputActions = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Player.Enable();
+        inputActions.Player.TakePhoto.performed += ctx => TakePhoto();
+        inputActions.Player.DismissDialogue.performed += ctx => DismissDialogue();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Player.Disable();
+        inputActions.Player.TakePhoto.performed -= ctx => TakePhoto();
+        inputActions.Player.DismissDialogue.performed -= ctx => DismissDialogue();
+    }
+
 
     private void Start()
     {
@@ -36,34 +60,32 @@ public class MissionManager : MonoBehaviour
     }
 
 
+
     private void Update()
     {
         if (!photoTaken)
         {
             if (!dialogueShown)
             {
+                // Restrict player movement within the bounds
                 RestrictPlayerMovement();
-
-                // Wait for the player to left-click to dismiss dialogue
-                if (Input.GetMouseButtonDown(0)) // Left mouse button
-                {
-                    HideDialogue();
-                    dialogueShown = true;
-                }
             }
             else
             {
-                // Restrict player movement within the bounds
                 RestrictPlayerMovement();
 
                 // Show the photo prompt once the dialogue is dismissed
                 ShowPrompt();
-                if (Input.GetKeyDown(KeyCode.M))
-                {
-                    TakePhoto();
-                }
-
             }
+        }
+    }
+
+    private void DismissDialogue()
+    {
+        if (!dialogueShown)
+        {
+            HideDialogue();
+            dialogueShown = true;
         }
     }
 
@@ -111,7 +133,6 @@ public class MissionManager : MonoBehaviour
             characterController.Move(movementOffset);
         }
     }
-
 
 
     private void TakePhoto()
