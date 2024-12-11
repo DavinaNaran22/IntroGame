@@ -8,12 +8,14 @@ public class ColourDropdown : Singleton<ColourDropdown>
     public ColourMode mode = ColourMode.NoColourBlindness;
     [SerializeField] TMP_Dropdown dropdown;
     [SerializeField] Image HealthBar;
+    [SerializeField] Image EnemyMinimapIcon;
+    [SerializeField] Image RedSubtitleBox;
     [SerializeField] Color red = new Color(242f, 0f, 0f, 1f);
     [SerializeField] Color blue = new Color(0f, 46f, 255f, 1f);
 
     void Start()
     {
-        
+        NoColourBlindness();
         dropdown.onValueChanged.AddListener(delegate
         {
             DropdownValueChanged(dropdown);
@@ -23,17 +25,23 @@ public class ColourDropdown : Singleton<ColourDropdown>
     void NoColourBlindness()
     {
         HealthBar.color = red;
+        EnemyMinimapIcon.color = red;
+        RedSubtitleBox.color = red;
         Debug.Log("No Colour blindness");
     }
 
     void Protanopia()
     {
         HealthBar.color = blue;
+        EnemyMinimapIcon.color = blue;
+        RedSubtitleBox.color = blue;
         Debug.Log("Protanopia");
     }
     void Deuteranopia()
     {
         HealthBar.color = blue;
+        EnemyMinimapIcon.color = blue;
+        RedSubtitleBox.color = blue;
         Debug.Log("Deuteranopia");
     }
 
@@ -63,6 +71,10 @@ public class ColourDropdown : Singleton<ColourDropdown>
             case 3:
                 mode = ColourMode.Tritanopia;
                 Tritanopia();
+                break;
+            default:
+                mode = ColourMode.NoColourBlindness;
+                NoColourBlindness();
                 break;
         }
     }
