@@ -7,7 +7,7 @@ using UnityEngine;
 // This could be moved to another class which changes material colours etc.
 public enum ColourMode
 {
-    NoColorBlindness,
+    NoColourBlindness,
     Protanopia,
     Deuteranopia,
     Tritanopia

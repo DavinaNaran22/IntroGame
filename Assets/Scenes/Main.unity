@@ -441,6 +441,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 0
   dropdown: {fileID: 126852216}
+  HealthBar: {fileID: 3675507920588773738, guid: 924c554ceea3c6b4eba0adc53a6c9e9d, type: 3}
+  red: {r: 242, g: 0, b: 0, a: 1}
+  blue: {r: 0, g: 46, b: 255, a: 1}
 --- !u!114 &55588883
 MonoBehaviour:
   m_ObjectHideFlags: 0
