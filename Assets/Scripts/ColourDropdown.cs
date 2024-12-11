@@ -109,6 +109,10 @@ public class ColourDropdown : Singleton<ColourDropdown>
 
         // Selected dropdown value will default to Normal whenever it switches to main menu scene
         // Need the selected value to match the currently selected option
-        if (GameManager.Instance) dropdown.value = (int)GameManager.Instance.colourMode;
+        // Check that everything's been assigned and that there's a mismatch between the values
+        if (GameManager.Instance != null && dropdown != null && dropdown.value != (int) GameManager.Instance.colourMode)
+        {
+            dropdown.value = (int)GameManager.Instance.colourMode;
+        }
     }
 }
