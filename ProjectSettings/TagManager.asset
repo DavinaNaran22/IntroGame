@@ -13,6 +13,7 @@ TagManager:
   - ShipPartManager
   - HoverText
   - PlayerCanvas
+  - ColourMode
   layers:
   - Default
   - TransparentFX

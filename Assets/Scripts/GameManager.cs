@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 
 // This could be moved to another class which changes material colours etc.
-public enum ColorMode
+public enum ColourMode
 {
     NoColorBlindness,
     Protanopia,
@@ -20,7 +20,7 @@ class PlayerData
     public float health;
     public bool unlockedDoor;
     public bool playFirstCutscene;
-    public ColorMode colorMode;
+    public ColourMode colorMode;
 }
 
 public class GameManager : Singleton<GameManager>
@@ -30,7 +30,12 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI hoverText;
     public bool playFirstCutscene;
     public float playerHealth;
-    public ColorMode colorMode;
+    public ColourMode colourMode;
+
+    private void Start()
+    {
+        colourMode = GameObject.FindWithTag("ColourMode").GetComponent<ColourDropdown>().mode;
+    }
 
     // Save() and Load() are from Resource 10.1 Data Persistance on QMPlus
     // https://qmplus.qmul.ac.uk/pluginfile.php/3476919/mod_resource/content/0/Resource%2010.1%20Data%20Persistance.pdf
@@ -44,7 +49,7 @@ public class GameManager : Singleton<GameManager>
         data.unlockedDoor = unlockedDoor;
         data.playFirstCutscene = playFirstCutscene;
         data.health = playerHealth;
-        data.colorMode = colorMode;
+        data.colorMode = colourMode;
 
         bf.Serialize(file, data);
         file.Close();
@@ -65,7 +70,7 @@ public class GameManager : Singleton<GameManager>
             unlockedDoor = data.unlockedDoor;
             playFirstCutscene = data.playFirstCutscene;
             playerHealth = data.health;
-            colorMode = data.colorMode;
+            colourMode = data.colorMode;
             Debug.Log("Loaded Player data");
         }
         else
