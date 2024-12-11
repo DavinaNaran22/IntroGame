@@ -12,6 +12,7 @@ public class ColourDropdown : Singleton<ColourDropdown>
     [SerializeField] Image EnemyMinimapIcon;
     [SerializeField] Image RedSubtitleBox;
     [SerializeField] TextMeshProUGUI PromptText;
+    [SerializeField] Image ExitButton;
     [SerializeField] Color red = new Color(242f, 0f, 0f, 1f);
     [SerializeField] Color blue = new Color(0f, 46f, 255f, 1f);
 
@@ -26,38 +27,46 @@ public class ColourDropdown : Singleton<ColourDropdown>
         });
     }
 
-    void NoColourBlindness()
+    // Set colours back to original red
+    void SetColourRed()
     {
         HealthBar.color = red;
         EnemyMinimapIcon.color = red;
         RedSubtitleBox.color = red;
         PromptText.color = red;
+        ExitButton.color = red;
+    }
+
+    // Make red images blue
+    void SetColourBlue()
+    {
+        HealthBar.color = blue;
+        EnemyMinimapIcon.color = blue;
+        RedSubtitleBox.color = blue;
+        PromptText.color = blue;
+        ExitButton.color = blue;
+    }
+
+    void NoColourBlindness()
+    {
+        SetColourRed();
         Debug.Log("No Colour blindness");
     }
 
     void Protanopia()
     {
-        HealthBar.color = blue;
-        EnemyMinimapIcon.color = blue;
-        RedSubtitleBox.color = blue;
-        PromptText.color = blue;
+        SetColourBlue();
         Debug.Log("Protanopia");
     }
     void Deuteranopia()
     {
-        HealthBar.color = blue;
-        EnemyMinimapIcon.color = blue;
-        RedSubtitleBox.color = blue;
-        PromptText.color = blue;
+        SetColourBlue();
         Debug.Log("Deuteranopia");
     }
 
     void Tritanopia()
     {
-        HealthBar.color = red;
-        EnemyMinimapIcon.color = red;
-        RedSubtitleBox.color = red;
-        PromptText.color = red;
+        SetColourRed();
         Debug.Log("Tritanopia");
     }
 
