@@ -14,6 +14,7 @@ TagManager:
   - HoverText
   - PlayerCanvas
   - ColourMode
+  - ColourDropdown
   layers:
   - Default
   - TransparentFX

@@ -12751,6 +12751,7 @@ MonoBehaviour:
   playFirstCutscene: 1
   playerHealth: 0
   colourMode: 0
+  colourDropdown: {fileID: 0}
 --- !u!4 &1352790603
 Transform:
   m_ObjectHideFlags: 0

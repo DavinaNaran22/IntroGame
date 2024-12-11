@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class ColourDropdown : Singleton<ColourDropdown>
 {
-    public ColourMode mode = ColourMode.NoColourBlindness;
+    public ColourMode mode;
     [SerializeField] TMP_Dropdown dropdown;
-    // The following are all prefabs
+    // Drag prefabs to these
     [SerializeField] Image HealthBar;
     [SerializeField] Image EnemyMinimapIcon;
     [SerializeField] Image RedSubtitleBox;
@@ -17,7 +17,9 @@ public class ColourDropdown : Singleton<ColourDropdown>
 
     void Start()
     {
+        mode = ColourMode.NoColourBlindness;
         NoColourBlindness();
+        print("In dropdown start");
         dropdown.onValueChanged.AddListener(delegate
         {
             DropdownValueChanged(dropdown);
@@ -85,5 +87,28 @@ public class ColourDropdown : Singleton<ColourDropdown>
                 NoColourBlindness();
                 break;
         }
+        
+        if (GameManager.Instance) GameManager.Instance.colourMode = mode;
+    }
+
+    private void Update()
+    {
+        
+        // After player presses play, ref to original colour dropdown is gone
+        // Have to update to reference new one
+        // And the new one needs to have the event listener added to it for mode switch to work
+        // TODO This can be removed if it's possible for GameManager to be in Main scene
+        if (dropdown == null && GameManager.Instance.colourDropdown != null)
+        {
+            dropdown = GameManager.Instance.colourDropdown;
+            dropdown.onValueChanged.AddListener(delegate
+            {
+                DropdownValueChanged(dropdown);
+            });
+        }
+
+        // Selected dropdown value will default to Normal whenever it switches to main menu scene
+        // Need the selected value to match the currently selected option
+        if (GameManager.Instance) dropdown.value = (int)GameManager.Instance.colourMode;
     }
 }
