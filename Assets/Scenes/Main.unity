@@ -444,6 +444,7 @@ MonoBehaviour:
   HealthBar: {fileID: 3675507920588773738, guid: 924c554ceea3c6b4eba0adc53a6c9e9d, type: 3}
   EnemyMinimapIcon: {fileID: 7902214997937131776, guid: 0f33faa75e7d9dd48adf19676fd6aa1c, type: 3}
   RedSubtitleBox: {fileID: 5707067015601992020, guid: 2a0bdf8fe950d7741a79682717efeee6, type: 3}
+  PromptText: {fileID: 8589343724939435848, guid: 6b633eaba7daf404eb672c56b7fa0a4e, type: 3}
   red: {r: 242, g: 0, b: 0, a: 1}
   blue: {r: 0, g: 46, b: 255, a: 1}
 --- !u!114 &55588883
