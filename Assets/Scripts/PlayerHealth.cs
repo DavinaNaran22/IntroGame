@@ -76,14 +76,18 @@ public class PlayerHealth : MonoBehaviour
     {
         healthBarImage.fillAmount = currentHealth;
 
-        // Change color of health bar based on health
-        if (currentHealth <= 0.05f)
+        // Temp change for colourblind - prot/deut can't see red/green
+        if (GameManager.Instance.colourMode == ColourMode.NoColourBlindness)
         {
-            healthBarImage.color = Color.red; // Critical health
-        }
-        else
-        {
-            healthBarImage.color = Color.green; // Normal health
+            // Change color of health bar based on health
+            if (currentHealth <= 0.05f)
+            {
+                healthBarImage.color = Color.red; // Critical health
+            }
+            else
+            {
+                healthBarImage.color = Color.green; // Normal health
+            }
         }
     }
 

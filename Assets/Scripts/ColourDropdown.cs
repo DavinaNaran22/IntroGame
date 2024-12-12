@@ -13,8 +13,11 @@ public class ColourDropdown : Singleton<ColourDropdown>
     [SerializeField] Image RedSubtitleBox;
     [SerializeField] TextMeshProUGUI PromptText;
     [SerializeField] Image ExitButton;
-    [SerializeField] Color red = new Color(242f, 0f, 0f, 1f);
-    [SerializeField] Color blue = new Color(0f, 46f, 255f, 1f);
+    [SerializeField] Image PlayerHealthBar;
+    [SerializeField] Color red = new Color(242f, 0f, 0f, 255f);
+    [SerializeField] Color blue = new Color(0f, 46f, 255f, 255f);
+    [SerializeField] Color green = new Color(48f, 215f, 0f, 1f);
+    [SerializeField] Color yellow = new Color(255f, 193f, 7f, 255f); // FFC107
 
     void Start()
     {
@@ -37,6 +40,12 @@ public class ColourDropdown : Singleton<ColourDropdown>
         ExitButton.color = red;
     }
 
+    // Set colours back to original green
+    void SetColourGreen()
+    {
+        PlayerHealthBar.color = green;
+    }
+
     // Make red images blue
     void SetColourBlue()
     {
@@ -47,26 +56,36 @@ public class ColourDropdown : Singleton<ColourDropdown>
         ExitButton.color = blue;
     }
 
+    // Make green images yellow
+    void SetColourYellow()
+    {
+        PlayerHealthBar.color = yellow;
+    }
+
     void NoColourBlindness()
     {
         SetColourRed();
+        SetColourGreen();
         Debug.Log("No Colour blindness");
     }
 
     void Protanopia()
     {
         SetColourBlue();
+        SetColourYellow();
         Debug.Log("Protanopia");
     }
     void Deuteranopia()
     {
         SetColourBlue();
+        SetColourYellow();
         Debug.Log("Deuteranopia");
     }
 
     void Tritanopia()
     {
         SetColourRed();
+        SetColourGreen();
         Debug.Log("Tritanopia");
     }
 
