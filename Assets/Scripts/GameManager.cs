@@ -31,10 +31,23 @@ public class GameManager : Singleton<GameManager>
     public bool playFirstCutscene;
     public float playerHealth;
     public ColourMode colourMode;
+    public TMP_Dropdown colourDropdown;
 
     private void Start()
     {
         colourMode = GameObject.FindWithTag("ColourMode").GetComponent<ColourDropdown>().mode;
+    }
+
+    private void Update()
+    {
+        if (colourDropdown == null)
+        {
+            GameObject gameObject = GameObject.FindWithTag("ColourDropdown");
+            if (gameObject != null)
+            {
+                colourDropdown = gameObject.GetComponent<TMP_Dropdown>();
+            }
+        }
     }
 
     // Save() and Load() are from Resource 10.1 Data Persistance on QMPlus
