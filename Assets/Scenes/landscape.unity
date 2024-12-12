@@ -2584,6 +2584,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PlayerCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7622620698385775532, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
+      propertyPath: m_text
+      value: Load
+      objectReference: {fileID: 0}
     - target: {fileID: 7649929959020150107, guid: 18b6167afb0239949b20923d30dc5ee5, type: 3}
       propertyPath: m_SizeDelta.y
       value: 750
