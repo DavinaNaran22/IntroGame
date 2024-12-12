@@ -11,6 +11,7 @@ public class ColourDropdown : Singleton<ColourDropdown>
     [SerializeField] Image HealthBar;
     [SerializeField] Image EnemyMinimapIcon;
     [SerializeField] Image RedSubtitleBox;
+    [SerializeField] Image GreenSubtitleBox;
     [SerializeField] TextMeshProUGUI PromptText;
     [SerializeField] Image ExitButton;
     [SerializeField] Image PlayerHealthBar;
@@ -44,6 +45,7 @@ public class ColourDropdown : Singleton<ColourDropdown>
     void SetColourGreen()
     {
         PlayerHealthBar.color = green;
+        GreenSubtitleBox.color = green;
     }
 
     // Make red images blue
@@ -60,6 +62,7 @@ public class ColourDropdown : Singleton<ColourDropdown>
     void SetColourYellow()
     {
         PlayerHealthBar.color = yellow;
+        GreenSubtitleBox.color = yellow;
     }
 
     void NoColourBlindness()
