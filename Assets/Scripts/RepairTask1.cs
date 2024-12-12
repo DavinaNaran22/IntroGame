@@ -40,6 +40,10 @@ public class MissionManager : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("GameManager");
+        Debug.Log(GameManager.Instance.player);
+        player = GameManager.Instance.player;
+
         // Calculate the bounds of the restricted area
         minBounds = restrictedArea.bounds.min;
         maxBounds = restrictedArea.bounds.max;
@@ -56,7 +60,6 @@ public class MissionManager : MonoBehaviour
 
         // Hide the prompt text at the start
         promptText.gameObject.SetActive(false);
-
     }
 
 
