@@ -8,6 +8,7 @@ public class MissionManager : MonoBehaviour
     public BoxCollider restrictedArea; 
     public TextMeshProUGUI promptText; 
     public TextMeshProUGUI dialogueText;
+    public CameraManagement cameraManagement;
 
     private bool photoTaken = false; 
     private bool dialogueShown = false; 
@@ -26,15 +27,19 @@ public class MissionManager : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Player.Enable();
-        inputActions.Player.TakePhoto.performed += ctx => TakePhoto();
-        inputActions.Player.DismissDialogue.performed += ctx => DismissDialogue();
+        inputActions.Player.OpenCamera.performed += ctx => ToggleCamera(); // Press P to open camera
+        inputActions.Player.TakePhoto.performed += ctx => TakePhoto(); // Press T to take a photo
+        inputActions.Player.DismissDialogue.performed += ctx => DismissDialogue(); // Press D to dismiss dialogue
+        inputActions.Player.ExitCamera.performed += ctx => ExitPhotoMode(); // Press E to exit camera mode
     }
 
     private void OnDisable()
     {
         inputActions.Player.Disable();
+        inputActions.Player.OpenCamera.performed -= ctx => ToggleCamera();
         inputActions.Player.TakePhoto.performed -= ctx => TakePhoto();
         inputActions.Player.DismissDialogue.performed -= ctx => DismissDialogue();
+        inputActions.Player.ExitCamera.performed -= ctx => ExitPhotoMode();
     }
 
 
@@ -137,10 +142,45 @@ public class MissionManager : MonoBehaviour
 
     private void TakePhoto()
     {
-        photoTaken = true;
-        Debug.Log("Photo taken!");
-        RemoveRestriction();
-        HidePrompt(); // Hide the prompt after taking a photo
+        //photoTaken = true;
+        //Debug.Log("Photo taken!");
+        //RemoveRestriction();
+        //HidePrompt(); // Hide the prompt after taking a photo
+
+        if(cameraManagement != null)
+        {
+            cameraManagement.TakeScreenshot();
+        }
+        else
+        {
+            Debug.LogError("CameraManagement script is not assigned!");
+        }
+    }
+
+    // Call camera management script to open the camera (P key)
+    private void ToggleCamera()
+    {
+        if (cameraManagement != null)
+        {
+            cameraManagement.TogglePhotoMode();
+        }
+        else
+        {
+            Debug.LogError("CameraManagement script is not assigned!");
+        }
+    }
+
+    // Call camera management script to exit the camera mode (escape key)
+    private void ExitPhotoMode()
+    {
+        if (cameraManagement != null)
+        {
+            cameraManagement.ExitPhotoMode();
+        }
+        else
+        {
+            Debug.LogError("CameraManagement script is not assigned!");
+        }
     }
 
     private void RemoveRestriction()

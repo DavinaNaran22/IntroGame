@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class CameraManagement : MonoBehaviour
 {
@@ -27,6 +28,32 @@ public class CameraManagement : MonoBehaviour
     private string screenshotFolder = "Screenshots"; // Folder for saving screenshots
     public float maxDistance = 15f; // Maximum allowed distance between the player and the target
 
+    // Input system
+    private PlayerInputActions inputActions;
+
+    // New input system for taking photos and dismissing dialogue
+    private void Awake()
+    {
+        inputActions = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Player.Enable();
+        inputActions.Player.OpenCamera.performed += ctx => TogglePhotoMode();
+        inputActions.Player.TakePhoto.performed += ctx => TakeScreenshot();
+        inputActions.Player.ExitCamera.performed += ctx => ExitPhotoMode();
+
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Player.Disable();
+        inputActions.Player.OpenCamera.performed -= ctx => TogglePhotoMode();
+        inputActions.Player.TakePhoto.performed -= ctx => TakeScreenshot();
+        inputActions.Player.ExitCamera.performed -= ctx => ExitPhotoMode();
+
+    }
 
     void Start()
     {
@@ -36,28 +63,8 @@ public class CameraManagement : MonoBehaviour
         pictureCam.gameObject.SetActive(false);
     }
 
-    void Update()
-    {
-        // Toggle photo mode with 'P'
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            TogglePhotoMode();
-        }
 
-        // Exit photo mode with 'Esc'
-        if (Input.GetKeyDown(KeyCode.Escape) && isPhotoModeActive)
-        {
-            ExitPhotoMode();
-        }
-
-        // Capture a screenshot with 'T'
-        if (Input.GetKeyDown(KeyCode.T) && isPhotoModeActive)
-        {
-            TakeScreenshot();
-        }
-    }
-
-    void TogglePhotoMode()
+    public void TogglePhotoMode()
     {
         isPhotoModeActive = true;
 
@@ -69,7 +76,7 @@ public class CameraManagement : MonoBehaviour
         pictureCam.gameObject.SetActive(true);
     }
 
-    void ExitPhotoMode()
+    public void ExitPhotoMode()
     {
         isPhotoModeActive = false;
 
@@ -80,14 +87,14 @@ public class CameraManagement : MonoBehaviour
         pictureCam.gameObject.SetActive(false);
     }
 
-    void AlignCamera()
+    public void AlignCamera()
     {
         // Align the pictureCam with the mainCamera
         pictureCam.transform.position = mainCamera.transform.position;
         pictureCam.transform.rotation = mainCamera.transform.rotation;
     }
 
-    void TakeScreenshot()
+    public void TakeScreenshot()
     {
         if (IsAnyTargetInFrame())
         {
@@ -100,7 +107,7 @@ public class CameraManagement : MonoBehaviour
         }
     }
 
-    bool IsAnyTargetInFrame()
+    public bool IsAnyTargetInFrame()
     {
         foreach (GameObject target in targetObjects)
         {
@@ -112,7 +119,7 @@ public class CameraManagement : MonoBehaviour
         return false;
     }
 
-    bool IsWithinDistance(GameObject target)
+    public bool IsWithinDistance(GameObject target)
     {
         float distance = Vector3.Distance(mainCamera.transform.position, target.transform.position);
         Debug.Log($"Distance to {target.name}: {distance}");
@@ -120,7 +127,7 @@ public class CameraManagement : MonoBehaviour
     }
 
 
-    bool IsWithinFrame(GameObject target)
+    public bool IsWithinFrame(GameObject target)
     {
         // Convert target position to screen space
         Vector3 screenPoint = pictureCam.WorldToScreenPoint(target.transform.position);
@@ -137,7 +144,7 @@ public class CameraManagement : MonoBehaviour
         return screenRect.Contains(new Vector2(screenPoint.x, screenPoint.y));
     }
 
-    IEnumerator CaptureScreenshot()
+    public IEnumerator CaptureScreenshot()
     {
         yield return new WaitForEndOfFrame();
 
@@ -162,7 +169,7 @@ public class CameraManagement : MonoBehaviour
         AddPhotoToLog(screenshot);
     }
 
-    void AddPhotoToLog(Texture2D photo)
+    public void AddPhotoToLog(Texture2D photo)
     {
         // Create a new log entry
         GameObject newEntry = Instantiate(photoEntryPrefab, logContent);
@@ -179,7 +186,7 @@ public class CameraManagement : MonoBehaviour
         deleteButton.onClick.AddListener(() => DeletePhoto(newEntry));
     }
 
-    void ExpandPhoto(Texture2D photo)
+    public void ExpandPhoto(Texture2D photo)
     {
         photoViewer.SetActive(true);
         photoViewerImage.texture = photo;

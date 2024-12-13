@@ -152,6 +152,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ExitCamera"",
+                    ""type"": ""Button"",
+                    ""id"": ""39de8801-fe2b-49f4-8fc3-535e2d5ca8d2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -407,6 +416,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""TakePhoto"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bca27b08-a350-44d0-9f32-16d52447ba5c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExitCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -429,6 +449,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_OpenCamera = m_Player.FindAction("OpenCamera", throwIfNotFound: true);
         m_Player_DismissDialogue = m_Player.FindAction("DismissDialogue", throwIfNotFound: true);
         m_Player_TakePhoto = m_Player.FindAction("TakePhoto", throwIfNotFound: true);
+        m_Player_ExitCamera = m_Player.FindAction("ExitCamera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -504,6 +525,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_OpenCamera;
     private readonly InputAction m_Player_DismissDialogue;
     private readonly InputAction m_Player_TakePhoto;
+    private readonly InputAction m_Player_ExitCamera;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -522,6 +544,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @OpenCamera => m_Wrapper.m_Player_OpenCamera;
         public InputAction @DismissDialogue => m_Wrapper.m_Player_DismissDialogue;
         public InputAction @TakePhoto => m_Wrapper.m_Player_TakePhoto;
+        public InputAction @ExitCamera => m_Wrapper.m_Player_ExitCamera;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -573,6 +596,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @TakePhoto.started += instance.OnTakePhoto;
             @TakePhoto.performed += instance.OnTakePhoto;
             @TakePhoto.canceled += instance.OnTakePhoto;
+            @ExitCamera.started += instance.OnExitCamera;
+            @ExitCamera.performed += instance.OnExitCamera;
+            @ExitCamera.canceled += instance.OnExitCamera;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -619,6 +645,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @TakePhoto.started -= instance.OnTakePhoto;
             @TakePhoto.performed -= instance.OnTakePhoto;
             @TakePhoto.canceled -= instance.OnTakePhoto;
+            @ExitCamera.started -= instance.OnExitCamera;
+            @ExitCamera.performed -= instance.OnExitCamera;
+            @ExitCamera.canceled -= instance.OnExitCamera;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -652,5 +681,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnOpenCamera(InputAction.CallbackContext context);
         void OnDismissDialogue(InputAction.CallbackContext context);
         void OnTakePhoto(InputAction.CallbackContext context);
+        void OnExitCamera(InputAction.CallbackContext context);
     }
 }
