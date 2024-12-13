@@ -6,12 +6,14 @@ public class MissionManager : MonoBehaviour
 {
     public GameObject player;
     public BoxCollider restrictedArea;
+    public BoxCollider restrictedArea2;
     public TextMeshProUGUI promptText;
     public TextMeshProUGUI dialogueText;
 
     private bool photoTaken = false;
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
+    private bool inRestrictedArea2 = false;
     private int currentDialogueIndex = 0;
 
 
@@ -169,6 +171,29 @@ public class MissionManager : MonoBehaviour
         // Remove the restriction logic
         restrictedArea.enabled = false;
     }
+
+    private void RemoveRestriction2()
+    {
+        // Remove the restriction logic
+        restrictedArea2.enabled = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == restrictedArea2.gameObject && !inRestrictedArea2)
+        {
+            inRestrictedArea2 = true;
+            UpdateRestrictedBounds(restrictedArea2);
+            Debug.Log("Player entered restricted area 2");
+        }
+    }
+
+    private void UpdateRestrictedBounds(BoxCollider area)
+    {
+        minBounds = area.bounds.min;
+        maxBounds = area.bounds.max;
+    }
+
 
     private void StartAdditionalDialogues()
     {
