@@ -2321,6 +2321,7 @@ MonoBehaviour:
   playerEquipment: {fileID: 0}
   damageBar: {fileID: 1838135250}
   Healthlimit: {fileID: 0}
+  reduceHealth: 0.4
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 1
 --- !u!65 &775110484
@@ -3659,6 +3660,7 @@ MonoBehaviour:
   playerEquipment: {fileID: 0}
   damageBar: {fileID: 321054225}
   Healthlimit: {fileID: 0}
+  reduceHealth: 0.4
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 1
 --- !u!114 &1120029955
@@ -5126,6 +5128,7 @@ MonoBehaviour:
   playerEquipment: {fileID: 0}
   damageBar: {fileID: 1942583054}
   Healthlimit: {fileID: 0}
+  reduceHealth: 0.1
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 1
 --- !u!114 &1429849576

@@ -9,6 +9,7 @@ public class GreenAlienBehavior : FindPlayerTransform
     public PlayerEquipment playerEquipment;
     public AlienDamageBar damageBar;
     public GameObject Healthlimit;
+    public float reduceHealth = 0.1f;
 
     public GameObject shotPrefab;
     public float shootRate = 1f;
@@ -62,7 +63,7 @@ public class GreenAlienBehavior : FindPlayerTransform
             Debug.LogError("Shooting point is not set for the alien.");
             return;
         }
-        
+
         GameObject laser = GameObject.Instantiate(shotPrefab, shootingPoint.position, Quaternion.identity);
         Vector3 targetPosition = Player.position;
 
@@ -89,11 +90,11 @@ public class GreenAlienBehavior : FindPlayerTransform
     {
         if (isHit) return; // Prevent multiple hits
         isHit = true;
-        
+
         // Reduce health bar
         if (damageBar != null)
         {
-            damageBar.TakeDamage(0.1f); // reduce 10% health
+            damageBar.TakeDamage(reduceHealth); // reduce 10% health
         }
         else
         {
