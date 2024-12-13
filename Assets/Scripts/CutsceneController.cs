@@ -9,6 +9,7 @@ public class CutsceneController : MonoBehaviour
     public CinemachineThirdPersonAim cameraFollow;
     public GameObject HUD;
     public GameObject progressButton;
+    public GameObject inventoryManager;
     public GameObject inventoryCanvas;
     public GameObject hovertext;
     public GameObject minimapCanvas;
@@ -27,6 +28,7 @@ public class CutsceneController : MonoBehaviour
     public void stopHUD()
     {
         HUD.SetActive(false);
+        inventoryManager.SetActive(false);
         progressButton.SetActive(false);
         inventoryCanvas.SetActive(false);
         hovertext.SetActive(false);
