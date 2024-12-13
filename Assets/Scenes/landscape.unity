@@ -2320,7 +2320,7 @@ MonoBehaviour:
   animator: {fileID: 775110482}
   playerEquipment: {fileID: 0}
   damageBar: {fileID: 1838135250}
-  Healthlimit: {fileID: 0}
+  Healthlimit: {fileID: 2066899206}
   reduceHealth: 0.4
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 1
@@ -3659,7 +3659,7 @@ MonoBehaviour:
   animator: {fileID: 1120029956}
   playerEquipment: {fileID: 0}
   damageBar: {fileID: 321054225}
-  Healthlimit: {fileID: 0}
+  Healthlimit: {fileID: 2066899206}
   reduceHealth: 0.4
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 1
@@ -4127,7 +4127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7008734550767129030, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7091134414642512760, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_IsActive
@@ -11885,6 +11885,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1043991605}
   m_SourcePrefab: {fileID: 100100000, guid: 9aaafd7584909db6aae1b9e564dc5ef3, type: 3}
+--- !u!1 &2066899206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1699175926709286584, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+  m_PrefabInstance: {fileID: 1131585360}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2082835010 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6489752957471245291, guid: 924c554ceea3c6b4eba0adc53a6c9e9d, type: 3}
