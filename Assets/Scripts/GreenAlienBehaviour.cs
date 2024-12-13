@@ -9,6 +9,7 @@ public class GreenAlienBehavior : FindPlayerTransform
     public PlayerEquipment playerEquipment;
     public AlienDamageBar damageBar;
     public GameObject Healthlimit;
+    public float reduceHealth = 0.1f;
 
     public GameObject shotPrefab;
     public float shootRate = 1f;
@@ -93,7 +94,7 @@ public class GreenAlienBehavior : FindPlayerTransform
         // Reduce health bar
         if (damageBar != null)
         {
-            damageBar.TakeDamage(0.1f); // reduce 10% health
+            damageBar.TakeDamage(reduceHealth); // reduce 10% health
         }
         else
         {
