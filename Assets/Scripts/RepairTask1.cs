@@ -149,7 +149,19 @@ public class MissionManager : MonoBehaviour
 
         if(cameraManagement != null)
         {
-            cameraManagement.TakeScreenshot();
+            if (cameraManagement.IsAnyTargetInFrame())
+            {
+                cameraManagement.TakeScreenshot(); // Trigger the screenshot functionality
+                photoTaken = true;
+                Debug.Log("Photo taken!");
+                RemoveRestriction();
+                HidePrompt();
+            }
+            else
+            {
+                Debug.Log("No targets within the frame. Screenshot not taken.");
+            }
+
         }
         else
         {
