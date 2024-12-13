@@ -1,18 +1,14 @@
-using System;
 using TMPro;
 using UnityEngine;
 
 public class PlayerNearText : MonoBehaviour
 {
-    [SerializeField] private string Text;
+    public string Text;
     [SerializeField] private float sphereRadius = 3f;
-    private TextMeshProUGUI hoverText;
+    public TextMeshProUGUI hoverText;
     private bool modifyingText = false;
 
-    private void Start()
-    {
-        hoverText = GameObject.FindWithTag("HoverText").GetComponent<TextMeshProUGUI>();
-    }
+    
 
     // Return true/false depending on whether player is near this game object
     private bool PlayerIsNear()
@@ -31,7 +27,7 @@ public class PlayerNearText : MonoBehaviour
     void Update()
     {
         // If the player is near this game object
- 
+
         if (PlayerIsNear())
         {
             // And the current value of the next is nothing
@@ -49,8 +45,4 @@ public class PlayerNearText : MonoBehaviour
             modifyingText = false;
         }
     }
-
-
-
-
 }

@@ -1,15 +1,14 @@
 using UnityEngine;
 
-public class TeleportCockpit : FindPlayerTransform
+public class TeleportCockpit : MonoBehaviour
 {
-    // Bonus - show text when near
-
+    // If they right click on door it should take them to cockpit
     [SerializeField] private Vector3 chairCoords;
-    [SerializeField] private GameObject keypad;
     public PlayerMovement playerScript;
     private MouseLook mouseLook;
     private PlayerInputActions inputActions;
-    public bool unlockedDoor = false;
+    private Transform playerTransform;
+
     private void Awake()
     {
         inputActions = new PlayerInputActions();
@@ -17,9 +16,10 @@ public class TeleportCockpit : FindPlayerTransform
 
     private void Start()
     {
-        GetPlayerTransform();
-        playerScript = Player.GetComponent<PlayerMovement>();
-        mouseLook = Player.GetComponentInChildren<MouseLook>();
+        GameObject player = GameManager.Instance.player;
+        playerScript = player.GetComponent<PlayerMovement>();
+        mouseLook = player.GetComponentInChildren<MouseLook>();
+        playerTransform = player.GetComponent<Transform>();
     }
 
     private void OnEnable()
@@ -38,23 +38,14 @@ public class TeleportCockpit : FindPlayerTransform
     private void MoveToCockpit()
     {
         // If player is near door
-        if (Vector3.Distance(this.transform.position, Player.position) < 5.5)
+        if (Vector3.Distance(this.transform.position, playerTransform.position) < 5.5)
         {
-            if (unlockedDoor)
-            {
-                playerScript.lockCoords = Player.position;
-                playerScript.MoveTo(chairCoords);
-                // Disable player movement
-                playerScript.canMove = false;
-                mouseLook.canLook = true;
-            }
-            else
-            {
-                // Show keypad
-                keypad.SetActive(true);
-                playerScript.canMove = false;
-                mouseLook.canLook = false;
-            }
+            playerScript.lockCoords = playerTransform.position;
+            playerScript.MoveTo(chairCoords);
+            // Disable player movement
+            playerScript.ToggleMovement();
+            playerScript.inChair = true;
+            mouseLook.canLook = true;
         }
     }
 }

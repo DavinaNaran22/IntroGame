@@ -7,9 +7,11 @@ public class GreenAlienBehavior : FindPlayerTransform
     public float detectionRadius = 5f;
     public Animator animator;
     public PlayerEquipment playerEquipment;
+    public AlienDamageBar damageBar;
+    public GameObject Healthlimit;
 
     public GameObject shotPrefab;
-    public float shootRate = 0.5f;
+    public float shootRate = 1f;
     private float m_shootRateTimeStamp;
 
     private bool playerNearby = false;
@@ -70,15 +72,34 @@ public class GreenAlienBehavior : FindPlayerTransform
         // Set laser's target position and make it move
         laser.GetComponent<ShotBehavior>().setTarget(targetPosition);
 
+        // Damages player when alien fires lasers
+        PlayerHealth playerHealth = Healthlimit.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(0.02f); // Adjust damage percentage as needed
+            Debug.Log("Alien shot the player! Dealing damage.");
+        }
+
         // Destroy laser after a set time (e.g., 2 seconds)
         Destroy(laser, 2f);
     }
+
 
     public void TakeDamage()
     {
         if (isHit) return; // Prevent multiple hits
         isHit = true;
-        //animator.SetTrigger("HitL");
+        
+        // Reduce health bar
+        if (damageBar != null)
+        {
+            damageBar.TakeDamage(0.1f); // reduce 10% health
+        }
+        else
+        {
+            Debug.LogWarning("Damage bar not assigned!");
+        }
+
         StartCoroutine(HandleHitSequence());
     }
 
@@ -123,15 +144,29 @@ public class GreenAlienBehavior : FindPlayerTransform
         }
 
         animator.SetTrigger("BackIdle");
+    }
 
-        //animator.SetTrigger("HitL");
-        //yield return new WaitForSeconds(1f);
+    private void OnEnable()
+    {
+        if (damageBar != null)
+        {
+            damageBar.OnAlienDied += HandleAlienDeath; // Subscribe to event
+        }
+    }
 
-        //animator.SetTrigger("HitR");
-        //yield return new WaitForSeconds(1f);
+    private void OnDisable()
+    {
+        if (damageBar != null)
+        {
+            damageBar.OnAlienDied -= HandleAlienDeath; // Unsubscribe from event
+        }
+    }
 
-        // Set the Dead state and update isDead flag
-        //animator.SetTrigger("Dead");
-        //isDead = true; // Mark the alien as dead
+    private void HandleAlienDeath()
+    {
+        if (isDead) return; // Prevent duplicate calls
+        isDead = true;
+        animator.SetTrigger("Dead"); // Trigger "Dead" animation
+        Debug.Log("Alien has died!");
     }
 }

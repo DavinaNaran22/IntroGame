@@ -8,17 +8,16 @@ public class PlayerHealth : MonoBehaviour
 {
     public Image healthBarImage; //image assigned for the foregound/front part of the bar
     public const float maxHealth = 1f; // Health is represented as a percentage (1 is full health)
-    private float currentHealth;
+    public float currentHealth;
     private bool isRegenerating = false; // Flag to ensure only one coroutine runs at a time
 
 
     void Start()
     {
         currentHealth = maxHealth;
+        GameManager.Instance.playerHealth = currentHealth;
         Debug.Log("Health Bar is at " + currentHealth * 100 + "%");
         UpdateHealthBar();
-
-       
     }
 
     
@@ -27,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damagePercent)
     {
         currentHealth -= damagePercent;
+        GameManager.Instance.playerHealth = currentHealth;
 
         if (currentHealth <= 0f)
         {
@@ -61,6 +61,7 @@ public class PlayerHealth : MonoBehaviour
             if (currentHealth > 0f && currentHealth <= 0.05f)
             {
                 currentHealth = 0.15f; // Restore health to 15%
+                GameManager.Instance.playerHealth = currentHealth;
                 Debug.Log("Health restored to 15%!");
                 UpdateHealthBar(); // Update the UI
             }
@@ -75,14 +76,18 @@ public class PlayerHealth : MonoBehaviour
     {
         healthBarImage.fillAmount = currentHealth;
 
-        // Change color of health bar based on health
-        if (currentHealth <= 0.05f)
+        // Temp change for colourblind - prot/deut can't see red/green
+        if (GameManager.Instance.colourMode == ColourMode.NoColourBlindness)
         {
-            healthBarImage.color = Color.red; // Critical health
-        }
-        else
-        {
-            healthBarImage.color = Color.green; // Normal health
+            // Change color of health bar based on health
+            if (currentHealth <= 0.05f)
+            {
+                healthBarImage.color = Color.red; // Critical health
+            }
+            else
+            {
+                healthBarImage.color = Color.green; // Normal health
+            }
         }
     }
 

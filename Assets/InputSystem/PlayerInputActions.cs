@@ -125,6 +125,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TakePhoto"",
+                    ""type"": ""Button"",
+                    ""id"": ""b986b7e2-7f1d-455f-8bd4-c9d260f0eeef"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DismissDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a4a7c28-e18b-40c8-9cca-840253ca191b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -347,6 +365,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""ExitChair"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a0fd6229-be60-4ff3-a678-e3044ac155da"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TakePhoto"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a5cd401e-7a91-483f-aa96-b79e3b8faa8a"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DismissDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -366,6 +406,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_CloseInventory = m_Player.FindAction("CloseInventory", throwIfNotFound: true);
         m_Player_InteractDoor = m_Player.FindAction("InteractDoor", throwIfNotFound: true);
         m_Player_ExitChair = m_Player.FindAction("ExitChair", throwIfNotFound: true);
+        m_Player_TakePhoto = m_Player.FindAction("TakePhoto", throwIfNotFound: true);
+        m_Player_DismissDialogue = m_Player.FindAction("DismissDialogue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -438,6 +480,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_CloseInventory;
     private readonly InputAction m_Player_InteractDoor;
     private readonly InputAction m_Player_ExitChair;
+    private readonly InputAction m_Player_TakePhoto;
+    private readonly InputAction m_Player_DismissDialogue;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -453,6 +497,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @CloseInventory => m_Wrapper.m_Player_CloseInventory;
         public InputAction @InteractDoor => m_Wrapper.m_Player_InteractDoor;
         public InputAction @ExitChair => m_Wrapper.m_Player_ExitChair;
+        public InputAction @TakePhoto => m_Wrapper.m_Player_TakePhoto;
+        public InputAction @DismissDialogue => m_Wrapper.m_Player_DismissDialogue;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -495,6 +541,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ExitChair.started += instance.OnExitChair;
             @ExitChair.performed += instance.OnExitChair;
             @ExitChair.canceled += instance.OnExitChair;
+            @TakePhoto.started += instance.OnTakePhoto;
+            @TakePhoto.performed += instance.OnTakePhoto;
+            @TakePhoto.canceled += instance.OnTakePhoto;
+            @DismissDialogue.started += instance.OnDismissDialogue;
+            @DismissDialogue.performed += instance.OnDismissDialogue;
+            @DismissDialogue.canceled += instance.OnDismissDialogue;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -532,6 +584,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ExitChair.started -= instance.OnExitChair;
             @ExitChair.performed -= instance.OnExitChair;
             @ExitChair.canceled -= instance.OnExitChair;
+            @TakePhoto.started -= instance.OnTakePhoto;
+            @TakePhoto.performed -= instance.OnTakePhoto;
+            @TakePhoto.canceled -= instance.OnTakePhoto;
+            @DismissDialogue.started -= instance.OnDismissDialogue;
+            @DismissDialogue.performed -= instance.OnDismissDialogue;
+            @DismissDialogue.canceled -= instance.OnDismissDialogue;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -562,5 +620,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnCloseInventory(InputAction.CallbackContext context);
         void OnInteractDoor(InputAction.CallbackContext context);
         void OnExitChair(InputAction.CallbackContext context);
+        void OnTakePhoto(InputAction.CallbackContext context);
+        void OnDismissDialogue(InputAction.CallbackContext context);
     }
 }

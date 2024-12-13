@@ -14,7 +14,7 @@ public class TriggerDoor : MonoBehaviour
     // If player goes near door, open door
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name.Equals("Player"))
+        if (other.CompareTag("Player"))
         {
             meshRenderer.enabled = false; // Hide door
         }
@@ -23,7 +23,7 @@ public class TriggerDoor : MonoBehaviour
     // If player 'leaves' door, close door
     private void OnTriggerExit(Collider other)
     {
-        if (other.name.Equals("Player"))
+        if (other.CompareTag("Player"))
         {
             meshRenderer.enabled = true; // Show door
         }
