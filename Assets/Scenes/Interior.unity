@@ -1221,7 +1221,7 @@ PlayableDirector:
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
-  m_InitialTime: 120
+  m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 4328387496966043073, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
     value: {fileID: 1482992026}
@@ -5434,6 +5434,7 @@ MonoBehaviour:
   cameraFollow: {fileID: 1622667512}
   HUD: {fileID: 1089804553}
   progressButton: {fileID: 926340231}
+  inventoryManager: {fileID: 0}
   inventoryCanvas: {fileID: 1726766054}
   hovertext: {fileID: 1929433151}
   minimapCanvas: {fileID: 345240224}
