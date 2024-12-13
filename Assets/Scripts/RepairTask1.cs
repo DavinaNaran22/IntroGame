@@ -1,6 +1,10 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Security.Claims;
+using UnityEngine.XR;
 
 public class MissionManager : MonoBehaviour
 {
@@ -8,13 +12,29 @@ public class MissionManager : MonoBehaviour
     public BoxCollider restrictedArea; 
     public TextMeshProUGUI promptText; 
     public TextMeshProUGUI dialogueText;
+    public CameraManagement cameraManagement;
 
-    private bool photoTaken = false; 
-    private bool dialogueShown = false; 
+    private bool photoTaken = false;
+    private bool dialogueShown = false;
+    private bool additionalDialoguesActive = false;
+    private int currentDialogueIndex = 0;
+
     private Vector3 minBounds; // Minimum bounds of the restricted area
     private Vector3 maxBounds; // Maximum bounds of the restricted area
     private CharacterController characterController; 
     private PlayerInputActions inputActions;
+
+
+    // Additional dialogues to display
+    private List<string> additionalDialogues = new List<string>
+    {
+        "Hello, my spaceship’s hit an asteroid, and this was the only nearby planet.",
+        "I really need that thruster so I can repair my ship and leave.",
+        "Can I quickly grab it? I won’t be long.",
+        "How dare you claim our land, you don’t belong here.",
+        "This strange object belongs to us. If you want it, you’ll have to fight us"
+
+    };
 
 
     // New input system for taking photos and dismissing dialogue
@@ -26,22 +46,24 @@ public class MissionManager : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Player.Enable();
-        inputActions.Player.TakePhoto.performed += ctx => TakePhoto();
-        inputActions.Player.DismissDialogue.performed += ctx => DismissDialogue();
+        inputActions.Player.OpenCamera.performed += ctx => ToggleCamera(); // Press P to open camera
+        inputActions.Player.TakePhoto.performed += ctx => TakePhoto(); // Press T to take a photo
+        inputActions.Player.DismissDialogue.performed += ctx => DismissDialogue(); // Press D to dismiss dialogue
+        inputActions.Player.ExitCamera.performed += ctx => ExitPhotoMode(); // Press E to exit camera mode
     }
 
     private void OnDisable()
     {
         inputActions.Player.Disable();
+        inputActions.Player.OpenCamera.performed -= ctx => ToggleCamera();
         inputActions.Player.TakePhoto.performed -= ctx => TakePhoto();
         inputActions.Player.DismissDialogue.performed -= ctx => DismissDialogue();
+        inputActions.Player.ExitCamera.performed -= ctx => ExitPhotoMode();
     }
 
 
     private void Start()
     {
-        Debug.Log("GameManager");
-        Debug.Log(GameManager.Instance.player);
         player = GameManager.Instance.player;
 
         // Calculate the bounds of the restricted area
@@ -90,31 +112,33 @@ public class MissionManager : MonoBehaviour
             HideDialogue();
             dialogueShown = true;
         }
+        else if (additionalDialoguesActive)
+        {
+            ShowNextDialogue();
+        }
+
     }
 
     private void ShowPrompt()
     {
         // Display the photo prompt message
         promptText.gameObject.SetActive(true);
-        promptText.text = "Press M to take a photo!";
+        promptText.text = "Press P to open camera, and T to take a photo!";
     }
 
     private void HidePrompt()
     {
-        // Hide the photo prompt message
         promptText.gameObject.SetActive(false);
     }
 
     private void ShowDialogue(string message)
     {
-        // Display dialogue on the screen
         dialogueText.gameObject.SetActive(true);
         dialogueText.text = message;
     }
 
     private void HideDialogue()
-    {
-        // Hide dialogue from the screen
+    { 
         dialogueText.gameObject.SetActive(false);
     }
 
@@ -140,10 +164,58 @@ public class MissionManager : MonoBehaviour
 
     private void TakePhoto()
     {
-        photoTaken = true;
-        Debug.Log("Photo taken!");
-        RemoveRestriction();
-        HidePrompt(); // Hide the prompt after taking a photo
+        //photoTaken = true;
+        //Debug.Log("Photo taken!");
+        //RemoveRestriction();
+        //HidePrompt(); // Hide the prompt after taking a photo
+
+        if(cameraManagement != null)
+        {
+            if (cameraManagement.IsAnyTargetInFrame())
+            {
+                cameraManagement.TakeScreenshot(); // Trigger the screenshot functionality
+                photoTaken = true;
+                Debug.Log("Photo taken!");
+                RemoveRestriction();
+                HidePrompt();
+                StartAdditionalDialogues();
+            }
+            else
+            {
+                Debug.Log("No targets within the frame. Screenshot not taken.");
+            }
+
+        }
+        else
+        {
+            Debug.LogError("CameraManagement script is not assigned!");
+        }
+    }
+
+    // Call camera management script to open the camera (P key)
+    private void ToggleCamera()
+    {
+        if (cameraManagement != null)
+        {
+            cameraManagement.TogglePhotoMode();
+        }
+        else
+        {
+            Debug.LogError("CameraManagement script is not assigned!");
+        }
+    }
+
+    // Call camera management script to exit the camera mode (escape key)
+    private void ExitPhotoMode()
+    {
+        if (cameraManagement != null)
+        {
+            cameraManagement.ExitPhotoMode();
+        }
+        else
+        {
+            Debug.LogError("CameraManagement script is not assigned!");
+        }
     }
 
     private void RemoveRestriction()
@@ -151,4 +223,28 @@ public class MissionManager : MonoBehaviour
         // Remove the restriction logic
         restrictedArea.enabled = false;
     }
+
+    private void StartAdditionalDialogues()
+    {
+        additionalDialoguesActive = true;
+        currentDialogueIndex = 0;
+        ShowDialogue(additionalDialogues[currentDialogueIndex]);
+    }
+
+    private void ShowNextDialogue()
+    {
+        currentDialogueIndex++;
+
+        if (currentDialogueIndex < additionalDialogues.Count)
+        {
+            ShowDialogue(additionalDialogues[currentDialogueIndex]);
+        }
+        else
+        {
+            additionalDialoguesActive = false;
+            HideDialogue();
+        }
+    }
+
+
 }

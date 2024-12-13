@@ -105,7 +105,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "TakePhoto",
+                    "name": "OpenCamera",
                     "type": "Button",
                     "id": "b986b7e2-7f1d-455f-8bd4-c9d260f0eeef",
                     "expectedControlType": "Button",
@@ -117,6 +117,24 @@
                     "name": "DismissDialogue",
                     "type": "Button",
                     "id": "1a4a7c28-e18b-40c8-9cca-840253ca191b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TakePhoto",
+                    "type": "Button",
+                    "id": "15af8378-9077-4d27-b740-731718ce01ba",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ExitCamera",
+                    "type": "Button",
+                    "id": "39de8801-fe2b-49f4-8fc3-535e2d5ca8d2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -347,11 +365,11 @@
                 {
                     "name": "",
                     "id": "a0fd6229-be60-4ff3-a678-e3044ac155da",
-                    "path": "<Keyboard>/m",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "TakePhoto",
+                    "action": "OpenCamera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -363,6 +381,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "DismissDialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39306750-8222-4642-820b-e8d021a65843",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TakePhoto",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bca27b08-a350-44d0-9f32-16d52447ba5c",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitCamera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
