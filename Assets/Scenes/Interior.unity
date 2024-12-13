@@ -1221,7 +1221,7 @@ PlayableDirector:
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
-  m_InitialTime: 0
+  m_InitialTime: 120
   m_SceneBindings:
   - key: {fileID: 4328387496966043073, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
     value: {fileID: 1482992026}
@@ -1357,6 +1357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: Press E to equip camera
   sphereRadius: 3
+  hoverText: {fileID: 1929433153}
 --- !u!1 &58673426
 GameObject:
   m_ObjectHideFlags: 0
@@ -6500,13 +6501,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777749834}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Text: Press E to equip knife
   sphereRadius: 2.5
+  hoverText: {fileID: 1929433153}
 --- !u!114 &777749840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7766,6 +7768,10 @@ PrefabInstance:
       value: Press E to equip oxygen tank
       objectReference: {fileID: 0}
     - target: {fileID: 5456039554651119694, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      propertyPath: hoverText
+      value: 
+      objectReference: {fileID: 1929433153}
+    - target: {fileID: 5456039554651119694, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: sphereRadius
       value: 2.5
       objectReference: {fileID: 0}
@@ -8359,6 +8365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: Press E to equip first aid kit
   sphereRadius: 3
+  hoverText: {fileID: 1929433153}
 --- !u!114 &913959667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8419,13 +8426,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968953734}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Text: Press E to equip gun
   sphereRadius: 3
+  hoverText: {fileID: 1929433153}
 --- !u!114 &968953742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8940,6 +8948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: Right click to go to cockpit
   sphereRadius: 5
+  hoverText: {fileID: 1929433153}
 --- !u!1001 &1055170528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9357,6 +9366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: Press E to equip saw
   sphereRadius: 3
+  hoverText: {fileID: 1929433153}
 --- !u!1 &1089804553 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7008734550767129030, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
@@ -10127,6 +10137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: Press E to equip first aid kit
   sphereRadius: 3
+  hoverText: {fileID: 1929433153}
 --- !u!114 &1217937092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11310,7 +11321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlockedDoor: 0
   player: {fileID: 1482992024}
-  hoverText: {fileID: 0}
+  hoverText: {fileID: 1929433153}
   playFirstCutscene: 1
   playerHealth: 0
   colourMode: 0
@@ -13064,6 +13075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: Press E to equip file
   sphereRadius: 3
+  hoverText: {fileID: 1929433153}
 --- !u!1001 &1566508397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14146,6 +14158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: Press E to equip chisel
   sphereRadius: 3
+  hoverText: {fileID: 1929433153}
 --- !u!1 &1643627665 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1256151129932735245, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
@@ -14959,6 +14972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: Right click to open keypad
   sphereRadius: 5
+  hoverText: {fileID: 1929433153}
 --- !u!1 &1788777688
 GameObject:
   m_ObjectHideFlags: 0
@@ -15577,6 +15591,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1165560652584585047, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
   m_PrefabInstance: {fileID: 51700331}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1929433153 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5652732455098554940, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+  m_PrefabInstance: {fileID: 51700331}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929433151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1939264407
 GameObject:
   m_ObjectHideFlags: 0
@@ -15769,7 +15794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1947306955
 Transform:
   m_ObjectHideFlags: 0
@@ -15798,7 +15823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90cc3d00cb7ae547beb6e79d24dfd15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 238311876}
   keypadInput: {fileID: 862446323}
   doorScript: {fileID: 2132775567}
   doorNearText: {fileID: 1782392757}
@@ -16322,6 +16347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: Press E to equip axe
   sphereRadius: 3
+  hoverText: {fileID: 1929433153}
 --- !u!1 &2082838419
 GameObject:
   m_ObjectHideFlags: 0
@@ -16922,6 +16948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: Press E to equip first aid kit
   sphereRadius: 3
+  hoverText: {fileID: 1929433153}
 --- !u!114 &2141401797
 MonoBehaviour:
   m_ObjectHideFlags: 0
