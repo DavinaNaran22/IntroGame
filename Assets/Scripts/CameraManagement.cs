@@ -12,6 +12,7 @@ public class CameraManagement : MonoBehaviour
     public GameObject photoViewer;      // Fullscreen panel for viewing expanded photos
     public RawImage photoViewerImage;   // RawImage component inside the photo viewer
     public Camera mainCamera;           // Player's POV camera
+    public Camera PictureCam;           // Camera for taking pictures
 
     private bool isPhotoModeActive = false;
     private string screenshotFolder = "Screenshots"; // Folder to save screenshots
@@ -48,6 +49,12 @@ public class CameraManagement : MonoBehaviour
         isPhotoModeActive = true;
         uiElements.SetActive(false);     // Hide all UI elements
         cameraFrame.SetActive(true);     // Show the frame panel
+
+        // Align pictureCam with mainCamera
+        PictureCam.transform.position = mainCamera.transform.position;
+        PictureCam.transform.rotation = mainCamera.transform.rotation;
+        PictureCam.gameObject.SetActive(true);
+        mainCamera.gameObject.SetActive(false);
     }
 
     void ExitPhotoMode()
@@ -55,6 +62,12 @@ public class CameraManagement : MonoBehaviour
         isPhotoModeActive = false;
         uiElements.SetActive(true);      // Show all UI elements
         cameraFrame.SetActive(false);    // Hide the frame panel
+
+        mainCamera.transform.position = PictureCam.transform.position;
+        mainCamera.transform.rotation = PictureCam.transform.rotation;
+        mainCamera.gameObject.SetActive(true);
+        PictureCam.gameObject.SetActive(false);
+
 
     }
 

@@ -7956,6 +7956,7 @@ MonoBehaviour:
   thruster: {fileID: 0}
   thermalConductor: {fileID: 0}
   toolbox: {fileID: 0}
+  shovel: {fileID: 0}
   knifeImage: {fileID: 0}
   gunImage: {fileID: 0}
   swordImage: {fileID: 0}
