@@ -25,7 +25,9 @@ public class MissionManager : MonoBehaviour
     {
         "Hello, my spaceship’s hit an asteroid, and this was the only nearby planet.",
         "I really need that thruster so I can repair my ship and leave.",
-        "Can I quickly grab it? I won’t be long."
+        "Can I quickly grab it? I won’t be long.",
+        "How dare you claim our land, you don’t belong here.",
+        "This strange object belongs to us. If you want it, you’ll have to fight us"
     };
 
     // New input system for taking photos and dismissing dialogue
