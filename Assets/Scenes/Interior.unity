@@ -1160,8 +1160,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3777118033281698830, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 51700333}
   m_SourcePrefab: {fileID: 100100000, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+--- !u!1 &51700332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3777118033281698830, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+  m_PrefabInstance: {fileID: 51700331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &51700333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51700332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be45927d4568eac4ba37b38e804859a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &54898092
 GameObject:
   m_ObjectHideFlags: 0
@@ -3747,11 +3767,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392915405}
   m_CullTransparentMesh: 1
---- !u!1 &393632821 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6789054464662359471, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
-  m_PrefabInstance: {fileID: 51700331}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &394039790
 GameObject:
   m_ObjectHideFlags: 0
@@ -5377,7 +5392,6 @@ MonoBehaviour:
   cameraFollow: {fileID: 1622667512}
   HUD: {fileID: 1089804553}
   progressButton: {fileID: 926340231}
-  inventoryManager: {fileID: 393632821}
   inventoryCanvas: {fileID: 1726766054}
   hovertext: {fileID: 1929433151}
   minimapCanvas: {fileID: 345240224}
@@ -8131,7 +8145,6 @@ PrefabInstance:
       value: -7.334
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 299358265658339353, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     - {fileID: 7736816290642269190, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     - {fileID: 708897208918422464, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     - {fileID: 5103598266455742029, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
