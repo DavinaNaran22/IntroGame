@@ -12,6 +12,7 @@ public class QuantityManager : MonoBehaviour
     public GameObject thruster;
     public GameObject thermalConductor;
     public GameObject toolbox;
+    public GameObject shovel; 
 
     [Header("Single Item UI Elements")]
     public GameObject knifeImage;
@@ -66,6 +67,8 @@ public class QuantityManager : MonoBehaviour
         SetActive(thrusterImage, false);
         SetActive(thermalConductorImage, false);
         SetActive(toolboxImage, false);
+        SetActive(shovel, false);
+
 
         // Initialize collectible item text
         UpdateText(medicineText, "Medicine", medicineCount);
