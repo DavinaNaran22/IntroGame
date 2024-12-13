@@ -10,8 +10,9 @@ public class MissionManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public CameraManagement cameraManagement;
 
-    private bool photoTaken = false; 
+    private bool photoTaken = false;
     private bool dialogueShown = false; 
+
     private Vector3 minBounds; // Minimum bounds of the restricted area
     private Vector3 maxBounds; // Maximum bounds of the restricted area
     private CharacterController characterController; 
