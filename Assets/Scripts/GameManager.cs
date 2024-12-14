@@ -36,7 +36,7 @@ public class GameManager : Singleton<GameManager>
     public TMP_Dropdown colourDropdown;
     public string CurrentScene;
     public double CutsceneTime = 0;
-    public GameObject healthLimit;
+    public GameObject UIManager;
     public GameObject cameraCanvas;
 
     private void Start()
