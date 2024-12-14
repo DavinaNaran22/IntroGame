@@ -25,7 +25,7 @@ public class CameraManagement : MonoBehaviour
     // Misc
     private bool isPhotoModeActive = false; // Tracks if photo mode is active
     private string screenshotFolder = "Screenshots"; // Folder for saving screenshots
-    public float maxDistance = 15f; // Maximum allowed distance between the player and the target
+    public float maxDistance = 25f; // Maximum allowed distance between the player and the target
 
 
     void Start()

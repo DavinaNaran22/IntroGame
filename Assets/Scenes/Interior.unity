@@ -10400,7 +10400,7 @@ PrefabInstance:
       objectReference: {fileID: 827506149}
     - target: {fileID: 6429222996098318200, guid: c8911424a3a9d6245a60826432450cb8, type: 3}
       propertyPath: maxDistance
-      value: 15
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6429222996098318200, guid: c8911424a3a9d6245a60826432450cb8, type: 3}
       propertyPath: photoViewer
