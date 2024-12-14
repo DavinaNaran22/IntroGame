@@ -657,6 +657,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -325
       objectReference: {fileID: 0}
+    - target: {fileID: 1699175926709286584, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_TagString
+      value: HealthLimit
+      objectReference: {fileID: 0}
     - target: {fileID: 1765638302937954279, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

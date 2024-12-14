@@ -19,6 +19,12 @@ public class GreenAlienBehavior : FindPlayerTransform
     private bool isDead = false; // Flag to check if the alien is dead
     private bool isHit = false;
 
+    private void Start()
+    {
+        //GameObject uimanager = GameManager.Instance.UIManager;
+        Healthlimit = GameObject.FindWithTag("HealthLimit");
+    }
+
     private void Update()
     {
         base.GetPlayerTransform();
@@ -74,8 +80,8 @@ public class GreenAlienBehavior : FindPlayerTransform
         laser.GetComponent<ShotBehavior>().setTarget(targetPosition);
 
         // Damages player when alien fires lasers
-        //PlayerHealth playerHealth = Healthlimit.GetComponent<PlayerHealth>();
-        PlayerHealth playerHealth = GameManager.Instance.UIManager.GetComponentInChildren<PlayerHealth>();
+        PlayerHealth playerHealth = Healthlimit.GetComponent<PlayerHealth>();
+        //PlayerHealth playerHealth = GameManager.Instance.UIManager.GetComponentInChildren<PlayerHealth>();
         if (playerHealth != null)
         {
             playerHealth.TakeDamage(0.02f); // Adjust damage percentage as needed
