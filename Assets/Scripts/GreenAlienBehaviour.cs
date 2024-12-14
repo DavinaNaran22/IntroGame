@@ -153,23 +153,24 @@ public class GreenAlienBehavior : FindPlayerTransform
     {
         Debug.Log("Triggering Flight");
 
-        // Wait until dialogue is finished
+
+        // Flight animation for 10 seconds
+        animator.SetTrigger("Flight");
+        yield return new WaitForSeconds(0);
+
         while (missionManager != null && missionManager.IsDialogueActive())
         {
             yield return null;
         }
 
-        // Flight animation for 10 seconds
-        animator.SetTrigger("Flight");
-        yield return new WaitForSeconds(10f);
-
-
-
         // Transition to "GetGun"
         animator.SetTrigger("GetGun");
         yield return new WaitForSeconds(0);
 
-
+        while (missionManager != null && missionManager.IsDialogueActive())
+        {
+            yield return null;
+        }
 
         // Transition to "Shot" after 2 seconds
         animator.SetTrigger("Shot");
