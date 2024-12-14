@@ -31,7 +31,8 @@ public class CameraManagement : Singleton<CameraManagement>
     private string screenshotFolder = "Screenshots"; // Folder for saving screenshots
     public float maxDistance = 25; // Maximum allowed distance between the player and the target
 
-    public TextMeshProUGUI cameraMsg;
+    public TextMeshProUGUI cameraCloserMsg;
+    public TextMeshProUGUI cameraTakenMsg;
 
     // Input system
     private PlayerInputActions inputActions;
@@ -100,7 +101,8 @@ public class CameraManagement : Singleton<CameraManagement>
         cameraFrame.SetActive(false);
         mainCamera.gameObject.SetActive(true);
         pictureCam.gameObject.SetActive(false);
-        cameraMsg.gameObject.SetActive(false);
+        cameraCloserMsg.gameObject.SetActive(false);
+        cameraTakenMsg.gameObject.SetActive(false);
     }
 
     public void AlignCamera()
@@ -129,18 +131,39 @@ public class CameraManagement : Singleton<CameraManagement>
         {
             if (target != null && IsWithinFrame(target) && IsWithinDistance(target))
             {
-                cameraMsg.gameObject.SetActive(false);
+                cameraCloserMsg.gameObject.SetActive(false);
+                cameraTakenMsg.gameObject.SetActive(true);
+
+                isPhotoModeActive = false;
+
+                StartCoroutine(TransitionBackToGameplay());
+
                 return true;
             }
         }
         return false;
     }
 
+    private IEnumerator TransitionBackToGameplay()
+    {
+        // Wait for 5 seconds
+        yield return new WaitForSeconds(1.5f);
+
+        // Transition back to gameplay
+        uiElements.SetActive(true);
+        cameraFrame.SetActive(false);
+        mainCamera.gameObject.SetActive(true);
+        pictureCam.gameObject.SetActive(false);
+        cameraCloserMsg.gameObject.SetActive(false);
+        cameraTakenMsg.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1.5f);
+    }
+
     public bool IsWithinDistance(GameObject target)
     {
         float distance = Vector3.Distance(mainCamera.transform.position, target.transform.position);
         Debug.Log($"Distance to {target.name}: {distance}");
-        cameraMsg.gameObject.SetActive(true);
+        cameraCloserMsg.gameObject.SetActive(true);
         return distance <= maxDistance;
     }
 
