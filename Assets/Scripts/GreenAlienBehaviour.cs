@@ -12,6 +12,8 @@ public class GreenAlienBehavior : FindPlayerTransform
     public float reduceHealth = 0.1f;
     public MissionManager missionManager;
 
+    public GameObject dropBlock;
+
     public GameObject shotPrefab;
     public float shootRate = 1f;
     private float m_shootRateTimeStamp;
@@ -215,5 +217,6 @@ public class GreenAlienBehavior : FindPlayerTransform
         isDead = true;
         animator.SetTrigger("Dead"); // Trigger "Dead" animation
         Debug.Log("Alien has died!");
+        dropBlock.SetActive(true);
     }
 }

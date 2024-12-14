@@ -2107,6 +2107,7 @@ MonoBehaviour:
   Healthlimit: {fileID: 2114637168}
   reduceHealth: 0.4
   missionManager: {fileID: 0}
+  dropBlock: {fileID: 1624862150}
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 1
 --- !u!65 &775110484
@@ -2583,7 +2584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &945583773
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2664,7 +2665,7 @@ Transform:
   m_GameObject: {fileID: 945583772}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 468.071, y: 0.99, z: 432.94}
+  m_LocalPosition: {x: 463.34, y: 0.99, z: 443.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3431,6 +3432,7 @@ MonoBehaviour:
   Healthlimit: {fileID: 2114637168}
   reduceHealth: 0.4
   missionManager: {fileID: 0}
+  dropBlock: {fileID: 945583772}
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 1
 --- !u!114 &1120029955
@@ -4177,6 +4179,7 @@ MonoBehaviour:
   Healthlimit: {fileID: 0}
   reduceHealth: 0.1
   missionManager: {fileID: 0}
+  dropBlock: {fileID: 0}
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 1
 --- !u!114 &1429849576
@@ -4832,7 +4835,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1624862151
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4913,7 +4916,7 @@ Transform:
   m_GameObject: {fileID: 1624862150}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 466.6, y: 0.99, z: 432.94}
+  m_LocalPosition: {x: 459.94, y: 0.99, z: 437.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
