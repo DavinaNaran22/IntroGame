@@ -12,6 +12,8 @@ public class GreenAlienBehavior : FindPlayerTransform
     public float reduceHealth = 0.1f;
     public MissionManager missionManager;
 
+    public GameObject dropBlock;
+
     public GameObject shotPrefab;
     public float shootRate = 1f;
     private float m_shootRateTimeStamp;
@@ -189,5 +191,17 @@ public class GreenAlienBehavior : FindPlayerTransform
         isDead = true;
         animator.SetTrigger("Dead"); // Trigger "Dead" animation
         Debug.Log("Alien has died!");
+        StartCoroutine(DelayedBlockAppearance());
+    }
+
+    // Make blocks visible once alien animation is done
+    private IEnumerator DelayedBlockAppearance()
+    {
+        yield return new WaitForSeconds(7f); // Wait for 7 seconds
+        gameObject.SetActive(false); // Deactivate the alien GameObject
+        Debug.Log("Alien is now inactive and removed from the scene.");
+
+        dropBlock.SetActive(true); // Make the block visible
+        Debug.Log("Drop block is now visible!");
     }
 }
