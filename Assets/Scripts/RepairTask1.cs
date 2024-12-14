@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using UnityEngine.XR;
+using Unity.VisualScripting;
 
 public class MissionManager : MonoBehaviour
 {
@@ -30,8 +31,8 @@ public class MissionManager : MonoBehaviour
     {
         "Hello, my spaceship’s hit an asteroid, and this was the only nearby planet.",
         "I really need that thruster so I can repair my ship and leave.",
-        "Can I quickly grab it? I won’t be long.",
-        "How dare you claim our land, you don’t belong here.",
+        "Would it be all right if I grabbed it quickly? I won’t stay long.",
+        "How dare you claim things from our land, you don’t belong here.",
         "This strange object belongs to us. If you want it, you’ll have to fight us."
     };
 
