@@ -13,12 +13,14 @@ public class CutsceneController : MonoBehaviour
     public GameObject inventoryCanvas;
     public GameObject hovertext;
     public GameObject minimapCanvas;
+    public GameObject subtitles;
     
     
     // Disable cinemachine camera so player can get control back
     // Enable progress button and hovertext on screen
     public void EndCamera()
     {
+        Debug.Log("EndCamera signal recieved");
         cameraFollow.gameObject.SetActive(false);
         progressButton.SetActive(true);
         hovertext.SetActive(true);
@@ -33,5 +35,6 @@ public class CutsceneController : MonoBehaviour
         inventoryCanvas.SetActive(false);
         hovertext.SetActive(false);
         minimapCanvas.SetActive(false);
+        subtitles.SetActive(false);
     }
 }

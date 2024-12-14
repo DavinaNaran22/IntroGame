@@ -35,6 +35,7 @@ public class GameManager : Singleton<GameManager>
     public ColourMode colourMode;
     public TMP_Dropdown colourDropdown;
     public string CurrentScene;
+    public double CutsceneTime = 0;
 
     private void Start()
     {
