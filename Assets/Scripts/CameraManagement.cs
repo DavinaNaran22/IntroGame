@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
+using Unity.VisualScripting;
 
 public class CameraManagement : Singleton<CameraManagement>
 {
@@ -28,6 +30,8 @@ public class CameraManagement : Singleton<CameraManagement>
     private bool isPhotoModeActive = false; // Tracks if photo mode is active
     private string screenshotFolder = "Screenshots"; // Folder for saving screenshots
     public float maxDistance = 25; // Maximum allowed distance between the player and the target
+
+    public TextMeshProUGUI cameraMsg;
 
     // Input system
     private PlayerInputActions inputActions;
@@ -96,6 +100,7 @@ public class CameraManagement : Singleton<CameraManagement>
         cameraFrame.SetActive(false);
         mainCamera.gameObject.SetActive(true);
         pictureCam.gameObject.SetActive(false);
+        cameraMsg.gameObject.SetActive(false);
     }
 
     public void AlignCamera()
@@ -124,6 +129,7 @@ public class CameraManagement : Singleton<CameraManagement>
         {
             if (target != null && IsWithinFrame(target) && IsWithinDistance(target))
             {
+                cameraMsg.gameObject.SetActive(false);
                 return true;
             }
         }
@@ -134,6 +140,7 @@ public class CameraManagement : Singleton<CameraManagement>
     {
         float distance = Vector3.Distance(mainCamera.transform.position, target.transform.position);
         Debug.Log($"Distance to {target.name}: {distance}");
+        cameraMsg.gameObject.SetActive(true);
         return distance <= maxDistance;
     }
 

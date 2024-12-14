@@ -39,6 +39,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject UIManager;
     public GameObject cameraCanvas;
     public CameraManagement cameraManagement;
+    public TextMeshProUGUI cameraMsg;
 
     private void Start()
     {
