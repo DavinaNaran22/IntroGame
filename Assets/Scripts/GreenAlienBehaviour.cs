@@ -74,7 +74,8 @@ public class GreenAlienBehavior : FindPlayerTransform
         laser.GetComponent<ShotBehavior>().setTarget(targetPosition);
 
         // Damages player when alien fires lasers
-        PlayerHealth playerHealth = Healthlimit.GetComponent<PlayerHealth>();
+        //PlayerHealth playerHealth = Healthlimit.GetComponent<PlayerHealth>();
+        PlayerHealth playerHealth = GameManager.Instance.UIManager.GetComponentInChildren<PlayerHealth>();
         if (playerHealth != null)
         {
             playerHealth.TakeDamage(0.02f); // Adjust damage percentage as needed
