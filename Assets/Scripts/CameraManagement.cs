@@ -34,6 +34,8 @@ public class CameraManagement : Singleton<CameraManagement>
     public TextMeshProUGUI cameraCloserMsg;
     public TextMeshProUGUI cameraTakenMsg;
 
+    public GameObject HUD;
+
     // Input system
     private PlayerInputActions inputActions;
 
@@ -90,6 +92,7 @@ public class CameraManagement : Singleton<CameraManagement>
         AlignCamera();
         mainCamera.gameObject.SetActive(false);
         pictureCam.gameObject.SetActive(true);
+        HUD.SetActive(false);
     }
 
     public void ExitPhotoMode()
@@ -103,6 +106,7 @@ public class CameraManagement : Singleton<CameraManagement>
         pictureCam.gameObject.SetActive(false);
         cameraCloserMsg.gameObject.SetActive(false);
         cameraTakenMsg.gameObject.SetActive(false);
+        HUD.SetActive(true);
     }
 
     public void AlignCamera()
@@ -156,6 +160,7 @@ public class CameraManagement : Singleton<CameraManagement>
         pictureCam.gameObject.SetActive(false);
         cameraCloserMsg.gameObject.SetActive(false);
         cameraTakenMsg.gameObject.SetActive(false);
+        HUD.SetActive(true);
         yield return new WaitForSeconds(1.5f);
     }
 
