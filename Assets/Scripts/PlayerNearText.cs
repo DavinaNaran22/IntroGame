@@ -8,8 +8,6 @@ public class PlayerNearText : MonoBehaviour
     public TextMeshProUGUI hoverText;
     private bool modifyingText = false;
 
-    
-
     // Return true/false depending on whether player is near this game object
     private bool PlayerIsNear()
     {
@@ -26,8 +24,16 @@ public class PlayerNearText : MonoBehaviour
 
     void Update()
     {
-        // If the player is near this game object
+        // Would happen if player moves out of scene this object is in
+        if (hoverText == null)
+        {
+            GameObject hoverGO = GameObject.FindWithTag("HoverText");
+            if (hoverGO != null) {
+                hoverText = hoverGO.GetComponent<TextMeshProUGUI>();
+            }
+        }
 
+        // If the player is near this game object and hover text is visible
         if (PlayerIsNear())
         {
             // And the current value of the next is nothing

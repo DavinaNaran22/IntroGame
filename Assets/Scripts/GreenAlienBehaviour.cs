@@ -9,6 +9,10 @@ public class GreenAlienBehavior : FindPlayerTransform
     public PlayerEquipment playerEquipment;
     public AlienDamageBar damageBar;
     public GameObject Healthlimit;
+    public float reduceHealth = 0.1f;
+    public MissionManager missionManager;
+
+    public GameObject dropBlock;
 
     public GameObject shotPrefab;
     public float shootRate = 1f;
@@ -17,6 +21,12 @@ public class GreenAlienBehavior : FindPlayerTransform
     private bool playerNearby = false;
     private bool isDead = false; // Flag to check if the alien is dead
     private bool isHit = false;
+
+    private void Start()
+    {
+        //GameObject uimanager = GameManager.Instance.UIManager;
+        Healthlimit = GameObject.FindWithTag("HealthLimit");
+    }
 
     private void Update()
     {
@@ -62,7 +72,7 @@ public class GreenAlienBehavior : FindPlayerTransform
             Debug.LogError("Shooting point is not set for the alien.");
             return;
         }
-        
+
         GameObject laser = GameObject.Instantiate(shotPrefab, shootingPoint.position, Quaternion.identity);
         Vector3 targetPosition = Player.position;
 
@@ -74,6 +84,7 @@ public class GreenAlienBehavior : FindPlayerTransform
 
         // Damages player when alien fires lasers
         PlayerHealth playerHealth = Healthlimit.GetComponent<PlayerHealth>();
+        //PlayerHealth playerHealth = GameManager.Instance.UIManager.GetComponentInChildren<PlayerHealth>();
         if (playerHealth != null)
         {
             playerHealth.TakeDamage(0.02f); // Adjust damage percentage as needed
@@ -89,11 +100,11 @@ public class GreenAlienBehavior : FindPlayerTransform
     {
         if (isHit) return; // Prevent multiple hits
         isHit = true;
-        
+
         // Reduce health bar
         if (damageBar != null)
         {
-            damageBar.TakeDamage(0.1f); // reduce 10% health
+            damageBar.TakeDamage(reduceHealth); // reduce 10% health
         }
         else
         {
@@ -119,13 +130,25 @@ public class GreenAlienBehavior : FindPlayerTransform
     private IEnumerator ExecuteEscapeSequence()
     {
         Debug.Log("Triggering Flight");
-        // Flight animation for 10 seconds
+
+        // Flight animation for 0 seconds
         animator.SetTrigger("Flight");
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(0);
+
+        // Dialogue between player and alien
+        while (missionManager != null && missionManager.IsDialogueActive())
+        {
+            yield return null;
+        }
 
         // Transition to "GetGun"
         animator.SetTrigger("GetGun");
         yield return new WaitForSeconds(0);
+
+        while (missionManager != null && missionManager.IsDialogueActive())
+        {
+            yield return null;
+        }
 
         // Transition to "Shot" after 10 seconds
         animator.SetTrigger("Shot");
@@ -133,7 +156,7 @@ public class GreenAlienBehavior : FindPlayerTransform
 
         // Continue with remaining states in sequence
         animator.SetTrigger("IdleWithGun");
-        //yield return new WaitForSeconds(6f);
+
         while (playerEquipment != null && !playerEquipment.IsWeaponEquipped())
         {
             yield return null;
@@ -168,5 +191,17 @@ public class GreenAlienBehavior : FindPlayerTransform
         isDead = true;
         animator.SetTrigger("Dead"); // Trigger "Dead" animation
         Debug.Log("Alien has died!");
+        StartCoroutine(DelayedBlockAppearance());
+    }
+
+    // Make blocks visible once alien animation is done
+    private IEnumerator DelayedBlockAppearance()
+    {
+        yield return new WaitForSeconds(7f); // Wait for 7 seconds
+        gameObject.SetActive(false); // Deactivate the alien GameObject
+        Debug.Log("Alien is now inactive and removed from the scene.");
+
+        dropBlock.SetActive(true); // Make the block visible
+        Debug.Log("Drop block is now visible!");
     }
 }

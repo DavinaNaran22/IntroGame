@@ -3,6 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // This could be moved to another class which changes material colours etc.
 public enum ColourMode
@@ -21,6 +22,7 @@ class PlayerData
     public bool unlockedDoor;
     public bool playFirstCutscene;
     public ColourMode colorMode;
+    public string currentScene;
 }
 
 public class GameManager : Singleton<GameManager>
@@ -32,6 +34,12 @@ public class GameManager : Singleton<GameManager>
     public float playerHealth;
     public ColourMode colourMode;
     public TMP_Dropdown colourDropdown;
+    public string CurrentScene;
+    public double CutsceneTime = 0;
+    public GameObject UIManager;
+    public GameObject cameraCanvas;
+    public CameraManagement cameraManagement;
+    public TextMeshProUGUI cameraMsg;
 
     private void Start()
     {
@@ -63,6 +71,7 @@ public class GameManager : Singleton<GameManager>
         data.playFirstCutscene = playFirstCutscene;
         data.health = playerHealth;
         data.colorMode = colourMode;
+        data.currentScene = CurrentScene;
 
         bf.Serialize(file, data);
         file.Close();
@@ -84,12 +93,18 @@ public class GameManager : Singleton<GameManager>
             playFirstCutscene = data.playFirstCutscene;
             playerHealth = data.health;
             colourMode = data.colorMode;
+            CurrentScene = data.currentScene;
             Debug.Log("Loaded Player data");
         }
         else
         {
             Debug.Log("No file with player data at location " + filename + " so no loading of player data");
         }
+    }
+
+    public void SetCurrentScene()
+    {
+        CurrentScene = SceneManager.GetActiveScene().name;
     }
 }
 
