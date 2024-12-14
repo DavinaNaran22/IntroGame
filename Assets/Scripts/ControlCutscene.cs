@@ -12,9 +12,9 @@ public class ControlCutscene : MonoBehaviour
     [SerializeField] GameObject cutsceneAstro1;
     [SerializeField] GameObject cutsceneAstro2;
     [SerializeField] GameObject subtitleBox;
+    [SerializeField] GameObject HUD;
+    [SerializeField] GameObject HealthBar;
     public static double cutsceneLength = 120;
-    private bool stoppedPlaying = false;
-    public PlayableDirector test;
 
     private void Start()
     {        
@@ -31,7 +31,6 @@ public class ControlCutscene : MonoBehaviour
 
     private void StopPlaying()
     {
-        stoppedPlaying = true;
         thirdPersonCam.gameObject.SetActive(false);
         subtitleBox.SetActive(false);
         ShowDeadAstros();
@@ -52,6 +51,8 @@ public class ControlCutscene : MonoBehaviour
     {
         // Stop cutscene from playing (even if they go to menu before cutscene finished)
         GameManager.Instance.playFirstCutscene = false;
+        HUD.SetActive(true);
+        HealthBar.SetActive(true);
         ShowDeadAstros();
     }
 

@@ -1281,6 +1281,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760717bdd3bfda4419f2ed36054e88ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &51700335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2701486185308818263, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+  m_PrefabInstance: {fileID: 51700331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &54898092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,7 +1435,8 @@ MonoBehaviour:
   cutsceneAstro1: {fileID: 519417028}
   cutsceneAstro2: {fileID: 482297693}
   subtitleBox: {fileID: 1383739019}
-  test: {fileID: 0}
+  HUD: {fileID: 1089804553}
+  HealthBar: {fileID: 51700335}
 --- !u!1 &57307819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2034179033855149247, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
