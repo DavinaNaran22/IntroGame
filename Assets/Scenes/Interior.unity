@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020619242, g: 0.0019479868, b: 0.0021169633, a: 1}
+  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5323,6 +5323,11 @@ Transform:
   - {fileID: 111861800}
   m_Father: {fileID: 1696713005}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &644578565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6789054464662359471, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+  m_PrefabInstance: {fileID: 51700331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &652040095 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7713469950459694704, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
@@ -5523,7 +5528,7 @@ MonoBehaviour:
   cameraFollow: {fileID: 1622667512}
   HUD: {fileID: 1089804553}
   progressButton: {fileID: 926340231}
-  inventoryManager: {fileID: 0}
+  inventoryManager: {fileID: 644578565}
   inventoryCanvas: {fileID: 1726766054}
   hovertext: {fileID: 1929433151}
   minimapCanvas: {fileID: 345240224}
