@@ -4,8 +4,9 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
-public class CameraManagement : MonoBehaviour
+public class CameraManagement : Singleton<CameraManagement>
 {
     // UI Elements
     public GameObject uiElements;       // Parent GameObject containing all UI elements
@@ -32,9 +33,10 @@ public class CameraManagement : MonoBehaviour
     private PlayerInputActions inputActions;
 
     // New input system for taking photos and dismissing dialogue
-    private void Awake()
+    private new void Awake()
     {
         inputActions = new PlayerInputActions();
+        base.Awake(); // Setup singleton
     }
 
     private void OnEnable()
@@ -61,6 +63,15 @@ public class CameraManagement : MonoBehaviour
         uiElements.SetActive(true);
         cameraFrame.SetActive(false);
         pictureCam.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (targetObjects[0] == null && targetObjects[1] == null && SceneManager.GetActiveScene().name == "landscape")
+        {
+            targetObjects[0] = GameObject.Find("GreenAlien1");
+            targetObjects[1] = GameObject.Find("GreenAlien2");
+        }
     }
 
 

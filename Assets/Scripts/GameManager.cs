@@ -36,6 +36,9 @@ public class GameManager : Singleton<GameManager>
     public TMP_Dropdown colourDropdown;
     public string CurrentScene;
     public double CutsceneTime = 0;
+    public GameObject UIManager;
+    public GameObject cameraCanvas;
+    public CameraManagement cameraManagement;
 
     private void Start()
     {
