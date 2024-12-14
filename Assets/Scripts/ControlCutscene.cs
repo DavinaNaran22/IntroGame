@@ -11,6 +11,7 @@ public class ControlCutscene : MonoBehaviour
     [SerializeField] GameObject deadAstro2;
     [SerializeField] GameObject cutsceneAstro1;
     [SerializeField] GameObject cutsceneAstro2;
+    [SerializeField] GameObject subtitleBox;
     public static double cutsceneLength = 120;
     private bool stoppedPlaying = false;
 
@@ -34,6 +35,7 @@ public class ControlCutscene : MonoBehaviour
     {
         stoppedPlaying = true;
         thirdPersonCam.gameObject.SetActive(false);
+        subtitleBox.SetActive(false);
         ShowDeadAstros();
     }
 
