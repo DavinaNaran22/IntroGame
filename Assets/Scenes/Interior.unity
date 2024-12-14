@@ -1247,6 +1247,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3777118033281698830, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 51700334}
+    - targetCorrespondingSourceObject: {fileID: 1699175926709286584, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 51700336}
   m_SourcePrefab: {fileID: 100100000, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
 --- !u!1 &51700332 stripped
 GameObject:
@@ -1275,6 +1278,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 760717bdd3bfda4419f2ed36054e88ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &51700335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1699175926709286584, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+  m_PrefabInstance: {fileID: 51700331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &51700336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51700335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be45927d4568eac4ba37b38e804859a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &54898092
@@ -11424,6 +11444,8 @@ MonoBehaviour:
   colourDropdown: {fileID: 0}
   CurrentScene: 
   CutsceneTime: 0
+  healthLimit: {fileID: 51700335}
+  cameraCanvas: {fileID: 1254959161}
 --- !u!4 &1352790603
 Transform:
   m_ObjectHideFlags: 0
