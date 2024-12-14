@@ -10,6 +10,7 @@ public class GreenAlienBehavior : FindPlayerTransform
     public AlienDamageBar damageBar;
     public GameObject Healthlimit;
     public float reduceHealth = 0.1f;
+    public MissionManager missionManager;
 
     public GameObject shotPrefab;
     public float shootRate = 1f;
@@ -117,28 +118,71 @@ public class GreenAlienBehavior : FindPlayerTransform
 
 
     // Sequence of states for alien
+    //private IEnumerator ExecuteEscapeSequence()
+    //{
+    //    Debug.Log("Triggering Flight");
+
+    //    // Flight animation for 10 seconds
+    //    animator.SetTrigger("Flight");
+    //    yield return new WaitForSeconds(10f);
+
+    //    // Transition to "GetGun"
+    //    animator.SetTrigger("GetGun");
+    //    yield return new WaitForSeconds(0);
+
+    //    // Transition to "Shot" after 10 seconds
+    //    animator.SetTrigger("Shot");
+    //    yield return new WaitForSeconds(2f);
+
+    //    // Continue with remaining states in sequence
+    //    animator.SetTrigger("IdleWithGun");
+    //    //yield return new WaitForSeconds(6f);
+    //    while (playerEquipment != null && !playerEquipment.IsWeaponEquipped())
+    //    {
+    //        yield return null;
+    //    }
+    //    while (!isHit)
+    //    {
+    //        yield return null;
+    //    }
+
+    //    animator.SetTrigger("BackIdle");
+    //}
+
     private IEnumerator ExecuteEscapeSequence()
     {
         Debug.Log("Triggering Flight");
+
+        // Wait until dialogue is finished
+        while (missionManager != null && missionManager.IsDialogueActive())
+        {
+            yield return null;
+        }
+
         // Flight animation for 10 seconds
         animator.SetTrigger("Flight");
         yield return new WaitForSeconds(10f);
+
+
 
         // Transition to "GetGun"
         animator.SetTrigger("GetGun");
         yield return new WaitForSeconds(0);
 
-        // Transition to "Shot" after 10 seconds
+
+
+        // Transition to "Shot" after 2 seconds
         animator.SetTrigger("Shot");
         yield return new WaitForSeconds(2f);
 
         // Continue with remaining states in sequence
         animator.SetTrigger("IdleWithGun");
-        //yield return new WaitForSeconds(6f);
+
         while (playerEquipment != null && !playerEquipment.IsWeaponEquipped())
         {
             yield return null;
         }
+
         while (!isHit)
         {
             yield return null;
@@ -146,6 +190,7 @@ public class GreenAlienBehavior : FindPlayerTransform
 
         animator.SetTrigger("BackIdle");
     }
+
 
     private void OnEnable()
     {
