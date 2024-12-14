@@ -10,6 +10,7 @@ public class GreenAlienBehavior : FindPlayerTransform
     public AlienDamageBar damageBar;
     public GameObject Healthlimit;
     public float reduceHealth = 0.1f;
+    public MissionManager missionManager;
 
     public GameObject shotPrefab;
     public float shootRate = 1f;
@@ -127,13 +128,25 @@ public class GreenAlienBehavior : FindPlayerTransform
     private IEnumerator ExecuteEscapeSequence()
     {
         Debug.Log("Triggering Flight");
-        // Flight animation for 10 seconds
+
+        // Flight animation for 0 seconds
         animator.SetTrigger("Flight");
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(0);
+
+        // Dialogue between player and alien
+        while (missionManager != null && missionManager.IsDialogueActive())
+        {
+            yield return null;
+        }
 
         // Transition to "GetGun"
         animator.SetTrigger("GetGun");
         yield return new WaitForSeconds(0);
+
+        while (missionManager != null && missionManager.IsDialogueActive())
+        {
+            yield return null;
+        }
 
         // Transition to "Shot" after 10 seconds
         animator.SetTrigger("Shot");
@@ -141,7 +154,7 @@ public class GreenAlienBehavior : FindPlayerTransform
 
         // Continue with remaining states in sequence
         animator.SetTrigger("IdleWithGun");
-        //yield return new WaitForSeconds(6f);
+
         while (playerEquipment != null && !playerEquipment.IsWeaponEquipped())
         {
             yield return null;
