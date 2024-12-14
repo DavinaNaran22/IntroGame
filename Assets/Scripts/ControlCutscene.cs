@@ -14,14 +14,12 @@ public class ControlCutscene : MonoBehaviour
     [SerializeField] GameObject subtitleBox;
     public static double cutsceneLength = 120;
     private bool stoppedPlaying = false;
+    public PlayableDirector test;
 
     private void Start()
-    {
-        //if (CanPlayCutScene())
+    {        
         if (GameManager.Instance.playFirstCutscene)
         {
-            Debug.Log("Can play cutscene");
-            //Debug.Log();
             HideDeadAstros();
             pd.Play();
         }
@@ -39,18 +37,6 @@ public class ControlCutscene : MonoBehaviour
         ShowDeadAstros();
     }
 
-    private void Update()
-    {
-        // Stop playing cutscene (e.g. if playFirstCutscene updated somewhere else)
-        //if (!GameManager.Instance.playFirstCutscene && !stoppedPlaying)
-        //{
-        //    StopPlaying();
-        //    stoppedPlaying = true;
-        //}
-        Debug.Log("Control cutscene");
-        Debug.Log(GameManager.Instance.playFirstCutscene);
-    }
-
     // Only play cutscene if bool in game manager is true - in theory this should only happen once
     bool CanPlayCutScene()
     {
@@ -64,14 +50,9 @@ public class ControlCutscene : MonoBehaviour
 
     private void OnPlayableDirectorStopped(PlayableDirector playableDirector)
     {
-        Debug.Log("on pd stop");
-        Debug.Log(pd.time);
-        Debug.Log(cutsceneLength);
-        if (pd.time >= cutsceneLength)
-        {
-            GameManager.Instance.playFirstCutscene = false;
-            ShowDeadAstros();
-        }
+        // Stop cutscene from playing (even if they go to menu before cutscene finished)
+        GameManager.Instance.playFirstCutscene = false;
+        ShowDeadAstros();
     }
 
     private void ShowDeadAstros()

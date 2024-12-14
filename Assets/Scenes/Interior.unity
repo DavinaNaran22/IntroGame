@@ -1426,6 +1426,7 @@ MonoBehaviour:
   cutsceneAstro1: {fileID: 519417028}
   cutsceneAstro2: {fileID: 482297693}
   subtitleBox: {fileID: 1383739019}
+  test: {fileID: 0}
 --- !u!1 &57307819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2034179033855149247, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
