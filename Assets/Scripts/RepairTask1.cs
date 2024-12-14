@@ -65,6 +65,7 @@ public class MissionManager : MonoBehaviour
     private void Start()
     {
         player = GameManager.Instance.player;
+        cameraManagement = GameManager.Instance.cameraManagement;
 
         // Calculate the bounds of the restricted area
         minBounds = restrictedArea.bounds.min;

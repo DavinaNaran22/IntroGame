@@ -38,6 +38,7 @@ public class GameManager : Singleton<GameManager>
     public double CutsceneTime = 0;
     public GameObject UIManager;
     public GameObject cameraCanvas;
+    public CameraManagement cameraManagement;
 
     private void Start()
     {

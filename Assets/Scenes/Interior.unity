@@ -11426,6 +11426,7 @@ MonoBehaviour:
   CutsceneTime: 0
   UIManager: {fileID: 51700332}
   cameraCanvas: {fileID: 1254959161}
+  cameraManagement: {fileID: 1254959163}
 --- !u!4 &1352790603
 Transform:
   m_ObjectHideFlags: 0

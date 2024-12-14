@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
-public class CameraManagement : MonoBehaviour
+public class CameraManagement : Singleton<CameraManagement>
 {
     // UI Elements
     public GameObject uiElements;       // Parent GameObject containing all UI elements
@@ -32,9 +32,10 @@ public class CameraManagement : MonoBehaviour
     private PlayerInputActions inputActions;
 
     // New input system for taking photos and dismissing dialogue
-    private void Awake()
+    private new void Awake()
     {
         inputActions = new PlayerInputActions();
+        base.Awake(); // Setup singleton
     }
 
     private void OnEnable()
