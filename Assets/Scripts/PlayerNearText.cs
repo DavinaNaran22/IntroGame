@@ -27,10 +27,13 @@ public class PlayerNearText : MonoBehaviour
         // Would happen if player moves out of scene this object is in
         if (hoverText == null)
         {
-            hoverText = GameObject.FindWithTag("HoverText").GetComponent<TextMeshProUGUI>();
+            GameObject hoverGO = GameObject.FindWithTag("HoverText");
+            if (hoverGO != null) {
+                hoverText = hoverGO.GetComponent<TextMeshProUGUI>();
+            }
         }
 
-        // If the player is near this game object
+        // If the player is near this game object and hover text is visible
         if (PlayerIsNear())
         {
             // And the current value of the next is nothing
