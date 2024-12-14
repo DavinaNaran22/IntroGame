@@ -217,6 +217,17 @@ public class GreenAlienBehavior : FindPlayerTransform
         isDead = true;
         animator.SetTrigger("Dead"); // Trigger "Dead" animation
         Debug.Log("Alien has died!");
-        dropBlock.SetActive(true);
+        StartCoroutine(DelayedBlockAppearance());
+        
+    }
+
+    private IEnumerator DelayedBlockAppearance()
+    {
+        yield return new WaitForSeconds(7f); // Wait for 7 seconds
+        gameObject.SetActive(false); // Deactivate the alien GameObject
+        Debug.Log("Alien is now inactive and removed from the scene.");
+       
+        dropBlock.SetActive(true); // Make the block visible
+        Debug.Log("Drop block is now visible!");
     }
 }
