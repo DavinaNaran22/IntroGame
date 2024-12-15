@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnterAlienArea : MonoBehaviour
@@ -7,6 +8,7 @@ public class EnterAlienArea : MonoBehaviour
     public GameObject player; // Reference to the player GameObject
     public GameObject silverCube;
     public GameObject brownCube;
+    public TextMeshProUGUI dialogueText;
 
     private CharacterController characterController;
 
@@ -37,7 +39,6 @@ public class EnterAlienArea : MonoBehaviour
         }
     }
 
-    // Checks if both blocks are visible, if so, disable restriction
     private void Update()
     {
         if (silverCube.activeSelf == true && brownCube.activeSelf == true && restrictionEnabled)
@@ -106,6 +107,21 @@ public class EnterAlienArea : MonoBehaviour
         restrictionEnabled = false;
         Debug.Log("Movement restriction disabled");
         alienArea.enabled = false;
+        ShowDialogue("Maybe I can craft something using this alien skin to dig this thruster out.");
     }
+
+    private void ShowDialogue(string message)
+    {
+        // Display dialogue on the screen
+        dialogueText.gameObject.SetActive(true);
+        dialogueText.text = message;
+    }
+
+    private void HideDialogue()
+    {
+        // Hide dialogue from the screen
+        dialogueText.gameObject.SetActive(false);
+    }
+
 
 }

@@ -1184,6 +1184,7 @@ MonoBehaviour:
   player: {fileID: 1425785243}
   silverCube: {fileID: 850136103}
   brownCube: {fileID: 1186420423}
+  dialogueText: {fileID: 1491151509}
 --- !u!65 &415064559
 BoxCollider:
   m_ObjectHideFlags: 0
