@@ -5,11 +5,18 @@ using UnityEngine;
 public class EnterAlienArea : MonoBehaviour
 {
     public GameObject player; // Reference to the player GameObject
+    public GameObject silverCube;
+    public GameObject brownCube;
+
     private CharacterController characterController;
 
     private Vector3 minBounds; // Minimum bounds of the alien area
     private Vector3 maxBounds; // Maximum bounds of the alien area
     private BoxCollider alienArea;
+
+    private bool restrictionEnabled = true;
+
+
 
     private void Start()
     {
@@ -27,6 +34,16 @@ public class EnterAlienArea : MonoBehaviour
         if (alienArea == null)
         {
             Debug.LogError("No BoxCollider found on the alien area!");
+        }
+    }
+
+    // Checks if both blocks are visible, if so, disable restriction
+    private void Update()
+    {
+        if (silverCube.activeSelf == true && brownCube.activeSelf == true && restrictionEnabled)
+        {
+            Debug.Log("Blocks are visible, restriction disabled");
+            DisableRestriction();
         }
     }
 
@@ -52,15 +69,6 @@ public class EnterAlienArea : MonoBehaviour
         }
     }
 
-    // Runs once when player exits alien area
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        Debug.Log("Player exited alien area");
-    //        DisableRestriction();
-    //    }
-    //}
 
     // Restrict player movement within the bounds of the alien area
     private void RestrictPlayerMovement()
@@ -95,7 +103,9 @@ public class EnterAlienArea : MonoBehaviour
     // Disable restriction logic (if needed for future extension)
     private void DisableRestriction()
     {
-        // Optional: Reset or change behavior when leaving the alien area
+        restrictionEnabled = false;
         Debug.Log("Movement restriction disabled");
+        alienArea.enabled = false;
     }
+
 }
