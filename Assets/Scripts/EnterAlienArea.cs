@@ -13,11 +13,8 @@ public class EnterAlienArea : MonoBehaviour
 
     private void Start()
     {
+        player = GameManager.Instance.player;
 
-        if (player == null)
-        {
-            player = GameObject.FindWithTag("Player");
-        }
 
         characterController = player.GetComponent<CharacterController>();
         if (characterController == null)
@@ -56,14 +53,14 @@ public class EnterAlienArea : MonoBehaviour
     }
 
     // Runs once when player exits alien area
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player exited alien area");
-            DisableRestriction();
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        Debug.Log("Player exited alien area");
+    //        DisableRestriction();
+    //    }
+    //}
 
     // Restrict player movement within the bounds of the alien area
     private void RestrictPlayerMovement()
