@@ -2697,7 +2697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 414.84
+      value: 472.52
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16843,6 +16843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2147162578}
   - component: {fileID: 2147162579}
+  - component: {fileID: 2147162580}
   m_Layer: 0
   m_Name: RestrictPlayer2
   m_TagString: Untagged
@@ -16859,7 +16860,7 @@ Transform:
   m_GameObject: {fileID: 2147162577}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.8, y: 0, z: 4.4}
+  m_LocalPosition: {x: -2, y: 0, z: 5.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16884,8 +16885,23 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 40, y: 10, z: 40}
+  m_Size: {x: 27, y: 10, z: 30}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2147162580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147162577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43888e44bec48b343a6b8d09722a2728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1425785243}
+  silverCube: {fileID: 1624862150}
+  brownCube: {fileID: 945583772}
 --- !u!4 &217271204734218147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7594788588879901130, guid: 721b5c0471eed7247a7c7bdb647e8f85, type: 3}
