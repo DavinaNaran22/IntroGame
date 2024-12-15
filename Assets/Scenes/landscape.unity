@@ -16902,6 +16902,7 @@ MonoBehaviour:
   player: {fileID: 1425785243}
   silverCube: {fileID: 1624862150}
   brownCube: {fileID: 945583772}
+  dialogueText: {fileID: 1491151509}
 --- !u!4 &217271204734218147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7594788588879901130, guid: 721b5c0471eed7247a7c7bdb647e8f85, type: 3}
