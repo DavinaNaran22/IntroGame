@@ -10614,6 +10614,10 @@ PrefabInstance:
       value: CameraCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 6429222996098318200, guid: c8911424a3a9d6245a60826432450cb8, type: 3}
+      propertyPath: HUD
+      value: 
+      objectReference: {fileID: 1089804553}
+    - target: {fileID: 6429222996098318200, guid: c8911424a3a9d6245a60826432450cb8, type: 3}
       propertyPath: cameraMsg
       value: 
       objectReference: {fileID: 1664890787}
