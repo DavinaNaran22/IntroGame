@@ -135,7 +135,7 @@ public class MissionManager : MonoBehaviour
     {
         // Display the photo prompt message
         promptText.gameObject.SetActive(true);
-        promptText.text = "Press P to open camera, and T to take a photo!";
+        promptText.text = "Press P to open camera, and T to take a photo.";
     }
 
     private void HidePrompt()
@@ -265,7 +265,5 @@ public class MissionManager : MonoBehaviour
     {
         return dialogueText.gameObject.activeSelf;
     }
-
-
 
 }

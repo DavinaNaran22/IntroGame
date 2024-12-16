@@ -11,6 +11,7 @@ public class GreenAlienBehavior : FindPlayerTransform
     public GameObject Healthlimit;
     public float reduceHealth = 0.1f;
     public MissionManager missionManager;
+    public RepairTask2 repairTask2;
 
     public GameObject dropBlock;
 
@@ -203,5 +204,8 @@ public class GreenAlienBehavior : FindPlayerTransform
 
         dropBlock.SetActive(true); // Make the block visible
         Debug.Log("Drop block is now visible!");
+        // Show next scene
+        missionManager.gameObject.SetActive(false);
+        repairTask2.gameObject.SetActive(true);
     }
 }
