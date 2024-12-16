@@ -1,26 +1,24 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
+using TMPro;
+using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Security.Claims;
+using UnityEngine.XR;
+using Unity.VisualScripting;
 
 public class RepairTask2 : MonoBehaviour
 {
     public GameObject player;
     public BoxCollider restrictedArea;
     public BoxCollider alienArea;
-
     public TextMeshProUGUI promptText;
     public TextMeshProUGUI dialogueText;
+    public CameraManagement cameraManagement;
 
     private bool photoTaken = false;
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
-
     private int currentDialogueIndex = 0;
 
 
@@ -51,15 +49,19 @@ public class RepairTask2 : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Player.Enable();
-        inputActions.Player.TakePhoto.performed += ctx => TakePhoto();
-        inputActions.Player.DismissDialogue.performed += ctx => DismissDialogue();
+        inputActions.Player.OpenCamera.performed += ctx => ToggleCamera(); // Press P to open camera
+        inputActions.Player.TakePhoto.performed += ctx => TakePhoto(); // Press T to take a photo
+        inputActions.Player.DismissDialogue.performed += ctx => DismissDialogue(); // Press D to dismiss dialogue
+        inputActions.Player.ExitCamera.performed += ctx => ExitPhotoMode(); // Press E to exit camera mode
     }
 
     private void OnDisable()
     {
         inputActions.Player.Disable();
+        inputActions.Player.OpenCamera.performed -= ctx => ToggleCamera();
         inputActions.Player.TakePhoto.performed -= ctx => TakePhoto();
         inputActions.Player.DismissDialogue.performed -= ctx => DismissDialogue();
+        inputActions.Player.ExitCamera.performed -= ctx => ExitPhotoMode();
     }
 
 
@@ -67,6 +69,7 @@ public class RepairTask2 : MonoBehaviour
     {
 
         player = GameManager.Instance.player;
+        cameraManagement = GameManager.Instance.cameraManagement;
 
         // Calculate the bounds of the restricted area
         minBounds = restrictedArea.bounds.min;
@@ -89,7 +92,7 @@ public class RepairTask2 : MonoBehaviour
         // Hide the prompt text at the start
         promptText.gameObject.SetActive(false);
 
-        GreenAlienBehavior[] alienBehaviors = UnityEngine.Object.FindObjectsByType<GreenAlienBehavior>(FindObjectsSortMode.None);
+        GreenAlienBehavior[] alienBehaviors = Object.FindObjectsByType<GreenAlienBehavior>(FindObjectsSortMode.None);
 
         foreach (GreenAlienBehavior alienBehavior in alienBehaviors)
         {
@@ -139,7 +142,7 @@ public class RepairTask2 : MonoBehaviour
     {
         // Display the photo prompt message
         promptText.gameObject.SetActive(true);
-        promptText.text = "Press M to take a photo!";
+        promptText.text = "Press P to open camera, and T to take a photo.";
     }
 
     private void HidePrompt()
@@ -180,17 +183,63 @@ public class RepairTask2 : MonoBehaviour
         }
     }
 
-
     private void TakePhoto()
     {
-        photoTaken = true;
-        Debug.Log("Photo taken!");
-        restrictedArea.isTrigger = true;
+        //photoTaken = true;
+        //Debug.Log("Photo taken!");
         //RemoveRestriction();
-        alienArea.gameObject.SetActive(true);
-        restrictedArea.gameObject.SetActive(false);
-        HidePrompt(); // Hide the prompt after taking a photo
-        StartAdditionalDialogues();
+        //HidePrompt(); // Hide the prompt after taking a photo
+
+        if (cameraManagement != null)
+        {
+            if (cameraManagement.IsAnyTargetInFrame())
+            {
+                cameraManagement.TakeScreenshot(); // Trigger the screenshot functionality
+                photoTaken = true;
+                Debug.Log("Photo taken!");
+                restrictedArea.isTrigger = true;
+                //RemoveRestriction();
+                alienArea.gameObject.SetActive(true);
+                restrictedArea.gameObject.SetActive(false);
+                HidePrompt();
+                StartAdditionalDialogues();
+            }
+            else
+            {
+                Debug.Log("No targets within the frame. Screenshot not taken.");
+            }
+
+        }
+        else
+        {
+            Debug.LogError("CameraManagement script is not assigned!");
+        }
+    }
+
+    // Call camera management script to open the camera (P key)
+    private void ToggleCamera()
+    {
+        if (cameraManagement != null)
+        {
+            cameraManagement.TogglePhotoMode();
+        }
+        else
+        {
+            Debug.LogError("CameraManagement script is not assigned!");
+        }
+    }
+
+    // Call camera management script to exit the camera mode (escape key)
+    private void ExitPhotoMode()
+    {
+        if (cameraManagement != null)
+        {
+            cameraManagement.ExitPhotoMode();
+        }
+        else
+        {
+            Debug.LogError("CameraManagement script is not assigned!");
+        }
     }
 
     private void RemoveRestriction()
@@ -198,7 +247,6 @@ public class RepairTask2 : MonoBehaviour
         // Remove the restriction logic
         restrictedArea.enabled = false;
     }
-
 
 
     private void StartAdditionalDialogues()
@@ -227,5 +275,6 @@ public class RepairTask2 : MonoBehaviour
     {
         return dialogueText.gameObject.activeSelf;
     }
+
 }
 
