@@ -12,6 +12,7 @@ public class RepairTask2 : MonoBehaviour
 {
     public GameObject player;
     public BoxCollider restrictedArea;
+    public BoxCollider alienArea;
 
     public TextMeshProUGUI promptText;
     public TextMeshProUGUI dialogueText;
@@ -186,6 +187,8 @@ public class RepairTask2 : MonoBehaviour
         Debug.Log("Photo taken!");
         restrictedArea.isTrigger = true;
         //RemoveRestriction();
+        alienArea.gameObject.SetActive(true);
+        restrictedArea.gameObject.SetActive(false);
         HidePrompt(); // Hide the prompt after taking a photo
         StartAdditionalDialogues();
     }
