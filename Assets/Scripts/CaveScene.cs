@@ -10,6 +10,7 @@ public class CaveScene : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     private PlayerInputActions inputActions;
     public GameObject minimap;
+    public GameObject picBarrier;
 
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
@@ -72,6 +73,7 @@ public class CaveScene : MonoBehaviour
     // MiniMap and dialogue at the start of the scene cuts out
     private void Start()
     {
+        picBarrier.gameObject.SetActive(false);
         dialogueText.gameObject.SetActive(true);
         ShowDialogue("Navigation cutting out.");
         StartCoroutine(DeactivateMiniMap(3f));
@@ -184,6 +186,7 @@ public class CaveScene : MonoBehaviour
             Debug.Log("Player left the proximity, resetting dialogue state.");
         }
     }
+
 
 
 }

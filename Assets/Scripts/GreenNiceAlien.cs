@@ -10,6 +10,7 @@ public class GreenNiceAlien : FindPlayerTransform
     private bool playerNearby = false;
     public float detectionRadius = 5f;
     public GameObject sword;
+    public GameObject picBarrier;
     public TextMeshProUGUI dialogueText;
 
     private void Update()
@@ -30,6 +31,8 @@ public class GreenNiceAlien : FindPlayerTransform
             playerNearby = false;
             dialogueText.gameObject.SetActive(false);
             caveScene.isPlayerNearby = false;
+            picBarrier.SetActive(true);
+
         }
 
     }

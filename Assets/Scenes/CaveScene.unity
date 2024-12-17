@@ -1616,6 +1616,7 @@ MonoBehaviour:
   player: {fileID: 1018533847}
   dialogueText: {fileID: 1999539803}
   minimap: {fileID: 24080363}
+  picBarrier: {fileID: 681031835}
   isPlayerNearby: 0
 --- !u!4 &327061442
 Transform:
@@ -3040,7 +3041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7594788588879901130, guid: 721b5c0471eed7247a7c7bdb647e8f85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 88.8
+      value: 250.6
       objectReference: {fileID: 0}
     - target: {fileID: 7594788588879901130, guid: 721b5c0471eed7247a7c7bdb647e8f85, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3048,7 +3049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7594788588879901130, guid: 721b5c0471eed7247a7c7bdb647e8f85, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 724.5
+      value: 398.9
       objectReference: {fileID: 0}
     - target: {fileID: 7594788588879901130, guid: 721b5c0471eed7247a7c7bdb647e8f85, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4221,7 +4222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &681031836
 Transform:
   m_ObjectHideFlags: 0
@@ -4539,6 +4540,7 @@ MonoBehaviour:
   caveScene: {fileID: 327061441}
   detectionRadius: 15
   sword: {fileID: 1658998369}
+  picBarrier: {fileID: 681031835}
   dialogueText: {fileID: 1999539803}
 --- !u!4 &693153791 stripped
 Transform:
