@@ -2385,7 +2385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unlockedDoor: 0
-  player: {fileID: 0}
+  player: {fileID: 1018533847}
   hoverText: {fileID: 1227832405}
   playFirstCutscene: 1
   playerHealth: 0
