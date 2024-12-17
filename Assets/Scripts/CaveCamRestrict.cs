@@ -16,6 +16,7 @@ public class CaveCamRestrict : MonoBehaviour
     private bool photoTaken = false;
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
+    private bool hasDialogueBeenShown = false;
     private int currentDialogueIndex = 0;
 
     private Vector3 minBounds; // Minimum bounds of the alien area
@@ -74,12 +75,13 @@ public class CaveCamRestrict : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject == player)
+        if (collision.gameObject == player && !hasDialogueBeenShown)
         {
             Debug.Log("Player collided with restricted area");
             dialogueText.gameObject.SetActive(true);
             currentDialogueIndex = -1;
             additionalDialoguesActive = true;
+            hasDialogueBeenShown = true;
             ShowNextDialogue();
             
         }
