@@ -48,7 +48,7 @@ public class MissionManager : MonoBehaviour
         inputActions.Player.Enable();
         inputActions.Player.OpenCamera.performed += ctx => ToggleCamera(); // Press P to open camera
         inputActions.Player.TakePhoto.performed += ctx => TakePhoto(); // Press T to take a photo
-        inputActions.Player.DismissDialogue.performed += ctx => DismissDialogue(); // Press D to dismiss dialogue
+        inputActions.Player.DismissDialogue.performed += ctx => DismissDialogue(); // Right click to dismiss dialogue
         inputActions.Player.ExitCamera.performed += ctx => ExitPhotoMode(); // Press E to exit camera mode
     }
 

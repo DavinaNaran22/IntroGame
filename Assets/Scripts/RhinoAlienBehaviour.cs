@@ -10,7 +10,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
     public PlayerEquipment playerEquipment;
     public RhinoDamageBar damageBar;
     public GameObject Healthlimit;
-    public CaveScene caveScene;
+    public CaveCamRestrict caveCamRestrict;
 
     public GameObject shotPrefab;
     public float shootRate = 0.5f;
@@ -126,7 +126,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         animator.SetTrigger("Idle");
         yield return new WaitForSeconds(10f);
 
-        while (caveScene != null && caveScene.IsDialogueActive())
+        while (caveCamRestrict != null && caveCamRestrict.IsDialogueActive())
         {
             yield return null;
         }
@@ -135,7 +135,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         animator.SetTrigger("Jump");
         yield return new WaitForSeconds(0);
 
-        while (caveScene != null && caveScene.IsDialogueActive())
+        while (caveCamRestrict != null && caveCamRestrict.IsDialogueActive())
         {
             yield return null;
         }
@@ -144,7 +144,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         animator.SetTrigger("Shout");
         yield return new WaitForSeconds(1f);
 
-        while (caveScene != null && caveScene.IsDialogueActive())
+        while (caveCamRestrict != null && caveCamRestrict.IsDialogueActive())
         {
             yield return null;
         }
@@ -197,8 +197,10 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         Debug.Log("Alien is now inactive and removed from the scene.");
 
         // Show next scene
-        caveScene.gameObject.SetActive(false);
+        caveCamRestrict.gameObject.SetActive(false);
     }
+
+
 
 
 }

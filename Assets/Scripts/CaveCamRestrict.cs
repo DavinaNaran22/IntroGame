@@ -9,16 +9,23 @@ public class CaveCamRestrict : MonoBehaviour
     public GameObject player;
     public BoxCollider restrictedArea;
     public GameObject promptText;
+    public TextMeshProUGUI dialogueText;
     public CameraManagement cameraManagement;
 
     private bool photoTaken = false;
-    private bool restrictionEnabled = true;
+    private bool dialogueShown = false;
+    private bool additionalDialoguesActive = false;
+    private int currentDialogueIndex = 0;
 
     private Vector3 minBounds; // Minimum bounds of the alien area
     private Vector3 maxBounds; // Maximum bounds of the alien area
-
     private CharacterController characterController;
     private PlayerInputActions inputActions;
+
+    private List<string> additionalDialogues = new List<string>
+    {
+        "YOU: This must be the Zyrog alien! I need to take a picture of it.",
+    };
 
     // New input system for taking photos and dismissing dialogue
     private void Awake()
@@ -26,23 +33,23 @@ public class CaveCamRestrict : MonoBehaviour
         inputActions = new PlayerInputActions();
     }
 
-    //private void OnEnable()
-    //{
-    //    inputActions.Player.Enable();
-    //    inputActions.Player.OpenCamera.performed += ctx => ToggleCamera(); // Press P to open camera
-    //    inputActions.Player.TakePhoto.performed += ctx => TakePhoto(); // Press T to take a photo
-    //    inputActions.Player.DismissDialogue.performed += ctx => DismissDialogue(); // Press D to dismiss dialogue
-    //    inputActions.Player.ExitCamera.performed += ctx => ExitPhotoMode(); // Press E to exit camera mode
-    //}
+    private void OnEnable()
+    {
+        //inputActions.Player.Enable();
+        //inputActions.Player.OpenCamera.performed += ctx => ToggleCamera(); // Press P to open camera
+        //inputActions.Player.TakePhoto.performed += ctx => TakePhoto(); // Press T to take a photo
+        inputActions.Player.DismissDialogue.performed += ctx => DismissDialogue(); // Right click to dismiss dialogue
+        //inputActions.Player.ExitCamera.performed += ctx => ExitPhotoMode(); // Press E to exit camera mode
+    }
 
-    //private void OnDisable()
-    //{
-    //    inputActions.Player.Disable();
-    //    inputActions.Player.OpenCamera.performed -= ctx => ToggleCamera();
-    //    inputActions.Player.TakePhoto.performed -= ctx => TakePhoto();
-    //    inputActions.Player.DismissDialogue.performed -= ctx => DismissDialogue();
-    //    inputActions.Player.ExitCamera.performed -= ctx => ExitPhotoMode();
-    //}
+    private void OnDisable()
+    {
+        inputActions.Player.Disable();
+        //inputActions.Player.OpenCamera.performed -= ctx => ToggleCamera();
+        //inputActions.Player.TakePhoto.performed -= ctx => TakePhoto();
+        inputActions.Player.DismissDialogue.performed -= ctx => DismissDialogue();
+        //inputActions.Player.ExitCamera.performed -= ctx => ExitPhotoMode();
+    }
 
     private void Start()
     {
@@ -52,16 +59,28 @@ public class CaveCamRestrict : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!photoTaken)
+        {
+            if (dialogueShown)
+            {
+                // Show the photo prompt once the dialogue is dismissed
+                ShowPrompt();
+            }
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject == player)
         {
             Debug.Log("Player collided with restricted area");
-            if (promptText != null)
-            {
-                
-                promptText.gameObject.SetActive(true);
-            }
+            dialogueText.gameObject.SetActive(true);
+            currentDialogueIndex = -1;
+            additionalDialoguesActive = true;
+            ShowNextDialogue();
+            
         }
     }
 
@@ -76,6 +95,73 @@ public class CaveCamRestrict : MonoBehaviour
                 promptText.gameObject.SetActive(false);
             }
         }
+    }
+
+    private void DismissDialogue()
+    {
+
+        if (additionalDialoguesActive)
+        {
+            ShowNextDialogue();
+        }
+        else if (!dialogueShown)
+        {
+            HideDialogue();
+            dialogueShown = true;
+
+            // Now show the prompt since all dialogues are dismissed
+            ShowPrompt();
+        }
+
+    }
+
+    private void HideDialogue()
+    {
+        dialogueText.gameObject.SetActive(false);
+    }
+
+    private void ShowDialogue(string message)
+    {
+        dialogueText.gameObject.SetActive(true);
+        dialogueText.text = message;
+    }
+
+    private void ShowNextDialogue()
+    {
+        currentDialogueIndex++;
+
+        if (currentDialogueIndex < additionalDialogues.Count)
+        {
+            ShowDialogue(additionalDialogues[currentDialogueIndex]);
+        }
+        else
+        {
+            additionalDialoguesActive = false;
+            HideDialogue();
+
+            if (!dialogueShown)
+            {
+                dialogueShown = true;
+                ShowPrompt();
+            }
+        }
+    }
+
+    private void ShowPrompt()
+    {
+        // Display the photo prompt message
+        promptText.gameObject.SetActive(true);
+    }
+
+    private void HidePrompt()
+    {
+        promptText.gameObject.SetActive(false);
+    }
+
+
+    public bool IsDialogueActive()
+    {
+        return dialogueText.gameObject.activeSelf;
     }
 
 

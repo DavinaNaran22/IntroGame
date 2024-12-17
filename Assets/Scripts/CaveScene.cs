@@ -77,6 +77,7 @@ public class CaveScene : MonoBehaviour
         StartCoroutine(DeactivateMiniMap(3f));
     }
 
+    // Deactivate minimap and dialogue after a certain time
     private IEnumerator DeactivateMiniMap(float time)
     {
         yield return new WaitForSeconds(time);
@@ -88,12 +89,6 @@ public class CaveScene : MonoBehaviour
         yield return new WaitForSeconds(time);
         dialogueText.gameObject.SetActive(false);
     }
-
-
-
-
-
-
 
 
     private void DismissDialogue()
