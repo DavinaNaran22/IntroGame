@@ -4682,7 +4682,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4420664804571618, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1564779414}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1014989259798498, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1658998373}
   m_SourcePrefab: {fileID: 100100000, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
 --- !u!1001 &734349972
 PrefabInstance:
@@ -9512,6 +9515,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4420664804571618, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
   m_PrefabInstance: {fileID: 731512047}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1658998373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658998369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to equip sword
+  sphereRadius: 3
+  hoverText: {fileID: 1227832405}
 --- !u!1001 &1659504281
 PrefabInstance:
   m_ObjectHideFlags: 0
