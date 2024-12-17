@@ -35,7 +35,7 @@ public class CaveCamRestrict : MonoBehaviour
 
     private void OnEnable()
     {
-        //inputActions.Player.Enable();
+        inputActions.Player.Enable();
         //inputActions.Player.OpenCamera.performed += ctx => ToggleCamera(); // Press P to open camera
         //inputActions.Player.TakePhoto.performed += ctx => TakePhoto(); // Press T to take a photo
         inputActions.Player.DismissDialogue.performed += ctx => DismissDialogue(); // Right click to dismiss dialogue
@@ -99,7 +99,6 @@ public class CaveCamRestrict : MonoBehaviour
 
     private void DismissDialogue()
     {
-
         if (additionalDialoguesActive)
         {
             ShowNextDialogue();

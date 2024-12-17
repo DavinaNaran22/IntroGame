@@ -3889,7 +3889,7 @@ MonoBehaviour:
   playerEquipment: {fileID: 0}
   damageBar: {fileID: 152426252}
   Healthlimit: {fileID: 485295750}
-  caveScene: {fileID: 327061441}
+  caveCamRestrict: {fileID: 0}
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 0.3
 --- !u!114 &640000444
@@ -4252,7 +4252,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -4272,7 +4272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1018533847}
   restrictedArea: {fileID: 681031838}
-  promptText: {fileID: 1366756579}
+  promptText: {fileID: 1062247280}
+  dialogueText: {fileID: 1999539803}
   cameraManagement: {fileID: 388237708}
 --- !u!1001 &683170495
 PrefabInstance:
@@ -8336,17 +8337,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2147411957033669481, guid: 6b633eaba7daf404eb672c56b7fa0a4e, type: 3}
   m_PrefabInstance: {fileID: 172493407}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1366756579 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8589343724939435848, guid: 6b633eaba7daf404eb672c56b7fa0a4e, type: 3}
-  m_PrefabInstance: {fileID: 172493407}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1405319148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4976853331106008, guid: 57bc482487154a64085c1d0847e454b3, type: 3}
