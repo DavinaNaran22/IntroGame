@@ -8,6 +8,7 @@ public class GreenNiceAlien : FindPlayerTransform
     public CaveScene caveScene;
     private bool playerNearby = false;
     public float detectionRadius = 5f;
+    public GameObject sword;
 
     private void Update()
     {
@@ -43,6 +44,8 @@ public class GreenNiceAlien : FindPlayerTransform
         {
             yield return null;
         }
+        sword.SetActive(true);
+       
     }
 
 }

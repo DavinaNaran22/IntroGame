@@ -4457,6 +4457,7 @@ MonoBehaviour:
   animator: {fileID: 683170497}
   caveScene: {fileID: 327061441}
   detectionRadius: 15
+  sword: {fileID: 1658998369}
 --- !u!4 &693153791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4976853331106008, guid: 57bc482487154a64085c1d0847e454b3, type: 3}
@@ -9499,6 +9500,11 @@ MeshCollider:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: db93569e8693e4d86acb1a62064403f9, type: 3}
   m_PrefabInstance: {fileID: 1658075069}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1658998369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1014989259798498, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
+  m_PrefabInstance: {fileID: 731512047}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1658998372 stripped
 Transform:
