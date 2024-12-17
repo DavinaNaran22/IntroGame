@@ -22,6 +22,7 @@ TagManager:
   - ToolBox
   - Camera
   - HealthLimit
+  - Sword
   layers:
   - Default
   - TransparentFX

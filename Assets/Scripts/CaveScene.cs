@@ -9,6 +9,7 @@ public class CaveScene : MonoBehaviour
     public GameObject player;
     public TextMeshProUGUI dialogueText;
     private PlayerInputActions inputActions;
+    public GameObject minimap;
 
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
@@ -48,6 +49,8 @@ public class CaveScene : MonoBehaviour
     };
 
 
+
+
     // New input system for taking photos and dismissing dialogue
     private void Awake()
     {
@@ -65,6 +68,31 @@ public class CaveScene : MonoBehaviour
         inputActions.Player.Disable();
         inputActions.Player.DismissDialogue.performed -= ctx => DismissDialogue(); 
     }
+
+    // MiniMap and dialogue at the start of the scene cuts out
+    private void Start()
+    {
+        dialogueText.gameObject.SetActive(true);
+        ShowDialogue("Navigation cutting out.");
+        StartCoroutine(DeactivateMiniMap(3f));
+    }
+
+    private IEnumerator DeactivateMiniMap(float time)
+    {
+        yield return new WaitForSeconds(time);
+        minimap.SetActive(false);
+        dialogueText.gameObject.SetActive(false);
+        yield return new WaitForSeconds(time);
+        dialogueText.gameObject.SetActive(true);
+        ShowDialogue("This look like a maze. I remember seeing something similar.");
+
+    }
+
+
+
+
+
+
 
 
     private void DismissDialogue()
