@@ -8,6 +8,7 @@ public class CaveCamRestrict : MonoBehaviour
 {
     public GameObject player;
     public BoxCollider restrictedArea;
+    public GameObject alienArea;
     public GameObject promptText;
     public TextMeshProUGUI dialogueText;
     public CameraManagement cameraManagement;
@@ -36,19 +37,19 @@ public class CaveCamRestrict : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Player.Enable();
-        //inputActions.Player.OpenCamera.performed += ctx => ToggleCamera(); // Press P to open camera
-        //inputActions.Player.TakePhoto.performed += ctx => TakePhoto(); // Press T to take a photo
+        inputActions.Player.OpenCamera.performed += ctx => ToggleCamera(); // Press P to open camera
+        inputActions.Player.TakePhoto.performed += ctx => TakePhoto(); // Press T to take a photo
         inputActions.Player.DismissDialogue.performed += ctx => DismissDialogue(); // Right click to dismiss dialogue
-        //inputActions.Player.ExitCamera.performed += ctx => ExitPhotoMode(); // Press E to exit camera mode
+        inputActions.Player.ExitCamera.performed += ctx => ExitPhotoMode(); // Press Escape to exit camera mode
     }
 
     private void OnDisable()
     {
         inputActions.Player.Disable();
-        //inputActions.Player.OpenCamera.performed -= ctx => ToggleCamera();
-        //inputActions.Player.TakePhoto.performed -= ctx => TakePhoto();
+        inputActions.Player.OpenCamera.performed -= ctx => ToggleCamera();
+        inputActions.Player.TakePhoto.performed -= ctx => TakePhoto();
         inputActions.Player.DismissDialogue.performed -= ctx => DismissDialogue();
-        //inputActions.Player.ExitCamera.performed -= ctx => ExitPhotoMode();
+        inputActions.Player.ExitCamera.performed -= ctx => ExitPhotoMode();
     }
 
     private void Start()
@@ -163,6 +164,58 @@ public class CaveCamRestrict : MonoBehaviour
         return dialogueText.gameObject.activeSelf;
     }
 
+
+    // Call camera management script to open the camera (P key)
+    private void ToggleCamera()
+    {
+        if (cameraManagement != null)
+        {
+            cameraManagement.TogglePhotoMode();
+        }
+        else
+        {
+            Debug.LogError("CameraManagement script is not assigned!");
+        }
+    }
+
+    // Call camera management script to exit the camera mode (escape key)
+    private void ExitPhotoMode()
+    {
+        if (cameraManagement != null)
+        {
+            cameraManagement.ExitPhotoMode();
+        }
+        else
+        {
+            Debug.LogError("CameraManagement script is not assigned!");
+        }
+    }
+
+    private void TakePhoto()
+    {
+        if (cameraManagement != null)
+        {
+            if (cameraManagement.IsAnyTargetInFrame())
+            {
+                cameraManagement.TakeScreenshot(); // Trigger the screenshot functionality
+                photoTaken = true;
+                Debug.Log("Photo taken!");
+                HidePrompt();
+                gameObject.SetActive(false);
+                alienArea.SetActive(true);
+
+
+            }
+            else
+            {
+                Debug.Log("No targets within the frame. Screenshot not taken.");
+            }
+        }
+        else
+        {
+            Debug.LogError("CameraManagement script is not assigned!");
+        }
+    }
 
 
 

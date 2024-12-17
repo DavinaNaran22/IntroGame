@@ -4272,6 +4272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1018533847}
   restrictedArea: {fileID: 681031838}
+  alienArea: {fileID: 1041454072}
   promptText: {fileID: 1062247280}
   dialogueText: {fileID: 1999539803}
   cameraManagement: {fileID: 388237708}
@@ -6070,7 +6071,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
