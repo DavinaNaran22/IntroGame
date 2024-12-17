@@ -4458,6 +4458,7 @@ MonoBehaviour:
   caveScene: {fileID: 327061441}
   detectionRadius: 15
   sword: {fileID: 1658998369}
+  dialogueText: {fileID: 1999539803}
 --- !u!4 &693153791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4976853331106008, guid: 57bc482487154a64085c1d0847e454b3, type: 3}

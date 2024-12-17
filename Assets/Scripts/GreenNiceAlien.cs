@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GreenNiceAlien : FindPlayerTransform
@@ -9,6 +10,7 @@ public class GreenNiceAlien : FindPlayerTransform
     private bool playerNearby = false;
     public float detectionRadius = 5f;
     public GameObject sword;
+    public TextMeshProUGUI dialogueText;
 
     private void Update()
     {
@@ -26,6 +28,7 @@ public class GreenNiceAlien : FindPlayerTransform
         {
             // Reset playerNearby flag when player exits detection radius
             playerNearby = false;
+            dialogueText.gameObject.SetActive(false);
         }
 
     }
@@ -45,6 +48,8 @@ public class GreenNiceAlien : FindPlayerTransform
             yield return null;
         }
         sword.SetActive(true);
+
+
        
     }
 
