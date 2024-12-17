@@ -3889,6 +3889,7 @@ MonoBehaviour:
   playerEquipment: {fileID: 0}
   damageBar: {fileID: 152426252}
   Healthlimit: {fileID: 485295750}
+  caveScene: {fileID: 327061441}
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 0.3
 --- !u!114 &640000444
@@ -6069,9 +6070,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8ef1079fb770f45b41fa05b2d22f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1018533847}
   alienDrop: {fileID: 0}
-  dialogueText: {fileID: 0}
+  dialogueText: {fileID: 1999539803}
 --- !u!1 &1062247280
 GameObject:
   m_ObjectHideFlags: 0

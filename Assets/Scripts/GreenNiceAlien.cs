@@ -29,6 +29,7 @@ public class GreenNiceAlien : FindPlayerTransform
             // Reset playerNearby flag when player exits detection radius
             playerNearby = false;
             dialogueText.gameObject.SetActive(false);
+            caveScene.isPlayerNearby = false;
         }
 
     }

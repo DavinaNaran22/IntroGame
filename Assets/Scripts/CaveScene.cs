@@ -98,7 +98,7 @@ public class CaveScene : MonoBehaviour
 
     private void DismissDialogue()
     {
-        if (!isPlayerNearby) return;
+        if (!isPlayerNearby || !additionalDialoguesActive) return;
 
         if (additionalDialoguesActive)
         {
@@ -139,6 +139,14 @@ public class CaveScene : MonoBehaviour
     // Display the next dialogue in the list
     private void ShowNextDialogue()
     {
+        if (!isPlayerNearby) // Stop dialogue if the player is no longer nearby
+        {
+            Debug.Log("Player moved away. Stopping dialogue.");
+            additionalDialoguesActive = false;
+            HideDialogue();
+            return;
+        }
+
         currentDialogueIndex++;
 
         if (currentDialogueIndex < additionalDialogues.Count)
@@ -168,25 +176,19 @@ public class CaveScene : MonoBehaviour
         }
     }
 
+    // Reset dialogue state when player leaves the proximity
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerNearby = false; // Player is no longer in proximity
-            HideDialogue(); // Hide dialogue when the player leaves
-            dialogueShown = false; // Reset dialogue state
-            additionalDialoguesActive = false; // Reset additional dialogues
+            isPlayerNearby = false; 
+            HideDialogue(); 
+            dialogueShown = false;
+            additionalDialoguesActive = false;
+            currentDialogueIndex = 0;
+            Debug.Log("Player left the proximity, resetting dialogue state.");
         }
     }
-
-
-
-
-
-
-
-
-
 
 
 }
