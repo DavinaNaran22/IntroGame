@@ -8,7 +8,7 @@ public class CaveCamRestrict : MonoBehaviour
 {
     public GameObject player;
     public BoxCollider restrictedArea;
-    public GameObject alienArea;
+    public BoxCollider alienArea;
     public GameObject promptText;
     public TextMeshProUGUI dialogueText;
     public CameraManagement cameraManagement;
@@ -202,7 +202,7 @@ public class CaveCamRestrict : MonoBehaviour
                 Debug.Log("Photo taken!");
                 HidePrompt();
                 gameObject.SetActive(false);
-                alienArea.SetActive(true);
+                alienArea.gameObject.SetActive(true);
 
 
             }
