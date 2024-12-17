@@ -85,7 +85,8 @@ public class CaveScene : MonoBehaviour
         yield return new WaitForSeconds(time);
         dialogueText.gameObject.SetActive(true);
         ShowDialogue("This look like a maze. I remember seeing something similar.");
-
+        yield return new WaitForSeconds(time);
+        dialogueText.gameObject.SetActive(false);
     }
 
 
