@@ -39,7 +39,7 @@ public class CaveScene : MonoBehaviour
         "ALIEN: He wanted my help, so I pretended to be on his side, so he didn’t put the curse on me too.",
         "YOU: That was very brave of you.",
         "ALIEN: That’s why I left those clues around, hoping if one day a visitor landed on Xenos, they will eventually find the cave and kill him.",
-        "YOU: So now you can help by killing him to save us.",
+        "ALIEN: So now you can help by killing him to save us.",
         "YOU: That’s what those clues were! But how can I fight him? I don’t have many weapons. I only have a pocket knife and a gun with very few bullets.",
         "ALIEN: Don’t worry, I’ve been hiding this sword so you can kill him.",
         "ALIEN: It’s a very special sword, made using his blood I saved when I was healing him from his injuries.",
