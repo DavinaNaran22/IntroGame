@@ -18,11 +18,37 @@ public class CaveScene : MonoBehaviour
     // Additional dialogues to display
     private List<string> additionalDialogues = new List<string>
     {
-        "Hello, my spaceship’s hit an asteroid, and this was the only nearby planet.",
-        "I really need that thruster so I can repair my ship and leave.",
-        "Would it be all right if I grabbed it quickly? I won’t stay long.",
-        "How dare you claim things from our land, you don’t belong here.",
-        "This strange object belongs to us. If you want it, you’ll have to fight us."
+        "Oh no, not another alien I have to fight.",
+        "WAIT! Don't kill me! I'm not going to hurt you.",
+        "Give me a reason why I shouldn't kill you.",
+        "All your other friends didn't hesitate to try to kill me.",
+        "I'm sorry about that, but it's not their fault. Let me explain.",
+        "You have a minute to talk.",
+        "You might have noticed that our planet is very dead, with no life anymore.",
+        "And there's a reason for that.",
+        "Once we had a visitor arrive from the planet Zyrog, and we all welcomed him with open arms.",
+        "We thought he wanted to get to know us and visit us for a short time.",
+        "But that’s when we found out he had another agenda.",
+        "He wanted to invade our planet Xenos and take over!",
+        "Because he was stronger and more powerful than us, we had no choice but to listen to him.",
+        "He made us become evil, he put a curse on everyone.",
+        "He said until he dies, we will all be working under his ruling.",
+        "But he is invincible, and nobody has dared to try and kill him.",
+        "That’s why we don’t have any visitors because they don’t want to become a prisoner like the rest of us.",
+        "That’s why I apologise for my friends because they will never purposely harm anyone, especially a visitor like you.",
+        "I’m very sorry to hear that, I can’t believe that happened. But how come you haven’t become evil like the rest?",
+        "That’s because I was the first to befriend him when he arrived. We became friends until he told me his plan to take over.",
+        "He wanted my help, so I pretended to be on his side, so he didn’t put the curse on me too.",
+        "That was very brave of you.",
+        "That’s why I left those clues around, hoping if one day a visitor landed on Xenos, they will eventually find the cave and kill him.",
+        "So now you can help by killing him to save us.",
+        "That’s what those clues were! But how can I fight him? I don’t have many weapons.",
+        "I only have a pocket knife and a gun with very few bullets.",
+        "Don’t worry, I’ve been hiding this sword so you can kill him.",
+        "It’s a very special sword, made using his blood I saved when I was healing him from his injuries.",
+        "He is the only one who is strong enough to kill himself, so infusing the blood with the sword will ensure he dies.",
+        "Okay, I’ll do it. I hope I can end this once and for all.",
+        "Thank you so much! Good luck! But be prepared because he will not go down easily."
     };
 
 

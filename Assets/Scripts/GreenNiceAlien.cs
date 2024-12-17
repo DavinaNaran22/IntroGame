@@ -30,7 +30,7 @@ public class GreenNiceAlien : FindPlayerTransform
     }
 
 
-    // Sequence of states for alien
+    // Starts dialogue between player and alien
     private IEnumerator ExecuteEscapeSequence()
     {
         Debug.Log("Alien meets player");
@@ -43,15 +43,6 @@ public class GreenNiceAlien : FindPlayerTransform
         {
             yield return null;
         }
-
-
-
     }
-
-
-
-
-
-
 
 }
