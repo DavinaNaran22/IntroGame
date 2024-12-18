@@ -87,12 +87,12 @@ public class CameraManagement : Singleton<CameraManagement>
 
         if (SceneManager.GetActiveScene().name == "landscape")
         {
-            if (targetObjects.Count != 2)
-            {
-                targetObjects.Clear();
+            //if (targetObjects.Count != 2)
+            //{
+            //    targetObjects.Clear();
                 targetObjects.Add(GameObject.Find("GreenAlien1"));
                 targetObjects.Add(GameObject.Find("GreenAlien2"));
-            }
+            //}
         }
         else if (SceneManager.GetActiveScene().name == "CaveScene")
         {
