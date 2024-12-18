@@ -49,7 +49,6 @@ public class CaveAlienMoving : FindPlayerTransform
             if (hit.collider.CompareTag(obstacleTag))
             {
                 // Obstacle detected, set a new target position
-                Debug.Log("Obstacle detected: " + hit.collider.name);
                 SetNewTargetPosition();
                 return;
             }

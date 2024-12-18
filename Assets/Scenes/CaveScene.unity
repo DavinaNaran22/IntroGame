@@ -4357,7 +4357,8 @@ MonoBehaviour:
   playerEquipment: {fileID: 0}
   damageBar: {fileID: 152426252}
   Healthlimit: {fileID: 485295750}
-  caveCamRestrict: {fileID: 0}
+  caveCamRestrict: {fileID: 681031839}
+  enterAlienArea3: {fileID: 1041454075}
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 0.3
 --- !u!95 &640000445 stripped
@@ -7032,6 +7033,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1610470168}
+  restrictPlayerCam: {fileID: 681031838}
+  dialogueText: {fileID: 1999539803}
+  isPlayerNearby: 0
   positionOffset: {x: 0, y: 0, z: 20}
 --- !u!1 &1062247280
 GameObject:

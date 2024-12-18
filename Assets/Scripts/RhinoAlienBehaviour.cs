@@ -11,6 +11,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
     public RhinoDamageBar damageBar;
     public GameObject Healthlimit;
     public CaveCamRestrict caveCamRestrict;
+    public EnterAlienArea3 enterAlienArea3;
 
     public GameObject shotPrefab;
     public float shootRate = 0.5f;
@@ -121,12 +122,17 @@ public class RhinoAlienBehaviour : FindPlayerTransform
     //// Sequence of states for alien
     private IEnumerator ExecuteEscapeSequence()
     {
+        Debug.Log("Rhino Alien meets player");
+        enterAlienArea3.isPlayerNearby = true;
+        enterAlienArea3.StartAdditionalDialogues();
+
+
         Debug.Log("Triggering Idle");
         // Idle animation for 10 seconds
         animator.SetTrigger("Idle");
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(0);
 
-        while (caveCamRestrict != null && caveCamRestrict.IsDialogueActive())
+        while (enterAlienArea3 != null && enterAlienArea3.IsDialogueActive())
         {
             yield return null;
         }
@@ -135,7 +141,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         animator.SetTrigger("Jump");
         yield return new WaitForSeconds(0);
 
-        while (caveCamRestrict != null && caveCamRestrict.IsDialogueActive())
+        while (enterAlienArea3 != null && enterAlienArea3.IsDialogueActive())
         {
             yield return null;
         }
@@ -144,7 +150,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         animator.SetTrigger("Shout");
         yield return new WaitForSeconds(1f);
 
-        while (caveCamRestrict != null && caveCamRestrict.IsDialogueActive())
+        while (enterAlienArea3 != null && enterAlienArea3.IsDialogueActive())
         {
             yield return null;
         }
