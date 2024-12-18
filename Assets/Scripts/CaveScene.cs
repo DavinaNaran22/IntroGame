@@ -11,6 +11,7 @@ public class CaveScene : MonoBehaviour
     private PlayerInputActions inputActions;
     public GameObject minimap;
     public GameObject picBarrier;
+    public TextMeshProUGUI promptText;
 
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
@@ -73,6 +74,7 @@ public class CaveScene : MonoBehaviour
     // MiniMap and dialogue at the start of the scene cuts out
     private void Start()
     {
+        promptText.gameObject.SetActive(false);
         picBarrier.gameObject.SetActive(false);
         dialogueText.gameObject.SetActive(true);
         ShowDialogue("Navigation cutting out.");

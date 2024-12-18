@@ -10,6 +10,7 @@ public class CaveCamRestrict : MonoBehaviour
     public BoxCollider restrictedArea;
     public BoxCollider alienArea;
     public GameObject promptText;
+    public TextMeshProUGUI promptTextDial;
     public TextMeshProUGUI dialogueText;
     public CameraManagement cameraManagement;
 
@@ -18,6 +19,7 @@ public class CaveCamRestrict : MonoBehaviour
     private bool additionalDialoguesActive = false;
     private bool hasDialogueBeenShown = false;
     private int currentDialogueIndex = 0;
+    private bool isPlayerInRestrictedArea = false;
 
     private Vector3 minBounds; // Minimum bounds of the alien area
     private Vector3 maxBounds; // Maximum bounds of the alien area
@@ -59,6 +61,16 @@ public class CaveCamRestrict : MonoBehaviour
         {
             promptText.gameObject.SetActive(false);
         }
+
+        if (promptTextDial != null)
+        {
+            promptTextDial.gameObject.SetActive(false);
+        }
+
+        if (dialogueText != null)
+        {
+            dialogueText.gameObject.SetActive(false);
+        }
     }
 
     private void Update()
@@ -78,12 +90,21 @@ public class CaveCamRestrict : MonoBehaviour
         if (collision.gameObject == player && !hasDialogueBeenShown)
         {
             Debug.Log("Player collided with restricted area");
-            dialogueText.gameObject.SetActive(true);
-            currentDialogueIndex = -1;
-            additionalDialoguesActive = true;
-            hasDialogueBeenShown = true;
-            ShowNextDialogue();
-            
+            isPlayerInRestrictedArea = true;
+
+            if (!hasDialogueBeenShown)
+            {
+
+                dialogueText.gameObject.SetActive(true);
+                currentDialogueIndex = -1;
+                additionalDialoguesActive = true;
+                hasDialogueBeenShown = true;
+                ShowNextDialogue();
+            }
+
+            //promptTextDial.gameObject.SetActive(true);
+
+
         }
     }
 
@@ -92,11 +113,18 @@ public class CaveCamRestrict : MonoBehaviour
         // When the player exits the collision
         if (collision.gameObject == player)
         {
+            isPlayerInRestrictedArea = false;
             Debug.Log("Player has left the restricted area!");
+
             if (promptText != null)
             {
                 promptText.gameObject.SetActive(false);
             }
+
+            //if (promptTextDial != null)
+            //{
+            //    promptTextDial.gameObject.SetActive(false);
+            //}
         }
     }
 
@@ -106,20 +134,32 @@ public class CaveCamRestrict : MonoBehaviour
         {
             ShowNextDialogue();
         }
-        else if (!dialogueShown)
+        else
         {
             HideDialogue();
             dialogueShown = true;
 
             // Now show the prompt since all dialogues are dismissed
-            ShowPrompt();
+            //ShowPrompt();
+
+            if (isPlayerInRestrictedArea && !photoTaken)
+            {
+                if (promptTextDial != null)
+                {
+                    promptTextDial.gameObject.SetActive(true);
+                }
+            }
         }
 
     }
 
     private void HideDialogue()
     {
-        dialogueText.gameObject.SetActive(false);
+        if (dialogueText != null)
+        {
+            dialogueText.gameObject.SetActive(false);
+        }
+        
     }
 
     private void ShowDialogue(string message)
@@ -141,10 +181,14 @@ public class CaveCamRestrict : MonoBehaviour
             additionalDialoguesActive = false;
             HideDialogue();
 
-            if (!dialogueShown)
+            if (!dialogueShown && isPlayerInRestrictedArea)
             {
                 dialogueShown = true;
-                ShowPrompt();
+                //ShowPrompt();
+                if (promptTextDial != null)
+                {
+                    promptTextDial.gameObject.SetActive(true);
+                }
             }
         }
     }
