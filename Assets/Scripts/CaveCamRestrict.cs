@@ -55,6 +55,7 @@ public class CaveCamRestrict : MonoBehaviour
         inputActions.Player.ExitCamera.performed -= ctx => ExitPhotoMode();
     }
 
+    // Dialogues and prompts are hidden at the start
     private void Start()
     {
         if (promptText != null)
@@ -85,6 +86,7 @@ public class CaveCamRestrict : MonoBehaviour
         }
     }
 
+    // Check if the player is within the restricted area
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject == player && !hasDialogueBeenShown)
@@ -94,17 +96,12 @@ public class CaveCamRestrict : MonoBehaviour
 
             if (!hasDialogueBeenShown)
             {
-
                 dialogueText.gameObject.SetActive(true);
                 currentDialogueIndex = -1;
                 additionalDialoguesActive = true;
                 hasDialogueBeenShown = true;
                 ShowNextDialogue();
             }
-
-            //promptTextDial.gameObject.SetActive(true);
-
-
         }
     }
 
@@ -120,14 +117,10 @@ public class CaveCamRestrict : MonoBehaviour
             {
                 promptText.gameObject.SetActive(false);
             }
-
-            //if (promptTextDial != null)
-            //{
-            //    promptTextDial.gameObject.SetActive(false);
-            //}
         }
     }
 
+    // Dismiss the dialogue when the player right clicks
     private void DismissDialogue()
     {
         if (additionalDialoguesActive)
@@ -140,8 +133,6 @@ public class CaveCamRestrict : MonoBehaviour
             dialogueShown = true;
 
             // Now show the prompt since all dialogues are dismissed
-            //ShowPrompt();
-
             if (isPlayerInRestrictedArea && !photoTaken)
             {
                 if (promptTextDial != null)
@@ -158,8 +149,7 @@ public class CaveCamRestrict : MonoBehaviour
         if (dialogueText != null)
         {
             dialogueText.gameObject.SetActive(false);
-        }
-        
+        }  
     }
 
     private void ShowDialogue(string message)
@@ -180,16 +170,8 @@ public class CaveCamRestrict : MonoBehaviour
         {
             additionalDialoguesActive = false;
             HideDialogue();
-
-            if (!dialogueShown && isPlayerInRestrictedArea)
-            {
-                dialogueShown = true;
-                //ShowPrompt();
-                if (promptTextDial != null)
-                {
-                    promptTextDial.gameObject.SetActive(true);
-                }
-            }
+            dialogueShown = true;
+            promptTextDial.gameObject.SetActive(true);
         }
     }
 
@@ -237,20 +219,19 @@ public class CaveCamRestrict : MonoBehaviour
         }
     }
 
+    // Takes picture of rhino alien
     private void TakePhoto()
     {
         if (cameraManagement != null)
         {
             if (cameraManagement.IsAnyTargetInFrame())
             {
-                cameraManagement.TakeScreenshot(); // Trigger the screenshot functionality
+                cameraManagement.TakeScreenshot();
                 photoTaken = true;
                 Debug.Log("Photo taken!");
                 HidePrompt();
                 gameObject.SetActive(false);
                 alienArea.gameObject.SetActive(true);
-
-
             }
             else
             {
@@ -262,9 +243,5 @@ public class CaveCamRestrict : MonoBehaviour
             Debug.LogError("CameraManagement script is not assigned!");
         }
     }
-
-
-
-
 
 }
