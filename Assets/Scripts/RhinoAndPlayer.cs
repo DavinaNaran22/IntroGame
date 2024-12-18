@@ -11,7 +11,7 @@ public class RhinoAndPlayer : MonoBehaviour
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
     private int currentDialogueIndex = 0;
-    private bool isPlayerNearby = true;
+    public bool isPlayerNearby = true;
 
     private CharacterController characterController;
     private PlayerInputActions inputActions;
