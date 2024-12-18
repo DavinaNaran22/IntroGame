@@ -23,6 +23,7 @@ TagManager:
   - Camera
   - HealthLimit
   - Sword
+  - RockWall
   layers:
   - Default
   - TransparentFX
