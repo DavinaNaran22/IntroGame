@@ -3054,7 +3054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7594788588879901130, guid: 721b5c0471eed7247a7c7bdb647e8f85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 250.6
+      value: 142
       objectReference: {fileID: 0}
     - target: {fileID: 7594788588879901130, guid: 721b5c0471eed7247a7c7bdb647e8f85, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3062,7 +3062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7594788588879901130, guid: 721b5c0471eed7247a7c7bdb647e8f85, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 398.9
+      value: 645.3
       objectReference: {fileID: 0}
     - target: {fileID: 7594788588879901130, guid: 721b5c0471eed7247a7c7bdb647e8f85, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6114,12 +6114,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1041454072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b8ef1079fb770f45b41fa05b2d22f5b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9492dddf7c114eb448eaa822ad13107c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1018533847}
-  alienDrop: {fileID: 0}
-  dialogueText: {fileID: 1999539803}
+  player: {fileID: 1610470168}
+  positionOffset: {x: 0, y: 0, z: 20}
 --- !u!1 &1062247280
 GameObject:
   m_ObjectHideFlags: 0
