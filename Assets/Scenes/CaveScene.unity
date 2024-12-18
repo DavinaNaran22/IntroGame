@@ -4352,7 +4352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1610470168}
   shootingPoint: {fileID: 1656847769}
-  detectionRadius: 30
+  detectionRadius: 15
   animator: {fileID: 640000445}
   playerEquipment: {fileID: 0}
   damageBar: {fileID: 152426252}
@@ -7033,8 +7033,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1610470168}
+  restrictPlayerCam: {fileID: 681031838}
   dialogueText: {fileID: 1999539803}
-  isPlayerNearby: 1
+  isPlayerNearby: 0
   positionOffset: {x: 0, y: 0, z: 20}
 --- !u!1 &1062247280
 GameObject:

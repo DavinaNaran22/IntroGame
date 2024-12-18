@@ -6,16 +6,17 @@ using UnityEngine.InputSystem;
 
 public class EnterAlienArea3 : MonoBehaviour
 {
-    public Transform player; // Reference to the player's Transform
-
     private Collider boxCollider; // Reference to the box collider
+    public Transform player; // Reference to the player's Transform
+    public BoxCollider restrictPlayerCam;
     public TextMeshProUGUI dialogueText;
 
     private bool isActive = false;
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
+    private bool hasDialoguePlayed = false;
     private int currentDialogueIndex = 0;
-    public bool isPlayerNearby = true;
+    public bool isPlayerNearby = false;
 
     public Vector3 positionOffset = new Vector3(0, 0, 20);
 
@@ -67,7 +68,7 @@ public class EnterAlienArea3 : MonoBehaviour
         // Ensure the collider is a trigger
         boxCollider.isTrigger = true;
 
-        StartAdditionalDialogues();
+        //StartAdditionalDialogues();
     }
 
     void Update()
@@ -84,6 +85,8 @@ public class EnterAlienArea3 : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isActive = true;
+            isPlayerNearby = true;
+            StartAdditionalDialogues();
             Debug.Log("Player is now inside the box.");
         }
     }
@@ -93,6 +96,7 @@ public class EnterAlienArea3 : MonoBehaviour
         // Prevent the player from leaving if the box is active
         if (other.CompareTag("Player") && isActive)
         {
+            isPlayerNearby = false;
             Debug.Log("Player attempted to leave the box.");
         }
     }
@@ -143,12 +147,15 @@ public class EnterAlienArea3 : MonoBehaviour
     // Dialogue between player and alien
     public void StartAdditionalDialogues()
     {
+        if (hasDialoguePlayed) return;
+        
         if (!isPlayerNearby)
         {
             Debug.Log("Player is not nearby, can't start dialogues");
             return;
         }
         Debug.Log("Starting additional dialogues");
+        hasDialoguePlayed = true;
         additionalDialoguesActive = true;
         currentDialogueIndex = 0;
         ShowDialogue(additionalDialogues[currentDialogueIndex]);
