@@ -4352,7 +4352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1610470168}
   shootingPoint: {fileID: 1656847769}
-  detectionRadius: 15
+  detectionRadius: 30
   animator: {fileID: 640000445}
   playerEquipment: {fileID: 0}
   damageBar: {fileID: 152426252}

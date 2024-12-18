@@ -38,7 +38,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         {
             // Reset playerNearby flag when player exits detection radius
             playerNearby = false;
-            animator.SetTrigger("BackWalk");
+            //animator.SetTrigger("BackWalk");
         }
 
         // Shoots at player if nearby and in idle pose with a gun state
@@ -130,7 +130,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         Debug.Log("Triggering Idle");
         // Idle animation for 10 seconds
         animator.SetTrigger("Idle");
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(0);
 
         while (enterAlienArea3 != null && enterAlienArea3.IsDialogueActive())
         {
