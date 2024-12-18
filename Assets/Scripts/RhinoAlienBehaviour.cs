@@ -10,6 +10,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
     public PlayerEquipment playerEquipment;
     public RhinoDamageBar damageBar;
     public GameObject Healthlimit;
+    public CaveCamRestrict caveCamRestrict;
 
     public GameObject shotPrefab;
     public float shootRate = 0.5f;
@@ -125,13 +126,28 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         animator.SetTrigger("Idle");
         yield return new WaitForSeconds(10f);
 
+        while (caveCamRestrict != null && caveCamRestrict.IsDialogueActive())
+        {
+            yield return null;
+        }
+
         // Transition to "Jump"
         animator.SetTrigger("Jump");
         yield return new WaitForSeconds(0);
 
+        while (caveCamRestrict != null && caveCamRestrict.IsDialogueActive())
+        {
+            yield return null;
+        }
+
         // Transition to "Shout" after 10 seconds
         animator.SetTrigger("Shout");
         yield return new WaitForSeconds(1f);
+
+        while (caveCamRestrict != null && caveCamRestrict.IsDialogueActive())
+        {
+            yield return null;
+        }
 
         // Continue with remaining states in sequence
         animator.SetTrigger("Attack3");
@@ -171,7 +187,20 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         isDead = true;
         animator.SetTrigger("Dead"); // Trigger "Dead" animation
         Debug.Log("Alien has died!");
+        StartCoroutine(DelayedBlockAppearance());
     }
+
+    private IEnumerator DelayedBlockAppearance()
+    {
+        yield return new WaitForSeconds(7f); // Wait for 7 seconds
+        gameObject.SetActive(false); // Deactivate the alien GameObject
+        Debug.Log("Alien is now inactive and removed from the scene.");
+
+        // Show next scene
+        caveCamRestrict.gameObject.SetActive(false);
+    }
+
+
 
 
 }
