@@ -17,6 +17,7 @@ public class CameraManagement : Singleton<CameraManagement>
     public GameObject photoEntryPrefab; // Prefab for photo entries
     public GameObject photoViewer;      // Panel for viewing expanded photos
     public RawImage photoViewerImage;   // RawImage for displaying the expanded photo
+    public GameObject cameraModel;
 
     // Cameras
     public Camera mainCamera;           // Main camera for gameplay
@@ -107,6 +108,11 @@ public class CameraManagement : Singleton<CameraManagement>
 
     public void TogglePhotoMode()
     {
+        if (cameraModel != null && cameraModel.activeSelf)
+        {
+            Debug.Log("Cannot enter photo mode because CameraModel is active.");
+            return; // Exit the function
+        }
         isPhotoModeActive = true;
 
         // Transition to photo mode

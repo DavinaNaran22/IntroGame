@@ -36,7 +36,7 @@ public class EquipGun : MonoBehaviour
     }
 
 
-    void Equip()
+    public void Equip()
     {
         if (playerInRange)
         {

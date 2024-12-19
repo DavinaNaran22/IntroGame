@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -65,6 +66,12 @@ public class InventoryManager : MonoBehaviour
 
     void OpenInventory()
     {
+        if (SceneManager.GetActiveScene().name == "Interior")
+        {
+            Debug.Log("Inventory cannot be opened in the Interior scene.");
+            return; // Exit the function without opening the inventory
+        }
+
         if (!isInventoryOpen)
         {
             // Enable the inventory canvas and pause the game
