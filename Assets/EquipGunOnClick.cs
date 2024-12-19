@@ -3,24 +3,20 @@ using UnityEngine.UI;
 
 public class EquipGunOnClick : MonoBehaviour
 {
-    // References to the gun and the player's hand
     public GameObject gunPrefab; // Gun prefab to instantiate
     public Transform playerHand; // Transform of the player's hand
-
-    // Button to trigger the action
     public Button equipGunButton;
 
-    // Reference to the instantiated gun
     private GameObject equippedGun;
 
-    public bool IsGunEquipped => equippedGun != null; // Check if the gun is equipped
+    // Reference to the EquipKnifeOnClick script
+    public EquipKnifeOnClick equipKnifeScript;
 
     void Start()
     {
-        // Ensure the button is assigned and add a listener
         if (equipGunButton != null)
         {
-            equipGunButton.onClick.AddListener(EquipGun);
+            equipGunButton.onClick.AddListener(ToggleGun);
         }
         else
         {
@@ -28,26 +24,43 @@ public class EquipGunOnClick : MonoBehaviour
         }
     }
 
-    void EquipGun()
+    void ToggleGun()
     {
         if (equippedGun == null)
         {
-            // Instantiate the gun and attach it to the player's hand
-            equippedGun = Instantiate(gunPrefab, playerHand);
-
-            // Ensure the gun is active
-            equippedGun.SetActive(true);
-
-            // Adjust position and rotation to align with the hand
-            equippedGun.transform.localPosition = Vector3.zero; // Adjust as needed
-            equippedGun.transform.localRotation = Quaternion.identity; // Adjust as needed
-
-            Debug.Log("Gun equipped and activated.");
+            EquipGun();
         }
         else
         {
-            Debug.LogWarning("Gun is already equipped.");
+            UnequipGun();
         }
     }
 
+    void EquipGun()
+    {
+        // Check if a knife is equipped and unequip it
+        if (equipKnifeScript != null && equipKnifeScript.IsKnifeEquipped)
+        {
+            equipKnifeScript.UnequipKnife();
+        }
+
+        equippedGun = Instantiate(gunPrefab, playerHand);
+        equippedGun.SetActive(true);
+        equippedGun.transform.localPosition = Vector3.zero;
+        equippedGun.transform.localRotation = Quaternion.identity;
+
+        Debug.Log("Gun equipped.");
+    }
+
+    public void UnequipGun()
+    {
+        if (equippedGun != null)
+        {
+            Destroy(equippedGun);
+            equippedGun = null;
+            Debug.Log("Gun unequipped.");
+        }
+    }
+
+    public bool IsGunEquipped => equippedGun != null;
 }
