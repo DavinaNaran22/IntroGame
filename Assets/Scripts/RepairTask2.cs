@@ -92,15 +92,15 @@ public class RepairTask2 : MonoBehaviour
         // Hide the prompt text at the start
         promptText.gameObject.SetActive(false);
 
-        GreenAlienBehavior[] alienBehaviors = Object.FindObjectsByType<GreenAlienBehavior>(FindObjectsSortMode.None);
+        //GreenAlienBehavior[] alienBehaviors = Object.FindObjectsByType<GreenAlienBehavior>(FindObjectsSortMode.None);
 
-        foreach (GreenAlienBehavior alienBehavior in alienBehaviors)
-        {
-            if (alienBehavior != null)
-            {
-                alienBehavior.repairTask2 = this;
-            }
-        }
+        //foreach (GreenAlienBehavior alienBehavior in alienBehaviors)
+        //{
+        //    if (alienBehavior != null)
+        //    {
+        //        alienBehavior.repairTask2 = this;
+        //    }
+        //}
     }
 
 

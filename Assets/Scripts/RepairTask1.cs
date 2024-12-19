@@ -29,11 +29,11 @@ public class MissionManager : MonoBehaviour
     // Additional dialogues to display
     private List<string> additionalDialogues = new List<string>
     {
-        "Hello, my spaceship’s hit an asteroid, and this was the only nearby planet.",
-        "I really need that thruster so I can repair my ship and leave.",
-        "Would it be all right if I grabbed it quickly? I won’t stay long.",
-        "How dare you claim things from our land, you don’t belong here.",
-        "This strange object belongs to us. If you want it, you’ll have to fight us."
+        "YOU: Hello, my spaceship’s hit an asteroid, and this was the only nearby planet.",
+        "YOU: I really need that thruster so I can repair my ship and leave.",
+        "YOU: Would it be all right if I grabbed it quickly? I won’t stay long.",
+        "ALIEN: How dare you claim things from our land, you don’t belong here.",
+        "ALIEN: This strange object belongs to us. If you want it, you’ll have to fight us."
     };
 
 
