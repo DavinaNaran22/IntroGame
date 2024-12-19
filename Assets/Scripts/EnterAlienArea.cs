@@ -107,7 +107,7 @@ public class EnterAlienArea : MonoBehaviour
         restrictionEnabled = false;
         Debug.Log("Movement restriction disabled");
         alienArea.enabled = false;
-        ShowDialogue("Maybe I can craft something using this alien skin to dig this thruster out.");
+        ShowDialogue("Maybe I can craft something using this metal and wood to dig this thruster out.");
     }
 
     private void ShowDialogue(string message)

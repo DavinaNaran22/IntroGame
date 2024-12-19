@@ -28,7 +28,7 @@ public class AlienRestrictScene : MonoBehaviour
 
     private List<string> additionalDialogues = new List<string>
     {
-        "YOU: This must be the Zyrog alien! I need to take a picture of it.",
+        "YOU: First let me take a picture.",
     };
 
     // New input system for taking photos and dismissing dialogue
