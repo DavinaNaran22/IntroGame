@@ -93,6 +93,12 @@ public class EnterAlienArea2 : MonoBehaviour
 
         dialogueText.gameObject.SetActive(true);
 
+        if (alienDrop.activeSelf == true)
+        {
+            Debug.Log("Block is visible, restriction disabled");
+            ShowDialogue("YOU: Now I have metal, I can use this to repair the hole!");
+   
+        }
         //if (alienDrop.activeSelf == true && !isActive)
         //{
         //    Debug.Log("Blocks are visible, restriction disabled");
