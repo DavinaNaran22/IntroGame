@@ -17,6 +17,7 @@ public class CameraManagement : Singleton<CameraManagement>
     public GameObject photoEntryPrefab; // Prefab for photo entries
     public GameObject photoViewer;      // Panel for viewing expanded photos
     public RawImage photoViewerImage;   // RawImage for displaying the expanded photo
+    public GameObject cameraModel;
 
     // Cameras
     public Camera mainCamera;           // Main camera for gameplay
@@ -38,6 +39,9 @@ public class CameraManagement : Singleton<CameraManagement>
 
     // Input system
     private PlayerInputActions inputActions;
+
+    private bool isCapturingScreenshot = false;
+
 
     // New input system for taking photos and dismissing dialogue
     private new void Awake()
@@ -107,6 +111,11 @@ public class CameraManagement : Singleton<CameraManagement>
 
     public void TogglePhotoMode()
     {
+        if (cameraModel != null && cameraModel.activeSelf)
+        {
+            Debug.Log("Cannot enter photo mode because CameraModel is active.");
+            return; // Exit the function
+        }
         isPhotoModeActive = true;
 
         // Transition to photo mode
@@ -141,6 +150,8 @@ public class CameraManagement : Singleton<CameraManagement>
 
     public void TakeScreenshot()
     {
+        if (isCapturingScreenshot) return;  // Prevent multiple calls
+
         if (IsAnyTargetInFrame())
         {
             Debug.Log("Target detected inside the frame. Capturing screenshot...");
@@ -215,6 +226,7 @@ public class CameraManagement : Singleton<CameraManagement>
 
     public IEnumerator CaptureScreenshot()
     {
+        isCapturingScreenshot = true; // Set the flag
         yield return new WaitForEndOfFrame();
 
         // Calculate frame dimensions in screen space
@@ -236,6 +248,8 @@ public class CameraManagement : Singleton<CameraManagement>
 
         // Add the screenshot to the log
         AddPhotoToLog(screenshot);
+
+        isCapturingScreenshot = false; // Reset the flag
     }
 
     public void AddPhotoToLog(Texture2D photo)
