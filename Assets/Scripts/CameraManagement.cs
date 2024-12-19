@@ -91,12 +91,28 @@ public class CameraManagement : Singleton<CameraManagement>
 
         if (SceneManager.GetActiveScene().name == "landscape")
         {
-            //if (targetObjects.Count != 2)
-            //{
-            //    targetObjects.Clear();
-                targetObjects.Add(GameObject.Find("GreenAlien1"));
-                targetObjects.Add(GameObject.Find("GreenAlien2"));
-            //}
+
+            targetObjects.Clear();
+            GameObject greenAlien1 = GameObject.Find("GreenAlien1");
+            GameObject greenAlien2 = GameObject.Find("GreenAlien2");
+
+            if (greenAlien1 != null && greenAlien1.activeInHierarchy &&
+            greenAlien2 != null && greenAlien2.activeInHierarchy)
+            {
+                // Add GreenAlien1 and GreenAlien2 to targetObjects if they are active
+                targetObjects.Add(greenAlien1);
+                targetObjects.Add(greenAlien2);
+            }
+            else
+            {
+                // If GreenAlien1 and GreenAlien2 are not active, focus on GreenAlien3
+                GameObject greenAlien3 = GameObject.Find("GreenAlien3");
+                if (greenAlien3 != null)
+                {
+                    targetObjects.Add(greenAlien3);
+                }
+            }
+
         }
         else if (SceneManager.GetActiveScene().name == "CaveScene")
         {
