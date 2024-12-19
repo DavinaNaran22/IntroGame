@@ -8684,9 +8684,10 @@ PrefabInstance:
     - {fileID: 295867488181817405, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     - {fileID: 3332518313059086080, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     - {fileID: 3135538758418669768, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+    - {fileID: 6216788302251579917, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8957019203168652948, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
-      insertIndex: 2
+      insertIndex: 1
       addedObject: {fileID: 1858508959}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4265596453139673410, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
@@ -8737,15 +8738,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5124188637156683046, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 777749841}
-    - targetCorrespondingSourceObject: {fileID: 6216788302251579917, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 968953738}
-    - targetCorrespondingSourceObject: {fileID: 6216788302251579917, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 968953743}
-    - targetCorrespondingSourceObject: {fileID: 6216788302251579917, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 968953742}
     - targetCorrespondingSourceObject: {fileID: 8605351157582996230, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1022345919}
@@ -8852,59 +8844,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3221732555859170491, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
   m_PrefabInstance: {fileID: 51700331}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &968953734 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6216788302251579917, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
-  m_PrefabInstance: {fileID: 898348826}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &968953738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 968953734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Text: Press E to equip gun
-  sphereRadius: 3
-  hoverText: {fileID: 1929433153}
---- !u!114 &968953742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 968953734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a508f8468c624c41b46b63b2ba52441, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &968953743
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 968953734}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.64, y: 1.29, z: 0.832286}
-  m_Center: {x: 0.00000028312206, y: 0.022800026, z: 0.27416432}
 --- !u!1 &980120873
 GameObject:
   m_ObjectHideFlags: 0
