@@ -13,6 +13,8 @@ public class EquipGunOnClick : MonoBehaviour
     // Reference to the instantiated gun
     private GameObject equippedGun;
 
+    public bool IsGunEquipped => equippedGun != null; // Check if the gun is equipped
+
     void Start()
     {
         // Ensure the button is assigned and add a listener
