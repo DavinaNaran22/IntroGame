@@ -20,6 +20,7 @@ public class AlienRestrictScene : MonoBehaviour
     private bool hasDialogueBeenShown = false;
     private int currentDialogueIndex = 0;
     private bool isPlayerInRestrictedArea = false;
+    public bool isPlayerNearby = false;
 
     private Vector3 minBounds; // Minimum bounds of the alien area
     private Vector3 maxBounds; // Maximum bounds of the alien area
@@ -58,7 +59,7 @@ public class AlienRestrictScene : MonoBehaviour
     // Dialogues and prompts are hidden at the start
     private void Start()
     {
-
+        isPlayerNearby = true;
         player = GameManager.Instance.player;
         cameraManagement = GameManager.Instance.cameraManagement;
 

@@ -12,7 +12,9 @@ public class RepairTask2 : MonoBehaviour
     public GameObject player;
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI promptText;
-    public GameObject takePicScript;
+    public AlienRestrictScene alienRestrictScene;
+    public GameObject takePicsScene;
+
 
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
@@ -54,9 +56,14 @@ public class RepairTask2 : MonoBehaviour
         promptText.gameObject.SetActive(false);
         StartAdditionalDialogues();
         //takePicScript.SetActive(true);
+    }
 
-
-
+    private void Update()
+    {
+        if (alienRestrictScene.isPlayerNearby)
+        {
+            takePicsScene.SetActive(true);
+        }
     }
 
     private void DismissDialogue()
