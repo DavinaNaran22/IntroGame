@@ -8001,12 +8001,10 @@ MonoBehaviour:
   thermalConductorImage: {fileID: 0}
   toolboxImage: {fileID: 0}
   medicines: []
-  bullets: []
   herbs: []
   metalsDropped: []
   wood: []
   medicineText: {fileID: 0}
-  bulletsText: {fileID: 0}
   herbsText: {fileID: 0}
   metalsText: {fileID: 0}
   woodText: {fileID: 0}
