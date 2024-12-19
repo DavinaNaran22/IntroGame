@@ -66,11 +66,6 @@ public class InventoryManager : MonoBehaviour
 
     void OpenInventory()
     {
-        if (SceneManager.GetActiveScene().name == "Interior")
-        {
-            Debug.Log("Inventory cannot be opened in the Interior scene.");
-            return; // Exit the function without opening the inventory
-        }
 
         if (!isInventoryOpen)
         {
