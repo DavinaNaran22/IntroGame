@@ -71,6 +71,7 @@ public class EnterAlienArea2 : MonoBehaviour
 
         // Ensure the collider is a trigger
         boxCollider.isTrigger = true;
+        restrictPlayerCam.isTrigger = true;
 
     }
 
