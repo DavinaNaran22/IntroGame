@@ -40,6 +40,9 @@ public class CameraManagement : Singleton<CameraManagement>
     // Input system
     private PlayerInputActions inputActions;
 
+    private bool isCapturingScreenshot = false;
+
+
     // New input system for taking photos and dismissing dialogue
     private new void Awake()
     {
@@ -147,6 +150,8 @@ public class CameraManagement : Singleton<CameraManagement>
 
     public void TakeScreenshot()
     {
+        if (isCapturingScreenshot) return;  // Prevent multiple calls
+
         if (IsAnyTargetInFrame())
         {
             Debug.Log("Target detected inside the frame. Capturing screenshot...");
@@ -221,6 +226,7 @@ public class CameraManagement : Singleton<CameraManagement>
 
     public IEnumerator CaptureScreenshot()
     {
+        isCapturingScreenshot = true; // Set the flag
         yield return new WaitForEndOfFrame();
 
         // Calculate frame dimensions in screen space
@@ -242,6 +248,8 @@ public class CameraManagement : Singleton<CameraManagement>
 
         // Add the screenshot to the log
         AddPhotoToLog(screenshot);
+
+        isCapturingScreenshot = false; // Reset the flag
     }
 
     public void AddPhotoToLog(Texture2D photo)
