@@ -72,7 +72,16 @@ public class EnterAlienArea2 : MonoBehaviour
         // Ensure the collider is a trigger
         boxCollider.isTrigger = true;
         restrictPlayerCam.isTrigger = true;
+        //dialogueText.gameObject.SetActive(true);
 
+        GAlienS2[] alien = UnityEngine.Object.FindObjectsByType<GAlienS2>(FindObjectsSortMode.None);
+        foreach (GAlienS2 a in alien)
+        {
+            if (a != null)
+            {
+                a.enterAlienArea2 = this;
+            }
+        }
     }
 
     private void Update()
@@ -81,6 +90,8 @@ public class EnterAlienArea2 : MonoBehaviour
         {
             KeepPlayerInsideBox();
         }
+
+        dialogueText.gameObject.SetActive(true);
 
         //if (alienDrop.activeSelf == true && !isActive)
         //{
@@ -163,11 +174,11 @@ public class EnterAlienArea2 : MonoBehaviour
     {
         if (hasDialoguePlayed) return;
 
-        if (!isPlayerNearby)
-        {
-            Debug.Log("Player is not nearby, can't start dialogues");
-            return;
-        }
+        //if (!isPlayerNearby)
+        //{
+        //    Debug.Log("Player is not nearby, can't start dialogues");
+        //    return;
+        //}
         Debug.Log("Starting additional dialogues");
         hasDialoguePlayed = true;
         additionalDialoguesActive = true;
@@ -178,13 +189,13 @@ public class EnterAlienArea2 : MonoBehaviour
     // Display the next dialogue in the list
     private void ShowNextDialogue()
     {
-        if (!isPlayerNearby) // Stop dialogue if the player is no longer nearby
-        {
-            Debug.Log("Player moved away. Stopping dialogue.");
-            additionalDialoguesActive = false;
-            HideDialogue();
-            return;
-        }
+        //if (!isPlayerNearby) // Stop dialogue if the player is no longer nearby
+        //{
+        //    Debug.Log("Player moved away. Stopping dialogue.");
+        //    additionalDialoguesActive = false;
+        //    HideDialogue();
+        //    return;
+        //}
 
         currentDialogueIndex++;
 
