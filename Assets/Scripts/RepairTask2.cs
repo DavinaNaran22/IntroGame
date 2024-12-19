@@ -114,6 +114,10 @@ public class RepairTask2 : MonoBehaviour
         {
             additionalDialoguesActive = false;
             HideDialogue();
+
+            Debug.Log("All dialogues finished");
+            takePicsScene.SetActive(true);
+
         }
     }
 
