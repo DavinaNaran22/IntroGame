@@ -68,6 +68,11 @@ public class RayGun : MonoBehaviour
                     alien.TakeDamage();
                 }
 
+                GAlienS2 alien2 = hit.collider.GetComponent<GAlienS2>();
+                if (alien2 != null)
+                {
+                    alien2.TakeDamage();
+                }
             }
 
             if (hit.collider.CompareTag("RhinoAlien"))

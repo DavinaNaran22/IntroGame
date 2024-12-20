@@ -205,7 +205,8 @@ public class GreenAlienBehavior : FindPlayerTransform
         dropBlock.SetActive(true); // Make the block visible
         Debug.Log("Drop block is now visible!");
         // Show next scene
-        missionManager.gameObject.SetActive(false);
+
+        missionManager.gameObject.SetActive(false); //REMOVE THIS - JUST FOR TESTING
         repairTask2.gameObject.SetActive(true);
     }
 }
