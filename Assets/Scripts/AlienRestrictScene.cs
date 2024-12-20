@@ -27,7 +27,7 @@ public class AlienRestrictScene : MonoBehaviour
     private CharacterController characterController;
     private PlayerInputActions inputActions;
 
-    private List<string> additionalDialogues = new List<string>
+    public List<string> additionalDialogues = new List<string>
     {
         "YOU: First let me take a picture.",
     };
