@@ -10,7 +10,7 @@ public class RayGun : MonoBehaviour
     private float m_shootRateTimeStamp;
 
     public GameObject m_shotPrefab;
-    public EquipGun equipGun;
+    public EquipGunOnClick equipGunOnClick;
 
     RaycastHit hit;
     float range = 1000.0f;
@@ -36,7 +36,7 @@ public class RayGun : MonoBehaviour
     void Update()
     {
         // Shoots if gun is equipped
-        if (equipGun.isEquipped && equipGun != null)
+        if (equipGunOnClick != null && equipGunOnClick.IsGunEquipped)
         {
             if (inputActions.Player.Shoot.ReadValue<float>() > 0)
             {
@@ -68,6 +68,11 @@ public class RayGun : MonoBehaviour
                     alien.TakeDamage();
                 }
 
+                GAlienS2 alien2 = hit.collider.GetComponent<GAlienS2>();
+                if (alien2 != null)
+                {
+                    alien2.TakeDamage();
+                }
             }
 
             if (hit.collider.CompareTag("RhinoAlien"))

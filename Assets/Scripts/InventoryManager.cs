@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -65,6 +66,7 @@ public class InventoryManager : MonoBehaviour
 
     void OpenInventory()
     {
+
         if (!isInventoryOpen)
         {
             // Enable the inventory canvas and pause the game

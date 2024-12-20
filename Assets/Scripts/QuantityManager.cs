@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 
 public class QuantityManager : MonoBehaviour
 {
@@ -25,20 +27,17 @@ public class QuantityManager : MonoBehaviour
 
     [Header("Collectible Items")]
     public List<GameObject> medicines;
-    public List<GameObject> bullets;
     public List<GameObject> herbs;
     public List<GameObject> metalsDropped;
     public List<GameObject> wood;
 
     [Header("Collectible Item UI Elements")]
     public TextMeshProUGUI medicineText;
-    public TextMeshProUGUI bulletsText;
     public TextMeshProUGUI herbsText;
     public TextMeshProUGUI metalsText;
     public TextMeshProUGUI woodText;
 
     private int medicineCount = 0;
-    private int bulletsCount = 0;
     private int herbsCount = 0;
     private int metalsCount = 0;
     private int woodCount = 0;
@@ -52,7 +51,6 @@ public class QuantityManager : MonoBehaviour
     private bool wasToolboxActive;
 
     private Dictionary<GameObject, bool> medicineStates = new Dictionary<GameObject, bool>();
-    private Dictionary<GameObject, bool> bulletsStates = new Dictionary<GameObject, bool>();
     private Dictionary<GameObject, bool> herbsStates = new Dictionary<GameObject, bool>();
     private Dictionary<GameObject, bool> metalsStates = new Dictionary<GameObject, bool>();
     private Dictionary<GameObject, bool> woodStates = new Dictionary<GameObject, bool>();
@@ -72,7 +70,6 @@ public class QuantityManager : MonoBehaviour
 
         // Initialize collectible item text
         UpdateText(medicineText, "Medicine", medicineCount);
-        UpdateText(bulletsText, "Bullets", bulletsCount);
         UpdateText(herbsText, "Herbs", herbsCount);
         UpdateText(metalsText, "Metal", metalsCount);
         UpdateText(woodText, "Wood", woodCount);
@@ -88,7 +85,6 @@ public class QuantityManager : MonoBehaviour
 
         // Initialize collectible states
         InitializeItemStates(medicines, medicineStates);
-        InitializeItemStates(bullets, bulletsStates);
         InitializeItemStates(herbs, herbsStates);
         InitializeItemStates(metalsDropped, metalsStates);
         InitializeItemStates(wood, woodStates);
@@ -107,10 +103,10 @@ public class QuantityManager : MonoBehaviour
 
         // Handle collectible items
         HandleCollectibleItems(medicines, medicineStates, ref medicineCount, medicineText, "Medicine");
-        HandleCollectibleItems(bullets, bulletsStates, ref bulletsCount, bulletsText, "Bullets");
         HandleCollectibleItems(herbs, herbsStates, ref herbsCount, herbsText, "Herbs");
         HandleCollectibleItems(metalsDropped, metalsStates, ref metalsCount, metalsText, "Metal");
         HandleCollectibleItems(wood, woodStates, ref woodCount, woodText, "Wood");
+
     }
 
     // Helper to initialize item states
@@ -139,7 +135,7 @@ public class QuantityManager : MonoBehaviour
         }
     }
 
-    // Handle collectible items (medicine, bullets, etc.)
+    // Handle collectible items (medicine, etc.)
     private void HandleCollectibleItems(List<GameObject> items, Dictionary<GameObject, bool> states, ref int count, TextMeshProUGUI text, string itemName)
     {
         foreach (GameObject item in items)

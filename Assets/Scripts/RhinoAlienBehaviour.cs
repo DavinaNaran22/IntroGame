@@ -10,6 +10,8 @@ public class RhinoAlienBehaviour : FindPlayerTransform
     public PlayerEquipment playerEquipment;
     public RhinoDamageBar damageBar;
     public GameObject Healthlimit;
+    public CaveCamRestrict caveCamRestrict;
+    public EnterAlienArea3 enterAlienArea3;
 
     public GameObject shotPrefab;
     public float shootRate = 0.5f;
@@ -120,18 +122,38 @@ public class RhinoAlienBehaviour : FindPlayerTransform
     //// Sequence of states for alien
     private IEnumerator ExecuteEscapeSequence()
     {
+        Debug.Log("Rhino Alien meets player");
+        enterAlienArea3.isPlayerNearby = true;
+        enterAlienArea3.StartAdditionalDialogues();
+
+
         Debug.Log("Triggering Idle");
         // Idle animation for 10 seconds
         animator.SetTrigger("Idle");
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(0);
+
+        while (enterAlienArea3 != null && enterAlienArea3.IsDialogueActive())
+        {
+            yield return null;
+        }
 
         // Transition to "Jump"
         animator.SetTrigger("Jump");
         yield return new WaitForSeconds(0);
 
+        while (enterAlienArea3 != null && enterAlienArea3.IsDialogueActive())
+        {
+            yield return null;
+        }
+
         // Transition to "Shout" after 10 seconds
         animator.SetTrigger("Shout");
         yield return new WaitForSeconds(1f);
+
+        while (enterAlienArea3 != null && enterAlienArea3.IsDialogueActive())
+        {
+            yield return null;
+        }
 
         // Continue with remaining states in sequence
         animator.SetTrigger("Attack3");
@@ -171,7 +193,20 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         isDead = true;
         animator.SetTrigger("Dead"); // Trigger "Dead" animation
         Debug.Log("Alien has died!");
+        StartCoroutine(DelayedBlockAppearance());
     }
+
+    private IEnumerator DelayedBlockAppearance()
+    {
+        yield return new WaitForSeconds(7f); // Wait for 7 seconds
+        gameObject.SetActive(false); // Deactivate the alien GameObject
+        Debug.Log("Alien is now inactive and removed from the scene.");
+
+        // Show next scene
+        caveCamRestrict.gameObject.SetActive(false);
+    }
+
+
 
 
 }

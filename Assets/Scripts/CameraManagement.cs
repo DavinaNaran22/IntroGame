@@ -17,6 +17,7 @@ public class CameraManagement : Singleton<CameraManagement>
     public GameObject photoEntryPrefab; // Prefab for photo entries
     public GameObject photoViewer;      // Panel for viewing expanded photos
     public RawImage photoViewerImage;   // RawImage for displaying the expanded photo
+    public GameObject cameraModel;
 
     // Cameras
     public Camera mainCamera;           // Main camera for gameplay
@@ -38,6 +39,9 @@ public class CameraManagement : Singleton<CameraManagement>
 
     // Input system
     private PlayerInputActions inputActions;
+
+    private bool isCapturingScreenshot = false;
+
 
     // New input system for taking photos and dismissing dialogue
     private new void Awake()
@@ -74,16 +78,60 @@ public class CameraManagement : Singleton<CameraManagement>
 
     private void Update()
     {
-        if (targetObjects[0] == null && targetObjects[1] == null && SceneManager.GetActiveScene().name == "landscape")
+        //if (targetObjects[0] == null && targetObjects[1] == null && SceneManager.GetActiveScene().name == "landscape")
+        //{
+        //    targetObjects[0] = GameObject.Find("GreenAlien1");
+        //    targetObjects[1] = GameObject.Find("GreenAlien2");
+        //}
+
+        //if (targetObjects[0] == null && targetObjects[1] == null && SceneManager.GetActiveScene().name == "CaveScene")
+        //{
+        //    targetObjects[2] = GameObject.Find("Rhinoceros");
+        //}
+
+        if (SceneManager.GetActiveScene().name == "landscape")
         {
-            targetObjects[0] = GameObject.Find("GreenAlien1");
-            targetObjects[1] = GameObject.Find("GreenAlien2");
+
+            targetObjects.Clear();
+            GameObject greenAlien1 = GameObject.Find("GreenAlien1");
+            GameObject greenAlien2 = GameObject.Find("GreenAlien2");
+
+            if (greenAlien1 != null && greenAlien1.activeInHierarchy &&
+            greenAlien2 != null && greenAlien2.activeInHierarchy)
+            {
+                // Add GreenAlien1 and GreenAlien2 to targetObjects if they are active
+                targetObjects.Add(greenAlien1);
+                targetObjects.Add(greenAlien2);
+            }
+            else
+            {
+                // If GreenAlien1 and GreenAlien2 are not active, focus on GreenAlien3
+                GameObject greenAlien3 = GameObject.Find("GreenAlien3");
+                if (greenAlien3 != null)
+                {
+                    targetObjects.Add(greenAlien3);
+                }
+            }
+
+        }
+        else if (SceneManager.GetActiveScene().name == "CaveScene")
+        {
+            if (targetObjects.Count != 1 || targetObjects[0] == null || targetObjects[0].name != "Rhinoceros")
+            {
+                targetObjects.Clear();
+                targetObjects.Add(GameObject.Find("Rhinoceros"));
+            }
         }
     }
 
 
     public void TogglePhotoMode()
     {
+        if (cameraModel != null && cameraModel.activeSelf)
+        {
+            Debug.Log("Cannot enter photo mode because CameraModel is active.");
+            return; // Exit the function
+        }
         isPhotoModeActive = true;
 
         // Transition to photo mode
@@ -118,6 +166,8 @@ public class CameraManagement : Singleton<CameraManagement>
 
     public void TakeScreenshot()
     {
+        if (isCapturingScreenshot) return;  // Prevent multiple calls
+
         if (IsAnyTargetInFrame())
         {
             Debug.Log("Target detected inside the frame. Capturing screenshot...");
@@ -192,6 +242,7 @@ public class CameraManagement : Singleton<CameraManagement>
 
     public IEnumerator CaptureScreenshot()
     {
+        isCapturingScreenshot = true; // Set the flag
         yield return new WaitForEndOfFrame();
 
         // Calculate frame dimensions in screen space
@@ -213,6 +264,8 @@ public class CameraManagement : Singleton<CameraManagement>
 
         // Add the screenshot to the log
         AddPhotoToLog(screenshot);
+
+        isCapturingScreenshot = false; // Reset the flag
     }
 
     public void AddPhotoToLog(Texture2D photo)

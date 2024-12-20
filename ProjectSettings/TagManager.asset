@@ -22,6 +22,8 @@ TagManager:
   - ToolBox
   - Camera
   - HealthLimit
+  - Sword
+  - RockWall
   layers:
   - Default
   - TransparentFX
