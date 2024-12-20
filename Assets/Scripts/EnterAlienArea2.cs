@@ -114,7 +114,7 @@ public class EnterAlienArea2 : MonoBehaviour
         {
             isActive = true;
             isPlayerNearby = true;
-            StartAdditionalDialogues();
+            //StartAdditionalDialogues();
             Debug.Log("Player is now inside the box.");
         }
 

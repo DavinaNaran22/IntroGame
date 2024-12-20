@@ -131,6 +131,9 @@ public class GAlienS2 : FindPlayerTransform
     // Sequence of states for alien
     private IEnumerator ExecuteEscapeSequence()
     {
+        enterAlienArea2.isPlayerNearby = true;
+        enterAlienArea2.StartAdditionalDialogues();
+
         Debug.Log("Triggering Flight");
 
         // Flight animation for 0 seconds
