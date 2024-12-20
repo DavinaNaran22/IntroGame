@@ -1,4 +1,6 @@
+using System.Collections;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerNearText : MonoBehaviour
@@ -40,6 +42,8 @@ public class PlayerNearText : MonoBehaviour
             // Then change it
             if (hoverText.text.Length == 0)
             {
+                hoverText.enabled = true;
+                StartCoroutine(message_active(5f));
                 hoverText.text = Text;
                 modifyingText = true;
             }
@@ -50,5 +54,12 @@ public class PlayerNearText : MonoBehaviour
             hoverText.text = "";
             modifyingText = false;
         }
+    }
+
+    IEnumerator message_active(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        hoverText.enabled = false;
     }
 }

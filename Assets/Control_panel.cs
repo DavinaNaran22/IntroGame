@@ -12,26 +12,30 @@ public class Control_panel : MonoBehaviour
     public Canvas ship_map;
     public GameObject Message;
     public GameObject Message2;
+    public bool task1_completed = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
         Message.SetActive(false);
         C_panel.SetActive(false);
         Message2.SetActive(false);
-        ship_map.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"IN state: {IN}");
+        //Debug.Log($"IN state: {IN}");
 
         if (IN == true && Input.GetKeyDown(KeyCode.A)) {
-            Debug.Log("ACTIVE");
+            //Debug.Log("ACTIVE");
              C_panel.SetActive(true);
             ship_map.enabled = false;
             Message.SetActive(false);
-        }
+            task1_completed = true;
+
+}
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,7 +43,7 @@ public class Control_panel : MonoBehaviour
         if (other.CompareTag("Player")) {
             IN = true;
             Message.SetActive(true);
-            Debug.Log("WERE IN");
+            //Debug.Log("WERE IN");
         }
     }
 
@@ -51,7 +55,7 @@ public class Control_panel : MonoBehaviour
             Message.SetActive(false);
             C_panel.SetActive(false);
             Message2.SetActive(true);
-            Debug.Log("WERE IN");
+            //Debug.Log("WERE IN");
         }
     }
 
