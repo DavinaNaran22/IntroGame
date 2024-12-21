@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,7 +9,12 @@ public class EnterAlienArea : MonoBehaviour
     public GameObject player; // Reference to the player GameObject
     public GameObject silverCube;
     public GameObject brownCube;
+    public GameObject thruster;
+    public GameObject shovel;
+    public RepairTask2 repairTask2;
     public TextMeshProUGUI dialogueText;
+    public GameObject completedRepairText;
+    public MissionManager repairTask1;
 
     private CharacterController characterController;
 
@@ -17,6 +23,7 @@ public class EnterAlienArea : MonoBehaviour
     private BoxCollider alienArea;
 
     private bool restrictionEnabled = true;
+    private bool waitingForEquip = false;
 
 
 
@@ -45,6 +52,11 @@ public class EnterAlienArea : MonoBehaviour
         {
             Debug.Log("Blocks are visible, restriction disabled");
             DisableRestriction();
+        }
+
+        if (waitingForEquip && Input.GetKeyDown(KeyCode.E))
+        {
+            EquipBlocks();
         }
     }
 
@@ -108,6 +120,33 @@ public class EnterAlienArea : MonoBehaviour
         Debug.Log("Movement restriction disabled");
         alienArea.enabled = false;
         ShowDialogue("Maybe I can craft something using this metal and wood to dig this thruster out.");
+        waitingForEquip = true;
+
+    }
+
+    private void EquipBlocks()
+    {
+        Debug.Log("waiting for E");
+        silverCube.SetActive(false);
+        brownCube.SetActive(false);
+
+        if (shovel.activeSelf == true)
+        {
+            HideDialogue();
+            Debug.Log("Dig thruster out"); // NEED BUTTON TO DIG OUT THRUSTER
+            thruster.SetActive(false);
+            completedRepairText.SetActive(true); // 5 SECS AFTER, BELOW EXECUTES
+            StartCoroutine(ActivateRepairTasksWithDelay());
+        }  
+    }
+
+    private IEnumerator ActivateRepairTasksWithDelay()
+    {
+        yield return new WaitForSeconds(5); // Wait for 5 seconds
+        Debug.Log("Activating repair tasks after delay");
+        completedRepairText.SetActive(false); // Hide completedRepairText after delay, if needed
+        repairTask1.gameObject.SetActive(false);
+        repairTask2.gameObject.SetActive(true);
     }
 
     private void ShowDialogue(string message)

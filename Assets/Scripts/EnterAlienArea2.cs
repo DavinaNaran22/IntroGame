@@ -27,7 +27,7 @@ public class EnterAlienArea2 : MonoBehaviour
     private PlayerInputActions inputActions;
 
 
-    private List<string> additionalDialogues = new List<string>
+    public List<string> additionalDialogues = new List<string>
     {
         "YOU: Hello! I need some help.",
         "YOU: I’m trying to find some sort of metal alloy to repair a hole in my ship.",

@@ -78,17 +78,6 @@ public class CameraManagement : Singleton<CameraManagement>
 
     private void Update()
     {
-        //if (targetObjects[0] == null && targetObjects[1] == null && SceneManager.GetActiveScene().name == "landscape")
-        //{
-        //    targetObjects[0] = GameObject.Find("GreenAlien1");
-        //    targetObjects[1] = GameObject.Find("GreenAlien2");
-        //}
-
-        //if (targetObjects[0] == null && targetObjects[1] == null && SceneManager.GetActiveScene().name == "CaveScene")
-        //{
-        //    targetObjects[2] = GameObject.Find("Rhinoceros");
-        //}
-
         if (SceneManager.GetActiveScene().name == "landscape")
         {
 
@@ -110,6 +99,14 @@ public class CameraManagement : Singleton<CameraManagement>
                 if (greenAlien3 != null)
                 {
                     targetObjects.Add(greenAlien3);
+                }
+                else
+                {
+                    GameObject greenAlien4 = GameObject.Find("GreenAlien4");
+                    if (greenAlien4 != null)
+                    {
+                        targetObjects.Add(greenAlien4);
+                    }
                 }
             }
 
