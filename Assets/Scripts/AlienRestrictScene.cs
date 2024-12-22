@@ -29,7 +29,7 @@ public class AlienRestrictScene : MonoBehaviour
 
     public List<string> additionalDialogues = new List<string>
     {
-        "YOU: First let me take a picture.",
+        "YOU: First, let me take a picture.",
     };
 
     // New input system for taking photos and dismissing dialogue

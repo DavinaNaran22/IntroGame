@@ -11,9 +11,11 @@ public class EnterAlienArea2 : MonoBehaviour
     private Collider boxCollider;
     public Transform player;
     public GameObject alienDrop;
+    public GameObject clue;
     public BoxCollider restrictPlayerCam;
     public TextMeshProUGUI dialogueText;
     public GameObject completedRepairText;
+    public GameObject drawingsCompletedText;
     public RepairTask2 repairTask2;
     //public RepairTask3 repairTask3;
 
@@ -29,7 +31,9 @@ public class EnterAlienArea2 : MonoBehaviour
     private CharacterController characterController;
     private PlayerInputActions inputActions;
 
-    private bool waitingForEquip = false;
+    private bool waitingForEquipB = false;
+    private bool waitingForEquipC = false;
+    private bool blocksEquipped = false;
 
 
     public List<string> additionalDialogues = new List<string>
@@ -105,11 +109,18 @@ public class EnterAlienArea2 : MonoBehaviour
             DisableRestriction();
         }
 
-        if (waitingForEquip && Input.GetKeyDown(KeyCode.E))
+        if (waitingForEquipB && Input.GetKeyDown(KeyCode.E)) // NEED TO CHANGE SO BLOCK CAN BE EQUIPPED
         {
             Debug.Log("Blocks equipped");
             EquipBlocks();
         }
+
+        if (blocksEquipped && waitingForEquipC && Input.GetKeyDown(KeyCode.R)) // NEED TO CHANGE SO CLUE CAN BE EQUIPPED
+        {
+            Debug.Log("Clue equipped");
+            EquipClue();
+        }
+
     }
 
     private void DisableRestriction()
@@ -121,24 +132,49 @@ public class EnterAlienArea2 : MonoBehaviour
         {
             Debug.Log("Block is visible, restriction disabled");
             ShowDialogue("YOU: Now I have metal, I can use this to repair the hole!");
-            waitingForEquip = true;
+            waitingForEquipB = true;
+        }
+
+        if (clue.activeSelf == true)
+        {
+            waitingForEquipC = true;
         }
     }
 
     private void EquipBlocks()
     {
         Debug.Log("Blocks equipped");
+        blocksEquipped = true;
         alienDrop.SetActive(false);
         HideDialogue();
-        completedRepairText.SetActive(true); // 5 SECS AFTER, BELOW EXECUTES
+        completedRepairText.SetActive(true);
         StartCoroutine(ActivateRepairTasksWithDelay());
+ 
     }
 
     private IEnumerator ActivateRepairTasksWithDelay()
     {
-        yield return new WaitForSeconds(5); // Wait for 5 seconds
+        yield return new WaitForSeconds(3); 
         Debug.Log("Activating repair tasks after delay");
-        completedRepairText.SetActive(false); // Hide completedRepairText after delay, if needed
+        completedRepairText.SetActive(false); 
+        boxCollider.isTrigger = true;
+        ShowDialogue("YOU: Hang on, what is that strange drawing on that boulder over there, I should take it with me.");
+    }
+
+    private void EquipClue()
+    {
+        Debug.Log("Clue equipped");
+        clue.SetActive(false);
+        HideDialogue();
+        drawingsCompletedText.SetActive(true);
+        StartCoroutine(ActivateClueTasksWithDelay());
+    }
+
+    private IEnumerator ActivateClueTasksWithDelay()
+    {
+        yield return new WaitForSeconds(5);
+        Debug.Log("Activating clue tasks after delay");
+        drawingsCompletedText.SetActive(false);
         repairTask2.gameObject.SetActive(false);
         //repairTask3.gameObject.SetActive(true);
     }
@@ -217,11 +253,6 @@ public class EnterAlienArea2 : MonoBehaviour
     {
         if (hasDialoguePlayed) return;
 
-        //if (!isPlayerNearby)
-        //{
-        //    Debug.Log("Player is not nearby, can't start dialogues");
-        //    return;
-        //}
         Debug.Log("Starting additional dialogues");
         hasDialoguePlayed = true;
         additionalDialoguesActive = true;
@@ -233,14 +264,6 @@ public class EnterAlienArea2 : MonoBehaviour
     // Display the next dialogue in the list
     private void ShowNextDialogue()
     {
-        //if (!isPlayerNearby) // Stop dialogue if the player is no longer nearby
-        //{
-        //    Debug.Log("Player moved away. Stopping dialogue.");
-        //    additionalDialoguesActive = false;
-        //    HideDialogue();
-        //    return;
-        //}
-
         currentDialogueIndex++;
 
         if (currentDialogueIndex < additionalDialogues.Count)
