@@ -94,18 +94,20 @@ public class AlienRestrictScene : MonoBehaviour
     // Check if the player is within the restricted area
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log($"Collision detected with: {collision.gameObject.name}");
         if (collision.gameObject == player && !hasDialogueBeenShown)
         {
             Debug.Log("Player collided with restricted area");
             isPlayerInRestrictedArea = true;
 
-            
+            if (!hasDialogueBeenShown)
+            {
                 dialogueText.gameObject.SetActive(true);
                 currentDialogueIndex = -1;
                 additionalDialoguesActive = true;
                 hasDialogueBeenShown = true;
                 ShowNextDialogue();
-            
+            }
         }
     }
 
