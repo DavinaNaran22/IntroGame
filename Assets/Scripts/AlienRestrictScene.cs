@@ -14,7 +14,7 @@ public class AlienRestrictScene : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public CameraManagement cameraManagement;
 
-    private bool photoTaken = false;
+    public bool photoTaken = false;
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
     private bool hasDialogueBeenShown = false;
@@ -29,7 +29,7 @@ public class AlienRestrictScene : MonoBehaviour
 
     public List<string> additionalDialogues = new List<string>
     {
-        "YOU: First let me take a picture.",
+        "YOU: First, let me take a picture.",
     };
 
     // New input system for taking photos and dismissing dialogue
@@ -94,6 +94,7 @@ public class AlienRestrictScene : MonoBehaviour
     // Check if the player is within the restricted area
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log($"Collision detected with: {collision.gameObject.name}");
         if (collision.gameObject == player && !hasDialogueBeenShown)
         {
             Debug.Log("Player collided with restricted area");
