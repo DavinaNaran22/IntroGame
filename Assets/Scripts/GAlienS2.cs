@@ -42,7 +42,15 @@ public class GAlienS2 : FindPlayerTransform
         {
             // Trigger flight when player enters detection radius
             playerNearby = true;
-            StartCoroutine(ExecuteEscapeSequence());
+            if (camRestrict != null && camRestrict.photoTaken)
+            {
+                StartCoroutine(ExecuteEscapeSequence());
+            }
+            else
+            {
+                Debug.Log("Photo has not been taken yet. Waiting...");
+            }
+            //StartCoroutine(ExecuteEscapeSequence());
         }
         else if (distanceToPlayer > detectionRadius && playerNearby)
         {

@@ -14,7 +14,7 @@ public class AlienRestrictScene : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public CameraManagement cameraManagement;
 
-    private bool photoTaken = false;
+    public bool photoTaken = false;
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
     private bool hasDialogueBeenShown = false;
