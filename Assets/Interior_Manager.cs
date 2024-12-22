@@ -20,6 +20,7 @@ public class Interior_Manager : MonoBehaviour
         passcode.enabled = false;
         GameObject storage = GameObject.Find("StorageRoom_collider"); 
         storage_scene = storage.GetComponent<Storage_Scene>();
+        storage_scene.deactivate_task2();
 
         GameObject control = GameObject.Find("Cockpit_collider");
         control_panel = control.GetComponent<Control_panel>();
@@ -28,21 +29,30 @@ public class Interior_Manager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {    
         if (control_panel.task1_completed == true) {
             if (!Exit_control_panel.activeSelf) {
                 Message4.SetActive(true);
                 StartCoroutine(MiniMap_active(3f));
+                if (mini_map.activeSelf) {
+                    Message4.SetActive(false);
+                }
+           
             }
             storage_scene.Task1 = true;
+
+
+           
         }
 
-        if (storage_scene.Task2 == true) {
-
-
+        if (control_panel.task1_completed == true && storage_scene.Task2 == true)
+        {
             Message3.SetActive(true);
             passcode.enabled = true;
+            Debug.Log("TASK1 AND 2 COMPLETE");
         }
+
+
 
     }
 
@@ -51,6 +61,7 @@ public class Interior_Manager : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         mini_map.SetActive(true);
+       
     }
 
 

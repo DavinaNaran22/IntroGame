@@ -30,7 +30,7 @@ public class Control_panel : MonoBehaviour
 
         if (IN == true && Input.GetKeyDown(KeyCode.A)) {
             //Debug.Log("ACTIVE");
-             C_panel.SetActive(true);
+            C_panel.SetActive(true);
             ship_map.enabled = false;
             Message.SetActive(false);
             task1_completed = true;
@@ -68,6 +68,19 @@ public class Control_panel : MonoBehaviour
     {
         ship_map.enabled = false;
         ship_status.enabled = true;
+
+    }
+
+    public void disable_ship_map()
+    {
+        ship_map.enabled = false;
+        ship_status.enabled = true;
+
+    }
+    public void disable_ship_status()
+    {
+        ship_map.enabled = true;
+        ship_status.enabled = false;
 
     }
 
