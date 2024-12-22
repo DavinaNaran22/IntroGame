@@ -99,14 +99,13 @@ public class AlienRestrictScene : MonoBehaviour
             Debug.Log("Player collided with restricted area");
             isPlayerInRestrictedArea = true;
 
-            if (!hasDialogueBeenShown)
-            {
+            
                 dialogueText.gameObject.SetActive(true);
                 currentDialogueIndex = -1;
                 additionalDialoguesActive = true;
                 hasDialogueBeenShown = true;
                 ShowNextDialogue();
-            }
+            
         }
     }
 
