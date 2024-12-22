@@ -11,8 +11,13 @@ public class EnterAlienArea2 : MonoBehaviour
     private Collider boxCollider;
     public Transform player;
     public GameObject alienDrop;
+    public GameObject clue;
     public BoxCollider restrictPlayerCam;
     public TextMeshProUGUI dialogueText;
+    public GameObject completedRepairText;
+    public GameObject drawingsCompletedText;
+    public RepairTask2 repairTask2;
+    public RepairTask3 repairTask3;
 
     private bool isActive = false; 
     private bool dialogueShown = false;
@@ -21,10 +26,14 @@ public class EnterAlienArea2 : MonoBehaviour
     private int currentDialogueIndex = 0;
     public bool isPlayerNearby = false;
 
-    public Vector3 positionOffset = new Vector3(0, 0, 20);
+    public Vector3 positionOffset = new Vector3(0, 0, 0);
 
     private CharacterController characterController;
     private PlayerInputActions inputActions;
+
+    private bool waitingForEquipB = false;
+    private bool waitingForEquipC = false;
+    private bool blocksEquipped = false;
 
 
     public List<string> additionalDialogues = new List<string>
@@ -93,17 +102,81 @@ public class EnterAlienArea2 : MonoBehaviour
 
         dialogueText.gameObject.SetActive(true);
 
+
+        if (alienDrop.activeSelf == true)
+        {
+            Debug.Log("Blocks are visible, restriction disabled");
+            DisableRestriction();
+        }
+
+        if (waitingForEquipB && Input.GetKeyDown(KeyCode.E)) // NEED TO CHANGE SO BLOCK CAN BE EQUIPPED
+        {
+            Debug.Log("Blocks equipped");
+            EquipBlocks();
+        }
+
+        if (blocksEquipped && waitingForEquipC && Input.GetKeyDown(KeyCode.R)) // NEED TO CHANGE SO CLUE CAN BE EQUIPPED
+        {
+            Debug.Log("Clue equipped");
+            EquipClue();
+        }
+
+    }
+
+    private void DisableRestriction()
+    {
+        isActive = false;
+        Debug.Log("Restriction disabled");
+
         if (alienDrop.activeSelf == true)
         {
             Debug.Log("Block is visible, restriction disabled");
             ShowDialogue("YOU: Now I have metal, I can use this to repair the hole!");
-   
+            waitingForEquipB = true;
         }
-        //if (alienDrop.activeSelf == true && !isActive)
-        //{
-        //    Debug.Log("Blocks are visible, restriction disabled");
-        //    DisableRestriction();
-        //}
+
+        if (clue.activeSelf == true)
+        {
+            waitingForEquipC = true;
+        }
+    }
+
+    private void EquipBlocks()
+    {
+        Debug.Log("Blocks equipped");
+        blocksEquipped = true;
+        alienDrop.SetActive(false);
+        HideDialogue();
+        completedRepairText.SetActive(true);
+        StartCoroutine(ActivateRepairTasksWithDelay());
+ 
+    }
+
+    private IEnumerator ActivateRepairTasksWithDelay()
+    {
+        yield return new WaitForSeconds(3); 
+        Debug.Log("Activating repair tasks after delay");
+        completedRepairText.SetActive(false); 
+        boxCollider.isTrigger = true;
+        ShowDialogue("YOU: Hang on, what is that strange drawing on that boulder over there? I should take it with me.");
+    }
+
+    private void EquipClue()
+    {
+        Debug.Log("Clue equipped");
+        clue.SetActive(false);
+        HideDialogue();
+        drawingsCompletedText.SetActive(true);
+        StartCoroutine(ActivateClueTasksWithDelay());
+    }
+
+    private IEnumerator ActivateClueTasksWithDelay()
+    {
+        yield return new WaitForSeconds(5);
+        Debug.Log("Activating clue tasks after delay");
+        drawingsCompletedText.SetActive(false);
+        repairTask2.gameObject.SetActive(false);
+        repairTask3.gameObject.SetActive(true);
     }
 
 
@@ -170,7 +243,7 @@ public class EnterAlienArea2 : MonoBehaviour
         dialogueText.text = message;
     }
 
-    private void HideDialogue()
+    public void HideDialogue()
     {
         dialogueText.gameObject.SetActive(false);
     }
@@ -180,11 +253,6 @@ public class EnterAlienArea2 : MonoBehaviour
     {
         if (hasDialoguePlayed) return;
 
-        //if (!isPlayerNearby)
-        //{
-        //    Debug.Log("Player is not nearby, can't start dialogues");
-        //    return;
-        //}
         Debug.Log("Starting additional dialogues");
         hasDialoguePlayed = true;
         additionalDialoguesActive = true;
@@ -195,14 +263,6 @@ public class EnterAlienArea2 : MonoBehaviour
     // Display the next dialogue in the list
     private void ShowNextDialogue()
     {
-        //if (!isPlayerNearby) // Stop dialogue if the player is no longer nearby
-        //{
-        //    Debug.Log("Player moved away. Stopping dialogue.");
-        //    additionalDialoguesActive = false;
-        //    HideDialogue();
-        //    return;
-        //}
-
         currentDialogueIndex++;
 
         if (currentDialogueIndex < additionalDialogues.Count)
@@ -218,11 +278,7 @@ public class EnterAlienArea2 : MonoBehaviour
 
     public bool IsDialogueActive()
     {
-        //return dialogueText.gameObject.activeSelf;
         return additionalDialoguesActive;
     }
-
-
-
 }
 
