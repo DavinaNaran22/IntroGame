@@ -5,6 +5,7 @@ using UnityEngine;
 public class Storage_Scene : MonoBehaviour
 {
     public bool Task1 = false;
+
     public Control_panel control_panel;
     public BoxCollider OxygenTank1;
     public BoxCollider OxygenTank2;
@@ -20,15 +21,19 @@ public class Storage_Scene : MonoBehaviour
     public BoxCollider ScrewDriver;
     public BoxCollider Tools;
 
+
+ 
+
     public bool Task2 = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
+  
         GameObject control = GameObject.Find("Cockpit_collider");
         control_panel = control.GetComponent<Control_panel>();
-     
+
         deactivate_task2();
 
     }
@@ -45,7 +50,7 @@ public class Storage_Scene : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && Task1 == true)
         {
             Task2 = true;
 
@@ -55,7 +60,7 @@ public class Storage_Scene : MonoBehaviour
 
     public void deactivate_task2()
     {
-
+        Debug.Log("disabled");
         OxygenTank1.enabled = false;
         OxygenTank2.enabled = false;
         OxygenTank3.enabled = false;
@@ -86,7 +91,7 @@ public class Storage_Scene : MonoBehaviour
         FirstAidKit3.enabled = true;
 
         ScrewDriver.enabled = true;
-        Tools.enabled = true;
+        
 
 
         Gun.enabled = true;
