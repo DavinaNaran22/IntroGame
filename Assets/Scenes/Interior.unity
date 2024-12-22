@@ -6411,6 +6411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storage_scene: {fileID: 1846354366}
   control_panel: {fileID: 1599072390}
+  Passcode: {fileID: 1669729655}
   Message3: {fileID: 945245038}
   Message4: {fileID: 2045668583}
   passcode: {fileID: 1669729659}
@@ -18016,8 +18017,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1016037, y: 0.042315636, z: 0.3226822}
-  m_Center: {x: -0.0037154017, y: -0.0012813441, z: 0.15134108}
+  m_Size: {x: 0.17219006, y: 0.04880969, z: 0.98538166}
+  m_Center: {x: 0.008130679, y: 0.0019656764, z: -0.167587}
 --- !u!114 &1669729660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20576,7 +20577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0cf1b2bc2f7746559d35b5de46db916, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 521.307
+      value: 521.221
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0cf1b2bc2f7746559d35b5de46db916, type: 3}
       propertyPath: m_LocalPosition.y

@@ -6,6 +6,7 @@ public class Interior_Manager : MonoBehaviour
 {
     public Storage_Scene storage_scene;
     public Control_panel control_panel;
+    public GameObject Passcode;
     public GameObject Message3;
     public GameObject Message4;
     public BoxCollider passcode;
@@ -49,7 +50,12 @@ public class Interior_Manager : MonoBehaviour
         {
             Message3.SetActive(true);
             passcode.enabled = true;
-            Debug.Log("TASK1 AND 2 COMPLETE");
+            //Debug.Log("TASK1 AND 2 COMPLETE");
+            if (Passcode.activeSelf == false) {
+                Message3.SetActive(false);
+
+            }
+
         }
 
 
