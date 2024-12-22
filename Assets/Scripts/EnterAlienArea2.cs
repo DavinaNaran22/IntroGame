@@ -158,7 +158,7 @@ public class EnterAlienArea2 : MonoBehaviour
         Debug.Log("Activating repair tasks after delay");
         completedRepairText.SetActive(false); 
         boxCollider.isTrigger = true;
-        ShowDialogue("YOU: Hang on, what is that strange drawing on that boulder over there, I should take it with me.");
+        ShowDialogue("YOU: Hang on, what is that strange drawing on that boulder over there? I should take it with me.");
     }
 
     private void EquipClue()
