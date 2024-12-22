@@ -7987,12 +7987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knife: {fileID: 0}
   gun: {fileID: 0}
-  sword: {fileID: 0}
-  alienAlloy: {fileID: 0}
-  thruster: {fileID: 0}
-  thermalConductor: {fileID: 0}
   toolbox: {fileID: 0}
-  shovel: {fileID: 0}
   knifeImage: {fileID: 0}
   gunImage: {fileID: 0}
   swordImage: {fileID: 0}
@@ -8000,14 +7995,12 @@ MonoBehaviour:
   thrusterImage: {fileID: 0}
   thermalConductorImage: {fileID: 0}
   toolboxImage: {fileID: 0}
+  shovelImage: {fileID: 0}
+  metalsDroppedImage: {fileID: 0}
+  woodImage: {fileID: 0}
   medicines: []
-  herbs: []
-  metalsDropped: []
-  wood: []
   medicineText: {fileID: 0}
   herbsText: {fileID: 0}
-  metalsText: {fileID: 0}
-  woodText: {fileID: 0}
 --- !u!1 &6803282228478082394
 GameObject:
   m_ObjectHideFlags: 0

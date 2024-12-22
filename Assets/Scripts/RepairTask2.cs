@@ -24,7 +24,7 @@ public class RepairTask2 : MonoBehaviour
     private PlayerInputActions inputActions;
 
 
-    private List<string> additionalDialogues = new List<string>
+    public List<string> additionalDialogues = new List<string>
     {
         "Next, I have to repair that hole in the ship. What can I use to do that?",
         "Hang on, I could ask somebody. Hopefully that alien over there is nice.",
