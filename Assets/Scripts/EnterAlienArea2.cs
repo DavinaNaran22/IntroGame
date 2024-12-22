@@ -13,6 +13,9 @@ public class EnterAlienArea2 : MonoBehaviour
     public GameObject alienDrop;
     public BoxCollider restrictPlayerCam;
     public TextMeshProUGUI dialogueText;
+    public GameObject completedRepairText;
+    public RepairTask2 repairTask2;
+    //public RepairTask3 repairTask3;
 
     private bool isActive = false; 
     private bool dialogueShown = false;
@@ -25,6 +28,8 @@ public class EnterAlienArea2 : MonoBehaviour
 
     private CharacterController characterController;
     private PlayerInputActions inputActions;
+
+    private bool waitingForEquip = false;
 
 
     public List<string> additionalDialogues = new List<string>
@@ -93,17 +98,49 @@ public class EnterAlienArea2 : MonoBehaviour
 
         dialogueText.gameObject.SetActive(true);
 
+
+        if (alienDrop.activeSelf == true)
+        {
+            Debug.Log("Blocks are visible, restriction disabled");
+            DisableRestriction();
+        }
+
+        if (waitingForEquip && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Blocks equipped");
+            EquipBlocks();
+        }
+    }
+
+    private void DisableRestriction()
+    {
+        isActive = false;
+        Debug.Log("Restriction disabled");
+
         if (alienDrop.activeSelf == true)
         {
             Debug.Log("Block is visible, restriction disabled");
             ShowDialogue("YOU: Now I have metal, I can use this to repair the hole!");
-   
+            waitingForEquip = true;
         }
-        //if (alienDrop.activeSelf == true && !isActive)
-        //{
-        //    Debug.Log("Blocks are visible, restriction disabled");
-        //    DisableRestriction();
-        //}
+    }
+
+    private void EquipBlocks()
+    {
+        Debug.Log("Blocks equipped");
+        alienDrop.SetActive(false);
+        HideDialogue();
+        completedRepairText.SetActive(true); // 5 SECS AFTER, BELOW EXECUTES
+        StartCoroutine(ActivateRepairTasksWithDelay());
+    }
+
+    private IEnumerator ActivateRepairTasksWithDelay()
+    {
+        yield return new WaitForSeconds(5); // Wait for 5 seconds
+        Debug.Log("Activating repair tasks after delay");
+        completedRepairText.SetActive(false); // Hide completedRepairText after delay, if needed
+        repairTask2.gameObject.SetActive(false);
+        //repairTask3.gameObject.SetActive(true);
     }
 
 
@@ -170,7 +207,7 @@ public class EnterAlienArea2 : MonoBehaviour
         dialogueText.text = message;
     }
 
-    private void HideDialogue()
+    public void HideDialogue()
     {
         dialogueText.gameObject.SetActive(false);
     }
@@ -190,6 +227,7 @@ public class EnterAlienArea2 : MonoBehaviour
         additionalDialoguesActive = true;
         currentDialogueIndex = 0;
         ShowDialogue(additionalDialogues[currentDialogueIndex]);
+
     }
 
     // Display the next dialogue in the list

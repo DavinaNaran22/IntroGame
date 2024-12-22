@@ -154,6 +154,7 @@ public class GAlienS2 : FindPlayerTransform
         {
             yield return null;
         }
+        enterAlienArea2.HideDialogue();
 
         // Transition to "GetGun"
         animator.SetTrigger("GetGun");
@@ -218,8 +219,9 @@ public class GAlienS2 : FindPlayerTransform
         dropBlock.SetActive(true); // Make the block visible
         Debug.Log("Drop block is now visible!");
         // Show next scene
-        camRestrict.gameObject.SetActive(false);
-        repairTask3.gameObject.SetActive(true);
+
+        //camRestrict.gameObject.SetActive(false);
+        //repairTask3.gameObject.SetActive(true);
 
     }
 }
