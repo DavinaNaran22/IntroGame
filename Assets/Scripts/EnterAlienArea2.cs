@@ -17,7 +17,7 @@ public class EnterAlienArea2 : MonoBehaviour
     public GameObject completedRepairText;
     public GameObject drawingsCompletedText;
     public RepairTask2 repairTask2;
-    //public RepairTask3 repairTask3;
+    public RepairTask3 repairTask3;
 
     private bool isActive = false; 
     private bool dialogueShown = false;
@@ -26,7 +26,7 @@ public class EnterAlienArea2 : MonoBehaviour
     private int currentDialogueIndex = 0;
     public bool isPlayerNearby = false;
 
-    public Vector3 positionOffset = new Vector3(0, 0, 20);
+    public Vector3 positionOffset = new Vector3(0, 0, 0);
 
     private CharacterController characterController;
     private PlayerInputActions inputActions;
@@ -176,7 +176,7 @@ public class EnterAlienArea2 : MonoBehaviour
         Debug.Log("Activating clue tasks after delay");
         drawingsCompletedText.SetActive(false);
         repairTask2.gameObject.SetActive(false);
-        //repairTask3.gameObject.SetActive(true);
+        repairTask3.gameObject.SetActive(true);
     }
 
 
@@ -258,7 +258,6 @@ public class EnterAlienArea2 : MonoBehaviour
         additionalDialoguesActive = true;
         currentDialogueIndex = 0;
         ShowDialogue(additionalDialogues[currentDialogueIndex]);
-
     }
 
     // Display the next dialogue in the list
@@ -279,11 +278,7 @@ public class EnterAlienArea2 : MonoBehaviour
 
     public bool IsDialogueActive()
     {
-        //return dialogueText.gameObject.activeSelf;
         return additionalDialoguesActive;
     }
-
-
-
 }
 

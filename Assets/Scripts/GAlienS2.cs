@@ -13,7 +13,6 @@ public class GAlienS2 : FindPlayerTransform
     public float reduceHealth = 0.1f;
     public AlienRestrictScene camRestrict;
     public EnterAlienArea2 enterAlienArea2;
-    public RepairTask2 repairTask3;
 
     public GameObject dropBlock;
 
@@ -218,10 +217,5 @@ public class GAlienS2 : FindPlayerTransform
 
         dropBlock.SetActive(true); // Make the block visible
         Debug.Log("Drop block is now visible!");
-        // Show next scene
-
-        //camRestrict.gameObject.SetActive(false);
-        //repairTask3.gameObject.SetActive(true);
-
     }
 }

@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class EnterAlienArea4 : MonoBehaviour
 {
@@ -9,8 +12,13 @@ public class EnterAlienArea4 : MonoBehaviour
     public Transform player;
     public GameObject alienDrop;
     public GameObject alienDrop2;
+    public GameObject clue;
     public BoxCollider restrictPlayerCam;
     public TextMeshProUGUI dialogueText;
+    public GameObject completedRepairText;
+    public GameObject drawingsCompletedText;
+    public RepairTask3 repairTask3;
+    // public RepairTask4 repairTask4;
 
     private bool isActive = false;
     private bool dialogueShown = false;
@@ -24,11 +32,15 @@ public class EnterAlienArea4 : MonoBehaviour
     private CharacterController characterController;
     private PlayerInputActions inputActions;
 
+    private bool waitingForEquipB = false;
+    private bool waitingForEquipC = false;
+    private bool blocksEquipped = false;
+
     public List<string> additionalDialogues = new List<string>
     {
         "ALIEN: I have heard so much about you.",
         "ALIEN: You are the one killing my friends.",
-        "ALIEN: Well, now it’s your turn to die..",
+        "ALIEN: Now it’s your turn to die.",
         "YOU: I don't think so.",
     };
 
@@ -91,8 +103,76 @@ public class EnterAlienArea4 : MonoBehaviour
         {
             Debug.Log("Block is visible, restriction disabled");
             ShowDialogue("YOU: Now I have a thermal conductor, I can repair the temperature conrol system!");
-
         }
+
+        if (waitingForEquipB && Input.GetKeyDown(KeyCode.E)) // NEED TO CHANGE SO BLOCK CAN BE EQUIPPED
+        {
+            Debug.Log("Blocks equipped");
+            EquipBlocks();
+        }
+
+        if (blocksEquipped && waitingForEquipC && Input.GetKeyDown(KeyCode.R)) // NEED TO CHANGE SO CLUE CAN BE EQUIPPED
+        {
+            Debug.Log("Clue equipped");
+            EquipClue();
+        }
+    }
+
+    private void DisableRestriction()
+    {
+        isActive = false;
+        Debug.Log("Restriction disabled");
+
+        if (alienDrop.activeSelf == true)
+        {
+            Debug.Log("Block is visible, restriction disabled");
+            ShowDialogue("YOU: Now I have metal, I can use this to repair the hole!");
+            waitingForEquipB = true;
+        }
+
+        if (clue.activeSelf == true)
+        {
+            waitingForEquipC = true;
+        }
+    }
+
+    private void EquipBlocks()
+    {
+        Debug.Log("Blocks equipped");
+        blocksEquipped = true;
+        alienDrop.SetActive(false);
+        alienDrop2.SetActive(false);
+        HideDialogue();
+        completedRepairText.SetActive(true);
+        StartCoroutine(ActivateRepairTasksWithDelay());
+
+    }
+
+    private IEnumerator ActivateRepairTasksWithDelay()
+    {
+        yield return new WaitForSeconds(3);
+        Debug.Log("Activating repair tasks after delay");
+        completedRepairText.SetActive(false);
+        boxCollider.isTrigger = true;
+        ShowDialogue("YOU: Hang on, what is that strange drawing on that boulder over there? I should take it with me.");
+    }
+
+    private void EquipClue()
+    {
+        Debug.Log("Clue equipped");
+        clue.SetActive(false);
+        HideDialogue();
+        drawingsCompletedText.SetActive(true);
+        StartCoroutine(ActivateClueTasksWithDelay());
+    }
+
+    private IEnumerator ActivateClueTasksWithDelay()
+    {
+        yield return new WaitForSeconds(5);
+        Debug.Log("Activating clue tasks after delay");
+        drawingsCompletedText.SetActive(false);
+        repairTask3.gameObject.SetActive(false);
+        //repairTask4.gameObject.SetActive(true);
     }
 
     // Runs once when player enters alien area
@@ -102,10 +182,8 @@ public class EnterAlienArea4 : MonoBehaviour
         {
             isActive = true;
             isPlayerNearby = true;
-            //StartAdditionalDialogues();
             Debug.Log("Player is now inside the box.");
         }
-
     }
 
     private void OnTriggerExit(Collider other)
@@ -190,7 +268,6 @@ public class EnterAlienArea4 : MonoBehaviour
 
     public bool IsDialogueActive()
     {
-        //return dialogueText.gameObject.activeSelf;
         return additionalDialoguesActive;
     }
 
