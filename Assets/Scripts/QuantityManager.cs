@@ -3,18 +3,19 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-
 public class QuantityManager : MonoBehaviour
 {
     [Header("Single Items")]
     public GameObject knife;
     public GameObject gun;
-    public GameObject sword;
-    public GameObject alienAlloy;
-    public GameObject thruster;
-    public GameObject thermalConductor;
+    private GameObject sword;
+    private GameObject alienAlloy;
+    private GameObject thruster;
+    private GameObject thermalConductor;
     public GameObject toolbox;
-    public GameObject shovel; 
+    private GameObject shovel;
+    private GameObject metalsDropped; // Changed to single item
+    private GameObject wood; // Changed to single item
 
     [Header("Single Item UI Elements")]
     public GameObject knifeImage;
@@ -24,36 +25,23 @@ public class QuantityManager : MonoBehaviour
     public GameObject thrusterImage;
     public GameObject thermalConductorImage;
     public GameObject toolboxImage;
+    public GameObject shovelImage;
+    public GameObject metalsDroppedImage; // Added
+    public GameObject woodImage; // Added
 
     [Header("Collectible Items")]
     public List<GameObject> medicines;
-    public List<GameObject> herbs;
-    public List<GameObject> metalsDropped;
-    public List<GameObject> wood;
-
     [Header("Collectible Item UI Elements")]
     public TextMeshProUGUI medicineText;
     public TextMeshProUGUI herbsText;
-    public TextMeshProUGUI metalsText;
-    public TextMeshProUGUI woodText;
 
     private int medicineCount = 0;
     private int herbsCount = 0;
-    private int metalsCount = 0;
-    private int woodCount = 0;
 
-    private bool wasKnifeActive;
-    private bool wasGunActive;
-    private bool wasSwordActive;
-    private bool wasAlienAlloyActive;
-    private bool wasThrusterActive;
-    private bool wasThermalConductorActive;
-    private bool wasToolboxActive;
 
     private Dictionary<GameObject, bool> medicineStates = new Dictionary<GameObject, bool>();
-    private Dictionary<GameObject, bool> herbsStates = new Dictionary<GameObject, bool>();
-    private Dictionary<GameObject, bool> metalsStates = new Dictionary<GameObject, bool>();
-    private Dictionary<GameObject, bool> woodStates = new Dictionary<GameObject, bool>();
+    private Dictionary<GameObject, bool> herbStates = new Dictionary<GameObject, bool>();
+
 
     private void Start()
     {
@@ -65,90 +53,174 @@ public class QuantityManager : MonoBehaviour
         SetActive(thrusterImage, false);
         SetActive(thermalConductorImage, false);
         SetActive(toolboxImage, false);
-        SetActive(shovel, false);
-
+        SetActive(shovelImage, false);
+        SetActive(metalsDroppedImage, false);
+        SetActive(woodImage, false);
 
         // Initialize collectible item text
         UpdateText(medicineText, "Medicine", medicineCount);
         UpdateText(herbsText, "Herbs", herbsCount);
-        UpdateText(metalsText, "Metal", metalsCount);
-        UpdateText(woodText, "Wood", woodCount);
+    }
 
-        // Store initial states for single items
-        wasKnifeActive = knife != null && knife.activeInHierarchy;
-        wasGunActive = gun != null && gun.activeInHierarchy;
-        wasSwordActive = sword != null && sword.activeInHierarchy;
-        wasAlienAlloyActive = alienAlloy != null && alienAlloy.activeInHierarchy;
-        wasThrusterActive = thruster != null && thruster.activeInHierarchy;
-        wasThermalConductorActive = thermalConductor != null && thermalConductor.activeInHierarchy;
-        wasToolboxActive = toolbox != null && toolbox.activeInHierarchy;
+    private void OnEnable()
+    {
+        // Subscribe to the sceneLoaded event
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
-        // Initialize collectible states
-        InitializeItemStates(medicines, medicineStates);
-        InitializeItemStates(herbs, herbsStates);
-        InitializeItemStates(metalsDropped, metalsStates);
-        InitializeItemStates(wood, woodStates);
+    private void OnDisable()
+    {
+        // Unsubscribe from the sceneLoaded event
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Check if the loaded scene is the "Landscape" scene
+        if (scene.name == "landscape")
+        {
+            Debug.Log($"Scene '{scene.name}' loaded. Checking item states...");
+
+            // Check single items
+            CheckAndActivateUIElement("AlienAlloy", alienAlloyImage);
+            CheckAndActivateUIElement("thruster1", thrusterImage);
+            //CheckAndActivateUIElement("ThermalConductor", thermalConductorImage);
+            CheckAndActivateUIElement("Shovel", shovelImage);
+            CheckAndActivateUIElement("MetalsDropped", metalsDroppedImage);
+            CheckAndActivateUIElement("Wood", woodImage);
+
+            // Find and add all herbs to the list
+            FindAndAddHerbsByTag();
+        }
     }
 
     private void Update()
     {
-        // Handle single items
-        HandleSingleItem(knife, ref wasKnifeActive, knifeImage);
-        HandleSingleItem(gun, ref wasGunActive, gunImage);
-        HandleSingleItem(sword, ref wasSwordActive, swordImage);
-        HandleSingleItem(alienAlloy, ref wasAlienAlloyActive, alienAlloyImage);
-        HandleSingleItem(thruster, ref wasThrusterActive, thrusterImage);
-        HandleSingleItem(thermalConductor, ref wasThermalConductorActive, thermalConductorImage);
-        HandleSingleItem(toolbox, ref wasToolboxActive, toolboxImage);
+        // Handle single items (like the original behavior)
+        HandleSingleItem(knife, knifeImage);
+        HandleSingleItem(gun, gunImage);
+        HandleSingleItem(sword, swordImage);
+        HandleSingleItem(toolbox, toolboxImage);
 
         // Handle collectible items
-        HandleCollectibleItems(medicines, medicineStates, ref medicineCount, medicineText, "Medicine");
-        HandleCollectibleItems(herbs, herbsStates, ref herbsCount, herbsText, "Herbs");
-        HandleCollectibleItems(metalsDropped, metalsStates, ref metalsCount, metalsText, "Metal");
-        HandleCollectibleItems(wood, woodStates, ref woodCount, woodText, "Wood");
+        HandleCollectibleItems(medicines, ref medicineCount, medicineText, "Medicine");
 
+
+        // Handle herb state updates
+        HandleHerbs();
     }
 
-    // Helper to initialize item states
-    private void InitializeItemStates(List<GameObject> items, Dictionary<GameObject, bool> states)
+    private void HandleSingleItem(GameObject item, GameObject image)
     {
-        foreach (GameObject item in items)
-        {
-            if (item != null)
-            {
-                states[item] = item.activeInHierarchy;
-            }
-        }
-    }
-
-    // Handle single items (knife, gun, etc.)
-    private void HandleSingleItem(GameObject item, ref bool wasActive, GameObject image)
-    {
-        if (item != null)
+        if (item != null && image != null)
         {
             bool isActive = item.activeInHierarchy;
-            if (wasActive && !isActive && image != null)
+            if (!isActive)
             {
-                image.SetActive(true);
+                image.SetActive(true); // Show the UI element if the item is inactive
             }
-            wasActive = isActive;
+            else
+            {
+                image.SetActive(false); // Hide the UI element if the item is active
+            }
         }
     }
 
-    // Handle collectible items (medicine, etc.)
-    private void HandleCollectibleItems(List<GameObject> items, Dictionary<GameObject, bool> states, ref int count, TextMeshProUGUI text, string itemName)
+    private void CheckAndActivateUIElement(string itemName, GameObject uiElement)
+    {
+        GameObject item = GameObject.Find(itemName); // Finds GameObject by name in the scene
+        if (item != null)
+        {
+            if (!item.activeInHierarchy)
+            {
+                Debug.Log($"{itemName} is inactive. Activating its UI element.");
+                SetActive(uiElement, true);
+            }
+            else
+            {
+                Debug.Log($"{itemName} is active. UI element remains hidden.");
+            }
+        }
+        else
+        {
+            Debug.LogError($"GameObject '{itemName}' not found in the scene. Please check the scene setup.");
+        }
+    }
+
+    private void FindAndAddHerbsByTag()
+    {
+        // Clear the list to avoid duplicate entries
+        herbStates.Clear();
+
+        // Find all objects tagged as "Herb"
+        GameObject[] herbObjects = GameObject.FindGameObjectsWithTag("Herb");
+        Debug.Log($"Found {herbObjects.Length} objects tagged as 'Herb'.");
+
+        foreach (GameObject herb in herbObjects)
+        {
+            // Add to herbStates if not already tracked
+            if (!herbStates.ContainsKey(herb))
+            {
+                herbStates[herb] = herb.activeInHierarchy;
+                Debug.Log($"Herb added to tracking: {herb.name} (Active: {herb.activeInHierarchy})");
+            }
+        }
+    }
+
+
+    private void HandleHerbs()
+    {
+        // Create a list to track herbs that need to be processed
+        List<GameObject> herbsToProcess = new List<GameObject>();
+
+        // Iterate over the herbStates dictionary
+        foreach (var herb in herbStates.Keys)
+        {
+            if (herb != null && !herb.activeInHierarchy && herbStates[herb])
+            {
+                // Add the herb to the list of herbs to process
+                herbsToProcess.Add(herb);
+            }
+        }
+
+        // Process the herbs outside of the iteration
+        foreach (var herb in herbsToProcess)
+        {
+            // Increment herb count and update UI
+            herbsCount++;
+            UpdateText(herbsText, "Herbs", herbsCount);
+            Debug.Log($"Herb count incremented. Current count: {herbsCount}");
+
+            // Mark herb as processed
+            herbStates[herb] = false;
+        }
+    }
+
+
+
+
+
+    private void HandleCollectibleItems(List<GameObject> items, ref int count, TextMeshProUGUI text, string itemName)
     {
         foreach (GameObject item in items)
         {
             if (item != null)
             {
-                bool isActive = item.activeInHierarchy;
-                if (states[item] && !isActive)
+                // Initialize the item's state in the dictionary if not already present
+                if (!medicineStates.ContainsKey(item))
+                {
+                    medicineStates[item] = item.activeInHierarchy;
+                }
+
+                // Check if the item is inactive and not already processed
+                if (!item.activeInHierarchy && medicineStates[item])
                 {
                     count++;
                     UpdateText(text, itemName, count);
+
+                    // Mark the item as processed
+                    medicineStates[item] = false;
                 }
-                states[item] = isActive;
             }
         }
     }
