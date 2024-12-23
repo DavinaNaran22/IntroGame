@@ -6,6 +6,7 @@ public class Interior_Manager : MonoBehaviour
 {
     public Storage_Scene storage_scene;
     public Control_panel control_panel;
+    public GameObject Passcode;
     public GameObject Message3;
     public GameObject Message4;
     public BoxCollider passcode;
@@ -17,7 +18,7 @@ public class Interior_Manager : MonoBehaviour
     {
         Message3.SetActive(false);
         Message4.SetActive(false);
-        passcode.enabled = false;
+        Passcode.SetActive(false);
         GameObject storage = GameObject.Find("StorageRoom_collider"); 
         storage_scene = storage.GetComponent<Storage_Scene>();
         storage_scene.deactivate_task2();
@@ -48,8 +49,13 @@ public class Interior_Manager : MonoBehaviour
         if (control_panel.task1_completed == true && storage_scene.Task2 == true)
         {
             Message3.SetActive(true);
-            passcode.enabled = true;
-            Debug.Log("TASK1 AND 2 COMPLETE");
+            Passcode.SetActive(true);
+            //Debug.Log("TASK1 AND 2 COMPLETE");
+            if (Passcode.activeSelf == false) {
+                Message3.SetActive(false);
+
+            }
+
         }
 
 
