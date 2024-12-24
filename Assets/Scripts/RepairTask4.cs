@@ -49,7 +49,7 @@ public class RepairTask4 : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("RepairTask3 Start");
+        Debug.Log("RepairTask4 Start");
         player = GameManager.Instance.player;
         StartAdditionalDialogues();
     }
