@@ -23,11 +23,9 @@ public class RepairTask4 : MonoBehaviour
 
     public List<string> additionalDialogues = new List<string>
     {
-        "Onto the next task. How can I repair the temparature control system?",
-        "Maybe I could follow the path with the blue flowers.",
-        "Oh no, there’s an alien over there.",
-        "What if I  use the alien skin to act as a thermal conductor?",
-        "I need to kill this alien for that."
+        "Finally, I’m on the last task.",
+        "I need to find the wing that came off the spaceship.",
+        "It must be around the spaceship.",
     };
 
 
