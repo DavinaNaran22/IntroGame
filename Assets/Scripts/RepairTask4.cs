@@ -24,7 +24,7 @@ public class RepairTask4 : MonoBehaviour
     public List<string> additionalDialogues = new List<string>
     {
         "Finally, I’m on the last task.",
-        "I need to find the wing that came off the spaceship.",
+        "I need to find the wing that came off when we crashed.",
         "It must be around the spaceship.",
     };
 
