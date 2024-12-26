@@ -34,6 +34,12 @@ public class QuantityManager : MonoBehaviour
     public TextMeshProUGUI medicineText;
     public TextMeshProUGUI herbsText;
 
+    // Reference to the Crafting Message Canvas and Text
+    public GameObject craftingMessageCanvas;
+    public TextMeshProUGUI craftingMessageText;
+
+    private float messageDisplayDuration = 2f; // How long to display the message
+
     private int medicineCount = 0;
     private int herbsCount = 0;
 
@@ -55,7 +61,7 @@ public class QuantityManager : MonoBehaviour
         SetActive(shovelImage, false);
         SetActive(metalsDroppedImage, false);
         SetActive(woodImage, false);
-
+        SetActive(craftingMessageCanvas, false);
         // Initialize collectible item text
         UpdateText(medicineText, "Medicine", medicineCount);
         UpdateText(herbsText, "Herbs", herbsCount);
@@ -286,9 +292,103 @@ public class QuantityManager : MonoBehaviour
     // Helper to set active state
     private void SetActive(GameObject obj, bool state)
     {
-        if (obj != null)
+        if (obj != null && obj.activeSelf != state)
         {
             obj.SetActive(state);
+        }
+    }
+
+
+    // Show the crafting message
+    private void ShowCraftingMessage(string message)
+    {
+        if (craftingMessageCanvas != null && craftingMessageText != null)
+        {
+            Debug.Log($"Displaying crafting message: {message}");
+
+            // Safely activate canvas
+            SetActive(craftingMessageCanvas.gameObject, true);
+
+            // Update the crafting message text
+            craftingMessageText.text = message;
+
+            // Cancel any previously scheduled hides to avoid conflict
+            CancelInvoke(nameof(HideCraftingMessage));
+
+            // Schedule the canvas to hide after the specified duration
+            Invoke(nameof(HideCraftingMessage), messageDisplayDuration);
+        }
+        else
+        {
+            Debug.LogError("Crafting message canvas or text is not assigned in the inspector.");
+        }
+    }
+
+
+    // Hide the crafting message
+    private void HideCraftingMessage()
+    {
+        if (craftingMessageCanvas != null)
+        {
+            Debug.Log("Hiding crafting message canvas.");
+
+            // Safely deactivate canvas
+            SetActive(craftingMessageCanvas.gameObject, false);
+        }
+        else
+        {
+            Debug.LogError("Crafting message canvas is not assigned in the inspector.");
+        }
+    }
+
+    public void OnCraftButtonClicked(string item)
+    {
+        switch (item)
+        {
+            case "Medicine":
+                CraftMedicine();
+                break;
+            case "Shovel":
+                CraftShovel();
+                break;
+            // Add cases for other craftable items as needed
+            default:
+                ShowCraftingMessage("Invalid craft item!");
+                break;
+        }
+    }
+
+
+
+    // Example Crafting Method
+    public void CraftMedicine()
+    {
+        if (herbsCount >= 2)
+        {
+            herbsCount -= 2;
+            medicineCount++;
+            UpdateText(medicineText, "Medicine", medicineCount);
+            UpdateText(herbsText, "Herbs", herbsCount);
+            ShowCraftingMessage("Medicine crafted successfully!");
+        }
+        else
+        {
+            ShowCraftingMessage("Not enough herbs to craft medicine!");
+        }
+    }
+
+    public void CraftShovel()
+    {
+        if (metalsDropped != null && woodDropped != null && metalsDropped.activeSelf && woodDropped.activeSelf)
+        {
+            metalsDropped.SetActive(false);
+            woodDropped.SetActive(false);
+            ShowCraftingMessage("Shovel crafted successfully!");
+            SetActive(shovelImage, true); // Add to inventory UI
+        }
+        else
+        {
+            ShowCraftingMessage("Not enough metal or wood to craft a shovel!");
         }
     }
 }
