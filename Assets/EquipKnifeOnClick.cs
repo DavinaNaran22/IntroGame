@@ -92,6 +92,13 @@ public class EquipKnifeOnClick : MonoBehaviour
             knifeCollider.enabled = false;
         }
 
+        // Destroy the PlayerNearText script from the knife clone
+        PlayerNearText playerNearText = equippedKnife.GetComponent<PlayerNearText>();
+        if (playerNearText != null)
+        {
+            Destroy(playerNearText);
+        }
+
         originalPosition = equippedKnife.transform.localPosition;
         isEquipped = true;
 

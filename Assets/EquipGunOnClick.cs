@@ -49,6 +49,14 @@ public class EquipGunOnClick : MonoBehaviour
         equippedGun.transform.localPosition = Vector3.zero;
         equippedGun.transform.localRotation = Quaternion.identity;
 
+        // Destroy the PlayerNearText script from the clone
+        PlayerNearText playerNearText = equippedGun.GetComponent<PlayerNearText>();
+        if (playerNearText != null)
+        {
+            Destroy(playerNearText);
+        }
+
+
         Debug.Log("Gun equipped.");
     }
 
