@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-
 public class QuantityManager : MonoBehaviour
 {
     [Header("Single Items")]
@@ -86,8 +85,12 @@ public class QuantityManager : MonoBehaviour
             CheckAndActivateUIElement("thruster1", thrusterImage);
             //CheckAndActivateUIElement("ThermalConductor", thermalConductorImage);
             CheckAndActivateUIElement("Shovel", shovelImage);
-            CheckAndActivateUIElement("MetalsDropped", metalsDroppedImage);
-            CheckAndActivateUIElement("Wood", woodImage);
+            //CheckAndActivateUIElement("MetalsDropped", metalsDroppedImage);
+            //CheckAndActivateUIElement("Wood", woodImage);
+
+            // Find metalsDropped and woodDropped
+            TrackDroppedItem("RepairTask1Manager", "MetalDropped", metalsDroppedImage);
+            TrackDroppedItem("RepairTask1Manager", "WoodDropped", woodImage);
 
             // Find and add all herbs to the list
             FindAndAddHerbsByTag();
@@ -125,6 +128,52 @@ public class QuantityManager : MonoBehaviour
             }
         }
     }
+
+    private void TrackDroppedItem(string parentName, string childName, GameObject image)
+    {
+        GameObject parentObject = GameObject.Find(parentName); // Find parent
+        if (parentObject != null)
+        {
+            Transform childTransform = parentObject.transform.Find(childName); // Find child by name
+            if (childTransform != null)
+            {
+                GameObject droppedItem = childTransform.gameObject;
+
+                StartCoroutine(WaitForItemStateChange(droppedItem, image));
+            }
+            else
+            {
+                Debug.LogWarning($"Child '{childName}' not found under parent '{parentName}'.");
+            }
+        }
+        else
+        {
+            Debug.LogError($"Parent object '{parentName}' not found in the scene.");
+        }
+    }
+
+    private System.Collections.IEnumerator WaitForItemStateChange(GameObject item, GameObject image)
+    {
+        while (true)
+        {
+            // Wait until the item becomes active
+            yield return new WaitUntil(() => item.activeInHierarchy);
+
+            Debug.Log($"{item.name} is now active.");
+
+            // Wait until the item becomes inactive
+            yield return new WaitUntil(() => !item.activeInHierarchy);
+
+            Debug.Log($"{item.name} is now inactive. Adding to inventory.");
+
+            // Display the item in the inventory UI
+            if (image != null)
+            {
+                image.SetActive(true);
+            }
+        }
+    }
+
 
     private void CheckAndActivateUIElement(string itemName, GameObject uiElement)
     {
