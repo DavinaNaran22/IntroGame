@@ -673,6 +673,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -45
       objectReference: {fileID: 0}
+    - target: {fileID: 874823158192569786, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 874823158192569786, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d7d01e13d6352d45a2351e0856138d9, type: 3}
+    - target: {fileID: 1048187190484474522, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d7d01e13d6352d45a2351e0856138d9, type: 3}
     - target: {fileID: 1439014152131987607, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -773,6 +785,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 7adbf97b6a9ef2545ade1defcb3d1bb5, type: 3}
+    - target: {fileID: 2692871332852416626, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d7d01e13d6352d45a2351e0856138d9, type: 3}
     - target: {fileID: 2701486185308818263, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -964,6 +980,14 @@ PrefabInstance:
     - target: {fileID: 3017953138082477181, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_SizeDelta.y
       value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3034785383452999117, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d7d01e13d6352d45a2351e0856138d9, type: 3}
+    - target: {fileID: 3034785383452999117, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3186682434035401045, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6654,7 +6678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &620499742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19146,7 +19170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1846354366
 MonoBehaviour:
   m_ObjectHideFlags: 0
