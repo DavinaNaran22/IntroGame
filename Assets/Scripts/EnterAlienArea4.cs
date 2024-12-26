@@ -18,7 +18,7 @@ public class EnterAlienArea4 : MonoBehaviour
     public GameObject completedRepairText;
     public GameObject drawingsCompletedText;
     public RepairTask3 repairTask3;
-    // public RepairTask4 repairTask4;
+    public RepairTask4 repairTask4;
 
     private bool isActive = false;
     private bool dialogueShown = false;
@@ -172,7 +172,7 @@ public class EnterAlienArea4 : MonoBehaviour
         Debug.Log("Activating clue tasks after delay");
         drawingsCompletedText.SetActive(false);
         repairTask3.gameObject.SetActive(false);
-        //repairTask4.gameObject.SetActive(true);
+        repairTask4.gameObject.SetActive(true);
     }
 
     // Runs once when player enters alien area

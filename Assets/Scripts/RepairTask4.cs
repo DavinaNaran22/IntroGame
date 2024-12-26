@@ -11,6 +11,7 @@ public class RepairTask4 : MonoBehaviour
 {
     public GameObject player;
     public TextMeshProUGUI dialogueText;
+    public GameObject wingDupe;
 
 
     private bool dialogueShown = false;
@@ -50,14 +51,11 @@ public class RepairTask4 : MonoBehaviour
     private void Start()
     {
         Debug.Log("RepairTask4 Start");
+        wingDupe.SetActive(false);
         player = GameManager.Instance.player;
         StartAdditionalDialogues();
     }
 
-    private void Update()
-    {
-
-    }
 
     private void DismissDialogue()
     {
