@@ -50904,7 +50904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2141019672}
   m_Layer: 0
-  m_Name: Spikes (4)
+  m_Name: GroundSpikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
