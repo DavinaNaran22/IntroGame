@@ -14,8 +14,8 @@ public class QuantityManager : MonoBehaviour
     private GameObject thermalConductor;
     public GameObject toolbox;
     private GameObject shovel;
-    private GameObject metalsDropped; // Changed to single item
-    private GameObject wood; // Changed to single item
+    public GameObject metalsDropped; // Changed to single item
+    public GameObject woodDropped; // Changed to single item
 
     [Header("Single Item UI Elements")]
     public GameObject knifeImage;

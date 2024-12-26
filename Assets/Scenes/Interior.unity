@@ -9735,6 +9735,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8018704654953775332, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &889858156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3209838182100755651, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &889858158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889858156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bac0d1f4b634534b81afc7d684a2c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OxygenTank: {fileID: 2002893944}
+  OxygenBar: {fileID: 2063951798}
 --- !u!1001 &898348826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10860,6 +10879,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6144732338022154820, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1782392757}
+    - targetCorrespondingSourceObject: {fileID: 3209838182100755651, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 889858158}
     - targetCorrespondingSourceObject: {fileID: 170521126036016332, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2002893947}
@@ -21360,6 +21382,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2063951798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2283844870568345024, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+  m_PrefabInstance: {fileID: 51700331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2066790394 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7609704740855268050, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}

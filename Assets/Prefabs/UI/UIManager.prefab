@@ -8334,6 +8334,8 @@ MonoBehaviour:
   knife: {fileID: 0}
   gun: {fileID: 0}
   toolbox: {fileID: 0}
+  metalsDropped: {fileID: 0}
+  woodDropped: {fileID: 0}
   knifeImage: {fileID: 0}
   gunImage: {fileID: 0}
   swordImage: {fileID: 0}
