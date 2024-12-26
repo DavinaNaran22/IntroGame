@@ -58,7 +58,7 @@ public class RayGun : MonoBehaviour
         {
             GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
             laser.GetComponent<ShotBehavior>().setTarget(hit.point);
-            GameObject.Destroy(laser, 2f);
+            GameObject.Destroy(laser, 0.3f);
 
             if (hit.collider.CompareTag("Alien"))
             {
