@@ -30,8 +30,7 @@ public class RepairTask3 : MonoBehaviour
         "Maybe I could follow the path with the blue flowers.",
         "Oh no, there’s an alien over there.",
         "What if I use the alien skin to act as a thermal conductor?",
-        "I need to kill this alien for that.",
-        "I should use my knife to kill it and save my gun for any other aliens later."
+        "I need to kill this alien for that."
     };
 
 
