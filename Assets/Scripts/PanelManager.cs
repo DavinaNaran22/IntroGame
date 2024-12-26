@@ -29,11 +29,11 @@ public class TaskManager : MonoBehaviour
             case 0:
                 // Conditions for Task 0
                 //Example to test when alien1 is defeated.
-                if (!aliens[0].activeSelf)
-                {
-                    return true;
-                }
-                break;
+                //if (!aliens[0].activeSelf)
+                //{
+                //    return true;
+                //}
+                //break;
 
             case 1:
                 if (Input.GetKeyDown(KeyCode.Space))
