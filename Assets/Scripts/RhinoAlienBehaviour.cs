@@ -20,6 +20,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
     private bool playerNearby = false;
     private bool isDead = false; // Flag to check if the alien is dead
     private bool isHit = false;
+    private bool isInvulnerable = true; // Checks if alien is in fight mode before player can kill it
 
     private void Update()
     {
@@ -90,7 +91,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
 
     public void TakeDamage()
     {
-        if (isHit) return; // Prevent multiple hits
+        if (isHit || isInvulnerable) return; // Prevent multiple hits
         isHit = true;
 
         // Reduce health bar
@@ -128,6 +129,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
 
 
         Debug.Log("Triggering Idle");
+        isInvulnerable = true;
         // Idle animation for 10 seconds
         animator.SetTrigger("Idle");
         yield return new WaitForSeconds(0);
@@ -158,6 +160,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         // Continue with remaining states in sequence
         animator.SetTrigger("Attack3");
         yield return new WaitForSeconds(6f);
+        isInvulnerable = false;
         while (playerEquipment != null && !playerEquipment.IsWeaponEquipped())
         {
             yield return null;
@@ -206,7 +209,5 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         caveCamRestrict.gameObject.SetActive(false);
     }
 
-
-
-
 }
+

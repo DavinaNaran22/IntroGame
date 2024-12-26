@@ -21,8 +21,9 @@ public class GAlienS2 : FindPlayerTransform
     private float m_shootRateTimeStamp;
 
     private bool playerNearby = false;
-    private bool isDead = false; // Flag to check if the alien is dead
+    private bool isDead = false;
     private bool isHit = false;
+    private bool isInvulnerable = true; // Checks if alien is in fight mode before player can kill it
 
     private void Start()
     {
@@ -108,7 +109,7 @@ public class GAlienS2 : FindPlayerTransform
 
     public void TakeDamage()
     {
-        if (isHit) return; // Prevent multiple hits
+        if (isHit || isInvulnerable) return; // Prevent multiple hits
         isHit = true;
 
         // Reduce health bar
@@ -144,6 +145,7 @@ public class GAlienS2 : FindPlayerTransform
 
         Debug.Log("Triggering Flight");
 
+        isInvulnerable = true;
         // Flight animation for 0 seconds
         animator.SetTrigger("Flight");
         yield return new WaitForSeconds(0);
@@ -167,6 +169,7 @@ public class GAlienS2 : FindPlayerTransform
         // Transition to "Shot" after 10 seconds
         animator.SetTrigger("Shot");
         yield return new WaitForSeconds(2f);
+        isInvulnerable = false;
 
         // Continue with remaining states in sequence
         animator.SetTrigger("IdleWithGun");
@@ -219,3 +222,4 @@ public class GAlienS2 : FindPlayerTransform
         Debug.Log("Drop block is now visible!");
     }
 }
+
