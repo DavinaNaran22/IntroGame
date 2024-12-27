@@ -18,8 +18,6 @@ public class ColourDropdown : Dropdown
     [SerializeField] Color green = new Color(48f, 215f, 0f, 1f);
     [SerializeField] Color yellow = new Color(255f, 193f, 7f, 255f); // FFC107
 
-    //public override TMP_Dropdown dropdown { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-
     void Start()
     {
         mode = ColourMode.NoColourBlindness;
