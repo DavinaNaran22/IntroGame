@@ -14,6 +14,13 @@ public enum ColourMode
     Tritanopia
 }
 
+public enum Difficulty
+{
+    Easy,
+    Medium,
+    Hard
+}
+
 [Serializable]
 class PlayerData
 {
@@ -23,6 +30,7 @@ class PlayerData
     public bool playFirstCutscene;
     public ColourMode colorMode;
     public string currentScene;
+    public Difficulty difficulty;
 }
 
 public class GameManager : Singleton<GameManager>
@@ -40,6 +48,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject cameraCanvas;
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;
+    public Difficulty Difficulty = Difficulty.Medium;
 
     private void Start()
     {
@@ -72,6 +81,7 @@ public class GameManager : Singleton<GameManager>
         data.health = playerHealth;
         data.colorMode = colourMode;
         data.currentScene = CurrentScene;
+        data.difficulty = Difficulty;
 
         bf.Serialize(file, data);
         file.Close();
@@ -94,6 +104,7 @@ public class GameManager : Singleton<GameManager>
             playerHealth = data.health;
             colourMode = data.colorMode;
             CurrentScene = data.currentScene;
+            Difficulty = data.difficulty;
             Debug.Log("Loaded Player data");
         }
         else
