@@ -43,9 +43,10 @@ public class QuantityManager : MonoBehaviour
     private int medicineCount = 0;
     private int herbsCount = 0;
 
-
     private Dictionary<GameObject, bool> medicineStates = new Dictionary<GameObject, bool>();
     private Dictionary<GameObject, bool> herbStates = new Dictionary<GameObject, bool>();
+
+    [SerializeField] PlayerHealth healthScript;
 
 
     private void Start()
@@ -389,6 +390,17 @@ public class QuantityManager : MonoBehaviour
         else
         {
             ShowCraftingMessage("Not enough metal or wood to craft a shovel!");
+        }
+    }
+
+    // Use medicine item if player has it
+    public void UseMedicine()
+    {
+        if (medicineCount > 0)
+        {
+            healthScript.Heal();
+            medicineCount--;
+            UpdateText(medicineText, "Medicine", medicineCount);
         }
     }
 }
