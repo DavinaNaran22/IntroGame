@@ -8,7 +8,7 @@ public enum DifficultyLevel
 public class Difficulty
 {
     // Want to be able to access these values in PlayerHealth but only change them here
-    public float initialOxygen { get; private set; }
+    public float oxygenTime { get; private set; } // Time oxygen lasts in hours
     public float alienDamage { get; private set; }
     public float herbIncrease { get; private set; }
     public DifficultyLevel level { get; private set; }
@@ -24,13 +24,16 @@ public class Difficulty
         switch (level)
         {
             case DifficultyLevel.Easy:
+                oxygenTime = 2;
                 alienDamage = 0.2f;
                 break;
             case DifficultyLevel.Medium:
+                oxygenTime = 1.5f;
                 alienDamage = 0.3f;
                 herbIncrease = 0.1f;
                 break;
             case DifficultyLevel.Hard:
+                oxygenTime = 1f;
                 alienDamage = 0.4f;
                 herbIncrease = 0.05f;
                 break;
