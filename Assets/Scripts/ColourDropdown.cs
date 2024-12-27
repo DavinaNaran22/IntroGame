@@ -24,7 +24,6 @@ public class ColourDropdown : Dropdown
     {
         mode = ColourMode.NoColourBlindness;
         NoColourBlindness();
-        print("In dropdown start");
         AddDropdownDelegate();
     }
 

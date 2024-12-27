@@ -1,7 +1,8 @@
 using System;
 using TMPro;
+using UnityEngine;
 
-public abstract class Dropdown : Singleton<Dropdown>, IDropdown
+public abstract class Dropdown : MonoBehaviour
 {
     public TMP_Dropdown dropdown;
 
