@@ -14,13 +14,6 @@ public enum ColourMode
     Tritanopia
 }
 
-public enum Difficulty
-{
-    Easy,
-    Medium,
-    Hard
-}
-
 [Serializable]
 class PlayerData
 {
@@ -48,7 +41,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject cameraCanvas;
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;
-    public Difficulty Difficulty = Difficulty.Medium;
+    public Difficulty Difficulty = new Difficulty(DifficultyLevel.Medium);
 
     private void Start()
     {
