@@ -9092,6 +9092,7 @@ MonoBehaviour:
   herbsText: {fileID: 0}
   craftingMessageCanvas: {fileID: 0}
   craftingMessageText: {fileID: 0}
+  healthScript: {fileID: 0}
 --- !u!1 &6803282228478082394
 GameObject:
   m_ObjectHideFlags: 0
