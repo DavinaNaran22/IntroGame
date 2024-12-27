@@ -11,8 +11,8 @@ public class OxygenDisplay : MonoBehaviour
 
     void Start()
     {
-        maxOxygen = HoursToSeconds(GameManager.Instance.Difficulty.oxygenTime);
-        currentOxygenTime = maxOxygen; // Initialize with full oxygen time (2 hours)
+        maxOxygen = HoursToSeconds(2); // Initialize with full oxygen time (2 hours)
+        currentOxygenTime = HoursToSeconds(GameManager.Instance.Difficulty.oxygenTime); // Set correct oxygen time
         if (SceneManager.GetActiveScene().name == "landscape")
         {
             UpdateOxygenBar();
