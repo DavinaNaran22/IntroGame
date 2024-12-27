@@ -6417,6 +6417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5125736401892955024, guid: 9aac9b4affdf92e4d8dda0eabc705ba3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7531,9 +7535,9 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Medium
-      m_Image: {fileID: 0}
     - m_Text: Easy
+      m_Image: {fileID: 0}
+    - m_Text: Medium
       m_Image: {fileID: 0}
     - m_Text: Hard
       m_Image: {fileID: 0}

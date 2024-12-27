@@ -26,11 +26,6 @@ public class Difficulty
     public void SetDifficulty(DifficultyLevel level)
     {
         this.level = level;
-        if (GameManager.Instance)
-        {
-            GameManager.Instance.Difficulty = this;
-            Debug.Log("New game manager difficulty " + GameManager.Instance.Difficulty.level);
-        }
         switch (level)
         {
             case DifficultyLevel.Easy:
