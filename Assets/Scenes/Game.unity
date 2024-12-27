@@ -1550,7 +1550,7 @@ GameObject:
   - component: {fileID: 1456151115}
   - component: {fileID: 1456151116}
   m_Layer: 0
-  m_Name: lwires
+  m_Name: wires
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
