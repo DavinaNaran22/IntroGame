@@ -88,8 +88,9 @@ public class GreenAlienBehavior : FindPlayerTransform
         //PlayerHealth playerHealth = GameManager.Instance.UIManager.GetComponentInChildren<PlayerHealth>();
         if (playerHealth != null)
         {
-            playerHealth.TakeDamage(0.02f); // Adjust damage percentage as needed
+            playerHealth.TakeDamage(GameManager.Instance.Difficulty.alienDamage); // Damage dealt according to difficulty level
             Debug.Log("Alien shot the player! Dealing damage.");
+            Debug.Log("Alien dealing damage " + GameManager.Instance.Difficulty.alienDamage + GameManager.Instance.Difficulty.level);
         }
 
         // Destroy laser after a set time (e.g., 2 seconds)
