@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 
 public class PlayerHealth : MonoBehaviour
@@ -19,8 +20,6 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Health Bar is at " + currentHealth * 100 + "%");
         UpdateHealthBar();
     }
-
-    
 
     // method to reduce health by a percentage (e.g., 0.05 = 5%)
     public void TakeDamage(float damagePercent)
@@ -70,8 +69,6 @@ public class PlayerHealth : MonoBehaviour
         isRegenerating = false; // Allow future regeneration if health goes critical again
     }
 
-
-
     void UpdateHealthBar()
     {
         healthBarImage.fillAmount = currentHealth;
@@ -91,7 +88,6 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-
     // called when player dies and returns to tile A.
     public void RestartScene()
     {
@@ -102,4 +98,11 @@ public class PlayerHealth : MonoBehaviour
         SceneManager.LoadScene("landscape");
     }
 
+    public void Heal()
+    {
+        Debug.Log("Health before healing " + currentHealth);
+        currentHealth = Math.Clamp(currentHealth + GameManager.Instance.Difficulty.medicineIncrease, 0f, maxHealth);
+        GameManager.Instance.playerHealth = currentHealth;
+        Debug.Log("Health after healing " + currentHealth);
+    }
 }

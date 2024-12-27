@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
+  m_IndirectSpecularColor: {r: 0.0020619242, g: 0.0019479868, b: 0.0021169633, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2038,6 +2038,7 @@ MonoBehaviour:
   subtitleBox: {fileID: 1383739019}
   HUD: {fileID: 1089804553}
   HealthBar: {fileID: 51700335}
+  OxygenBar: {fileID: 2063951798}
 --- !u!1 &57307819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2034179033855149247, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}

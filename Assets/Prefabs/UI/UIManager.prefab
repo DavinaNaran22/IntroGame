@@ -5659,6 +5659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OxygenBarImage: {fileID: 1048187190484474522}
   health: {fileID: 5018313501123420764}
+  maxOxygen: 0
 --- !u!1 &4483204020632583283
 GameObject:
   m_ObjectHideFlags: 0
