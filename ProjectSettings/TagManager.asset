@@ -26,6 +26,7 @@ TagManager:
   - RockWall
   - Herb
   - DifficultyDropdown
+  - VolumeSlider
   layers:
   - Default
   - TransparentFX

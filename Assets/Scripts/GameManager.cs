@@ -4,6 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 // This could be moved to another class which changes material colours etc.
 public enum ColourMode
@@ -48,8 +49,12 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        // The following are values chagned by pause menu
+        // If player edits default values at start
+        // Then the values have to be updated like this
         colourMode = GameObject.FindWithTag("ColourMode").GetComponent<ColourDropdown>().mode;
         Difficulty = GameObject.Find("DifficultyLevel").GetComponent<DifficultyDropdown>().difficulty;
+        GameObject.Find("VolumeSlider").GetComponent<VolumeSlider>().AudioMixer.GetFloat("volume", out Volume);
     }
 
     private void Update()
