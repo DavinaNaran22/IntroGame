@@ -9146,16 +9146,17 @@ MonoBehaviour:
   toolbox: {fileID: 0}
   metalsDropped: {fileID: 0}
   woodDropped: {fileID: 0}
+  stone: {fileID: 0}
   knifeImage: {fileID: 0}
   gunImage: {fileID: 0}
   swordImage: {fileID: 0}
   alienAlloyImage: {fileID: 0}
-  thrusterImage: {fileID: 0}
   thermalConductorImage: {fileID: 0}
   toolboxImage: {fileID: 0}
   shovelImage: {fileID: 0}
   metalsDroppedImage: {fileID: 0}
   woodImage: {fileID: 0}
+  stoneImage: {fileID: 0}
   medicines: []
   medicineText: {fileID: 0}
   herbsText: {fileID: 0}
