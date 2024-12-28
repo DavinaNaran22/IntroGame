@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.002063206, g: 0.0019480612, b: 0.0021180937, a: 1}
+  m_IndirectSpecularColor: {r: 0.0020619242, g: 0.0019479868, b: 0.0021169633, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7406,7 +7406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c870bfa7eecffd47a6ff9a9de2da7ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunPrefab: {fileID: 1858508952}
   playerHand: {fileID: 677467755}
   equipGunButton: {fileID: 929672215}
   equipKnifeScript: {fileID: 644578571}
@@ -14968,6 +14967,7 @@ MonoBehaviour:
   cameraCanvas: {fileID: 1254959161}
   cameraManagement: {fileID: 1254959163}
   cameraMsg: {fileID: 1664890787}
+  gunPrefab: {fileID: 2192913056035240304, guid: 8be11147094a8fd4d89dfb4fe6fbb6ec, type: 3}
 --- !u!4 &1352790603
 Transform:
   m_ObjectHideFlags: 0

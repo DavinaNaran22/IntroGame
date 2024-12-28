@@ -32,6 +32,11 @@ public class RayGun : MonoBehaviour
         inputActions.Player.Disable();
     }
 
+    private void Start()
+    {
+        equipGunOnClick = GameObject.Find("InventoryManager").GetComponent<EquipGunOnClick>();
+    }
+
 
     void Update()
     {

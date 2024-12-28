@@ -41,6 +41,8 @@ public class GameManager : Singleton<GameManager>
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;
 
+    [Header("Inventory Prefabs")]
+    public GameObject gunPrefab;
     private void Start()
     {
         colourMode = GameObject.FindWithTag("ColourMode").GetComponent<ColourDropdown>().mode;
