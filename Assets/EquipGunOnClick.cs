@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class EquipGunOnClick : MonoBehaviour
 {
-    public GameObject gunPrefab; // Gun prefab to instantiate
+    private GameObject gunPrefab; // Gun prefab to instantiate
     public Transform playerHand; // Transform of the player's hand
     public Button equipGunButton;
 
@@ -14,6 +14,7 @@ public class EquipGunOnClick : MonoBehaviour
 
     void Start()
     {
+        gunPrefab = GameManager.Instance.gunPrefab;
         if (equipGunButton != null)
         {
             equipGunButton.onClick.AddListener(ToggleGun);

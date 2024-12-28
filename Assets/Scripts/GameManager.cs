@@ -49,6 +49,8 @@ public class GameManager : Singleton<GameManager>
     public float Volume;
     public float MouseSens;
 
+    [Header("Inventory Prefabs")]
+    public GameObject gunPrefab;
     private void Start()
     {
         // The following are values chagned by pause menu
