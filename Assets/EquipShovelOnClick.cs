@@ -88,6 +88,26 @@ public class EquipShovelOnClick : MonoBehaviour
             return;
         }
 
+        // Destroy children of gunParent and knifeParent
+        Transform gunParent = GameObject.Find("GunParent")?.transform; // Replace with the actual name of the GunParent object in your scene
+        Transform knifeParent = GameObject.Find("KnifeParent")?.transform; // Replace with the actual name of the KnifeParent object in your scene
+
+        if (gunParent != null)
+        {
+            foreach (Transform child in gunParent)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        if (knifeParent != null)
+        {
+            foreach (Transform child in knifeParent)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
         // Instantiate and attach the shovel prefab to the placement transform
         equippedShovel = Instantiate(shovelPrefab, shovelPlacement);
         equippedShovel.SetActive(true);
@@ -108,8 +128,8 @@ public class EquipShovelOnClick : MonoBehaviour
         Debug.Log("Shovel equipped.");
 
         isShovelDeactivated = false; // Reset the flag for new interactions
-
     }
+
 
     private void AddThrusterComponents()
     {
