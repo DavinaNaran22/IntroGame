@@ -17,7 +17,7 @@ public class wing_attached : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Message1.enabled = false;
+        //Message1.enabled = false;
     }
 
     // Update is called once per frame
