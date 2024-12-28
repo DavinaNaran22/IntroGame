@@ -1,37 +1,30 @@
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class VolumeSlider : Singleton<VolumeSlider>
+public class VolumeSlider : UISlider
 {
-    [SerializeField] Slider audioSlider;
     public AudioMixer AudioMixer;
+
+    public override void AddDelegate()
+    {
+        slider.onValueChanged.AddListener(delegate { OnValueChanged(); });
+
+    }
 
     private void Start()
     {
-        audioSlider.onValueChanged.AddListener(delegate { OnValueChanged(); });
+        AddDelegate();
     }
 
     private void Update()
     {
-        // Slider loses ref when going from main -> scene -> main
-        if (audioSlider == null && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main"))
-        {
-            GameObject sliderGO = GameObject.FindWithTag("VolumeSlider");
-            if (sliderGO != null) {
-                audioSlider = sliderGO.GetComponent<Slider>();
-                Debug.Log("AS Vol " + audioSlider.value + GameManager.Instance.Volume);
-                // Ensure slider UI displays same value as GameManager's Volume
-                audioSlider.value = GameManager.Instance.Volume;
-                audioSlider.onValueChanged.AddListener(delegate { OnValueChanged(); });
-            }
-        }
+        UpdateRefs(slider, GameManager.Instance.Volume, "VolumeSlider");
     }
 
-    private void OnValueChanged()
+    public override void OnValueChanged()
     {
-        AudioMixer.SetFloat("volume", audioSlider.value);
-        if (GameManager.Instance) GameManager.Instance.Volume = audioSlider.value;
+        AudioMixer.SetFloat("volume", slider.value);
+        if (GameManager.Instance) GameManager.Instance.Volume = slider.value;
     }
 }
