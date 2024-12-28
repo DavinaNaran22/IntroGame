@@ -44,6 +44,7 @@ public class EquipGunOnClick : MonoBehaviour
             equipKnifeScript.UnequipKnife();
         }
 
+        // Instantiate and equip the gun
         equippedGun = Instantiate(gunPrefab, playerHand);
         equippedGun.SetActive(true);
         equippedGun.transform.localPosition = Vector3.zero;
@@ -56,9 +57,17 @@ public class EquipGunOnClick : MonoBehaviour
             Destroy(playerNearText);
         }
 
+        // Destroy the EquipObject script from the clone
+        EquipObject equipObject = equippedGun.GetComponent<EquipObject>();
+        if (equipObject != null)
+        {
+            Destroy(equipObject);
+            Debug.Log("Removed EquipObject script from the equipped gun.");
+        }
 
         Debug.Log("Gun equipped.");
     }
+
 
     public void UnequipGun()
     {
