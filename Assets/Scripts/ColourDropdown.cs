@@ -1,10 +1,12 @@
 using TMPro;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ColourDropdown : Dropdown
+public class ColourDropdown : Singleton<ColourDropdown>
 {
     public ColourMode mode;
+    [SerializeField] TMP_Dropdown dropdown;
     // Drag prefabs to these
     [SerializeField] Image HealthBar;
     [SerializeField] Image EnemyMinimapIcon;
@@ -22,7 +24,11 @@ public class ColourDropdown : Dropdown
     {
         mode = ColourMode.NoColourBlindness;
         NoColourBlindness();
-        AddDropdownDelegate();
+        print("In dropdown start");
+        dropdown.onValueChanged.AddListener(delegate
+        {
+            DropdownValueChanged(dropdown);
+        });
     }
 
     // Set colours back to original red
@@ -87,7 +93,7 @@ public class ColourDropdown : Dropdown
     }
 
     // Use dropdown value to select the correct colour mode
-    public override void DropdownValueChanged(TMP_Dropdown dropdown)
+    void DropdownValueChanged(TMP_Dropdown dropdown)
     {
         switch (dropdown.value)
         {
@@ -118,9 +124,26 @@ public class ColourDropdown : Dropdown
 
     private void Update()
     {
-        if (GameManager.Instance)
+        
+        // After player presses play, ref to original colour dropdown is gone
+        // Have to update to reference new one
+        // And the new one needs to have the event listener added to it for mode switch to work
+        // TODO This can be removed if it's possible for GameManager to be in Main scene
+        if (dropdown == null && GameManager.Instance.colourDropdown != null)
         {
-            UpdateDropdownRefs(GameManager.Instance.colourDropdown, GameManager.Instance.colourMode);
+            dropdown = GameManager.Instance.colourDropdown;
+            dropdown.onValueChanged.AddListener(delegate
+            {
+                DropdownValueChanged(dropdown);
+            });
+        }
+
+        // Selected dropdown value will default to Normal whenever it switches to main menu scene
+        // Need the selected value to match the currently selected option
+        // Check that everything's been assigned and that there's a mismatch between the values
+        if (GameManager.Instance != null && dropdown != null && dropdown.value != (int) GameManager.Instance.colourMode)
+        {
+            dropdown.value = (int)GameManager.Instance.colourMode;
         }
     }
 }
