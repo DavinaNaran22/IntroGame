@@ -43,6 +43,7 @@ public class GameManager : Singleton<GameManager>
 
     [Header("Inventory Prefabs")]
     public GameObject gunPrefab;
+    public GameObject knifePrefab;
     private void Start()
     {
         colourMode = GameObject.FindWithTag("ColourMode").GetComponent<ColourDropdown>().mode;
