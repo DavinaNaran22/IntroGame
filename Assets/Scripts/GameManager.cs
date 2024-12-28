@@ -23,7 +23,6 @@ class PlayerData
     public bool playFirstCutscene;
     public ColourMode colorMode;
     public string currentScene;
-    public Difficulty difficulty;
 }
 
 public class GameManager : Singleton<GameManager>
@@ -35,19 +34,16 @@ public class GameManager : Singleton<GameManager>
     public float playerHealth;
     public ColourMode colourMode;
     public TMP_Dropdown colourDropdown;
-    public TMP_Dropdown difficultyDropdown;
     public string CurrentScene;
     public double CutsceneTime = 0;
     public GameObject UIManager;
     public GameObject cameraCanvas;
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;
-    public Difficulty Difficulty;
 
     private void Start()
     {
         colourMode = GameObject.FindWithTag("ColourMode").GetComponent<ColourDropdown>().mode;
-        Difficulty = GameObject.Find("DifficultyLevel").GetComponent<DifficultyDropdown>().difficulty;
     }
 
     private void Update()
@@ -58,14 +54,6 @@ public class GameManager : Singleton<GameManager>
             if (gameObject != null)
             {
                 colourDropdown = gameObject.GetComponent<TMP_Dropdown>();
-            }
-        }
-        if (difficultyDropdown == null)
-        {
-            GameObject gameObject = GameObject.FindWithTag("DifficultyDropdown");
-            if (gameObject != null)
-            {
-                difficultyDropdown = gameObject.GetComponent<TMP_Dropdown>();
             }
         }
     }
@@ -84,7 +72,6 @@ public class GameManager : Singleton<GameManager>
         data.health = playerHealth;
         data.colorMode = colourMode;
         data.currentScene = CurrentScene;
-        data.difficulty = Difficulty;
 
         bf.Serialize(file, data);
         file.Close();
@@ -107,7 +94,6 @@ public class GameManager : Singleton<GameManager>
             playerHealth = data.health;
             colourMode = data.colorMode;
             CurrentScene = data.currentScene;
-            Difficulty = data.difficulty;
             Debug.Log("Loaded Player data");
         }
         else
