@@ -25,6 +25,8 @@ TagManager:
   - Sword
   - RockWall
   - Herb
+  - wire_end
+  - thruster
   layers:
   - Default
   - TransparentFX
