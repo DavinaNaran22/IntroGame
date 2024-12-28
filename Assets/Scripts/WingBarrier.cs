@@ -50,6 +50,7 @@ public class WingBarrier : MonoBehaviour
     // Dialogues and prompts are hidden at the start
     private void Start()
     {
+       
         player = GameManager.Instance.player;
 
         if (dialogueText != null)
@@ -60,7 +61,15 @@ public class WingBarrier : MonoBehaviour
 
     private void Update()
     {
+        if (wing_attached.WingTask == true)
+        {
 
+            restrictedArea.enabled = false;
+        }
+        else {
+
+            restrictedArea.enabled = true;
+        }
     }
 
     // Check if the player is within the restricted area
