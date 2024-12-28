@@ -52,7 +52,7 @@ public class Storage_Scene : MonoBehaviour
 
             Tools.enabled = true;
             Tools_collected = true;
-            wing_attached.Message1.enabled = false;
+           
         }
     }
 
