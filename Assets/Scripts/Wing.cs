@@ -8,6 +8,7 @@ public class Wing : MonoBehaviour
     public float z;
     public Plane new_plane;
     public Vector3 pos_offset;
+    public GameObject Cube;
 
     private void Update()
     {
@@ -45,6 +46,19 @@ public class Wing : MonoBehaviour
         Drag = false;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("CCC");
+        if (collision.gameObject == Cube)
+        {
+            Debug.Log("COLLISION ");
+        
+            Cube.SetActive(false);
+        }
+
+
+
+    }
 
 
 
