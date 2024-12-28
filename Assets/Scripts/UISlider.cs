@@ -16,7 +16,6 @@ public abstract class UISlider : MonoBehaviour, ISlider
         if (slider == null && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main"))
         {
             GameObject sliderGO = GameObject.FindWithTag(tagToFind);
-            Debug.Log("Slider" + sliderGO);
             if (sliderGO != null)
             {
                 Debug.Log(sliderGO.GetComponent<Slider>());
