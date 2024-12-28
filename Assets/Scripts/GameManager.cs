@@ -24,6 +24,7 @@ class PlayerData
     public ColourMode colorMode;
     public string currentScene;
     public Difficulty difficulty;
+    public float volume;
 }
 
 public class GameManager : Singleton<GameManager>
@@ -43,6 +44,7 @@ public class GameManager : Singleton<GameManager>
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;
     public Difficulty Difficulty;
+    public float Volume;
 
     private void Start()
     {
@@ -85,6 +87,7 @@ public class GameManager : Singleton<GameManager>
         data.colorMode = colourMode;
         data.currentScene = CurrentScene;
         data.difficulty = Difficulty;
+        data.volume = Volume;
 
         bf.Serialize(file, data);
         file.Close();
@@ -108,6 +111,7 @@ public class GameManager : Singleton<GameManager>
             colourMode = data.colorMode;
             CurrentScene = data.currentScene;
             Difficulty = data.difficulty;
+            Volume = data.volume;
             Debug.Log("Loaded Player data");
         }
         else
