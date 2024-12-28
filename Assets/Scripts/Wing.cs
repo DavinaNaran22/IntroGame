@@ -12,6 +12,7 @@ public class Wing : MonoBehaviour
 
     private void Update()
     {
+       
         if (Drag == true) {
            // converting mouse position to ray
             Vector3 mousePos= Input.mousePosition;

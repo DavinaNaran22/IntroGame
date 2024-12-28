@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class wing_attached : MonoBehaviour
 {
     public GameObject Wing;
     public GameObject Cube;
-    //public GameObject Player;
-    //public GameObject Map;
-    //public GameObject ShipManager;
-    public static Canvas Message1;
+    public Canvas Message1;
     public static bool WingTask = false;
     
     
@@ -18,11 +17,21 @@ public class wing_attached : MonoBehaviour
     void Start()
     {
         //Message1.enabled = false;
+        if (WingTask == true) {
+            Wing.SetActive(false);
+            Cube.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!WingTask == true) {
+            Message1.enabled = false;
+        }
+        if (Storage_Scene.Tools_collected == true) {
+            Message1.enabled = false;
+        }
         
     }
 
@@ -33,11 +42,6 @@ public class wing_attached : MonoBehaviour
         Cube.SetActive(false);
         Message1.enabled = true;
        
-        //SceneManager.LoadScene("Game");
-        //Player.SetActive(false);
-        //Map.SetActive(false);
-        //ShipManager.SetActive(false);
-
 
     }
 
