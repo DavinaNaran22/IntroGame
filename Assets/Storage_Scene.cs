@@ -20,6 +20,7 @@ public class Storage_Scene : MonoBehaviour
 
     public BoxCollider ScrewDriver;
     public BoxCollider Tools;
+    public static bool Tools_collected = false;
 
 
  
@@ -45,6 +46,13 @@ public class Storage_Scene : MonoBehaviour
             control_panel.Message2.SetActive(false);
             activate_task2();
 
+        }
+
+        if (wing_attached.WingTask == true) {
+
+            Tools.enabled = true;
+            Tools_collected = true;
+            wing_attached.Message1.enabled = false;
         }
     }
 
