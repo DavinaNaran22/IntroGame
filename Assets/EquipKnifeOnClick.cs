@@ -64,7 +64,7 @@ public class EquipKnifeOnClick : MonoBehaviour
         }
     }
 
-    private void EquipKnife()
+    void EquipKnife()
     {
         // Check if the gun is equipped and unequip it
         if (gunScript != null && gunScript.IsGunEquipped)
@@ -97,6 +97,15 @@ public class EquipKnifeOnClick : MonoBehaviour
         if (playerNearText != null)
         {
             Destroy(playerNearText);
+            Debug.Log("Removed PlayerNearText script from the equipped knife.");
+        }
+
+        // Destroy the EquipObject script from the knife clone
+        EquipObject equipObject = equippedKnife.GetComponent<EquipObject>();
+        if (equipObject != null)
+        {
+            Destroy(equipObject);
+            Debug.Log("Removed EquipObject script from the equipped knife.");
         }
 
         originalPosition = equippedKnife.transform.localPosition;
@@ -104,6 +113,7 @@ public class EquipKnifeOnClick : MonoBehaviour
 
         Debug.Log("Knife equipped.");
     }
+
 
     public void UnequipKnife()
     {
