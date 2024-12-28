@@ -9,24 +9,27 @@ public class QuantityManager : MonoBehaviour
     public GameObject gun;
     private GameObject sword;
     private GameObject alienAlloy;
-    private GameObject thruster;
+    //private GameObject thruster;
     private GameObject thermalConductor;
     public GameObject toolbox;
     private GameObject shovel;
     public GameObject metalsDropped; // Changed to single item
     public GameObject woodDropped; // Changed to single item
+    public GameObject stone; // Changed to single item
+
 
     [Header("Single Item UI Elements")]
     public GameObject knifeImage;
     public GameObject gunImage;
     public GameObject swordImage;
     public GameObject alienAlloyImage;
-    public GameObject thrusterImage;
+    //public GameObject thrusterImage;
     public GameObject thermalConductorImage;
     public GameObject toolboxImage;
     public GameObject shovelImage;
     public GameObject metalsDroppedImage; // Added
     public GameObject woodImage; // Added
+    public GameObject stoneImage; // Changed to single item
 
     [Header("Collectible Items")]
     public List<GameObject> medicines;
@@ -39,6 +42,9 @@ public class QuantityManager : MonoBehaviour
     public TextMeshProUGUI craftingMessageText;
 
     private float messageDisplayDuration = 2f; // How long to display the message
+
+    public GameObject shovelParent;
+    public GameObject swordParent;
 
     private int medicineCount = 0;
     private int herbsCount = 0;
@@ -55,13 +61,17 @@ public class QuantityManager : MonoBehaviour
         SetActive(gunImage, false);
         SetActive(swordImage, false);
         SetActive(alienAlloyImage, false);
-        SetActive(thrusterImage, false);
+        //SetActive(thrusterImage, false);
         SetActive(thermalConductorImage, false);
         SetActive(toolboxImage, false);
         SetActive(shovelImage, false);
         SetActive(metalsDroppedImage, false);
         SetActive(woodImage, false);
         SetActive(craftingMessageCanvas, false);
+        SetActive(shovelParent, false);
+        SetActive(swordParent, false);
+        SetActive(stoneImage, false);
+
         // Initialize collectible item text
         UpdateText(medicineText, "Medicine", medicineCount);
         UpdateText(herbsText, "Herbs", herbsCount);
@@ -87,10 +97,10 @@ public class QuantityManager : MonoBehaviour
             Debug.Log($"Scene '{scene.name}' loaded. Checking item states...");
 
             // Check single items
-            CheckAndActivateUIElement("AlienAlloy", alienAlloyImage);
-            CheckAndActivateUIElement("thruster1", thrusterImage);
+            //CheckAndActivateUIElement("AlienAlloy", alienAlloyImage);
+            //CheckAndActivateUIElement("thruster1", thrusterImage);
             //CheckAndActivateUIElement("ThermalConductor", thermalConductorImage);
-            CheckAndActivateUIElement("Shovel", shovelImage);
+            //CheckAndActivateUIElement("Shovel", shovelImage);
             //CheckAndActivateUIElement("MetalsDropped", metalsDroppedImage);
             //CheckAndActivateUIElement("Wood", woodImage);
 
@@ -117,6 +127,13 @@ public class QuantityManager : MonoBehaviour
 
         // Handle herb state updates
         HandleHerbs();
+
+        // Check if both wood and metal images are active in the UI
+        if (woodImage.activeSelf && metalsDroppedImage.activeSelf)
+        {
+            // Activate the shovelParent when the conditions are met
+            SetActive(shovelParent, true);
+        }
     }
 
     private void HandleSingleItem(GameObject item, GameObject image)
@@ -379,12 +396,20 @@ public class QuantityManager : MonoBehaviour
 
     public void CraftShovel()
     {
-        if (metalsDropped != null && woodDropped != null && metalsDropped.activeSelf && woodDropped.activeSelf)
+
+        // Check if both wood and metal images are active in the UI
+        if (woodImage.activeSelf && metalsDroppedImage.activeSelf)
         {
-            metalsDropped.SetActive(false);
-            woodDropped.SetActive(false);
+            Debug.Log("Both wood and metal are available. Activating the shovel in inventory.");
+
+            SetActive(shovelImage, true);
+            // Deactivate wood and metal images since they are used in crafting
+            SetActive(woodImage, false);
+            SetActive(metalsDroppedImage, false);
+
+            // Add the shovel to the inventory
+            SetActive(shovelParent, false); // Show the shovel in inventory UI
             ShowCraftingMessage("Shovel crafted successfully!");
-            SetActive(shovelImage, true); // Add to inventory UI
         }
         else
         {

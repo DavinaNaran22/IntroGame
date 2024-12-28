@@ -54,9 +54,36 @@ public class EnterAlienArea : MonoBehaviour
             DisableRestriction();
         }
 
+        // Check if the player presses E while inside the thruster's box collider
         if (waitingForEquip && Input.GetKeyDown(KeyCode.E))
         {
-            EquipBlocks();
+            if (thruster != null)
+            {
+                // Get the BoxCollider from the thruster
+                BoxCollider thrusterCollider = thruster.GetComponent<BoxCollider>();
+
+                if (thrusterCollider != null)
+                {
+                    // Check if the player's position is inside the collider's bounds
+                    if (thrusterCollider.bounds.Contains(player.transform.position))
+                    {
+                        Debug.Log("Player is inside the thruster's box collider and pressed E");
+                        EquipThruster();
+                    }
+                    else
+                    {
+                        Debug.Log("Player is not inside the thruster's box collider.");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Thruster does not have a BoxCollider yet.");
+                }
+            }
+            else
+            {
+                Debug.LogError("Thruster reference is null.");
+            }
         }
     }
 
@@ -119,25 +146,17 @@ public class EnterAlienArea : MonoBehaviour
         restrictionEnabled = false;
         Debug.Log("Movement restriction disabled");
         alienArea.enabled = false;
-        ShowDialogue("Maybe I can craft something using this metal and wood to dig this thruster out.");
+        ShowDialogue("Maybe I can craft something using the metal and wood dropped to dig this thruster out. First, I need to equip them");
         waitingForEquip = true;
 
     }
 
-    private void EquipBlocks()
+    private void EquipThruster()
     {
-        Debug.Log("waiting for E");
-        silverCube.SetActive(false);
-        brownCube.SetActive(false);
-
-        if (shovel.activeSelf == true)
-        {
-            HideDialogue();
-            Debug.Log("Dig thruster out"); // NEED BUTTON TO DIG OUT THRUSTER
-            thruster.SetActive(false);
-            completedRepairText.SetActive(true); // 5 SECS AFTER, BELOW EXECUTES
-            StartCoroutine(ActivateRepairTasksWithDelay());
-        }  
+       
+        HideDialogue();
+        completedRepairText.SetActive(true); // 5 SECS AFTER, BELOW EXECUTES
+        StartCoroutine(ActivateRepairTasksWithDelay()); 
     }
 
     private IEnumerator ActivateRepairTasksWithDelay()
