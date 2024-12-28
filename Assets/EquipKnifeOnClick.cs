@@ -5,7 +5,7 @@ using System.Collections;
 
 public class EquipKnifeOnClick : MonoBehaviour
 {
-    public GameObject knifePrefab; // Knife prefab to instantiate
+    private GameObject knifePrefab; // Knife prefab to instantiate
     public Transform weaponParent; // Transform of the WeaponParent
     public Button equipKnifeButton;
 
@@ -25,6 +25,7 @@ public class EquipKnifeOnClick : MonoBehaviour
 
     void Start()
     {
+        knifePrefab = GameManager.Instance.knifePrefab;
         if (equipKnifeButton != null)
         {
             equipKnifeButton.onClick.AddListener(ToggleKnife);

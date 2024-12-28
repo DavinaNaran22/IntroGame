@@ -51,6 +51,7 @@ public class GameManager : Singleton<GameManager>
 
     [Header("Inventory Prefabs")]
     public GameObject gunPrefab;
+    public GameObject knifePrefab;
     private void Start()
     {
         // The following are values chagned by pause menu
