@@ -46,19 +46,7 @@ public class Wing : MonoBehaviour
         Drag = false;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("CCC");
-        if (collision.gameObject == Cube)
-        {
-            Debug.Log("COLLISION ");
-        
-            Cube.SetActive(false);
-        }
-
-
-
-    }
+ 
 
 
 
