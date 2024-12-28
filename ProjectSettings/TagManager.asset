@@ -27,6 +27,7 @@ TagManager:
   - Herb
   - DifficultyDropdown
   - VolumeSlider
+  - MouseSlider
   layers:
   - Default
   - TransparentFX

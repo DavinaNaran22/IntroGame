@@ -1959,6 +1959,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489414365}
   m_CullTransparentMesh: 1
+--- !u!1 &511237040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 511237041}
+  - component: {fileID: 511237042}
+  m_Layer: 0
+  m_Name: MouseSensitivity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &511237041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511237040}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1791777806}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &511237042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511237040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b01c78d842a469459b3e695d65e4c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 2139377481}
 --- !u!1 &556448993
 GameObject:
   m_ObjectHideFlags: 0
@@ -5173,7 +5218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e996d6f04aab6547bf6f8adf0b62015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSlider: {fileID: 1741535069}
+  slider: {fileID: 1741535069}
   AudioMixer: {fileID: 24100000, guid: 02167c1c4201a1046b1b33aa442a661b, type: 2}
 --- !u!4 &1659845158
 Transform:
@@ -5462,6 +5507,7 @@ Transform:
   - {fileID: 55588880}
   - {fileID: 1800684371}
   - {fileID: 1659845158}
+  - {fileID: 511237041}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1791777807
@@ -6615,7 +6661,7 @@ GameObject:
   - component: {fileID: 2139377481}
   m_Layer: 5
   m_Name: Slider
-  m_TagString: VolumeSlider
+  m_TagString: MouseSlider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

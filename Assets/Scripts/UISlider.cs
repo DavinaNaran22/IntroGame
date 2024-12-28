@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public abstract class UISlider : ISlider
+public abstract class UISlider : MonoBehaviour, ISlider
 {
     public Slider slider;
-    public abstract void AddDelegate();
+    public abstract void AddDelegate(Slider slider);
 
 
     public abstract void OnValueChanged();
@@ -16,12 +16,14 @@ public abstract class UISlider : ISlider
         if (slider == null && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main"))
         {
             GameObject sliderGO = GameObject.FindWithTag(tagToFind);
+            Debug.Log("Slider" + sliderGO);
             if (sliderGO != null)
             {
+                Debug.Log(sliderGO.GetComponent<Slider>());
                 slider = sliderGO.GetComponent<Slider>();
+                AddDelegate(slider);
                 // Ensure slider UI displays same value as GameManager's value
                 slider.value = gmRef;
-                AddDelegate();
             }
         }
     }

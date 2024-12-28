@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 interface ISlider
 {
-    void AddDelegate();
+    void AddDelegate(Slider slider);
     void OnValueChanged();
 
 }

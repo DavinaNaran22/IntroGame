@@ -26,6 +26,7 @@ class PlayerData
     public string currentScene;
     public Difficulty difficulty;
     public float volume;
+    public float mouseSens;
 }
 
 public class GameManager : Singleton<GameManager>
@@ -46,6 +47,7 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI cameraMsg;
     public Difficulty Difficulty;
     public float Volume;
+    public float MouseSens;
 
     private void Start()
     {
@@ -55,6 +57,7 @@ public class GameManager : Singleton<GameManager>
         colourMode = GameObject.FindWithTag("ColourMode").GetComponent<ColourDropdown>().mode;
         Difficulty = GameObject.Find("DifficultyLevel").GetComponent<DifficultyDropdown>().difficulty;
         GameObject.Find("VolumeSlider").GetComponent<VolumeSlider>().AudioMixer.GetFloat("volume", out Volume);
+        MouseSens = MouseLook.mouseSensitivity;
     }
 
     private void Update()
@@ -93,6 +96,7 @@ public class GameManager : Singleton<GameManager>
         data.currentScene = CurrentScene;
         data.difficulty = Difficulty;
         data.volume = Volume;
+        data.mouseSens = MouseSens;
 
         bf.Serialize(file, data);
         file.Close();
@@ -117,6 +121,7 @@ public class GameManager : Singleton<GameManager>
             CurrentScene = data.currentScene;
             Difficulty = data.difficulty;
             Volume = data.volume;
+            MouseSens = data.mouseSens;
             Debug.Log("Loaded Player data");
         }
         else

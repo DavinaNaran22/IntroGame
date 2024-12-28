@@ -3,28 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MouseSensitivity : UISlider, ISlider
+public class MouseSensitivity : UISlider
 {
-    [SerializeField] Slider slider;
-    public void AddDelegate()
+    public override void AddDelegate(Slider slider)
     {
-        slider.onValueChanged.AddListener(delegate {  OnValueChanged(); });
+        this.slider = slider;
+        this.slider.onValueChanged.AddListener(delegate {  OnValueChanged(); });
     }
 
-    public void OnValueChanged()
+    public override void OnValueChanged()
     {
         MouseLook.mouseSensitivity = slider.value;
-        if (GameManager.Instance) GameManager.Instance.mouseSens = MouseLook.mouseSensitivity;
+        if (GameManager.Instance) GameManager.Instance.MouseSens = MouseLook.mouseSensitivity;
     }
 
     void Start()
     {
-        AddDelegate();
+        AddDelegate(slider);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (GameManager.Instance) UpdateRefs(slider, GameManager.Instance.MouseSens, "MouseSlider");
     }
 }
