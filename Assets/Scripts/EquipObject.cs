@@ -3,14 +3,20 @@ using UnityEngine;
 public class EquipObject : MonoBehaviour
 {
     private bool playerIsInside = false;
+    private bool isClueObject = false; // Track if the object is a clue
 
     // This method is called when another collider enters the trigger zone.
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the object entering is the player (by tag or other identification method)
         if (other.CompareTag("Player"))
         {
             playerIsInside = true;
+
+            // Check if this object is tagged as "Clue"
+            if (gameObject.CompareTag("Clue"))
+            {
+                isClueObject = true;
+            }
         }
     }
 
@@ -20,16 +26,25 @@ public class EquipObject : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerIsInside = false;
+            isClueObject = false; // Reset clue status when player leaves
         }
     }
 
     private void Update()
     {
-        // Check if the player is in range AND the player presses "E"
-        if (playerIsInside && Input.GetKeyDown(KeyCode.E))
+        if (playerIsInside)
         {
-            // Deactivate this object
-            gameObject.SetActive(false);
+            // If the object is NOT a Clue, allow deactivation with "E"
+            if (!isClueObject && Input.GetKeyDown(KeyCode.E))
+            {
+                gameObject.SetActive(false);
+            }
+
+            // If the object is a Clue, allow deactivation with "R" only
+            if (isClueObject && Input.GetKeyDown(KeyCode.R))
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }
