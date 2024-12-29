@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
+  m_IndirectSpecularColor: {r: 0.002063206, g: 0.0019480612, b: 0.0021180937, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2203,7 +2203,6 @@ MonoBehaviour:
   subtitleBox: {fileID: 1383739019}
   HUD: {fileID: 1089804553}
   HealthBar: {fileID: 51700335}
-  OxygenBar: {fileID: 2063951798}
 --- !u!1 &57307819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2034179033855149247, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
@@ -12469,6 +12468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d79812d3309da164daba33be4a9ed40a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseSensitivity: 500
   playerBody: {fileID: 238311876}
   canLook: 1
 --- !u!20 &1069745495
@@ -15166,15 +15166,12 @@ MonoBehaviour:
   playerHealth: 0
   colourMode: 0
   colourDropdown: {fileID: 0}
-  difficultyDropdown: {fileID: 0}
   CurrentScene: 
   CutsceneTime: 0
   UIManager: {fileID: 51700332}
   cameraCanvas: {fileID: 1254959161}
   cameraManagement: {fileID: 1254959163}
   cameraMsg: {fileID: 1664890787}
-  Volume: 0
-  MouseSens: 0
   gunPrefab: {fileID: 2192913056035240304, guid: 8be11147094a8fd4d89dfb4fe6fbb6ec, type: 3}
   knifePrefab: {fileID: 1188603420251640516, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
 --- !u!4 &1352790603
