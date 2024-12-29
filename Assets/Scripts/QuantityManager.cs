@@ -9,30 +9,36 @@ public class QuantityManager : MonoBehaviour
     public GameObject gun;
     private GameObject sword;
     private GameObject alienAlloy;
-    private GameObject thruster;
+    //private GameObject thruster;
     private GameObject thermalConductor;
     public GameObject toolbox;
     private GameObject shovel;
     public GameObject metalsDropped; // Changed to single item
     public GameObject woodDropped; // Changed to single item
+    public GameObject stone; // Changed to single item
+
 
     [Header("Single Item UI Elements")]
     public GameObject knifeImage;
     public GameObject gunImage;
     public GameObject swordImage;
     public GameObject alienAlloyImage;
-    public GameObject thrusterImage;
+    //public GameObject thrusterImage;
     public GameObject thermalConductorImage;
     public GameObject toolboxImage;
     public GameObject shovelImage;
     public GameObject metalsDroppedImage; // Added
     public GameObject woodImage; // Added
+    public GameObject stoneImage; // Changed to single item
+    public GameObject clueImage;
 
     [Header("Collectible Items")]
     public List<GameObject> medicines;
+    public List<GameObject> clues;
     [Header("Collectible Item UI Elements")]
     public TextMeshProUGUI medicineText;
     public TextMeshProUGUI herbsText;
+    public TextMeshProUGUI clueText; 
 
     // Reference to the Crafting Message Canvas and Text
     public GameObject craftingMessageCanvas;
@@ -40,12 +46,17 @@ public class QuantityManager : MonoBehaviour
 
     private float messageDisplayDuration = 2f; // How long to display the message
 
+    public GameObject shovelParent;
+    public GameObject swordParent;
+
     private int medicineCount = 0;
     private int herbsCount = 0;
-
+    private int clueCount = 0; 
 
     private Dictionary<GameObject, bool> medicineStates = new Dictionary<GameObject, bool>();
     private Dictionary<GameObject, bool> herbStates = new Dictionary<GameObject, bool>();
+    private Dictionary<GameObject, bool> clueStates = new Dictionary<GameObject, bool>(); // Track state of clues
+
 
 
     private void Start()
@@ -55,16 +66,24 @@ public class QuantityManager : MonoBehaviour
         SetActive(gunImage, false);
         SetActive(swordImage, false);
         SetActive(alienAlloyImage, false);
-        SetActive(thrusterImage, false);
+        //SetActive(thrusterImage, false);
         SetActive(thermalConductorImage, false);
         SetActive(toolboxImage, false);
         SetActive(shovelImage, false);
         SetActive(metalsDroppedImage, false);
         SetActive(woodImage, false);
         SetActive(craftingMessageCanvas, false);
+        SetActive(shovelParent, false);
+        SetActive(swordParent, false);
+        SetActive(stoneImage, false);
+        SetActive(clueImage, false);
+
+        TrackAlienAlloy("RepairTask2Manager", "AlienAlloy", alienAlloyImage);
+
         // Initialize collectible item text
         UpdateText(medicineText, "Medicine", medicineCount);
         UpdateText(herbsText, "Herbs", herbsCount);
+        UpdateText(clueText, "Clues", clueCount);
     }
 
     private void OnEnable()
@@ -87,10 +106,10 @@ public class QuantityManager : MonoBehaviour
             Debug.Log($"Scene '{scene.name}' loaded. Checking item states...");
 
             // Check single items
-            CheckAndActivateUIElement("AlienAlloy", alienAlloyImage);
-            CheckAndActivateUIElement("thruster1", thrusterImage);
+            //CheckAndActivateUIElement("AlienAlloy", alienAlloyImage);
+            //CheckAndActivateUIElement("thruster1", thrusterImage);
             //CheckAndActivateUIElement("ThermalConductor", thermalConductorImage);
-            CheckAndActivateUIElement("Shovel", shovelImage);
+            //CheckAndActivateUIElement("Shovel", shovelImage);
             //CheckAndActivateUIElement("MetalsDropped", metalsDroppedImage);
             //CheckAndActivateUIElement("Wood", woodImage);
 
@@ -98,8 +117,18 @@ public class QuantityManager : MonoBehaviour
             TrackDroppedItem("RepairTask1Manager", "MetalDropped", metalsDroppedImage);
             TrackDroppedItem("RepairTask1Manager", "WoodDropped", woodImage);
 
+            if (clueCount > 0 && clueImage != null)
+            {
+                SetActive(clueImage, true);
+            }
+
+
+
             // Find and add all herbs to the list
             FindAndAddHerbsByTag();
+
+            // Find and add all clues to the list
+            FindAndAddCluesByTag(); 
         }
     }
 
@@ -113,11 +142,75 @@ public class QuantityManager : MonoBehaviour
 
         // Handle collectible items
         HandleCollectibleItems(medicines, ref medicineCount, medicineText, "Medicine");
-
+        HandleCollectibleItems(clues, ref clueCount, clueText, "Clues");
 
         // Handle herb state updates
         HandleHerbs();
+
+        HandleClues();
+
+        // Check if both wood and metal images are active in the UI
+        if (woodImage.activeSelf && metalsDroppedImage.activeSelf)
+        {
+            // Activate the shovelParent when the conditions are met
+            SetActive(shovelParent, true);
+        }
     }
+
+
+    private void TrackAlienAlloy(string parentName, string childName, GameObject alienAlloyImage)
+    {
+        StartCoroutine(WaitForParentAndChildState(parentName, childName, alienAlloyImage));
+    }
+
+    private System.Collections.IEnumerator WaitForParentAndChildState(string parentName, string childName, GameObject alienAlloyImage)
+    {
+        Debug.Log($"Waiting for parent object '{parentName}' to become available...");
+
+        // Wait for the parent to appear in the scene
+        GameObject parentObject = null;
+        while (parentObject == null)
+        {
+            parentObject = GameObject.Find(parentName);
+            yield return new WaitForSeconds(0.5f); // Avoid spamming checks too quickly
+        }
+
+        Debug.Log($"Parent object '{parentName}' found. Waiting for it to become active...");
+
+        // Wait for the parent to become active
+        yield return new WaitUntil(() => parentObject.activeInHierarchy);
+        Debug.Log($"Parent object '{parentName}' is now active.");
+
+        // Find the child object under the parent
+        Transform childTransform = parentObject.transform.Find(childName);
+        if (childTransform == null)
+        {
+            Debug.LogError($"Child object '{childName}' not found under parent '{parentName}'.");
+            yield break;
+        }
+
+        GameObject childObject = childTransform.gameObject;
+
+        // Wait for the child to become active
+        yield return new WaitUntil(() => childObject.activeInHierarchy);
+        Debug.Log($"Child object '{childName}' is now active.");
+
+        // Wait for the child to become inactive
+        yield return new WaitUntil(() => !childObject.activeInHierarchy);
+        Debug.Log($"Child object '{childName}' is now inactive. Updating inventory UI.");
+
+        // Update the UI for the Alien Alloy
+        if (alienAlloyImage != null)
+        {
+            alienAlloyImage.SetActive(true);
+            Debug.Log($"Alien Alloy image is now visible in the inventory.");
+        }
+        else
+        {
+            Debug.LogError("Alien Alloy image UI element is not assigned.");
+        }
+    }
+
 
     private void HandleSingleItem(GameObject item, GameObject image)
     {
@@ -222,6 +315,27 @@ public class QuantityManager : MonoBehaviour
         }
     }
 
+    private void FindAndAddCluesByTag()
+    {
+        // Clear the list to avoid duplicate entries
+        clueStates.Clear();
+
+        // Find all objects tagged as "Clue"
+        GameObject[] clueObjects = GameObject.FindGameObjectsWithTag("Clue");
+        Debug.Log($"Found {clueObjects.Length} objects tagged as 'Clue'.");
+
+        foreach (GameObject clue in clueObjects)
+        {
+            // Add to clueStates if not already tracked
+            if (!clueStates.ContainsKey(clue))
+            {
+                clueStates[clue] = clue.activeInHierarchy;
+                Debug.Log($"Clue added to tracking: {clue.name} (Active: {clue.activeInHierarchy})");
+            }
+        }
+    }
+
+
 
     private void HandleHerbs()
     {
@@ -248,6 +362,36 @@ public class QuantityManager : MonoBehaviour
 
             // Mark herb as processed
             herbStates[herb] = false;
+        }
+    }
+
+    private void HandleClues()
+    {
+        List<GameObject> cluesToProcess = new List<GameObject>();
+
+        foreach (var clue in clueStates.Keys)
+        {
+            if (clue != null && !clue.activeInHierarchy && clueStates[clue])
+            {
+                cluesToProcess.Add(clue);
+            }
+        }
+
+        foreach (var clue in cluesToProcess)
+        {
+            // Increment clue count and update UI
+            clueCount++;
+            UpdateText(clueText, "Clues", clueCount);
+            Debug.Log($"Clue count incremented. Current count: {clueCount}");
+
+            // Mark clue as processed
+            clueStates[clue] = false;
+
+            // Show the clue image in the inventory
+            if (clueImage != null)
+            {
+                SetActive(clueImage, true);
+            }
         }
     }
 
@@ -379,12 +523,20 @@ public class QuantityManager : MonoBehaviour
 
     public void CraftShovel()
     {
-        if (metalsDropped != null && woodDropped != null && metalsDropped.activeSelf && woodDropped.activeSelf)
+
+        // Check if both wood and metal images are active in the UI
+        if (woodImage.activeSelf && metalsDroppedImage.activeSelf)
         {
-            metalsDropped.SetActive(false);
-            woodDropped.SetActive(false);
+            Debug.Log("Both wood and metal are available. Activating the shovel in inventory.");
+
+            SetActive(shovelImage, true);
+            // Deactivate wood and metal images since they are used in crafting
+            SetActive(woodImage, false);
+            SetActive(metalsDroppedImage, false);
+
+            // Add the shovel to the inventory
+            SetActive(shovelParent, false); // Show the shovel in inventory UI
             ShowCraftingMessage("Shovel crafted successfully!");
-            SetActive(shovelImage, true); // Add to inventory UI
         }
         else
         {

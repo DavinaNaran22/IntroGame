@@ -4,6 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 // This could be moved to another class which changes material colours etc.
 public enum ColourMode
@@ -23,6 +24,9 @@ class PlayerData
     public bool playFirstCutscene;
     public ColourMode colorMode;
     public string currentScene;
+    public Difficulty difficulty;
+    public float volume;
+    public float mouseSens;
 }
 
 public class GameManager : Singleton<GameManager>
@@ -34,16 +38,29 @@ public class GameManager : Singleton<GameManager>
     public float playerHealth;
     public ColourMode colourMode;
     public TMP_Dropdown colourDropdown;
+    public TMP_Dropdown difficultyDropdown;
     public string CurrentScene;
     public double CutsceneTime = 0;
     public GameObject UIManager;
     public GameObject cameraCanvas;
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;
+    public Difficulty Difficulty;
+    public float Volume;
+    public float MouseSens;
 
+    [Header("Inventory Prefabs")]
+    public GameObject gunPrefab;
+    public GameObject knifePrefab;
     private void Start()
     {
+        // The following are values chagned by pause menu
+        // If player edits default values at start
+        // Then the values have to be updated like this
         colourMode = GameObject.FindWithTag("ColourMode").GetComponent<ColourDropdown>().mode;
+        Difficulty = GameObject.Find("DifficultyLevel").GetComponent<DifficultyDropdown>().difficulty;
+        GameObject.Find("VolumeSlider").GetComponent<VolumeSlider>().AudioMixer.GetFloat("volume", out Volume);
+        MouseSens = MouseLook.mouseSensitivity;
     }
 
     private void Update()
@@ -54,6 +71,14 @@ public class GameManager : Singleton<GameManager>
             if (gameObject != null)
             {
                 colourDropdown = gameObject.GetComponent<TMP_Dropdown>();
+            }
+        }
+        if (difficultyDropdown == null)
+        {
+            GameObject gameObject = GameObject.FindWithTag("DifficultyDropdown");
+            if (gameObject != null)
+            {
+                difficultyDropdown = gameObject.GetComponent<TMP_Dropdown>();
             }
         }
     }
@@ -72,6 +97,9 @@ public class GameManager : Singleton<GameManager>
         data.health = playerHealth;
         data.colorMode = colourMode;
         data.currentScene = CurrentScene;
+        data.difficulty = Difficulty;
+        data.volume = Volume;
+        data.mouseSens = MouseSens;
 
         bf.Serialize(file, data);
         file.Close();
@@ -86,7 +114,7 @@ public class GameManager : Singleton<GameManager>
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(filename, FileMode.Open);
 
-            PlayerData data = (PlayerData) bf.Deserialize(file);
+            PlayerData data = (PlayerData)bf.Deserialize(file);
             file.Close();
 
             unlockedDoor = data.unlockedDoor;
@@ -94,6 +122,9 @@ public class GameManager : Singleton<GameManager>
             playerHealth = data.health;
             colourMode = data.colorMode;
             CurrentScene = data.currentScene;
+            Difficulty = data.difficulty;
+            Volume = data.volume;
+            MouseSens = data.mouseSens;
             Debug.Log("Loaded Player data");
         }
         else
@@ -107,4 +138,3 @@ public class GameManager : Singleton<GameManager>
         CurrentScene = SceneManager.GetActiveScene().name;
     }
 }
-

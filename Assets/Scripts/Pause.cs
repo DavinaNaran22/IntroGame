@@ -13,7 +13,6 @@ public class Pause : MonoBehaviour
     {
         playerCanvas = GameObject.Find("PlayerCanvas");
         playerCanvas.SetActive(false);
-        Debug.Log(playerCanvas.activeSelf);
 ;    }
 
     void Update()
