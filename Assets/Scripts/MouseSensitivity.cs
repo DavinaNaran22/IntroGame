@@ -8,7 +8,7 @@ public class MouseSensitivity : UISlider
     public override void AddDelegate(Slider slider)
     {
         this.slider = slider;
-        this.slider.onValueChanged.AddListener(delegate {  OnValueChanged(); });
+        this.slider.onValueChanged.AddListener(delegate { OnValueChanged(); });
     }
 
     public override void OnValueChanged()
