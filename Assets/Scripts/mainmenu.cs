@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class mainmenu : MonoBehaviour
 {
-    // works when the application is built, does not work in unity as using editor
     public void quit()
     {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // How to quit in unity editor
+        #endif
         Application.Quit();
     }
 }
