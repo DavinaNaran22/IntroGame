@@ -25,6 +25,9 @@ TagManager:
   - Sword
   - RockWall
   - Herb
+  - DifficultyDropdown
+  - VolumeSlider
+  - MouseSlider
   layers:
   - Default
   - TransparentFX
