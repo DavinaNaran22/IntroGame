@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = 0f; // Ensure health doesn't go negative
             Debug.Log("You Died!");
-            RestartScene();
+            Die();
         }
         else
         {
@@ -90,16 +90,11 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
-
-
-    // called when player dies and returns to tile A.
-    public void RestartScene()
+    // called when player dies (oxygen or health runs out)
+    public void Die()
     {
-        // Get the active scene's name
-        string landscape = SceneManager.GetActiveScene().name;
-
-        // Reload the current scene
-        SceneManager.LoadScene("landscape");
+        // Load restart scene
+        SceneManager.LoadScene("Restart");
     }
 
 }
