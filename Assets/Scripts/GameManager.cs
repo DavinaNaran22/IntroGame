@@ -4,7 +4,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 // This could be moved to another class which changes material colours etc.
 public enum ColourMode
@@ -24,9 +23,6 @@ class PlayerData
     public bool playFirstCutscene;
     public ColourMode colorMode;
     public string currentScene;
-    public Difficulty difficulty;
-    public float volume;
-    public float mouseSens;
 }
 
 public class GameManager : Singleton<GameManager>
@@ -44,19 +40,10 @@ public class GameManager : Singleton<GameManager>
     public GameObject cameraCanvas;
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;
-    public Difficulty Difficulty;
-    public float Volume;
-    public float MouseSens;
 
     private void Start()
     {
-        // The following are values chagned by pause menu
-        // If player edits default values at start
-        // Then the values have to be updated like this
         colourMode = GameObject.FindWithTag("ColourMode").GetComponent<ColourDropdown>().mode;
-        Difficulty = GameObject.Find("DifficultyLevel").GetComponent<DifficultyDropdown>().difficulty;
-        GameObject.Find("VolumeSlider").GetComponent<VolumeSlider>().AudioMixer.GetFloat("volume", out Volume);
-        MouseSens = MouseLook.mouseSensitivity;
     }
 
     private void Update()
@@ -85,9 +72,6 @@ public class GameManager : Singleton<GameManager>
         data.health = playerHealth;
         data.colorMode = colourMode;
         data.currentScene = CurrentScene;
-        data.difficulty = Difficulty;
-        data.volume = Volume;
-        data.mouseSens = MouseSens;
 
         bf.Serialize(file, data);
         file.Close();
@@ -110,9 +94,6 @@ public class GameManager : Singleton<GameManager>
             playerHealth = data.health;
             colourMode = data.colorMode;
             CurrentScene = data.currentScene;
-            Difficulty = data.difficulty;
-            Volume = data.volume;
-            MouseSens = data.mouseSens;
             Debug.Log("Loaded Player data");
         }
         else
