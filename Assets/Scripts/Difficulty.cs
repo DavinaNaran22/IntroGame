@@ -29,19 +29,19 @@ public class Difficulty
         switch (level)
         {
             case DifficultyLevel.Easy:
-                alienDamage = 0.2f;
+                alienDamage = 0.02f;
                 medicineIncrease = 0.15f;
                 break;
             case DifficultyLevel.Medium:
-                alienDamage = 0.3f;
+                alienDamage = 0.04f;
                 medicineIncrease = 0.1f;
                 break;
             case DifficultyLevel.Hard:
-                alienDamage = 0.4f;
+                alienDamage = 0.05f;
                 medicineIncrease = 0.05f;
                 break;
             default:
-                alienDamage = 0.3f;
+                alienDamage = 0.04f;
                 medicineIncrease = 0.1f;
                 break;
         }
