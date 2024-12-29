@@ -8,6 +8,7 @@ public class WingBarrier : MonoBehaviour
 {
     public GameObject player;
     public BoxCollider restrictedArea;
+    public GameObject promptText;
 
     public TextMeshProUGUI dialogueText;
 
@@ -140,6 +141,7 @@ public class WingBarrier : MonoBehaviour
             additionalDialoguesActive = false;
             HideDialogue();
             dialogueShown = true;
+            promptText.SetActive(true);
 
         }
     }
