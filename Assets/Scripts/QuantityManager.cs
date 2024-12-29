@@ -10,7 +10,6 @@ public class QuantityManager : MonoBehaviour
     private GameObject sword;
     private GameObject alienAlloy;
     //private GameObject thruster;
-    private GameObject thermalConductor;
     public GameObject toolbox;
     private GameObject shovel;
     public GameObject metalsDropped; // Changed to single item
@@ -24,7 +23,7 @@ public class QuantityManager : MonoBehaviour
     public GameObject swordImage;
     public GameObject alienAlloyImage;
     //public GameObject thrusterImage;
-    public GameObject thermalConductorImage;
+    public GameObject alienSkinImage;
     public GameObject toolboxImage;
     public GameObject shovelImage;
     public GameObject metalsDroppedImage; // Added
@@ -67,7 +66,7 @@ public class QuantityManager : MonoBehaviour
         SetActive(swordImage, false);
         SetActive(alienAlloyImage, false);
         //SetActive(thrusterImage, false);
-        SetActive(thermalConductorImage, false);
+        SetActive(alienSkinImage, false);
         SetActive(toolboxImage, false);
         SetActive(shovelImage, false);
         SetActive(metalsDroppedImage, false);
@@ -79,6 +78,9 @@ public class QuantityManager : MonoBehaviour
         SetActive(clueImage, false);
 
         TrackAlienAlloy("RepairTask2Manager", "AlienAlloy", alienAlloyImage);
+        // Add tracking for Alien Skin and Stone drops in Area 3
+        TrackArea3Drops("RepairTask3Manager", "AlienSkinCube", alienSkinImage);
+        TrackArea3Drops("RepairTask3Manager", "Stone", stoneImage);
 
         // Initialize collectible item text
         UpdateText(medicineText, "Medicine", medicineCount);
@@ -158,60 +160,6 @@ public class QuantityManager : MonoBehaviour
     }
 
 
-    private void TrackAlienAlloy(string parentName, string childName, GameObject alienAlloyImage)
-    {
-        StartCoroutine(WaitForParentAndChildState(parentName, childName, alienAlloyImage));
-    }
-
-    private System.Collections.IEnumerator WaitForParentAndChildState(string parentName, string childName, GameObject alienAlloyImage)
-    {
-        Debug.Log($"Waiting for parent object '{parentName}' to become available...");
-
-        // Wait for the parent to appear in the scene
-        GameObject parentObject = null;
-        while (parentObject == null)
-        {
-            parentObject = GameObject.Find(parentName);
-            yield return new WaitForSeconds(0.5f); // Avoid spamming checks too quickly
-        }
-
-        Debug.Log($"Parent object '{parentName}' found. Waiting for it to become active...");
-
-        // Wait for the parent to become active
-        yield return new WaitUntil(() => parentObject.activeInHierarchy);
-        Debug.Log($"Parent object '{parentName}' is now active.");
-
-        // Find the child object under the parent
-        Transform childTransform = parentObject.transform.Find(childName);
-        if (childTransform == null)
-        {
-            Debug.LogError($"Child object '{childName}' not found under parent '{parentName}'.");
-            yield break;
-        }
-
-        GameObject childObject = childTransform.gameObject;
-
-        // Wait for the child to become active
-        yield return new WaitUntil(() => childObject.activeInHierarchy);
-        Debug.Log($"Child object '{childName}' is now active.");
-
-        // Wait for the child to become inactive
-        yield return new WaitUntil(() => !childObject.activeInHierarchy);
-        Debug.Log($"Child object '{childName}' is now inactive. Updating inventory UI.");
-
-        // Update the UI for the Alien Alloy
-        if (alienAlloyImage != null)
-        {
-            alienAlloyImage.SetActive(true);
-            Debug.Log($"Alien Alloy image is now visible in the inventory.");
-        }
-        else
-        {
-            Debug.LogError("Alien Alloy image UI element is not assigned.");
-        }
-    }
-
-
     private void HandleSingleItem(GameObject item, GameObject image)
     {
         if (item != null && image != null)
@@ -250,6 +198,63 @@ public class QuantityManager : MonoBehaviour
             Debug.LogError($"Parent object '{parentName}' not found in the scene.");
         }
     }
+    private void TrackArea3Drops(string parentName, string childName, GameObject uiImage)
+    {
+        StartCoroutine(WaitForParentAndChildState(parentName, childName, uiImage));
+    }
+    private void TrackAlienAlloy(string parentName, string childName, GameObject alienAlloyImage)
+    {
+        StartCoroutine(WaitForParentAndChildState(parentName, childName, alienAlloyImage));
+    }
+
+    private System.Collections.IEnumerator WaitForParentAndChildState(string parentName, string childName, GameObject uiImage)
+    {
+        Debug.Log($"Waiting for parent object '{parentName}' to become available...");
+
+        // Wait for the parent to appear in the scene
+        GameObject parentObject = null;
+        while (parentObject == null)
+        {
+            parentObject = GameObject.Find(parentName);
+            yield return new WaitForSeconds(0.5f); // Avoid spamming checks too quickly
+        }
+
+        Debug.Log($"Parent object '{parentName}' found. Waiting for it to become active...");
+
+        // Wait for the parent to become active
+        yield return new WaitUntil(() => parentObject.activeInHierarchy);
+        Debug.Log($"Parent object '{parentName}' is now active.");
+
+        // Find the child object under the parent
+        Transform childTransform = parentObject.transform.Find(childName);
+        if (childTransform == null)
+        {
+            Debug.LogError($"Child object '{childName}' not found under parent '{parentName}'.");
+            yield break;
+        }
+
+        GameObject childObject = childTransform.gameObject;
+
+        // Wait for the child to become active
+        yield return new WaitUntil(() => childObject.activeInHierarchy);
+        Debug.Log($"Child object '{childName}' is now active.");
+
+        // Wait for the child to become inactive
+        yield return new WaitUntil(() => !childObject.activeInHierarchy);
+        Debug.Log($"Child object '{childName}' is now inactive. Updating inventory UI.");
+
+        // Update the UI for the corresponding item
+        if (uiImage != null)
+        {
+            uiImage.SetActive(true);
+            Debug.Log($"{childName} UI image is now visible in the inventory.");
+        }
+        else
+        {
+            Debug.LogError($"UI image for '{childName}' is not assigned.");
+        }
+    }
+
 
     private System.Collections.IEnumerator WaitForItemStateChange(GameObject item, GameObject image)
     {

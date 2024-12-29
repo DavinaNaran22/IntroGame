@@ -5735,6 +5735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OxygenBarImage: {fileID: 1048187190484474522}
   health: {fileID: 5018313501123420764}
+  maxOxygen: 0
 --- !u!1 &4483204020632583283
 GameObject:
   m_ObjectHideFlags: 0
@@ -9151,7 +9152,7 @@ MonoBehaviour:
   gunImage: {fileID: 0}
   swordImage: {fileID: 0}
   alienAlloyImage: {fileID: 0}
-  thermalConductorImage: {fileID: 0}
+  alienSkinImage: {fileID: 0}
   toolboxImage: {fileID: 0}
   shovelImage: {fileID: 0}
   metalsDroppedImage: {fileID: 0}
