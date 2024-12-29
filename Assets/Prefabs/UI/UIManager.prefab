@@ -9157,9 +9157,12 @@ MonoBehaviour:
   metalsDroppedImage: {fileID: 0}
   woodImage: {fileID: 0}
   stoneImage: {fileID: 0}
+  clueImage: {fileID: 0}
   medicines: []
+  clues: []
   medicineText: {fileID: 0}
   herbsText: {fileID: 0}
+  clueText: {fileID: 0}
   craftingMessageCanvas: {fileID: 0}
   craftingMessageText: {fileID: 0}
   shovelParent: {fileID: 0}

@@ -25,6 +25,8 @@ public class EnterAlienArea2 : MonoBehaviour
     private bool hasDialoguePlayed = false;
     private int currentDialogueIndex = 0;
     public bool isPlayerNearby = false;
+    private bool wasAlienDropActive = false;
+
 
     public Vector3 positionOffset = new Vector3(0, 0, 0);
 
@@ -109,11 +111,22 @@ public class EnterAlienArea2 : MonoBehaviour
             DisableRestriction();
         }
 
-        if (waitingForEquipB && Input.GetKeyDown(KeyCode.E)) // NEED TO CHANGE SO BLOCK CAN BE EQUIPPED
+        // Track the active state of alienDrop
+        if (alienDrop != null)
         {
-            Debug.Log("Blocks equipped");
-            EquipBlocks();
+            bool isAlienDropActive = alienDrop.activeSelf;
+
+            // Check if alienDrop transitions from active to inactive
+            if (wasAlienDropActive && !isAlienDropActive)
+            {
+                Debug.Log("AlienDrop became inactive. Calling EquipBlocks.");
+                EquipBlocks();
+            }
+
+            // Update the previous state
+            wasAlienDropActive = isAlienDropActive;
         }
+
 
         if (blocksEquipped && waitingForEquipC && Input.GetKeyDown(KeyCode.R)) // NEED TO CHANGE SO CLUE CAN BE EQUIPPED
         {
@@ -163,7 +176,6 @@ public class EnterAlienArea2 : MonoBehaviour
     private void EquipClue()
     {
         Debug.Log("Clue equipped");
-        clue.SetActive(false);
         HideDialogue();
         drawingsCompletedText.SetActive(true);
         StartCoroutine(ActivateClueTasksWithDelay());
