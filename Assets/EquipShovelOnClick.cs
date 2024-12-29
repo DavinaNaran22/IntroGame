@@ -53,11 +53,12 @@ public class EquipShovelOnClick : MonoBehaviour
         if (scene.name == "landscape")
         {
             Debug.Log("Landscape scene loaded. Searching for thruster...");
-            thruster = GameObject.Find("Engine1"); // Replace "thruster1" with the exact name in your hierarchy
+            thruster = GameObject.Find("Engine1"); // Replace "Engine1" with the exact name in your hierarchy
 
             if (thruster != null)
             {
                 Debug.Log("Thruster found successfully.");
+                DisableThrusterComponents(); // Disable the thruster components initially
             }
             else
             {
@@ -91,8 +92,8 @@ public class EquipShovelOnClick : MonoBehaviour
         }
 
         // Destroy children of gunParent and knifeParent
-        Transform gunParent = GameObject.Find("GunParent")?.transform; // Replace with the actual name of the GunParent object in your scene
-        Transform knifeParent = GameObject.Find("KnifeParent")?.transform; // Replace with the actual name of the KnifeParent object in your scene
+        Transform gunParent = GameObject.Find("GunParent")?.transform;
+        Transform knifeParent = GameObject.Find("KnifeParent")?.transform;
 
         if (gunParent != null)
         {
@@ -124,55 +125,84 @@ public class EquipShovelOnClick : MonoBehaviour
             shovelImage.SetActive(true);
         }
 
+        // Enable components on the thruster after the shovel is equipped
+        ActivateThrusterComponents();
+
         // Deactivate the crosshair
         if (crosshair != null)
         {
             crosshair.SetActive(false);
         }
 
-        // Add the necessary components to the thruster
-        AddThrusterComponents();
-
         Debug.Log("Shovel equipped.");
-
-        isShovelDeactivated = false; // Reset the flag for new interactions
+        isShovelDeactivated = false;
     }
 
-
-    private void AddThrusterComponents()
+    private void ActivateThrusterComponents()
     {
         if (thruster != null)
         {
-            // Add or update BoxCollider
+            // Enable BoxCollider
             BoxCollider collider = thruster.GetComponent<BoxCollider>();
             if (collider == null)
             {
                 collider = thruster.AddComponent<BoxCollider>();
             }
-
-            // Set the desired size and trigger properties
             collider.size = new Vector3(6.2f, 5.27f, 6.79f);
             collider.isTrigger = true;
+            collider.enabled = true;
 
-            // Add PlayerNearText script
+            // Enable PlayerNearText script
             PlayerNearText playerNearText = thruster.GetComponent<PlayerNearText>();
             if (playerNearText == null)
             {
                 playerNearText = thruster.AddComponent<PlayerNearText>();
-                playerNearText.Text = equipThrusterText;
             }
+            playerNearText.Text = equipThrusterText;
 
-            // Add EquipObject script
+            // Enable EquipObject script
             EquipObject equipObject = thruster.GetComponent<EquipObject>();
             if (equipObject == null)
             {
                 thruster.AddComponent<EquipObject>();
             }
+            equipObject.enabled = true;
 
-            Debug.Log("Thruster components added successfully with updated BoxCollider.");
+            Debug.Log("Thruster components activated after equipping the shovel.");
         }
     }
 
+
+    private void DisableThrusterComponents()
+    {
+        if (thruster != null)
+        {
+            // Disable the BoxCollider
+            BoxCollider collider = thruster.GetComponent<BoxCollider>();
+            if (collider != null)
+            {
+                collider.enabled = false;
+            }
+
+            // Disable the PlayerNearText script
+            PlayerNearText playerNearText = thruster.GetComponent<PlayerNearText>();
+            if (playerNearText != null)
+            {
+                playerNearText.enabled = false;
+            }
+
+            // Disable the EquipObject script
+            EquipObject equipObject = thruster.GetComponent<EquipObject>();
+            if (equipObject != null)
+            {
+                equipObject.enabled = false;
+            }
+
+            Debug.Log("Thruster components disabled.");
+        }
+    }
+
+    
 
     private void DeactivateShovelAndImage()
     {
