@@ -17,14 +17,11 @@ public class Singleton<T> : MonoBehaviour where T : UnityEngine.Object
         // If in instance already exists and it's not this one
         if (Instance != null && Instance != this)
         {
-            Debug.Log("There already exists a " + this.name);
-            Debug.Log(this.gameObject);
             // Only want one instance at any times (hence singleton)
             Destroy(this.gameObject);
         }
         else
         {
-            Debug.Log(this.name + " doesn't exist so all good to go");
             Instance = this as T;
         }
     }
