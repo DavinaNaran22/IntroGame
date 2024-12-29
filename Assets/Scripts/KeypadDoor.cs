@@ -41,7 +41,7 @@ public class KeypadDoor : PlayerSceneTransition
     {
         Player = GameManager.Instance.player;
         // If player is near door when they right click
-        if (Vector3.Distance(this.transform.position, playerTransform.position) < 6)
+        if (Vector3.Distance(transform.position, playerTransform.position) < 6)
         {
             // If player has unlocked the door, change scene
             if (GameManager.Instance.unlockedDoor)
