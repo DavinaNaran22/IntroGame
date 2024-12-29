@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
+  m_IndirectSpecularColor: {r: 0.0020619242, g: 0.0019479868, b: 0.0021169633, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1953,13 +1953,13 @@ PlayableDirector:
   - key: {fileID: 709017795701536726, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
     value: {fileID: 753719090}
   - key: {fileID: -5613820716924137903, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1532203109}
   - key: {fileID: -4469423356782380355, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1532203109}
   - key: {fileID: -8174369368042542285, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
     value: {fileID: 1622667518}
   - key: {fileID: 8304911521993398130, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1532203109}
   - key: {fileID: -8734798462634856404, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
     value: {fileID: 668201280}
   - key: {fileID: 5709193570270722382, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
@@ -12183,7 +12183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d79812d3309da164daba33be4a9ed40a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 500
   playerBody: {fileID: 238311876}
   canLook: 1
 --- !u!20 &1069745495
@@ -14876,12 +14875,15 @@ MonoBehaviour:
   playerHealth: 0
   colourMode: 0
   colourDropdown: {fileID: 0}
+  difficultyDropdown: {fileID: 0}
   CurrentScene: 
   CutsceneTime: 0
   UIManager: {fileID: 51700332}
   cameraCanvas: {fileID: 1254959161}
   cameraManagement: {fileID: 1254959163}
   cameraMsg: {fileID: 1664890787}
+  Volume: 0
+  MouseSens: 0
 --- !u!4 &1352790603
 Transform:
   m_ObjectHideFlags: 0
@@ -16803,6 +16805,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 649763542669667356, guid: 9aac9b4affdf92e4d8dda0eabc705ba3, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 02167c1c4201a1046b1b33aa442a661b, type: 2}
     - target: {fileID: 2507467351377836912, guid: 9aac9b4affdf92e4d8dda0eabc705ba3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 464.25
