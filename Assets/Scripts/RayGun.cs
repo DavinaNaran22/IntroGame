@@ -57,8 +57,7 @@ public class RayGun : MonoBehaviour
 
     void shootRay()
     {
-        // Shoots a ray from the camera to the mouse position
-        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)); // Ray from center of screen
         if (Physics.Raycast(ray, out hit, range))
         {
             GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
@@ -84,8 +83,6 @@ public class RayGun : MonoBehaviour
                 {
                     alien3.TakeDamage();
                 }
-
-
             }
 
             if (hit.collider.CompareTag("RhinoAlien"))
@@ -97,8 +94,8 @@ public class RayGun : MonoBehaviour
                 }
             }
         }
-
     }
+
 
 }
 

@@ -16,6 +16,8 @@ public class EquipShovelOnClick : MonoBehaviour
 
     private bool isShovelDeactivated = false; // Flag to track if the shovel is already deactivated
 
+    public GameObject crosshair; // Reference to the crosshair UI
+
     void Start()
     {
         thrusterimg.SetActive(false);
@@ -122,6 +124,12 @@ public class EquipShovelOnClick : MonoBehaviour
             shovelImage.SetActive(true);
         }
 
+        // Deactivate the crosshair
+        if (crosshair != null)
+        {
+            crosshair.SetActive(false);
+        }
+
         // Add the necessary components to the thruster
         AddThrusterComponents();
 
@@ -179,6 +187,12 @@ public class EquipShovelOnClick : MonoBehaviour
         if (shovelImage != null)
         {
             shovelImage.SetActive(false);
+        }
+
+        // Deactivate the crosshair
+        if (crosshair != null)
+        {
+            crosshair.SetActive(false);
         }
 
         thrusterimg.SetActive(true);
