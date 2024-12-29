@@ -47,6 +47,7 @@ public class Wing : MonoBehaviour
     void OnMouseUp()
     {
         Drag = false;
+        //  if the wing doesnt enter collider, revert back to original position on release
         if (wing_attached.WingTask == false) {
             transform.position = ogposition;
 
