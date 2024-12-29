@@ -145,7 +145,6 @@ public class EnterAlienArea2 : MonoBehaviour
     {
         Debug.Log("Blocks equipped");
         blocksEquipped = true;
-        alienDrop.SetActive(false);
         HideDialogue();
         completedRepairText.SetActive(true);
         StartCoroutine(ActivateRepairTasksWithDelay());
