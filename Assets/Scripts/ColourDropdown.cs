@@ -24,7 +24,6 @@ public class ColourDropdown : Singleton<ColourDropdown>
     {
         mode = ColourMode.NoColourBlindness;
         NoColourBlindness();
-        print("In dropdown start");
         dropdown.onValueChanged.AddListener(delegate
         {
             DropdownValueChanged(dropdown);
