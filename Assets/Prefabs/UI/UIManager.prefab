@@ -5735,7 +5735,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OxygenBarImage: {fileID: 1048187190484474522}
   health: {fileID: 5018313501123420764}
-  maxOxygen: 0
 --- !u!1 &4483204020632583283
 GameObject:
   m_ObjectHideFlags: 0
@@ -9168,7 +9167,6 @@ MonoBehaviour:
   craftingMessageText: {fileID: 0}
   shovelParent: {fileID: 0}
   swordParent: {fileID: 0}
-  healthScript: {fileID: 0}
 --- !u!1 &6803282228478082394
 GameObject:
   m_ObjectHideFlags: 0
