@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
+  m_IndirectSpecularColor: {r: 0.002063206, g: 0.0019480612, b: 0.0021180937, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7787,6 +7787,7 @@ Transform:
   - {fileID: 773736028}
   - {fileID: 640000446}
   - {fileID: 683170498}
+  - {fileID: 1658998372}
   - {fileID: 681031836}
   - {fileID: 1041454073}
   m_Father: {fileID: 0}
@@ -11224,6 +11225,8 @@ MonoBehaviour:
   cameraMsg: {fileID: 713401664}
   Volume: 0
   MouseSens: 0
+  gunPrefab: {fileID: 0}
+  knifePrefab: {fileID: 0}
 --- !u!114 &444127644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16480,9 +16483,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 400116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1155094638}
-    - targetCorrespondingSourceObject: {fileID: 400116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1658998372}
     - targetCorrespondingSourceObject: {fileID: 7477434198442461219, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1557261607}
@@ -17698,7 +17698,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 683170498}
+    m_TransformParent: {fileID: 327061442}
     m_Modifications:
     - target: {fileID: 1014989259798498, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       propertyPath: m_Name
@@ -17714,43 +17714,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4420664804571618, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.39999992
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4420664804571618, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4420664804571618, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4420664804571618, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.709
+      value: -320.67752
       objectReference: {fileID: 0}
     - target: {fileID: 4420664804571618, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1855996
+      value: 12.793999
       objectReference: {fileID: 0}
     - target: {fileID: 4420664804571618, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.187
+      value: 219.33249
       objectReference: {fileID: 0}
     - target: {fileID: 4420664804571618, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4420664804571618, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4420664804571618, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4420664804571618, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7071068
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4420664804571618, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -39818,8 +39818,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a508f8468c624c41b46b63b2ba52441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1658998377
-BoxCollider:
+--- !u!135 &1658998377
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -39837,8 +39837,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 4, z: 4}
-  m_Center: {x: -0.000022292163, y: -0.00006114176, z: 1.0216006}
+  m_Radius: 3
+  m_Center: {x: -0.000052809715, y: -0.00006138533, z: 1.0216006}
 --- !u!1001 &1659504281
 PrefabInstance:
   m_ObjectHideFlags: 0
