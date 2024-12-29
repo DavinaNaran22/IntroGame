@@ -14,6 +14,7 @@ public class ControlCutscene : MonoBehaviour
     [SerializeField] GameObject subtitleBox;
     [SerializeField] GameObject HUD;
     [SerializeField] GameObject HealthBar;
+    [SerializeField] GameObject OxygenBar;
     public static double cutsceneLength = 120;
 
     private void Start()
@@ -53,6 +54,7 @@ public class ControlCutscene : MonoBehaviour
         GameManager.Instance.playFirstCutscene = false;
         HUD.SetActive(true);
         HealthBar.SetActive(true);
+        OxygenBar.SetActive(true);
         ShowDeadAstros();
     }
 
