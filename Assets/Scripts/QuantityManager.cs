@@ -58,6 +58,8 @@ public class QuantityManager : MonoBehaviour
     private Dictionary<GameObject, bool> clueStates = new Dictionary<GameObject, bool>(); // Track state of clues
 
 
+    [SerializeField] PlayerHealth healthScript;
+
 
     private void Start()
     {
@@ -541,6 +543,17 @@ public class QuantityManager : MonoBehaviour
         else
         {
             ShowCraftingMessage("Not enough metal or wood to craft a shovel!");
+        }
+    }
+
+    // Use medicine item if player has it
+    public void UseMedicine()
+    {
+        if (medicineCount > 0)
+        {
+            healthScript.Heal();
+            medicineCount--;
+            UpdateText(medicineText, "Medicine", medicineCount);
         }
     }
 }
