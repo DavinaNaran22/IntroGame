@@ -20,7 +20,7 @@ public class Interior_Manager : MonoBehaviour
         Message3.SetActive(false);
         Message4.SetActive(false);
         Passcode.SetActive(false);
-        GameObject storage = GameObject.Find("StorageRoom_collider"); 
+        GameObject storage = GameObject.Find("Storage_Collider"); 
         storage_scene = storage.GetComponent<Storage_Scene>();
         storage_scene.deactivate_task2();
 
