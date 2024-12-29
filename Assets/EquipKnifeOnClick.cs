@@ -5,7 +5,7 @@ using System.Collections;
 
 public class EquipKnifeOnClick : MonoBehaviour
 {
-    public GameObject knifePrefab; // Knife prefab to instantiate
+    private GameObject knifePrefab; // Knife prefab to instantiate
     public Transform weaponParent; // Transform of the WeaponParent
     public Button equipKnifeButton;
 
@@ -25,6 +25,7 @@ public class EquipKnifeOnClick : MonoBehaviour
 
     void Start()
     {
+        knifePrefab = GameManager.Instance.knifePrefab;
         if (equipKnifeButton != null)
         {
             equipKnifeButton.onClick.AddListener(ToggleKnife);
@@ -64,7 +65,7 @@ public class EquipKnifeOnClick : MonoBehaviour
         }
     }
 
-    private void EquipKnife()
+    void EquipKnife()
     {
         // Check if the gun is equipped and unequip it
         if (gunScript != null && gunScript.IsGunEquipped)
@@ -97,6 +98,15 @@ public class EquipKnifeOnClick : MonoBehaviour
         if (playerNearText != null)
         {
             Destroy(playerNearText);
+            Debug.Log("Removed PlayerNearText script from the equipped knife.");
+        }
+
+        // Destroy the EquipObject script from the knife clone
+        EquipObject equipObject = equippedKnife.GetComponent<EquipObject>();
+        if (equipObject != null)
+        {
+            Destroy(equipObject);
+            Debug.Log("Removed EquipObject script from the equipped knife.");
         }
 
         originalPosition = equippedKnife.transform.localPosition;
@@ -104,6 +114,7 @@ public class EquipKnifeOnClick : MonoBehaviour
 
         Debug.Log("Knife equipped.");
     }
+
 
     public void UnequipKnife()
     {

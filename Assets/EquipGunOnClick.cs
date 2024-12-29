@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class EquipGunOnClick : MonoBehaviour
 {
-    public GameObject gunPrefab; // Gun prefab to instantiate
+    private GameObject gunPrefab; // Gun prefab to instantiate
     public Transform playerHand; // Transform of the player's hand
     public Button equipGunButton;
 
@@ -12,8 +12,12 @@ public class EquipGunOnClick : MonoBehaviour
     // Reference to the EquipKnifeOnClick script
     public EquipKnifeOnClick equipKnifeScript;
 
+    // Reference to the Crosshair UI
+    public GameObject crosshair;
+
     void Start()
     {
+        gunPrefab = GameManager.Instance.gunPrefab;
         if (equipGunButton != null)
         {
             equipGunButton.onClick.AddListener(ToggleGun);
@@ -21,6 +25,12 @@ public class EquipGunOnClick : MonoBehaviour
         else
         {
             Debug.LogError("EquipGunButton is not assigned in the inspector.");
+        }
+
+        // Ensure the crosshair is disabled by default
+        if (crosshair != null)
+        {
+            crosshair.SetActive(false);
         }
     }
 
@@ -44,6 +54,7 @@ public class EquipGunOnClick : MonoBehaviour
             equipKnifeScript.UnequipKnife();
         }
 
+        // Instantiate and equip the gun
         equippedGun = Instantiate(gunPrefab, playerHand);
         equippedGun.SetActive(true);
         equippedGun.transform.localPosition = Vector3.zero;
@@ -56,9 +67,23 @@ public class EquipGunOnClick : MonoBehaviour
             Destroy(playerNearText);
         }
 
+        // Destroy the EquipObject script from the clone
+        EquipObject equipObject = equippedGun.GetComponent<EquipObject>();
+        if (equipObject != null)
+        {
+            Destroy(equipObject);
+            Debug.Log("Removed EquipObject script from the equipped gun.");
+        }
+
+        // Enable the crosshair
+        if (crosshair != null)
+        {
+            crosshair.SetActive(true);
+        }
 
         Debug.Log("Gun equipped.");
     }
+
 
     public void UnequipGun()
     {
@@ -67,6 +92,12 @@ public class EquipGunOnClick : MonoBehaviour
             Destroy(equippedGun);
             equippedGun = null;
             Debug.Log("Gun unequipped.");
+        }
+
+        // Disable the crosshair
+        if (crosshair != null)
+        {
+            crosshair.SetActive(false);
         }
     }
 
