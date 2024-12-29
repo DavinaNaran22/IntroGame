@@ -16,6 +16,7 @@ public class Interior_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         Message3.SetActive(false);
         Message4.SetActive(false);
         Passcode.SetActive(false);

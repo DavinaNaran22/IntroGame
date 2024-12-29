@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020619242, g: 0.0019479868, b: 0.0021169633, a: 1}
+  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -986,10 +986,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2036355416}
     - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
-      propertyPath: healthScript
-      value: 
-      objectReference: {fileID: 1432014074}
-    - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: medicineText
       value: 
       objectReference: {fileID: 549578547}
@@ -1276,34 +1272,6 @@ PrefabInstance:
     - target: {fileID: 5428121892843555700, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5448257653794170106, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5448257653794170106, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5448257653794170106, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 644578572}
-    - target: {fileID: 5448257653794170106, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5448257653794170106, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UseMedicine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5448257653794170106, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: QuantityManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5448257653794170106, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5448286290503052346, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2070,7 +2038,6 @@ MonoBehaviour:
   subtitleBox: {fileID: 1383739019}
   HUD: {fileID: 1089804553}
   HealthBar: {fileID: 51700335}
-  OxygenBar: {fileID: 2063951798}
 --- !u!1 &57307819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2034179033855149247, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
@@ -15514,17 +15481,6 @@ Transform:
   - {fileID: 269825897}
   m_Father: {fileID: 1345085155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1432014074 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5018313501123420764, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
-  m_PrefabInstance: {fileID: 51700331}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd85818d29275b144b515de338b8b1ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1435253360
 GameObject:
   m_ObjectHideFlags: 0

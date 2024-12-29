@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System;
 
 
 public class PlayerHealth : MonoBehaviour
@@ -11,7 +10,6 @@ public class PlayerHealth : MonoBehaviour
     public const float maxHealth = 1f; // Health is represented as a percentage (1 is full health)
     public float currentHealth;
     private bool isRegenerating = false; // Flag to ensure only one coroutine runs at a time
-    private bool isEasyRegenerating = false;
 
 
     void Start()
@@ -22,34 +20,7 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthBar();
     }
 
-    private void Update()
-    {
-        if (GameManager.Instance.Difficulty.level == DifficultyLevel.Easy && currentHealth > 0f && currentHealth < 1f && !isEasyRegenerating)
-        {
-            StartCoroutine(EasyHealthRegen());
-        }
-    }
-
-    // Regeneration for Easy difficulty - regen every 10s
-    IEnumerator EasyHealthRegen()
-    {
-        // Only want one EasyHealthRegen
-        isEasyRegenerating = true;
-        yield return new WaitForSeconds(10f);
-
-        while (currentHealth > 0f && currentHealth < 1f)
-        {
-            Debug.Log("Regenerating health on easy mode");
-            Heal(); // Will heal player by 15% (easy mode medicine increase) and update UI
-            yield return new WaitForSeconds(10f);
-        }
-
-        if (currentHealth == 1f)
-        {
-            isEasyRegenerating = false;
-            yield break;
-        }
-    }
+    
 
     // method to reduce health by a percentage (e.g., 0.05 = 5%)
     public void TakeDamage(float damagePercent)
@@ -95,9 +66,11 @@ public class PlayerHealth : MonoBehaviour
                 UpdateHealthBar(); // Update the UI
             }
         }
-        
+
         isRegenerating = false; // Allow future regeneration if health goes critical again
     }
+
+
 
     void UpdateHealthBar()
     {
@@ -117,7 +90,6 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
-
     // called when player dies (oxygen or health runs out)
     public void Die()
     {
@@ -125,10 +97,4 @@ public class PlayerHealth : MonoBehaviour
         SceneManager.LoadScene("Restart");
     }
 
-    public void Heal()
-    {
-        currentHealth = Math.Clamp(currentHealth + GameManager.Instance.Difficulty.medicineIncrease, 0f, maxHealth);
-        GameManager.Instance.playerHealth = currentHealth;
-        UpdateHealthBar();
-    }
 }

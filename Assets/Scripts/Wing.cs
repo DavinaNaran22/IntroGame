@@ -9,9 +9,11 @@ public class Wing : MonoBehaviour
     public Plane new_plane;
     public Vector3 pos_offset;
     public GameObject Cube;
+    private Vector3 ogposition;
 
     private void Update()
     {
+       
         if (Drag == true) {
            // converting mouse position to ray
             Vector3 mousePos= Input.mousePosition;
@@ -28,6 +30,7 @@ public class Wing : MonoBehaviour
         // when the object is clicked drag is enabled 
         Debug.Log("CLICKED");
         Drag = true;
+        ogposition = transform.position;
         // creating a new plane (to move object on)
         new_plane = new Plane(Camera.main.transform.forward, transform.position);
 
@@ -44,21 +47,13 @@ public class Wing : MonoBehaviour
     void OnMouseUp()
     {
         Drag = false;
-    }
+        if (wing_attached.WingTask == false) {
+            transform.position = ogposition;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("CCC");
-        if (collision.gameObject == Cube)
-        {
-            Debug.Log("COLLISION ");
-        
-            Cube.SetActive(false);
         }
-
-
-
     }
+
+ 
 
 
 

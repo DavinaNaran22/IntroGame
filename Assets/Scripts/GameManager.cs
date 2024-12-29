@@ -38,7 +38,6 @@ public class GameManager : Singleton<GameManager>
     public float playerHealth;
     public ColourMode colourMode;
     public TMP_Dropdown colourDropdown;
-    public TMP_Dropdown difficultyDropdown;
     public string CurrentScene;
     public double CutsceneTime = 0;
     public GameObject UIManager;
@@ -68,14 +67,6 @@ public class GameManager : Singleton<GameManager>
             if (gameObject != null)
             {
                 colourDropdown = gameObject.GetComponent<TMP_Dropdown>();
-            }
-        }
-        if (difficultyDropdown == null)
-        {
-            GameObject gameObject = GameObject.FindWithTag("DifficultyDropdown");
-            if (gameObject != null)
-            {
-                difficultyDropdown = gameObject.GetComponent<TMP_Dropdown>();
             }
         }
     }
