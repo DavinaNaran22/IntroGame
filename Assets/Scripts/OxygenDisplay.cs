@@ -6,12 +6,14 @@ public class OxygenDisplay : MonoBehaviour
 {
     public Image OxygenBarImage; // Image for the oxygen bar
     public PlayerHealth health; // Object of player's health to access restart function
-    public const float maxOxygen = 7200f; // Total oxygen time (2 hours in seconds)
+    public float maxOxygen; // Total oxygen time (2 hours in seconds)
     private float currentOxygenTime;
 
     void Start()
     {
-        currentOxygenTime = maxOxygen; // Initialize with full oxygen time (2 hours)
+        maxOxygen = HoursToSeconds(2); // Initialize with full oxygen time (2 hours)
+        currentOxygenTime = HoursToSeconds(GameManager.Instance.Difficulty.GetOxygenTime()); // Set correct oxygen time
+        Debug.Log("Current oxygen time " + currentOxygenTime + " " + GameManager.Instance.Difficulty.level);
         if (SceneManager.GetActiveScene().name == "landscape")
         {
             UpdateOxygenBar();
@@ -37,5 +39,12 @@ public class OxygenDisplay : MonoBehaviour
     {
         // Update the fill amount of the oxygen bar based on current oxygen time
         OxygenBarImage.fillAmount = currentOxygenTime / maxOxygen;
+    }
+
+    // Used for maxOxygen value
+    float HoursToSeconds(float hours)
+    {
+        Debug.Log("Hours to seconds " + hours * 60 * 60);
+        return hours * 60 * 60;
     }
 }
