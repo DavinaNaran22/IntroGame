@@ -27,6 +27,7 @@ TagManager:
   - Herb
   - wire_end
   - thruster
+  - Clue
   layers:
   - Default
   - TransparentFX

@@ -30,12 +30,15 @@ public class QuantityManager : MonoBehaviour
     public GameObject metalsDroppedImage; // Added
     public GameObject woodImage; // Added
     public GameObject stoneImage; // Changed to single item
+    public GameObject clueImage;
 
     [Header("Collectible Items")]
     public List<GameObject> medicines;
+    public List<GameObject> clues;
     [Header("Collectible Item UI Elements")]
     public TextMeshProUGUI medicineText;
     public TextMeshProUGUI herbsText;
+    public TextMeshProUGUI clueText; 
 
     // Reference to the Crafting Message Canvas and Text
     public GameObject craftingMessageCanvas;
@@ -48,11 +51,12 @@ public class QuantityManager : MonoBehaviour
 
     private int medicineCount = 0;
     private int herbsCount = 0;
+    private int clueCount = 0; 
 
     private Dictionary<GameObject, bool> medicineStates = new Dictionary<GameObject, bool>();
     private Dictionary<GameObject, bool> herbStates = new Dictionary<GameObject, bool>();
+    private Dictionary<GameObject, bool> clueStates = new Dictionary<GameObject, bool>(); // Track state of clues
 
-    [SerializeField] PlayerHealth healthScript;
 
 
     private void Start()
@@ -72,12 +76,14 @@ public class QuantityManager : MonoBehaviour
         SetActive(shovelParent, false);
         SetActive(swordParent, false);
         SetActive(stoneImage, false);
+        SetActive(clueImage, false);
 
         TrackAlienAlloy("RepairTask2Manager", "AlienAlloy", alienAlloyImage);
 
         // Initialize collectible item text
         UpdateText(medicineText, "Medicine", medicineCount);
         UpdateText(herbsText, "Herbs", herbsCount);
+        UpdateText(clueText, "Clues", clueCount);
     }
 
     private void OnEnable()
@@ -111,10 +117,18 @@ public class QuantityManager : MonoBehaviour
             TrackDroppedItem("RepairTask1Manager", "MetalDropped", metalsDroppedImage);
             TrackDroppedItem("RepairTask1Manager", "WoodDropped", woodImage);
 
-            
+            if (clueCount > 0 && clueImage != null)
+            {
+                SetActive(clueImage, true);
+            }
+
+
 
             // Find and add all herbs to the list
             FindAndAddHerbsByTag();
+
+            // Find and add all clues to the list
+            FindAndAddCluesByTag(); 
         }
     }
 
@@ -128,10 +142,12 @@ public class QuantityManager : MonoBehaviour
 
         // Handle collectible items
         HandleCollectibleItems(medicines, ref medicineCount, medicineText, "Medicine");
-
+        HandleCollectibleItems(clues, ref clueCount, clueText, "Clues");
 
         // Handle herb state updates
         HandleHerbs();
+
+        HandleClues();
 
         // Check if both wood and metal images are active in the UI
         if (woodImage.activeSelf && metalsDroppedImage.activeSelf)
@@ -299,6 +315,27 @@ public class QuantityManager : MonoBehaviour
         }
     }
 
+    private void FindAndAddCluesByTag()
+    {
+        // Clear the list to avoid duplicate entries
+        clueStates.Clear();
+
+        // Find all objects tagged as "Clue"
+        GameObject[] clueObjects = GameObject.FindGameObjectsWithTag("Clue");
+        Debug.Log($"Found {clueObjects.Length} objects tagged as 'Clue'.");
+
+        foreach (GameObject clue in clueObjects)
+        {
+            // Add to clueStates if not already tracked
+            if (!clueStates.ContainsKey(clue))
+            {
+                clueStates[clue] = clue.activeInHierarchy;
+                Debug.Log($"Clue added to tracking: {clue.name} (Active: {clue.activeInHierarchy})");
+            }
+        }
+    }
+
+
 
     private void HandleHerbs()
     {
@@ -325,6 +362,36 @@ public class QuantityManager : MonoBehaviour
 
             // Mark herb as processed
             herbStates[herb] = false;
+        }
+    }
+
+    private void HandleClues()
+    {
+        List<GameObject> cluesToProcess = new List<GameObject>();
+
+        foreach (var clue in clueStates.Keys)
+        {
+            if (clue != null && !clue.activeInHierarchy && clueStates[clue])
+            {
+                cluesToProcess.Add(clue);
+            }
+        }
+
+        foreach (var clue in cluesToProcess)
+        {
+            // Increment clue count and update UI
+            clueCount++;
+            UpdateText(clueText, "Clues", clueCount);
+            Debug.Log($"Clue count incremented. Current count: {clueCount}");
+
+            // Mark clue as processed
+            clueStates[clue] = false;
+
+            // Show the clue image in the inventory
+            if (clueImage != null)
+            {
+                SetActive(clueImage, true);
+            }
         }
     }
 
@@ -474,17 +541,6 @@ public class QuantityManager : MonoBehaviour
         else
         {
             ShowCraftingMessage("Not enough metal or wood to craft a shovel!");
-        }
-    }
-
-    // Use medicine item if player has it
-    public void UseMedicine()
-    {
-        if (medicineCount > 0)
-        {
-            healthScript.Heal();
-            medicineCount--;
-            UpdateText(medicineText, "Medicine", medicineCount);
         }
     }
 }
