@@ -10,6 +10,7 @@ public class wing_attached : MonoBehaviour
     public GameObject Wing;
     public GameObject Cube;
     public Canvas Message1;
+    public GameObject promptText;
     public static bool WingTask = false;
     
     
@@ -40,6 +41,7 @@ public class wing_attached : MonoBehaviour
         WingTask = true;
         Wing.SetActive(false);
         Cube.SetActive(false);
+        promptText.SetActive(false);
         Message1.enabled = true;
        
 
