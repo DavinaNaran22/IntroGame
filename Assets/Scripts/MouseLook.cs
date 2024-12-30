@@ -21,6 +21,7 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mouseSensitivity = GameManager.Instance.MouseSens;
         if (canLook)
         {// Getting the mouse input to move around x and y axis
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
