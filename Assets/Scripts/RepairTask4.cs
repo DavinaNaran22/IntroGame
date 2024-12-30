@@ -60,6 +60,7 @@ public class RepairTask4 : MonoBehaviour
         wingDupe.SetActive(false);
         player = GameManager.Instance.player;
         StartAdditionalDialogues();
+
     }
 
     private void Update()
