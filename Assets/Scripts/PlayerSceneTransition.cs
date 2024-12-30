@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,15 +16,28 @@ public class PlayerSceneTransition: MonoBehaviour
         if (other.CompareTag("Player") && !hasCheckCondition)
         {
             player = other.gameObject;
-            SceneManager.LoadScene(scene);
-            SceneManager.sceneLoaded += OnSceneLoad;
+            StartCoroutine(LoadAsyncScene());
+            //SceneManager.LoadScene(scene);
+            //SceneManager.sceneLoaded += OnSceneLoad;
         }
     }
+
+    IEnumerator LoadAsyncScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+        SceneManager.sceneLoaded += OnSceneLoad;
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
+
     protected void LoadOtherScene(GameObject Player)
     {
         player = Player;
-        SceneManager.LoadScene(scene);
-        SceneManager.sceneLoaded += OnSceneLoad;
+        StartCoroutine(LoadAsyncScene());
+        //SceneManager.LoadScene(scene);
+        //SceneManager.sceneLoaded += OnSceneLoad;
         GameManager.Instance.hoverText.text = "";
     }
 
