@@ -62,6 +62,7 @@ public class EnterAlienArea3 : MonoBehaviour
 
     void Start()
     {
+        player = GameManager.Instance.player.transform;
         // Get the box collider component
         boxCollider = GetComponent<Collider>();
 
