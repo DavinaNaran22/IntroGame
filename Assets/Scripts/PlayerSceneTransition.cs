@@ -7,7 +7,6 @@ public class PlayerSceneTransition: MonoBehaviour
     [SerializeField] private string scene;
     [SerializeField] private Vector3 spawnPoint;
     private GameObject player;
-    private InstantiateParts PartsManager;
     protected bool hasCheckCondition = false;
 
     // When player enters trigger switch scene (and if no check condition)
@@ -41,11 +40,9 @@ public class PlayerSceneTransition: MonoBehaviour
         GameManager.Instance.hoverText.text = "";
     }
 
-    // When scene loaded, move player to spawn point and spawn boxes
+    // When scene loaded, move player to spawn point
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        PartsManager = GameObject.FindWithTag("ShipPartManager").GetComponent<InstantiateParts>();
-        PartsManager.CanSpawn();
         player.transform.position = spawnPoint;
         // So that text from one scene doesn't carry over from another
         GameManager.Instance.hoverText.text = "";
