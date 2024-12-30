@@ -76,6 +76,7 @@ public class CaveScene : MonoBehaviour
     private void Start()
     {
         player = GameManager.Instance.player;
+        minimap = GameManager.Instance.MinimapCanvas;
         promptText.gameObject.SetActive(false);
         picBarrier.gameObject.SetActive(false);
         dialogueText.gameObject.SetActive(true);

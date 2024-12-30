@@ -53,6 +53,8 @@ public class GameManager : Singleton<GameManager>
     public GameObject gunPrefab;
     public GameObject knifePrefab;
     public GameObject SwordPrefab;
+
+    public GameObject MinimapCanvas;
     private void Start()
     {
         // The following are values chagned by pause menu
