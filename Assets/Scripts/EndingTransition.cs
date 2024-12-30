@@ -10,7 +10,7 @@ public class EndingTransition : MonoBehaviour
     [SerializeField] private CanvasGroup fadeCanvasGroup;
     [SerializeField] private float fadeDuration = 1f;
     private GameObject player;
-    private InstantiateParts PartsManager;
+    //private InstantiateParts PartsManager;
     protected bool hasCheckCondition = false;
 
     // When player enters trigger switch scene (and if no check condition)
@@ -46,8 +46,8 @@ public class EndingTransition : MonoBehaviour
     // When scene loaded, move player to spawn point and spawn boxes
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        PartsManager = GameObject.FindWithTag("ShipPartManager").GetComponent<InstantiateParts>();
-        PartsManager.CanSpawn();
+        //PartsManager = GameObject.FindWithTag("ShipPartManager").GetComponent<InstantiateParts>();
+        //PartsManager.CanSpawn();
         player.transform.position = spawnPoint;
         player.transform.rotation = (Quaternion.Euler(0, 91, 0));
         // So that text from one scene doesn't carry over from another
