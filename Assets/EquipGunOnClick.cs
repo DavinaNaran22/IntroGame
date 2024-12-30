@@ -6,6 +6,7 @@ public class EquipGunOnClick : MonoBehaviour
     private GameObject gunPrefab; // Gun prefab to instantiate
     public Transform playerHand; // Transform of the player's hand
     public Button equipGunButton;
+    private const int WEAPON_LAYER = 11;
 
     private GameObject equippedGun;
 
@@ -56,6 +57,7 @@ public class EquipGunOnClick : MonoBehaviour
 
         // Instantiate and equip the gun
         equippedGun = Instantiate(gunPrefab, playerHand);
+        equippedGun.layer = WEAPON_LAYER; // So only rendered by weapon camera
         equippedGun.SetActive(true);
         equippedGun.transform.localPosition = Vector3.zero;
         equippedGun.transform.localRotation = Quaternion.identity;
