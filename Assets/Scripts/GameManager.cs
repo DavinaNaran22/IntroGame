@@ -36,18 +36,21 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI hoverText;
     public bool playFirstCutscene;
     public float playerHealth;
-    public ColourMode colourMode;
-    public TMP_Dropdown colourDropdown;
-    public TMP_Dropdown difficultyDropdown;
     public string CurrentScene;
     public double CutsceneTime = 0;
     public GameObject UIManager;
     public GameObject cameraCanvas;
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;
+
+    [Header("Options UI")]
+    public ColourMode colourMode;
+    public TMP_Dropdown colourDropdown;
+    public TMP_Dropdown difficultyDropdown;
     public Difficulty Difficulty;
     public float Volume;
     public float MouseSens;
+    public float GameTime = 1;
 
     [Header("Inventory Prefabs")]
     public GameObject gunPrefab;
@@ -63,6 +66,7 @@ public class GameManager : Singleton<GameManager>
         Difficulty = optionsManager.GetComponent<DifficultyDropdown>().difficulty;
         optionsManager.GetComponent<VolumeSlider>().AudioMixer.GetFloat("volume", out Volume);
         MouseSens = MouseLook.mouseSensitivity;
+        GameTime = optionsManager.GetComponent<GameSpeedSlider>().GameTime;
     }
 
     private void Update()
