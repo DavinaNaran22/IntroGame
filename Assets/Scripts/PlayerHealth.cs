@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using Unity.VisualScripting;
 
 
 public class PlayerHealth : MonoBehaviour
@@ -12,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
     private bool isRegenerating = false; // Flag to ensure only one coroutine runs at a time
     private bool isEasyRegenerating = false;
+    private bool hasDied = false; // Just in case update and take damage both call Die()
 
 
     void Start()
@@ -27,6 +29,11 @@ public class PlayerHealth : MonoBehaviour
         if (GameManager.Instance.Difficulty.level == DifficultyLevel.Easy && currentHealth > 0f && currentHealth < 1f && !isEasyRegenerating)
         {
             StartCoroutine(EasyHealthRegen());
+        }
+
+        if (currentHealth <= 0f)
+        {
+            Die();
         }
     }
 
@@ -61,7 +68,7 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = 0f; // Ensure health doesn't go negative
             Debug.Log("You Died!");
-            RestartScene();
+            Die();
         }
         else
         {
@@ -119,13 +126,23 @@ public class PlayerHealth : MonoBehaviour
     }
 
     // called when player dies and returns to tile A.
-    public void RestartScene()
+    public void Die()
     {
-        // Get the active scene's name
-        string landscape = SceneManager.GetActiveScene().name;
+        if (!hasDied)
+        {
+            hasDied = true;
+            StartCoroutine(LoadDeathSceneAsync());
+        }
+    }
 
-        // Reload the current scene
-        SceneManager.LoadScene("landscape");
+    IEnumerator LoadDeathSceneAsync()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Death");
+        // Wait for scene to finish loading async
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 
     public void Heal()

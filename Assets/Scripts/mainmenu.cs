@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class mainmenu : MonoBehaviour
 {
-    public void quit()
+    public void Quit()
     {
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false; // How to quit in unity editor

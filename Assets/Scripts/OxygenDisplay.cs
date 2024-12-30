@@ -31,7 +31,7 @@ public class OxygenDisplay : MonoBehaviour
         {
             currentOxygenTime = 0; // Ensure the countdown stops at 0
             Debug.Log("Oxygen has run out :(");
-            health.RestartScene(); // Restart scene when oxygen runs out
+            health.Die(); // Restart scene when oxygen runs out
         }
     }
 
