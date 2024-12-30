@@ -12,12 +12,14 @@ public class Control_panel : MonoBehaviour
     public Canvas ship_map;
     public GameObject Message;
     public GameObject Message2;
+    public GameObject Msg1;
     public bool task1_completed = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Msg1.SetActive(true);
         Message.SetActive(false);
         C_panel.SetActive(false);
         Message2.SetActive(false);
@@ -28,19 +30,21 @@ public class Control_panel : MonoBehaviour
     {
         //Debug.Log($"IN state: {IN}");
 
-        if (IN == true && Input.GetKeyDown(KeyCode.A)) {
+        if (IN == true && Input.GetKeyDown(KeyCode.A))
+        {
             //Debug.Log("ACTIVE");
             C_panel.SetActive(true);
             ship_map.enabled = false;
             Message.SetActive(false);
             task1_completed = true;
 
-}
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) {
+        if (other.CompareTag("Player"))
+        {
             IN = true;
             Message.SetActive(true);
             //Debug.Log("WERE IN");
@@ -55,11 +59,13 @@ public class Control_panel : MonoBehaviour
             Message.SetActive(false);
             C_panel.SetActive(false);
             Message2.SetActive(true);
+            Msg1.SetActive(false);
             //Debug.Log("WERE IN");
         }
     }
 
-    public void enable_ship_map() {
+    public void enable_ship_map()
+    {
         ship_map.enabled = true;
         ship_status.enabled = false;
 
