@@ -8,6 +8,7 @@ public class CaveDialogue2 : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject redCrystal;
     public Transform player;
+    public GameObject transition;
 
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
@@ -43,6 +44,13 @@ public class CaveDialogue2 : MonoBehaviour
     {
         redCrystal.SetActive(false);
         ShowDialogue("Maybe I can use this crystal as a power source for my spaceship...");
+        
+    }
+
+    private IEnumerator transitionScene()
+    {
+        yield return new WaitForSeconds(4f);
+        transition.SetActive(false);
     }
 
 
