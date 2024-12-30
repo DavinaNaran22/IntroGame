@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class Ending : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
+    public GameObject button;
 
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
@@ -63,7 +64,7 @@ public class Ending : MonoBehaviour
     {
         ShowDialogue("YOU: Let’s see if the crystal can power this spaceship.");
         // NEED TO ADD A BUTTON THAT WILL LET THE CRYSTAL LEAVE INVENTORY
-
+        button.SetActive(true);
         //HideDialogue();
         StartAdditionalDialogues();
     }
