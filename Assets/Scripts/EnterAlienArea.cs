@@ -146,7 +146,7 @@ public class EnterAlienArea : MonoBehaviour
         restrictionEnabled = false;
         Debug.Log("Movement restriction disabled");
         alienArea.enabled = false;
-        ShowDialogue("Maybe I can craft something using the metal and wood dropped to dig this thruster out. First, I need to equip them");
+        ShowDialogue("Maybe I can craft something using the metal and wood dropped to dig this thruster out. First, I need to equip them.");
         waitingForEquip = true;
 
     }
