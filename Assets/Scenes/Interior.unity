@@ -10497,7 +10497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299358265658339353, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 708897208918422464, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_Size.x
@@ -11365,6 +11365,7 @@ PrefabInstance:
     - {fileID: 4821813308700911296, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     - {fileID: 7200615796192959306, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     - {fileID: 7736816290642269190, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+    - {fileID: 299358265658339353, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2308628226698110049, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     - {fileID: 2069783760814287446, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
@@ -15204,17 +15205,18 @@ MonoBehaviour:
   hoverText: {fileID: 1929433153}
   playFirstCutscene: 1
   playerHealth: 0
-  colourMode: 0
-  colourDropdown: {fileID: 0}
-  difficultyDropdown: {fileID: 0}
   CurrentScene: 
   CutsceneTime: 0
   UIManager: {fileID: 51700332}
   cameraCanvas: {fileID: 1254959161}
   cameraManagement: {fileID: 1254959163}
   cameraMsg: {fileID: 1664890787}
+  colourMode: 0
+  colourDropdown: {fileID: 0}
+  difficultyDropdown: {fileID: 0}
   Volume: 0
   MouseSens: 0
+  GameTime: 1
   gunPrefab: {fileID: 2192913056035240304, guid: 8be11147094a8fd4d89dfb4fe6fbb6ec, type: 3}
   knifePrefab: {fileID: 1188603420251640516, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
   SwordPrefab: {fileID: 1014989259798498, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
