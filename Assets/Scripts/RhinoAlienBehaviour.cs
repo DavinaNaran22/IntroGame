@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RhinoAlienBehaviour : FindPlayerTransform
+public class RhinoAlienBehaviour : MonoBehaviour
 {
+    public Transform Player;
     public Transform shootingPoint;
     public float detectionRadius = 5f;
     public Animator animator;
@@ -12,6 +13,8 @@ public class RhinoAlienBehaviour : FindPlayerTransform
     public GameObject Healthlimit;
     public CaveCamRestrict caveCamRestrict;
     public EnterAlienArea3 enterAlienArea3;
+    public GameObject craftSword;
+    public GameObject craftedPurpleSword;
 
     public GameObject shotPrefab;
     public float shootRate = 0.5f;
@@ -20,16 +23,17 @@ public class RhinoAlienBehaviour : FindPlayerTransform
     private bool playerNearby = false;
     private bool isDead = false; // Flag to check if the alien is dead
     private bool isHit = false;
-    private bool isInvulnerable = true; // Checks if alien is in fight mode before player can kill it
+    public bool isInvulnerable = true; // Checks if alien is in fight mode before player can kill it
+    private bool isCriticalHealth = false;
 
     private void Start()
     {
         Healthlimit = GameObject.FindWithTag("HealthLimit");
+        Player = GameManager.Instance.player.transform;
     }
 
     private void Update()
     {
-        base.GetPlayerTransform();
         if (isDead) return; // Stop any further updates if the alien is dead
 
         float distanceToPlayer = Vector3.Distance(transform.position, Player.position);
@@ -184,6 +188,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         if (damageBar != null)
         {
             damageBar.OnAlienDied += HandleAlienDeath; // Subscribe to event
+            damageBar.OnCriticalHealth += HandleCriticalHealth;
         }
     }
 
@@ -192,6 +197,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         if (damageBar != null)
         {
             damageBar.OnAlienDied -= HandleAlienDeath; // Unsubscribe from event
+            damageBar.OnCriticalHealth -= HandleCriticalHealth;
         }
     }
 
@@ -202,6 +208,33 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         animator.SetTrigger("Dead"); // Trigger "Dead" animation
         Debug.Log("Alien has died!");
         StartCoroutine(DelayedBlockAppearance());
+    }
+
+    private void HandleCriticalHealth()
+    {
+        if (isCriticalHealth) return; // Prevent duplicate calls
+        isCriticalHealth = true;
+        isInvulnerable = true;
+        Debug.Log("Alien is at critical health!");
+        StartCriticalHealthDialogue();
+    }
+
+
+    // Waits for dialogue and player to craft sword
+    private void StartCriticalHealthDialogue()
+    {
+        Debug.Log("Critical health dialogue triggered.");
+        animator.SetTrigger("backIdle");
+        craftSword.SetActive(true);
+
+        // IF CRAFTED SWORD BECOMES ACTIVE, ALIEN WILL BECOME VULNERABLE
+        if (craftedPurpleSword.activeSelf == true)
+        {
+            Debug.Log("Sword has been crafted. Alien is now vulnerable.");
+            isCriticalHealth = false;
+            isInvulnerable = false;
+            StartCoroutine(ExecuteEscapeSequence());
+        }
     }
 
     private IEnumerator DelayedBlockAppearance()

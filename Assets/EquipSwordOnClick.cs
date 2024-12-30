@@ -18,7 +18,7 @@ public class EquipSwordOnClick : MonoBehaviour
     // Swinging settings
     public float swingSpeed = 2f; // How fast the swing happens
     public float swingPauseDuration = 0.2f; // Pause at the peak of the swing
-    public float hitDetectionRadius = 1.5f; // Radius for detecting Rhino Alien hits
+    public float hitDetectionRadius = 10f; // Radius for detecting Rhino Alien hits
     public LayerMask alienLayer; // LayerMask for detecting aliens
 
     // Reference to other scripts
@@ -166,18 +166,19 @@ public class EquipSwordOnClick : MonoBehaviour
         if (equippedSword == null) return;
 
         // Detect nearby colliders within the specified radius
-        Collider[] hits = Physics.OverlapSphere(weaponParent.position, hitDetectionRadius, alienLayer);
-
+        //Collider[] hits = Physics.OverlapSphere(weaponParent.position, hitDetectionRadius, alienLayer);
+        Collider[] hits = Physics.OverlapSphere(equippedSword.transform.position, hitDetectionRadius);
         foreach (var hit in hits)
         {
             // Only process objects tagged as "RhinoAlien"
             if (hit.CompareTag("RhinoAlien"))
             {
                 RhinoAlienBehaviour rhinoAlien = hit.GetComponent<RhinoAlienBehaviour>();
-                if (rhinoAlien != null)
+                if (rhinoAlien != null && !rhinoAlien.isInvulnerable)
                 {
                     rhinoAlien.TakeDamage(); // Trigger damage logic for the rhino alien
                     Debug.Log("Rhino Alien hit!");
+
                 }
             }
         }
