@@ -217,8 +217,8 @@ public class RhinoAlienBehaviour : MonoBehaviour
         //gameObject.SetActive(false); // Deactivate the alien GameObject
         Debug.Log("Alien is now inactive and removed from the scene.");
         redCrystalText.SetActive(true); // Dialogue about red crystal appears
-        // Show next scene
-        caveCamRestrict.gameObject.SetActive(false);
+        
+        //caveCamRestrict.gameObject.SetActive(false);
         
     }
 
