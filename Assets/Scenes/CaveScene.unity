@@ -1501,7 +1501,7 @@ GameObject:
   - component: {fileID: 59319831}
   - component: {fileID: 59319832}
   m_Layer: 0
-  m_Name: CraftSword
+  m_Name: CraftSwordText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1535,6 +1535,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 1999539803}
+  additionalDialogues:
+  - 'ALIEN: You should''ve listened when I told you I am invincible.'
+  - 'ALIEN: Now you will die a painful death.'
+  - 'YOU: I will not let you win!'
+  - Wait, that purple stone the alien talked about earlier...
+  - It said it was something this Zyrog alien brought with him.
+  - What if I use it with my sword?
+  - It's worth a shot.
 --- !u!1001 &62028046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5897,6 +5905,57 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1344394427163173766, guid: c6ee9a3b02d704893981ff5f6a5b6c2a, type: 3}
+--- !u!1 &227023230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 227023231}
+  - component: {fileID: 227023232}
+  m_Layer: 0
+  m_Name: RedCrystalText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &227023231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227023230}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 327061442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &227023232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227023230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4b181d9cd564647a028ea4668da788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 1999539803}
+  redCrystal: {fileID: 1915877422}
+  player: {fileID: 0}
+  additionalDialogues:
+  - I finally defeated the Zyrog alien!
+  - The Xenos aliens can finally live in peace with no more ruler on this planet.
+  - Now I can uplift the curse by taking this red crystal out the core.
 --- !u!1 &227220657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3342989691816357245, guid: c6ee9a3b02d704893981ff5f6a5b6c2a, type: 3}
@@ -7832,6 +7891,7 @@ Transform:
   - {fileID: 1041454073}
   - {fileID: 59319831}
   - {fileID: 1827978150}
+  - {fileID: 227023231}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &332827737
@@ -15412,8 +15472,9 @@ MonoBehaviour:
   Healthlimit: {fileID: 0}
   caveCamRestrict: {fileID: 681031839}
   enterAlienArea3: {fileID: 1041454075}
-  craftSword: {fileID: 59319830}
+  craftSwordText: {fileID: 59319830}
   craftedPurpleSword: {fileID: 1827978149}
+  redCrystalText: {fileID: 227023230}
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 0.3
   isInvulnerable: 1
@@ -44679,6 +44740,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 536459034}
     m_Modifications:
+    - target: {fileID: -9181892908506501681, guid: 7965e55e17644450197bef8ae6595113, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8832907690923769944, guid: 7965e55e17644450197bef8ae6595113, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -44775,6 +44840,11 @@ PrefabInstance:
       addedObject: {fileID: 2038775183}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7965e55e17644450197bef8ae6595113, type: 3}
+--- !u!1 &1915877422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -9181892908506501681, guid: 7965e55e17644450197bef8ae6595113, type: 3}
+  m_PrefabInstance: {fileID: 1915877421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1917209434 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8430508194340108916, guid: c6ee9a3b02d704893981ff5f6a5b6c2a, type: 3}

@@ -2,32 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class CaveDialogue : MonoBehaviour
+public class CaveDialogue2 : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
+    public GameObject redCrystal;
+    public Transform player;
+
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
     private bool hasDialoguePlayed = false;
     private int currentDialogueIndex = 0;
 
     private PlayerInputActions inputActions;
+    private CharacterController characterController;
 
     public List<string> additionalDialogues = new List<string>
     {
-        "ALIEN: You should've listened when I told you I am invincible.",
-        "ALIEN: Now you will die a painful death.",
-        "YOU: I will not let you win!",
-        "Wait, that purple stone the alien talked about earlier...",
-        "It said it was something this Zyrog alien brought with him.",
-        "What if I use it with my sword?",
-        "It's worth a shot.",
+        "I finally defeated the Zyrog alien!",
+        "The Xenos aliens can finally live in peace with no more ruler on this planet.",
+        "Now I can uplift the curse by taking this red crystal out the core.",
     };
 
     private void Start()
     {
+        player = GameManager.Instance.player.transform;
         StartAdditionalDialogues();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Crystal equipped");
+            EquipCrystal();
+        }
+    }
+
+    private void EquipCrystal()
+    {
+        redCrystal.SetActive(false);
+        ShowDialogue("Maybe I can use this crystal as a power source for my spaceship...");
     }
 
 

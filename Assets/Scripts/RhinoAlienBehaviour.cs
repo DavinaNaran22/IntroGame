@@ -13,8 +13,9 @@ public class RhinoAlienBehaviour : MonoBehaviour
     public GameObject Healthlimit;
     public CaveCamRestrict caveCamRestrict;
     public EnterAlienArea3 enterAlienArea3;
-    public GameObject craftSword;
+    public GameObject craftSwordText;
     public GameObject craftedPurpleSword;
+    public GameObject redCrystalText;
 
     public GameObject shotPrefab;
     public float shootRate = 0.5f;
@@ -210,6 +211,17 @@ public class RhinoAlienBehaviour : MonoBehaviour
         StartCoroutine(DelayedBlockAppearance());
     }
 
+    private IEnumerator DelayedBlockAppearance()
+    {
+        yield return new WaitForSeconds(3f);
+        //gameObject.SetActive(false); // Deactivate the alien GameObject
+        Debug.Log("Alien is now inactive and removed from the scene.");
+        redCrystalText.SetActive(true); // Dialogue about red crystal appears
+        // Show next scene
+        caveCamRestrict.gameObject.SetActive(false);
+        
+    }
+
     private void HandleCriticalHealth()
     {
         if (isCriticalHealth) return; // Prevent duplicate calls
@@ -225,11 +237,12 @@ public class RhinoAlienBehaviour : MonoBehaviour
     {
         Debug.Log("Critical health dialogue triggered.");
         animator.SetTrigger("backIdle");
-        craftSword.SetActive(true);
+        craftSwordText.SetActive(true);
 
         // IF CRAFTED SWORD BECOMES ACTIVE, ALIEN WILL BECOME VULNERABLE
         if (craftedPurpleSword.activeSelf == true)
         {
+            craftSwordText.SetActive(false);
             Debug.Log("Sword has been crafted. Alien is now vulnerable.");
             isCriticalHealth = false;
             isInvulnerable = false;
@@ -237,15 +250,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
         }
     }
 
-    private IEnumerator DelayedBlockAppearance()
-    {
-        yield return new WaitForSeconds(7f); // Wait for 7 seconds
-        gameObject.SetActive(false); // Deactivate the alien GameObject
-        Debug.Log("Alien is now inactive and removed from the scene.");
-
-        // Show next scene
-        caveCamRestrict.gameObject.SetActive(false);
-    }
+    
 
 }
 
