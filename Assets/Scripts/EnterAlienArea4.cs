@@ -102,7 +102,7 @@ public class EnterAlienArea4 : MonoBehaviour
         if (alienDrop.activeSelf == true && alienDrop2.activeSelf == true)
         {
             Debug.Log("Block is visible, restriction disabled");
-            ShowDialogue("YOU: Now I have a thermal conductor, I can repair the temperature conrol system!");
+            DisableRestriction();
         }
 
         if (waitingForEquipB && Input.GetKeyDown(KeyCode.E)) // NEED TO CHANGE SO BLOCK CAN BE EQUIPPED
@@ -126,7 +126,7 @@ public class EnterAlienArea4 : MonoBehaviour
         if (alienDrop.activeSelf == true)
         {
             Debug.Log("Block is visible, restriction disabled");
-            ShowDialogue("YOU: Now I have metal, I can use this to repair the hole!");
+            ShowDialogue("YOU: Now I have a thermal conductor, I can repair the temperature conrol system!");
             waitingForEquipB = true;
         }
 
