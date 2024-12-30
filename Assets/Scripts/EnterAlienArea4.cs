@@ -107,7 +107,7 @@ public class EnterAlienArea4 : MonoBehaviour
         if (alienDrop.activeSelf == true && alienDrop2.activeSelf == true)
         {
             Debug.Log("Both alien drops are visible, restriction disabled");
-            ShowDialogue("YOU: Now I have a thermal conductor, I can repair the temperature control system!");
+            DisableRestriction();
         }
 
         // Check if either alienDrop or alienDrop2 transitioned from active to inactive
@@ -146,7 +146,7 @@ public class EnterAlienArea4 : MonoBehaviour
         if (alienDrop.activeSelf == true || alienDrop2.activeSelf == true)
         {
             Debug.Log("Block is visible, restriction disabled");
-            ShowDialogue("YOU: Now I have metal, I can use this to repair the hole!");
+            ShowDialogue("YOU: Now I have a thermal conductor, I can repair the temperature control system!");
             waitingForEquipB = true;
         }
 
