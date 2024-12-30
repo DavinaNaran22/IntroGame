@@ -174,10 +174,11 @@ public class EquipSwordOnClick : MonoBehaviour
             if (hit.CompareTag("RhinoAlien"))
             {
                 RhinoAlienBehaviour rhinoAlien = hit.GetComponent<RhinoAlienBehaviour>();
-                if (rhinoAlien != null)
+                if (rhinoAlien != null && !rhinoAlien.isInvulnerable)
                 {
                     rhinoAlien.TakeDamage(); // Trigger damage logic for the rhino alien
                     Debug.Log("Rhino Alien hit!");
+
                 }
             }
         }

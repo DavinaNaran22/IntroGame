@@ -15511,7 +15511,7 @@ MonoBehaviour:
   paceAreaSize: {x: 50, y: 50}
   obstacleDetectionDistance: 1.5
   obstacleTag: RockWall
-  player: {fileID: 0}
+  player: {fileID: 1610470168}
 --- !u!4 &640439189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2809082132647288885, guid: 7965e55e17644450197bef8ae6595113, type: 3}

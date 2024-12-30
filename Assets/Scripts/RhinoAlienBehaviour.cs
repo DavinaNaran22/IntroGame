@@ -20,7 +20,8 @@ public class RhinoAlienBehaviour : FindPlayerTransform
     private bool playerNearby = false;
     private bool isDead = false; // Flag to check if the alien is dead
     private bool isHit = false;
-    private bool isInvulnerable = true; // Checks if alien is in fight mode before player can kill it
+    public bool isInvulnerable = true; // Checks if alien is in fight mode before player can kill it
+    private bool isCriticalHealth = false;
 
     private void Start()
     {
@@ -184,6 +185,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         if (damageBar != null)
         {
             damageBar.OnAlienDied += HandleAlienDeath; // Subscribe to event
+            damageBar.OnCriticalHealth += HandleCriticalHealth;
         }
     }
 
@@ -192,6 +194,7 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         if (damageBar != null)
         {
             damageBar.OnAlienDied -= HandleAlienDeath; // Unsubscribe from event
+            damageBar.OnCriticalHealth -= HandleCriticalHealth;
         }
     }
 
@@ -202,6 +205,21 @@ public class RhinoAlienBehaviour : FindPlayerTransform
         animator.SetTrigger("Dead"); // Trigger "Dead" animation
         Debug.Log("Alien has died!");
         StartCoroutine(DelayedBlockAppearance());
+    }
+
+    private void HandleCriticalHealth()
+    {
+        if (isCriticalHealth) return; // Prevent duplicate calls
+        isCriticalHealth = true;
+        isInvulnerable = true;
+        Debug.Log("Alien is at critical health!");
+        StartCriticalHealthDialogue();
+    }
+
+    private void StartCriticalHealthDialogue()
+    {
+        Debug.Log("Critical health dialogue triggered.");
+        animator.SetTrigger("backIdle");
     }
 
     private IEnumerator DelayedBlockAppearance()
