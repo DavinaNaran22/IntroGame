@@ -132,6 +132,16 @@ public class QuantityManager : MonoBehaviour
             // Find and add all clues to the list
             FindAndAddCluesByTag(); 
         }
+        if (scene.name == "CaveScene")
+        {
+            Debug.Log($"Scene '{scene.name}' loaded. Checking item states...");
+
+            // Track the sword
+            TrackSwordInCave("CaveTaskManager", "MagicSword_Iron", swordImage);
+
+            // Other existing logic for the scene...
+        }
+
     }
 
     private void Update()
@@ -206,6 +216,11 @@ public class QuantityManager : MonoBehaviour
     {
         StartCoroutine(WaitForParentAndChildState(parentName, childName, alienAlloyImage));
     }
+    private void TrackSwordInCave(string parentName, string childName, GameObject uiImage)
+    {
+        StartCoroutine(WaitForParentAndChildState(parentName, childName, uiImage));
+    }
+
 
     private System.Collections.IEnumerator WaitForParentAndChildState(string parentName, string childName, GameObject uiImage)
     {
