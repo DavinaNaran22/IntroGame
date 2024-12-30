@@ -36,6 +36,11 @@ public class EnterAlienArea4 : MonoBehaviour
     private bool waitingForEquipC = false;
     private bool blocksEquipped = false;
 
+    private bool wasAlienDropActive = false; // To track alienDrop state
+    private bool wasAlienDrop2Active = false; // To track alienDrop2 state
+
+
+
     public List<string> additionalDialogues = new List<string>
     {
         "ALIEN: I have heard so much about you.",
@@ -101,32 +106,47 @@ public class EnterAlienArea4 : MonoBehaviour
 
         if (alienDrop.activeSelf == true && alienDrop2.activeSelf == true)
         {
-            Debug.Log("Block is visible, restriction disabled");
-            DisableRestriction();
+            Debug.Log("Both alien drops are visible, restriction disabled");
+            ShowDialogue("YOU: Now I have a thermal conductor, I can repair the temperature control system!");
         }
 
-        if (waitingForEquipB && Input.GetKeyDown(KeyCode.E)) // NEED TO CHANGE SO BLOCK CAN BE EQUIPPED
+        // Check if either alienDrop or alienDrop2 transitioned from active to inactive
+        if ((alienDrop != null && wasAlienDropActive && !alienDrop.activeSelf) ||
+            (alienDrop2 != null && wasAlienDrop2Active && !alienDrop2.activeSelf))
         {
-            Debug.Log("Blocks equipped");
+            Debug.Log("One of the AlienDrops became inactive. Calling EquipBlocks.");
             EquipBlocks();
         }
 
-        if (blocksEquipped && waitingForEquipC && Input.GetKeyDown(KeyCode.R)) // NEED TO CHANGE SO CLUE CAN BE EQUIPPED
+        // Update previous states
+        if (alienDrop != null)
+        {
+            wasAlienDropActive = alienDrop.activeSelf;
+        }
+
+        if (alienDrop2 != null)
+        {
+            wasAlienDrop2Active = alienDrop2.activeSelf;
+        }
+
+        if (blocksEquipped && waitingForEquipC && Input.GetKeyDown(KeyCode.R)) // Check for clue equip
         {
             Debug.Log("Clue equipped");
             EquipClue();
         }
     }
 
+
+
     private void DisableRestriction()
     {
         isActive = false;
         Debug.Log("Restriction disabled");
 
-        if (alienDrop.activeSelf == true)
+        if (alienDrop.activeSelf == true || alienDrop2.activeSelf == true)
         {
             Debug.Log("Block is visible, restriction disabled");
-            ShowDialogue("YOU: Now I have a thermal conductor, I can repair the temperature conrol system!");
+            ShowDialogue("YOU: Now I have metal, I can use this to repair the hole!");
             waitingForEquipB = true;
         }
 
@@ -134,19 +154,20 @@ public class EnterAlienArea4 : MonoBehaviour
         {
             waitingForEquipC = true;
         }
+
+
     }
 
     private void EquipBlocks()
     {
         Debug.Log("Blocks equipped");
         blocksEquipped = true;
-        alienDrop.SetActive(false);
-        alienDrop2.SetActive(false);
         HideDialogue();
         completedRepairText.SetActive(true);
         StartCoroutine(ActivateRepairTasksWithDelay());
-
     }
+
+
 
     private IEnumerator ActivateRepairTasksWithDelay()
     {
@@ -160,11 +181,11 @@ public class EnterAlienArea4 : MonoBehaviour
     private void EquipClue()
     {
         Debug.Log("Clue equipped");
-        clue.SetActive(false);
         HideDialogue();
         drawingsCompletedText.SetActive(true);
         StartCoroutine(ActivateClueTasksWithDelay());
     }
+
 
     private IEnumerator ActivateClueTasksWithDelay()
     {

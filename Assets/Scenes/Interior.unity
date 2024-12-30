@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
+  m_IndirectSpecularColor: {r: 0.002063206, g: 0.0019480612, b: 0.0021180937, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1120,6 +1120,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1883534508}
     - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: alienSkinImage
+      value: 
+      objectReference: {fileID: 932157461}
+    - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: alienAlloyImage
       value: 
       objectReference: {fileID: 776087375}
@@ -2014,6 +2018,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6789054464662359471, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 644578575}
+    - targetCorrespondingSourceObject: {fileID: 6789054464662359471, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 644578576}
     - targetCorrespondingSourceObject: {fileID: 2685986396538119853, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2036355420}
@@ -2052,6 +2059,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2701486185308818263, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
   m_PrefabInstance: {fileID: 51700331}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &51700336 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6825812691073105991, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+  m_PrefabInstance: {fileID: 51700331}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005065117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &54898092
 GameObject:
   m_ObjectHideFlags: 0
@@ -7109,7 +7127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &620499742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7583,6 +7601,28 @@ MonoBehaviour:
   equipThrusterText: Press E to equip thruster
   equippedShovel: {fileID: 0}
   crosshair: {fileID: 905433306}
+--- !u!114 &644578576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644578565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e05e9f69ba78f4c814345a77e76b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponParent: {fileID: 1511153326}
+  equipSwordButton: {fileID: 51700336}
+  swingSpeed: 10
+  swingPauseDuration: 0
+  hitDetectionRadius: 1.5
+  alienLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  gunScript: {fileID: 644578567}
+  knifeScript: {fileID: 644578571}
 --- !u!1 &651383725
 GameObject:
   m_ObjectHideFlags: 0
@@ -15177,6 +15217,7 @@ MonoBehaviour:
   MouseSens: 0
   gunPrefab: {fileID: 2192913056035240304, guid: 8be11147094a8fd4d89dfb4fe6fbb6ec, type: 3}
   knifePrefab: {fileID: 1188603420251640516, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
+  SwordPrefab: {fileID: 1014989259798498, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
 --- !u!4 &1352790603
 Transform:
   m_ObjectHideFlags: 0
@@ -16382,6 +16423,9 @@ PrefabInstance:
       addedObject: {fileID: 274912460}
     - targetCorrespondingSourceObject: {fileID: 451699027006493129, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1511153326}
+    - targetCorrespondingSourceObject: {fileID: 451699027006493129, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1567882866}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 854904355033615558, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
@@ -16694,6 +16738,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7396405993449543624, guid: ec2fa9dbba8eeb245a2a1becaa55d4e5, type: 3}
   m_PrefabInstance: {fileID: 1501883615}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1511153325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1511153326}
+  m_Layer: 0
+  m_Name: SwordParent
+  m_TagString: WeaponParent
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1511153326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511153325}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.22767316, y: 0.23716067, z: 0.7203689, w: -0.6107277}
+  m_LocalPosition: {x: 1.2, y: -0.679, z: 0.5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1482992038}
+  m_LocalEulerAnglesHint: {x: -38.3, y: 2.8, z: 259.61}
 --- !u!4 &1512205548 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1960495409052354686, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}

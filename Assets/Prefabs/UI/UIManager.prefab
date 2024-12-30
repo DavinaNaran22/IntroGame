@@ -9152,7 +9152,7 @@ MonoBehaviour:
   gunImage: {fileID: 0}
   swordImage: {fileID: 0}
   alienAlloyImage: {fileID: 0}
-  thermalConductorImage: {fileID: 0}
+  alienSkinImage: {fileID: 0}
   toolboxImage: {fileID: 0}
   shovelImage: {fileID: 0}
   metalsDroppedImage: {fileID: 0}
