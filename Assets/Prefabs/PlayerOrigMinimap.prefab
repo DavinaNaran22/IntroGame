@@ -158,7 +158,6 @@ GameObject:
   - component: {fileID: 7928671103394982576}
   - component: {fileID: 5452075960120460221}
   - component: {fileID: 2822494866279677151}
-  - component: {fileID: 7640492282828401943}
   - component: {fileID: 8099762209420310598}
   m_Layer: 0
   m_Name: PlayerOrigMinimap
@@ -239,6 +238,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   jumpHeight: 3
+  inChair: 0
   canMove: 1
   lockCoords: {x: 0, y: 0, z: 0}
 --- !u!136 &5452075960120460221
@@ -291,34 +291,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &7640492282828401943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854904355033615558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba1aae48d788b848826dffc689fb8da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectBoxEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7640492282828401943}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: CollectBox
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  repairText: {fileID: 0}
 --- !u!114 &8099762209420310598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6370,7 +6342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d79812d3309da164daba33be4a9ed40a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 500
   playerBody: {fileID: 852362122780349617}
   canLook: 1
 --- !u!114 &6868146367079382571

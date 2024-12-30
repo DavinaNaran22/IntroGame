@@ -48,6 +48,7 @@ public class KeypadDoor : PlayerSceneTransition
             {
                 hasCheckCondition = false;
                 Debug.Log("Moving to other scene because of keypad");
+                mouseLook.canLook = true;
                 base.LoadOtherScene(Player);
             }
             else if (!keypadShowing)

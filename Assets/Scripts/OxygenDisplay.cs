@@ -13,7 +13,6 @@ public class OxygenDisplay : MonoBehaviour
     {
         maxOxygen = HoursToSeconds(2); // Initialize with full oxygen time (2 hours)
         currentOxygenTime = HoursToSeconds(GameManager.Instance.Difficulty.GetOxygenTime()); // Set correct oxygen time
-        Debug.Log("Current oxygen time " + currentOxygenTime + " " + GameManager.Instance.Difficulty.level);
         if (SceneManager.GetActiveScene().name == "landscape")
         {
             UpdateOxygenBar();
@@ -44,7 +43,6 @@ public class OxygenDisplay : MonoBehaviour
     // Used for maxOxygen value
     float HoursToSeconds(float hours)
     {
-        Debug.Log("Hours to seconds " + hours * 60 * 60);
         return hours * 60 * 60;
     }
 }
