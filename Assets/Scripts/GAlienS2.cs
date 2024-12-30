@@ -28,6 +28,7 @@ public class GAlienS2 : MonoBehaviour
 
     private void Start()
     {
+        Player = GameManager.Instance.player.transform;
         //GameObject uimanager = GameManager.Instance.UIManager;
         Healthlimit = GameObject.FindWithTag("HealthLimit");
     }
