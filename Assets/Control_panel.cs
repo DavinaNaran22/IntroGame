@@ -12,12 +12,14 @@ public class Control_panel : MonoBehaviour
     public Canvas ship_map;
     public GameObject Message;
     public GameObject Message2;
+    public GameObject Msg1;
     public bool task1_completed = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Msg1.SetActive(true);
         Message.SetActive(false);
         C_panel.SetActive(false);
         Message2.SetActive(false);
@@ -55,6 +57,7 @@ public class Control_panel : MonoBehaviour
             Message.SetActive(false);
             C_panel.SetActive(false);
             Message2.SetActive(true);
+            Msg1.SetActive(false);
             //Debug.Log("WERE IN");
         }
     }
