@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlienMoving : FindPlayerTransform
+public class AlienMoving : MonoBehaviour
 {
+
+    public Transform Player;
     public float detectionRadius = 5f;
     public float moveSpeed = 2f;
     public float rotationSpeed = 5f; // Speed of rotation when pacing or facing the player
@@ -14,6 +16,7 @@ public class AlienMoving : FindPlayerTransform
 
     void Start()
     {
+        Player = GameManager.Instance.player.transform;
         // Set the starting position as the center of the pacing area
         startPosition = transform.position;
         SetNewTargetPosition();
@@ -21,7 +24,7 @@ public class AlienMoving : FindPlayerTransform
 
     private void Update()
     {
-        base.GetPlayerTransform();
+        //base.GetPlayerTransform();
         float distanceToPlayer = Vector3.Distance(transform.position, Player.position);
 
         if (distanceToPlayer <= detectionRadius)
