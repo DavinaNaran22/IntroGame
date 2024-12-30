@@ -58,9 +58,10 @@ public class GameManager : Singleton<GameManager>
         // The following are values chagned by pause menu
         // If player edits default values at start
         // Then the values have to be updated like this
-        colourMode = GameObject.FindWithTag("ColourMode").GetComponent<ColourDropdown>().mode;
-        Difficulty = GameObject.Find("DifficultyLevel").GetComponent<DifficultyDropdown>().difficulty;
-        GameObject.Find("VolumeSlider").GetComponent<VolumeSlider>().AudioMixer.GetFloat("volume", out Volume);
+        GameObject optionsManager = GameObject.Find("OptionsManager");
+        colourMode = optionsManager.GetComponent<ColourDropdown>().mode;
+        Difficulty = optionsManager.GetComponent<DifficultyDropdown>().difficulty;
+        optionsManager.GetComponent<VolumeSlider>().AudioMixer.GetFloat("volume", out Volume);
         MouseSens = MouseLook.mouseSensitivity;
     }
 
