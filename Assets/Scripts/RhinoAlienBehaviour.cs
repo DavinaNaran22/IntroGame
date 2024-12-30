@@ -13,6 +13,8 @@ public class RhinoAlienBehaviour : MonoBehaviour
     public GameObject Healthlimit;
     public CaveCamRestrict caveCamRestrict;
     public EnterAlienArea3 enterAlienArea3;
+    public GameObject craftSword;
+    public GameObject craftedPurpleSword;
 
     public GameObject shotPrefab;
     public float shootRate = 0.5f;
@@ -217,10 +219,22 @@ public class RhinoAlienBehaviour : MonoBehaviour
         StartCriticalHealthDialogue();
     }
 
+
+    // Waits for dialogue and player to craft sword
     private void StartCriticalHealthDialogue()
     {
         Debug.Log("Critical health dialogue triggered.");
         animator.SetTrigger("backIdle");
+        craftSword.SetActive(true);
+
+        // IF CRAFTED SWORD BECOMES ACTIVE, ALIEN WILL BECOME VULNERABLE
+        if (craftedPurpleSword.activeSelf == true)
+        {
+            Debug.Log("Sword has been crafted. Alien is now vulnerable.");
+            isCriticalHealth = false;
+            isInvulnerable = false;
+            StartCoroutine(ExecuteEscapeSequence());
+        }
     }
 
     private IEnumerator DelayedBlockAppearance()

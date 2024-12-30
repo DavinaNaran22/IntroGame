@@ -1490,6 +1490,51 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &59319830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 59319831}
+  - component: {fileID: 59319832}
+  m_Layer: 0
+  m_Name: CraftSword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &59319831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59319830}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 327061442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &59319832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59319830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe800a2afc7ff74494b5221a44de111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 1999539803}
 --- !u!1001 &62028046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7785,6 +7830,8 @@ Transform:
   - {fileID: 1658998372}
   - {fileID: 681031836}
   - {fileID: 1041454073}
+  - {fileID: 59319831}
+  - {fileID: 1827978150}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &332827737
@@ -11227,6 +11274,7 @@ MonoBehaviour:
   gunPrefab: {fileID: 0}
   knifePrefab: {fileID: 0}
   SwordPrefab: {fileID: 0}
+  MinimapCanvas: {fileID: 0}
 --- !u!114 &444127644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15364,8 +15412,11 @@ MonoBehaviour:
   Healthlimit: {fileID: 0}
   caveCamRestrict: {fileID: 681031839}
   enterAlienArea3: {fileID: 1041454075}
+  craftSword: {fileID: 59319830}
+  craftedPurpleSword: {fileID: 1827978149}
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 0.3
+  isInvulnerable: 1
 --- !u!95 &640000445 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9566128, guid: fdc7c645919f60047929b2f994266803, type: 3}
@@ -15395,7 +15446,7 @@ MonoBehaviour:
   paceAreaSize: {x: 50, y: 50}
   obstacleDetectionDistance: 1.5
   obstacleTag: RockWall
-  player: {fileID: 1610470168}
+  player: {fileID: 0}
 --- !u!4 &640439189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2809082132647288885, guid: 7965e55e17644450197bef8ae6595113, type: 3}
@@ -43059,6 +43110,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7e06b97d9cdbd4ffca5f74b9f473a0ec, type: 3}
   m_PrefabInstance: {fileID: 1827529361}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1827978149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1827978150}
+  m_Layer: 0
+  m_Name: CraftedPurpleSword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1827978150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827978149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 327061442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1830555291 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8430508194340108916, guid: c6ee9a3b02d704893981ff5f6a5b6c2a, type: 3}
