@@ -58,6 +58,9 @@ public class CaveCamRestrict : MonoBehaviour
     // Dialogues and prompts are hidden at the start
     private void Start()
     {
+        player = GameManager.Instance.player;
+        cameraManagement = GameManager.Instance.cameraManagement;
+
         if (promptText != null)
         {
             promptText.gameObject.SetActive(false);

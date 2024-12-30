@@ -22,6 +22,11 @@ public class RhinoAlienBehaviour : FindPlayerTransform
     private bool isHit = false;
     private bool isInvulnerable = true; // Checks if alien is in fight mode before player can kill it
 
+    private void Start()
+    {
+        Healthlimit = GameObject.FindWithTag("HealthLimit");
+    }
+
     private void Update()
     {
         base.GetPlayerTransform();

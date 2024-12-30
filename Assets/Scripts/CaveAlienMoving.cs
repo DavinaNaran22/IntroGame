@@ -13,10 +13,12 @@ public class CaveAlienMoving : FindPlayerTransform
 
     private Vector3 startPosition;
     private Vector3 targetPosition;
+    public Transform player;
 
     void Start()
     {
         // Set the starting position as the center of the pacing area
+        player = GameManager.Instance.player.transform;
         startPosition = transform.position;
         SetNewTargetPosition();
     }
