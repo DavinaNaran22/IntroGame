@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GAlienS2 : FindPlayerTransform
+public class GAlienS2 : MonoBehaviour
 {
+    public Transform Player;
     public Transform shootingPoint;
     public float detectionRadius = 5f;
     public Animator animator;
@@ -33,7 +34,7 @@ public class GAlienS2 : FindPlayerTransform
 
     private void Update()
     {
-        base.GetPlayerTransform();
+        //base.GetPlayerTransform();
         if (isDead) return; // Stop any further updates if the alien is dead
 
         float distanceToPlayer = Vector3.Distance(transform.position, Player.position);

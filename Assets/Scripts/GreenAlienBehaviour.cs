@@ -1,8 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class GreenAlienBehavior : FindPlayerTransform
+public class GreenAlienBehavior : MonoBehaviour
 {
+    public Transform Player;
     public Transform shootingPoint;
     public float detectionRadius = 5f;
     public Animator animator;
@@ -25,13 +26,14 @@ public class GreenAlienBehavior : FindPlayerTransform
 
     private void Start()
     {
+        Player = GameManager.Instance.player.transform;
         //GameObject uimanager = GameManager.Instance.UIManager;
         Healthlimit = GameObject.FindWithTag("HealthLimit");
     }
 
     private void Update()
     {
-        base.GetPlayerTransform();
+        //base.GetPlayerTransform();
         if (isDead) return; // Stop any further updates if the alien is dead
 
         float distanceToPlayer = Vector3.Distance(transform.position, Player.position);

@@ -50,6 +50,7 @@ public class RepairTask4 : MonoBehaviour
 
     private void Start()
     {
+        player = GameManager.Instance.player;
         Debug.Log("RepairTask4 Start");
         wingDupe.SetActive(false);
         player = GameManager.Instance.player;
