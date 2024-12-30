@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Ending : MonoBehaviour
 {
@@ -64,8 +65,19 @@ public class Ending : MonoBehaviour
     {
         ShowDialogue("YOU: Let’s see if the crystal can power this spaceship.");
         // NEED TO ADD A BUTTON THAT WILL LET THE CRYSTAL LEAVE INVENTORY
-        button.SetActive(true);
-        //HideDialogue();
+        if (button != null)
+        {
+            button.SetActive(true);
+            button.GetComponent<Button>().onClick.AddListener(OnButtonClicked);
+        }
+
+        //StartAdditionalDialogues();
+    }
+
+    private void OnButtonClicked()
+    {
+        HideDialogue(); // Executes only when the button is clicked
+        button.SetActive(false);
         StartAdditionalDialogues();
     }
 
