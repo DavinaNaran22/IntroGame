@@ -7617,7 +7617,7 @@ MonoBehaviour:
   equipSwordButton: {fileID: 51700336}
   swingSpeed: 10
   swingPauseDuration: 0
-  hitDetectionRadius: 1.5
+  hitDetectionRadius: 10
   alienLayer:
     serializedVersion: 2
     m_Bits: 0
