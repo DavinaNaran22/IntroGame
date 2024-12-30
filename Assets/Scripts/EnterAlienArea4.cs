@@ -36,8 +36,8 @@ public class EnterAlienArea4 : MonoBehaviour
     private bool waitingForEquipC = false;
     private bool blocksEquipped = false;
 
-    private bool wasAlienDropActive = false; // To track alienDrop state
-    private bool wasAlienDrop2Active = false; // To track alienDrop2 state
+    private int trackingVariable = 0; // New tracking variable
+
 
 
 
@@ -110,26 +110,24 @@ public class EnterAlienArea4 : MonoBehaviour
             DisableRestriction();
         }
 
-        // Check if either alienDrop or alienDrop2 transitioned from active to inactive
-        if ((alienDrop != null && wasAlienDropActive && !alienDrop.activeSelf) ||
-            (alienDrop2 != null && wasAlienDrop2Active && !alienDrop2.activeSelf))
+        // Check tracking variable for state transitions
+        if (trackingVariable == 0 && alienDrop.activeSelf && alienDrop2.activeSelf)
         {
-            Debug.Log("One of the AlienDrops became inactive. Calling EquipBlocks.");
+            Debug.Log("Both alien drops are active. Incrementing tracking variable to 1.");
+            trackingVariable = 1;
+        }
+        else if (trackingVariable == 1 && !alienDrop.activeSelf && !alienDrop2.activeSelf)
+        {
+            Debug.Log("Both alien drops are now inactive (equipped). Incrementing tracking variable to 2.");
+            trackingVariable = 2;
+        }
+        else if (trackingVariable == 2 && !blocksEquipped)
+        {
+            Debug.Log("Calling EquipBlocks since tracking variable is 2.");
             EquipBlocks();
         }
 
-        // Update previous states
-        if (alienDrop != null)
-        {
-            wasAlienDropActive = alienDrop.activeSelf;
-        }
-
-        if (alienDrop2 != null)
-        {
-            wasAlienDrop2Active = alienDrop2.activeSelf;
-        }
-
-        if (blocksEquipped && waitingForEquipC && Input.GetKeyDown(KeyCode.R)) // Check for clue equip
+        if (clue.activeSelf == false) // Check for clue equip
         {
             Debug.Log("Clue equipped");
             EquipClue();
@@ -143,7 +141,7 @@ public class EnterAlienArea4 : MonoBehaviour
         isActive = false;
         Debug.Log("Restriction disabled");
 
-        if (alienDrop.activeSelf == true || alienDrop2.activeSelf == true)
+        if (alienDrop.activeSelf == true && alienDrop2.activeSelf == true)
         {
             Debug.Log("Block is visible, restriction disabled");
             ShowDialogue("YOU: Now I have a thermal conductor, I can repair the temperature control system!");
