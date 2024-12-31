@@ -31,9 +31,14 @@ public class win_message : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         message.enabled = false;
-        SceneManager.UnloadSceneAsync("Game");
+        // Reactivate Player
+        SceneManager.LoadScene("landscape");
+        SceneManager.sceneLoaded += OnSceneLoad;
         win = true;
-        
-       
+    }
+
+    private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    {
+        GameManager.Instance.player.SetActive(true);
     }
 }

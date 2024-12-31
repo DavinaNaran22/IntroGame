@@ -43,7 +43,7 @@ public class ResetPosition_T4 : MonoBehaviour
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        player.transform.position = WireRepair.Player_Task5;
+        GameManager.Instance.player.transform.position = WireRepair.Player_Task5;
         
     }
 }
