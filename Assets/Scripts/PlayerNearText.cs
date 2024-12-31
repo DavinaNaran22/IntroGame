@@ -5,8 +5,8 @@ public class PlayerNearText : MonoBehaviour
 {
     public string Text;
     [SerializeField] private float sphereRadius = 3f;
-    private TextMeshProUGUI hoverText; // Made private
-    private bool modifyingText = false;
+    protected TextMeshProUGUI hoverText;
+    protected bool modifyingText = false;
 
     // Return true/false depending on whether the player is near this game object
     private bool PlayerIsNear()
@@ -22,9 +22,15 @@ public class PlayerNearText : MonoBehaviour
         return false;
     }
 
-    void Update()
+    private void Update()
     {
-        // Locate hoverText if it's null
+        LocateHoverText();
+        ToggleText();
+    }
+
+    // Locate hoverText if it's null
+    private void LocateHoverText()
+    {
         if (hoverText == null)
         {
             // Navigate through the hierarchy to find hoverText inside a folder
@@ -42,17 +48,14 @@ public class PlayerNearText : MonoBehaviour
                 }
             }
         }
+    }
 
+    private void ToggleText()
+    {
         // If the player is near this game object and hover text is visible
         if (PlayerIsNear() && gameObject.activeSelf)
         {
-            // And the current value of the text is nothing
-            // Then change it
-            if (hoverText != null && hoverText.text.Length == 0)
-            {
-                hoverText.text = Text;
-                modifyingText = true;
-            }
+            ShowText();
         }
         // Only get rid of text if the game object attached to the script IS the one modifying it
         else if (modifyingText && hoverText != null && hoverText.text == Text)
@@ -61,7 +64,18 @@ public class PlayerNearText : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void ShowText()
+    {
+        // If the current value of the text is nothing
+        // Then change it
+        if (hoverText != null && hoverText.text.Length == 0)
+        {
+            hoverText.text = Text;
+            modifyingText = true;
+        }
+    }
+
+    protected void OnDisable()
     {
         // Clear hover text if this object becomes inactive
         if (modifyingText && hoverText != null && hoverText.text == Text)
@@ -70,7 +84,7 @@ public class PlayerNearText : MonoBehaviour
         }
     }
 
-    private void ClearHoverText()
+    protected void ClearHoverText()
     {
         if (hoverText != null)
         {
