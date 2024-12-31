@@ -62,6 +62,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Interior")
+        {
+            crouchHeight = 2f; // Anything lower makes player fall through ground
+        }
+        else
+        {
+            crouchHeight = 0f;
+        }
         // Checks if player is on the ground
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
