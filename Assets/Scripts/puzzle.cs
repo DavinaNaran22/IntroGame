@@ -5,15 +5,15 @@ using UnityEngine;
 public class Puzzle : MonoBehaviour
 {
     public GameObject target1;
-    public Vector3 correct_position;
+    public static bool Clue_in = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("COLLISON");
+        Debug.Log("COLLISON1");
         if (other.gameObject == target1)
         {
-            Debug.Log("COLLISON");
-            target1.transform.position = correct_position;
+            Clue_in = true;
+            Debug.Log("COLLISON2");
         }
     }
 }
