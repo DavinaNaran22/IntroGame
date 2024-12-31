@@ -36,32 +36,39 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI hoverText;
     public bool playFirstCutscene;
     public float playerHealth;
-    public ColourMode colourMode;
-    public TMP_Dropdown colourDropdown;
-    public TMP_Dropdown difficultyDropdown;
     public string CurrentScene;
     public double CutsceneTime = 0;
     public GameObject UIManager;
     public GameObject cameraCanvas;
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;
+
+    [Header("Options UI")]
+    public ColourMode colourMode;
+    public TMP_Dropdown colourDropdown;
+    public TMP_Dropdown difficultyDropdown;
     public Difficulty Difficulty;
     public float Volume;
     public float MouseSens;
+    public float GameTime = 1;
 
     [Header("Inventory Prefabs")]
     public GameObject gunPrefab;
     public GameObject knifePrefab;
     public GameObject SwordPrefab;
+
+    public GameObject MinimapCanvas;
     private void Start()
     {
         // The following are values chagned by pause menu
         // If player edits default values at start
         // Then the values have to be updated like this
-        colourMode = GameObject.FindWithTag("ColourMode").GetComponent<ColourDropdown>().mode;
-        Difficulty = GameObject.Find("DifficultyLevel").GetComponent<DifficultyDropdown>().difficulty;
-        GameObject.Find("VolumeSlider").GetComponent<VolumeSlider>().AudioMixer.GetFloat("volume", out Volume);
+        GameObject optionsManager = GameObject.Find("OptionsManager");
+        colourMode = optionsManager.GetComponent<ColourDropdown>().mode;
+        Difficulty = optionsManager.GetComponent<DifficultyDropdown>().difficulty;
+        optionsManager.GetComponent<VolumeSlider>().AudioMixer.GetFloat("volume", out Volume);
         MouseSens = MouseLook.mouseSensitivity;
+        GameTime = optionsManager.GetComponent<GameSpeedSlider>().GameTime;
     }
 
     private void Update()

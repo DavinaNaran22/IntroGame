@@ -28,6 +28,10 @@ TagManager:
   - wire_end
   - thruster
   - Clue
+  - MouseSlider
+  - VolumeSlider
+  - DifficultyDropdown
+  - GameTimeSlider
   layers:
   - Default
   - TransparentFX
@@ -40,7 +44,7 @@ TagManager:
   - HideFromMainCamera
   - HideFromMinimap
   - Camera
-  - 
+  - Weapon
   - 
   - 
   - 

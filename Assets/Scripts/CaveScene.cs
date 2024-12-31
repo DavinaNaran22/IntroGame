@@ -31,7 +31,7 @@ public class CaveScene : MonoBehaviour
         "ALIEN: You might have noticed that our planet is very dead, with no life anymore. And there's a reason for that.",
         "ALIEN: Once we had a visitor arrive from the planet Zyrog, and we all welcomed him with open arms.",
         "ALIEN: We thought he wanted to get to know us and visit us for a short time.",
-        "ALIEN: But that’s when we found out he had another agenda. He wanted to invade our planet Xenos and take over!",
+        "ALIEN: But that's when we found out he had another agenda. He wanted to invade our planet Xenos and take over!",
         "ALIEN: Because he was stronger and more powerful than us, we had no choice but to listen to him.",
         "ALIEN: He made us become evil, he put a curse on everyone. He said until he dies, we will all be working under his ruling.",
         "ALIEN: But he is invincible, and nobody has dared to try and kill him.",
@@ -41,7 +41,8 @@ public class CaveScene : MonoBehaviour
         "ALIEN: That’s because I was the first to befriend him when he arrived. We became friends until he told me his plan to take over.",
         "ALIEN: He wanted my help, so I pretended to be on his side, so he didn’t put the curse on me too.",
         "YOU: That was very brave of you.",
-        "ALIEN: That’s why I left those clues around, hoping if one day a visitor landed on Xenos, they will eventually find the cave and kill him.",
+        "ALIEN: While I pretended to be his friend, I came across this purple stone he brought with him. I gave it to one of my friends to hold onto.",
+        "ALIEN: That's why I left those clues around, hoping if one day a visitor landed on Xenos, they will eventually find the cave and kill him.",
         "ALIEN: So now you can help by killing him to save us.",
         "YOU: That’s what those clues were! But how can I fight him? I don’t have many weapons. I only have a pocket knife and a gun with very few bullets.",
         "ALIEN: Don’t worry, I’ve been hiding this sword so you can kill him.",
@@ -76,6 +77,8 @@ public class CaveScene : MonoBehaviour
     private void Start()
     {
         player = GameManager.Instance.player;
+        minimap = GameManager.Instance.MinimapCanvas;
+        minimap.SetActive(true);
         promptText.gameObject.SetActive(false);
         picBarrier.gameObject.SetActive(false);
         dialogueText.gameObject.SetActive(true);

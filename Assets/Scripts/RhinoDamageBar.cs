@@ -10,6 +10,9 @@ public class RhinoDamageBar : MonoBehaviour
     public delegate void AlienDiedHandler();
     public event AlienDiedHandler OnAlienDied; // Event for alien death
 
+    public delegate void CriticalHealthHandler();
+    public event CriticalHealthHandler OnCriticalHealth;
+
     void Start()
     {
         currentAmount = maxAmount; // Initialize health to full
@@ -27,6 +30,10 @@ public class RhinoDamageBar : MonoBehaviour
         if (currentAmount <= 0)
         {
             AlienDeath(); // Deactivate alien when health reaches 0
+        }
+        else if (currentAmount <= 0.2f) // 20% health threshold
+        {
+            OnCriticalHealth?.Invoke(); // Notify listeners that the alien is at critical health
         }
     }
 
