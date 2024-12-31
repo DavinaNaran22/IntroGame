@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Control_panel : MonoBehaviour
 {
@@ -14,6 +17,12 @@ public class Control_panel : MonoBehaviour
     public GameObject Message2;
     public GameObject Msg1;
     public bool task1_completed = false;
+    public TextMeshProUGUI Status;
+    public TextMeshProUGUI Status_details;
+    public GameObject Map;
+    public GameObject Map2;
+   
+
 
 
     // Start is called before the first frame update
@@ -47,7 +56,18 @@ public class Control_panel : MonoBehaviour
         {
             IN = true;
             Message.SetActive(true);
-            //Debug.Log("WERE IN");
+            Debug.Log("WERE IN");
+            if (win_message.win == true)
+            {
+                Debug.Log("Updating status message...");
+                Status.text = "SHIP REPAIRED";
+                Status_details.text = "WARNING: FUEL RESERVES LOW";
+                Map.SetActive(false);
+                Map2.SetActive(true);
+
+
+            }
+
         }
     }
 
