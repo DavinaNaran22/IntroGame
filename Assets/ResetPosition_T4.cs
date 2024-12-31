@@ -37,18 +37,13 @@ public class ResetPosition_T4 : MonoBehaviour
     {
         player = Player;
         StartCoroutine(LoadAsyncScene());
-        //SceneManager.LoadScene(scene);
-        //SceneManager.sceneLoaded += OnSceneLoad;
         GameManager.Instance.hoverText.text = "";
     }
 
-    // When scene loaded, move player to spawn point and spawn boxes
+
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        //PartsManager = GameObject.FindWithTag("ShipPartManager").GetComponent<InstantiateParts>();
-        //PartsManager.CanSpawn();
         player.transform.position = WireRepair.Player_Task5;
-        // So that text from one scene doesn't carry over from another
-        GameManager.Instance.hoverText.text = "";
+        
     }
 }
