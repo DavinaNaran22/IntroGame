@@ -6662,7 +6662,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190335
+    rgba: 4280229849
   m_fontColor: {r: 0.8509804, g: 0.12156863, b: 0.12156863, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -7108,7 +7108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &574984653
 Transform:
   m_ObjectHideFlags: 0
@@ -18220,7 +18220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1514940828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18291,7 +18291,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514940827}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -19188,8 +19188,8 @@ MonoBehaviour:
   C_panel: {fileID: 727739784}
   ship_status: {fileID: 281185906}
   ship_map: {fileID: 921612188}
-  Message: {fileID: 158545090}
-  Message2: {fileID: 2012218378}
+  Message: {fileID: 2045668583}
+  Message2: {fileID: 1891343434}
   Msg1: {fileID: 574984652}
   task1_completed: 0
   Status: {fileID: 0}

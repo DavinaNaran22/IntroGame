@@ -28,23 +28,26 @@ public class Control_panel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Msg1.SetActive(true);
+        Msg1.SetActive(false);
         Message.SetActive(false);
         C_panel.SetActive(false);
         Message2.SetActive(false);
+        Map2.SetActive(false);
+        Map.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log($"IN state: {IN}");
+        Debug.Log("IN");
+        
 
         if (IN == true && Input.GetKeyDown(KeyCode.A))
         {
             //Debug.Log("ACTIVE");
             C_panel.SetActive(true);
             ship_map.enabled = false;
-            Message.SetActive(false);
+            Msg1.SetActive(false);
             task1_completed = true;
 
         }
@@ -54,16 +57,20 @@ public class Control_panel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+
             IN = true;
-            Message.SetActive(true);
-            Debug.Log("WERE IN");
+            Msg1.SetActive(true);
+            
             if (win_message.win == true)
             {
-                Debug.Log("Updating status message...");
+                Debug.Log("Updating");
                 Status.text = "SHIP REPAIRED";
                 Status_details.text = "WARNING: FUEL RESERVES LOW";
+                Status.ForceMeshUpdate();
+                Status_details.ForceMeshUpdate();
                 Map.SetActive(false);
                 Map2.SetActive(true);
+
 
 
             }
@@ -83,7 +90,7 @@ public class Control_panel : MonoBehaviour
             //Debug.Log("WERE IN");
         }
     }
-
+    
     public void enable_ship_map()
     {
         ship_map.enabled = true;
