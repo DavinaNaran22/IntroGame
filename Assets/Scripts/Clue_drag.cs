@@ -7,24 +7,32 @@ public class Clue_drag : MonoBehaviour
 {
     public bool Drag = false;
     public Vector3 correct_position; 
-    private void OnMouseDrag()
+    public void OnMouseDown()
     {
-        if(Drag == true) {
+        Drag = true;
+        
+    }
+    void Update()
+    {
+        if (Drag == true)
+        {
             Vector3 position_new = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             position_new.z = 0;
 
             transform.position = position_new;
 
-            if (Puzzle.Clue_in == true)
-            {
-                Drag = false;
-                transform.position = correct_position;
-            }
+           
         }
-        
     }
-
-
+    public void OnMouseUp()
+    {
+        Drag = false;
+        if (Puzzle.Clue_in == true)
+        {
+            Drag = false;
+            transform.position = correct_position;
+        }
+    }
 
 
 }
