@@ -34,7 +34,7 @@ public class WireRepair : MonoBehaviour
 
         if(playerin == true)
         {
-            Debug.Log("True");
+            //Debug.Log("True");
             Message_wire.enabled = true;
         }
       

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
+  m_IndirectSpecularColor: {r: 0.0020619242, g: 0.0019479868, b: 0.0021169633, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17556,6 +17556,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 854904355033615558, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1482992026}
+    - targetCorrespondingSourceObject: {fileID: 854904355033615558, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1482992027}
     - targetCorrespondingSourceObject: {fileID: 5071861185589620545, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1482992025}
@@ -17627,6 +17630,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1482992027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482992024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1add04529c16e89468a3abc7e60a9ce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1482992028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20612,6 +20627,7 @@ GameObject:
   - component: {fileID: 1762078017}
   - component: {fileID: 1762078016}
   - component: {fileID: 1762078019}
+  - component: {fileID: 1762078020}
   m_Layer: 5
   m_Name: CameraMsg
   m_TagString: Untagged
@@ -20713,6 +20729,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be45927d4568eac4ba37b38e804859a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1762078020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762078014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d23cf6c75b5e042a750ab2bc36166b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1763424794
@@ -21574,6 +21602,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1875410250}
   - component: {fileID: 1875410251}
+  - component: {fileID: 1875410252}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -21609,6 +21638,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be45927d4568eac4ba37b38e804859a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1875410252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875410249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758213b5a94b2d144b0d2488c5937c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1883534508 stripped

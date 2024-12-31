@@ -15,28 +15,16 @@ public class PlayerSceneTransition: MonoBehaviour
         if (other.CompareTag("Player") && !hasCheckCondition)
         {
             player = other.gameObject;
-            StartCoroutine(LoadAsyncScene());
-            //SceneManager.LoadScene(scene);
-            //SceneManager.sceneLoaded += OnSceneLoad;
-        }
-    }
-
-    IEnumerator LoadAsyncScene()
-    {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
-        SceneManager.sceneLoaded += OnSceneLoad;
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
+            SceneManager.LoadScene(scene);
+            SceneManager.sceneLoaded += OnSceneLoad;
         }
     }
 
     protected void LoadOtherScene(GameObject Player)
     {
         player = Player;
-        StartCoroutine(LoadAsyncScene());
-        //SceneManager.LoadScene(scene);
-        //SceneManager.sceneLoaded += OnSceneLoad;
+        SceneManager.LoadScene(scene);
+        SceneManager.sceneLoaded += OnSceneLoad;
         GameManager.Instance.hoverText.text = "";
     }
 
