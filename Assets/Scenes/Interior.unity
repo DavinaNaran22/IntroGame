@@ -6280,6 +6280,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 702859091322279029, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
   m_PrefabInstance: {fileID: 51700331}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &455792470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4142235733136119853, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+  m_PrefabInstance: {fileID: 51700331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &469162208
 GameObject:
   m_ObjectHideFlags: 0
@@ -16154,6 +16159,7 @@ MonoBehaviour:
   CurrentScene: 
   CutsceneTime: 0
   UIManager: {fileID: 51700332}
+  PlayerCanvas: {fileID: 455792470}
   cameraCanvas: {fileID: 1254959161}
   cameraManagement: {fileID: 1254959163}
   cameraMsg: {fileID: 1664890787}
