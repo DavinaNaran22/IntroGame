@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1445,6 +1445,7 @@ GameObject:
   - component: {fileID: 1404872312}
   - component: {fileID: 1404872311}
   - component: {fileID: 1404872315}
+  - component: {fileID: 1404872316}
   m_Layer: 5
   m_Name: message
   m_TagString: Untagged
@@ -1549,6 +1550,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: {fileID: 1404872313}
   Light: {fileID: 1810426742}
+--- !u!114 &1404872316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404872310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4967cf65aff4711a0d7f45247d7eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: Landscape
 --- !u!1 &1456151114
 GameObject:
   m_ObjectHideFlags: 0

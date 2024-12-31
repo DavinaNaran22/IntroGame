@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Control_panel : MonoBehaviour
 {
@@ -13,6 +15,13 @@ public class Control_panel : MonoBehaviour
     public GameObject Message;
     public GameObject Message2;
     public bool task1_completed = false;
+    public TextMeshProUGUI Status;
+    public TextMeshProUGUI Status_details;
+    public GameObject Map;
+    public GameObject Map2;
+    public GameObject Clue_puzzle;
+   
+
 
 
     // Start is called before the first frame update
@@ -28,14 +37,16 @@ public class Control_panel : MonoBehaviour
     {
         //Debug.Log($"IN state: {IN}");
 
-        if (IN == true && Input.GetKeyDown(KeyCode.A)) {
+        if (IN == true && Input.GetKeyDown(KeyCode.A))
+        {
             //Debug.Log("ACTIVE");
             C_panel.SetActive(true);
             ship_map.enabled = false;
             Message.SetActive(false);
             task1_completed = true;
 
-}
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,7 +54,16 @@ public class Control_panel : MonoBehaviour
         if (other.CompareTag("Player")) {
             IN = true;
             Message.SetActive(true);
-            //Debug.Log("WERE IN");
+            Debug.Log("WERE IN");
+            if (win_message.win == true) {
+                Status.text = "SHIP REPAIRED";
+                Status_details.text = "WARNING: FUEL RESERVES LOW";
+                Map.SetActive(false);
+                Map2.SetActive(true);
+
+
+
+            }
         }
     }
 
@@ -55,7 +75,7 @@ public class Control_panel : MonoBehaviour
             Message.SetActive(false);
             C_panel.SetActive(false);
             Message2.SetActive(true);
-            //Debug.Log("WERE IN");
+            Debug.Log("WERE IN");
         }
     }
 

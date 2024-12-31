@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 public class WireRepair : MonoBehaviour
 {
     public GameObject Player;
-    public GameObject Map;
-    public GameObject ShipManager;
     public BoxCollider PART2;
     public bool playerin = false;
+    public static Vector3 Player_Task5;
+    public static Canvas Message_wire;
     // Start is called before the first frame update
     void Start()
     {
+        
         PART2.enabled = false;
     }
 
@@ -25,16 +26,18 @@ public class WireRepair : MonoBehaviour
             PART2.enabled = true;
         }
 
+        if(playerin == true)
+        {
+            Debug.Log("True");
+            Message_wire.enabled = true;
+        }
+      
         if (playerin == true && Input.GetKeyDown(KeyCode.R))
         {
-            Debug.Log("Loading game scene");
-            if (Player != null)
-                Player.SetActive(false);
-            if (Map != null)
-                Map.SetActive(false);
-            if (ShipManager != null)
-                ShipManager.SetActive(false);
+            
             SceneManager.LoadScene("Game");
+            Debug.Log("Loading game scene");
+          
         }
     }
 
@@ -44,6 +47,7 @@ public class WireRepair : MonoBehaviour
         Debug.Log("HEREEEE");
         if (other.CompareTag("Player") && Storage_Scene.Tools_collected == true)
         {
+            Player_Task5 = Player.transform.position;
             Debug.Log("HEREEEE22222");
             playerin = true;
            
