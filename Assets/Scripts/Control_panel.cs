@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Control_panel : MonoBehaviour
 {
@@ -14,29 +17,53 @@ public class Control_panel : MonoBehaviour
     public GameObject Message2;
     public GameObject Msg1;
     public bool task1_completed = false;
+    public TextMeshProUGUI Status;
+    public TextMeshProUGUI Status_details;
+    public GameObject Map;
+    public GameObject Map2;
+  
+   
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Msg1.SetActive(true);
+     
+        Msg1.SetActive(false);
         Message.SetActive(false);
         C_panel.SetActive(false);
         Message2.SetActive(false);
+        Map2.SetActive(false);
+        Map.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log($"IN state: {IN}");
+        Debug.Log("IN");
+        Debug.Log(win_message.win);
 
         if (IN == true && Input.GetKeyDown(KeyCode.A))
         {
             //Debug.Log("ACTIVE");
             C_panel.SetActive(true);
             ship_map.enabled = false;
-            Message.SetActive(false);
+            Msg1.SetActive(false);
             task1_completed = true;
+
+        }
+
+        if (win_message.win == true)
+        {
+            Debug.Log("Updating");
+            Map.SetActive(false);
+            Map2.SetActive(true);
+            Status.text = "SHIP REPAIRED";
+            Status_details.text = "WARNING: FUEL RESERVES LOW";
+            
+
+
 
         }
     }
@@ -45,9 +72,11 @@ public class Control_panel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+
             IN = true;
-            Message.SetActive(true);
-            //Debug.Log("WERE IN");
+            Msg1.SetActive(true);
+            
+
         }
     }
 
@@ -62,8 +91,16 @@ public class Control_panel : MonoBehaviour
             Msg1.SetActive(false);
             //Debug.Log("WERE IN");
         }
-    }
 
+        if (win_message.win == true)
+        {
+            Message2.SetActive(false);
+     
+
+        }
+
+    }
+    
     public void enable_ship_map()
     {
         ship_map.enabled = true;

@@ -24,7 +24,7 @@ public class WireRepair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Storage_Scene.Tools_collected == true) {
+        if (Storage_Scene.Tools_collected == true && wing_attached.WingTask == true) {
 
             PART2.enabled = true;
             turnOffMessage.gameObject.SetActive(false);
@@ -38,7 +38,7 @@ public class WireRepair : MonoBehaviour
             Message_wire.enabled = true;
         }
       
-        if (playerin == true && Input.GetKeyDown(KeyCode.R))
+        if (playerin == true && Input.GetKeyDown(KeyCode.R) && wing_attached.WingTask == true)
         {
             turnOnMessage.gameObject.SetActive(false);
             SceneManager.LoadScene("Game");

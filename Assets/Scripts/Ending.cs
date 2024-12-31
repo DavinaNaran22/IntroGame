@@ -10,6 +10,7 @@ public class Ending : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject button;
     public GameObject menu;
+    public GameObject turnOffText;
 
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
@@ -64,6 +65,7 @@ public class Ending : MonoBehaviour
 
     void Start()
     {
+        turnOffText.SetActive(false);
         ShowDialogue("YOU: Let’s see if the crystal can power this spaceship.");
         // NEED TO ADD A BUTTON THAT WILL LET THE CRYSTAL LEAVE INVENTORY
         if (button != null)
