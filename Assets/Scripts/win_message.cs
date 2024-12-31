@@ -39,6 +39,7 @@ public class win_message : MonoBehaviour
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
+        GameManager.Instance.PlayerCanvas.SetActive(true);
         GameManager.Instance.player.SetActive(true);
     }
 }

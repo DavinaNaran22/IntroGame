@@ -39,6 +39,7 @@ public class GameManager : Singleton<GameManager>
     public string CurrentScene;
     public double CutsceneTime = 0;
     public GameObject UIManager;
+    public GameObject PlayerCanvas;
     public GameObject cameraCanvas;
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;

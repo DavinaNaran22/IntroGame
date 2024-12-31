@@ -51,6 +51,7 @@ public class WireRepair : MonoBehaviour
     // Disable player in game scene (messes with wires)
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
+        GameManager.Instance.PlayerCanvas.SetActive(false);
         GameManager.Instance.player.SetActive(false);
     }
 
