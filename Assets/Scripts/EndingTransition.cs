@@ -14,15 +14,11 @@ public class EndingTransition : MonoBehaviour
     protected bool hasCheckCondition = false;
 
     // When player enters trigger switch scene (and if no check condition)
-    void OnTriggerEnter(Collider other)
+    void Start()
     {
-        if (other.CompareTag("Player") && !hasCheckCondition)
-        {
-            player = other.gameObject;
-            StartCoroutine(LoadAsyncScene());
-            //SceneManager.LoadScene(scene);
-            //SceneManager.sceneLoaded += OnSceneLoad;
-        }
+
+        StartCoroutine(LoadAsyncScene());
+
     }
 
     IEnumerator LoadAsyncScene()
@@ -49,7 +45,7 @@ public class EndingTransition : MonoBehaviour
         //PartsManager = GameObject.FindWithTag("ShipPartManager").GetComponent<InstantiateParts>();
         //PartsManager.CanSpawn();
         player.transform.position = spawnPoint;
-        player.transform.rotation = (Quaternion.Euler(0, 91, 0));
+        player.transform.rotation = (Quaternion.Euler(0, 0, 0));
         // So that text from one scene doesn't carry over from another
         GameManager.Instance.hoverText.text = "";
 

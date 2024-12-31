@@ -9,6 +9,7 @@ public class Ending : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
     public GameObject button;
+    public GameObject menu;
 
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
@@ -132,6 +133,7 @@ public class Ending : MonoBehaviour
         {
             additionalDialoguesActive = false;
             HideDialogue();
+            menu.SetActive(true);
         }
     }
 
