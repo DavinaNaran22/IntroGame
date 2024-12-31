@@ -42,9 +42,16 @@ public class WireRepair : MonoBehaviour
         {
             turnOnMessage.gameObject.SetActive(false);
             SceneManager.LoadScene("Game");
+            SceneManager.sceneLoaded += OnSceneLoad;
             Debug.Log("Loading game scene");
           
         }
+    }
+
+    // Disable player in game scene (messes with wires)
+    private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    {
+        GameManager.Instance.player.SetActive(false);
     }
 
     public void OnTriggerEnter(Collider other)

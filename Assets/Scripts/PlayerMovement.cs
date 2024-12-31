@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -62,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Checks if player is on the ground
-            
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         // Resets velocity if player is on the ground
