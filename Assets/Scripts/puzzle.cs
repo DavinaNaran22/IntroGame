@@ -8,6 +8,7 @@ public class Puzzle : MonoBehaviour
     public GameObject target1;
     public static bool Clue_in = false;
     public static int Count_puzzle = 0;
+    public static bool Puzzle_Complete  = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,6 +26,7 @@ public class Puzzle : MonoBehaviour
     {
         Debug.Log(Count_puzzle);
         if (Count_puzzle == 3) {
+            Puzzle_Complete = true;
             StartCoroutine(BackToGame());
         }
     }

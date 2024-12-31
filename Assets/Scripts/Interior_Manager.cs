@@ -42,8 +42,10 @@ public class Interior_Manager : MonoBehaviour
                     Message4.SetActive(false);
                     
                     MessagePuzzle.SetActive(true);
-                    if (Input.GetKeyDown(KeyCode.R)) {
-                        Debug.Log("r pressedw");
+                    if (Puzzle.Puzzle_Complete == true){
+                        MessagePuzzle.SetActive(false);
+                    }
+                    if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false) {
                         MessagePuzzle.SetActive(false);
                         SceneManager.LoadScene("Puzzle");
                         SceneManager.sceneLoaded += OnSceneLoad;
