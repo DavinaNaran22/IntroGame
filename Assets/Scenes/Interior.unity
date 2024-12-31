@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
+  m_IndirectSpecularColor: {r: 0.0020619242, g: 0.0019479868, b: 0.0021169633, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -431,6 +431,70 @@ RectTransform:
   m_AnchoredPosition: {x: -25, y: 55}
   m_SizeDelta: {x: -950, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &19701281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 19701282}
+  - component: {fileID: 19701284}
+  - component: {fileID: 19701283}
+  m_Layer: 0
+  m_Name: EndMenuScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &19701282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19701281}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1431445817}
+  m_Father: {fileID: 1509956491}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &19701283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19701281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad0f3a499d517d469d9a92fdafc8b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: Win
+  spawnPoint: {x: 0, y: 0, z: 0}
+  fadeCanvasGroup: {fileID: 1431445818}
+  fadeDuration: 1
+--- !u!114 &19701284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19701281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7030b90a096234200932d5eacd534184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: Win
+  spawnPoint: {x: 0, y: 0, z: 0}
 --- !u!1 &30788997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,25 +2432,6 @@ MonoBehaviour:
   HUD: {fileID: 1089804553}
   HealthBar: {fileID: 51700335}
   OxygenBar: {fileID: 2063951798}
---- !u!1 &57307819 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2034179033855149247, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
-  m_PrefabInstance: {fileID: 1728608097}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &57307821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57307819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Text: Press E to equip camera
-  sphereRadius: 3
 --- !u!1 &58673426
 GameObject:
   m_ObjectHideFlags: 0
@@ -3979,18 +4024,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8006052255771564513, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
   m_PrefabInstance: {fileID: 1728608097}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &239840164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 239840162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a508f8468c624c41b46b63b2ba52441, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &239840165
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4012,6 +4045,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.016, y: 0.016, z: 0.035}
   m_Center: {x: -0.0005728222, y: -0.0015067799, z: 0.00043761276}
+--- !u!114 &239840173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239840162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to equip camera
+  sphereRadius: 3
+  equipableObject: {fileID: 800413472}
 --- !u!1001 &242095245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5105,6 +5153,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 587192501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &284951861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 284951862}
+  - component: {fileID: 284951864}
+  - component: {fileID: 284951863}
+  m_Layer: 0
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &284951862
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284951861}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1431445817}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &284951863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284951861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &284951864
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284951861}
+  m_CullTransparentMesh: 1
 --- !u!1 &287407468
 GameObject:
   m_ObjectHideFlags: 0
@@ -6155,6 +6278,11 @@ RectTransform:
 --- !u!1 &442467753 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 702859091322279029, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+  m_PrefabInstance: {fileID: 51700331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &455792470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4142235733136119853, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
   m_PrefabInstance: {fileID: 51700331}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &469162208
@@ -9938,6 +10066,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 74067193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &800413472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2034179033855149247, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
+  m_PrefabInstance: {fileID: 1728608097}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &808493261
 GameObject:
   m_ObjectHideFlags: 0
@@ -12029,6 +12162,7 @@ PrefabInstance:
     - {fileID: 7200615796192959306, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     - {fileID: 7736816290642269190, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     - {fileID: 299358265658339353, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+    - {fileID: 5456039554651119694, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2308628226698110049, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
     - {fileID: 2069783760814287446, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
@@ -12066,54 +12200,42 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 170521126036016332, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2002893947}
-    - targetCorrespondingSourceObject: {fileID: 170521126036016332, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 5124379377187409557, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2002893946}
-    - targetCorrespondingSourceObject: {fileID: 5103598266449559117, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2141401792}
+      addedObject: {fileID: 1950019487}
     - targetCorrespondingSourceObject: {fileID: 5103598266449559117, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2141401798}
     - targetCorrespondingSourceObject: {fileID: 5103598266449559117, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2141401797}
-    - targetCorrespondingSourceObject: {fileID: 4821813308698709696, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 913959662}
+      addedObject: {fileID: 2141401802}
     - targetCorrespondingSourceObject: {fileID: 4821813308698709696, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 913959668}
     - targetCorrespondingSourceObject: {fileID: 4821813308698709696, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 913959667}
-    - targetCorrespondingSourceObject: {fileID: 7200615796195160906, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1217937087}
+      addedObject: {fileID: 913959672}
     - targetCorrespondingSourceObject: {fileID: 7200615796195160906, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1217937093}
     - targetCorrespondingSourceObject: {fileID: 7200615796195160906, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1217937092}
+      addedObject: {fileID: 1217937097}
     - targetCorrespondingSourceObject: {fileID: 8605351157582996230, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1022345919}
-    - targetCorrespondingSourceObject: {fileID: 8605351157582996230, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1022345918}
     - targetCorrespondingSourceObject: {fileID: 7609704740855268050, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2066790401}
+      addedObject: {fileID: 2066790415}
     - targetCorrespondingSourceObject: {fileID: 8726111647147414416, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1088120051}
+      addedObject: {fileID: 1088120063}
     - targetCorrespondingSourceObject: {fileID: 3573084778126927385, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1638161641}
+      addedObject: {fileID: 1638161653}
     - targetCorrespondingSourceObject: {fileID: 5377476074237352833, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1561588772}
+      addedObject: {fileID: 1561588784}
     - targetCorrespondingSourceObject: {fileID: 7781150177999098673, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1052928968}
@@ -12203,32 +12325,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4821813308698709696, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &913959662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913959657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Text: Press E to equip first aid kit
-  sphereRadius: 3
---- !u!114 &913959667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913959657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a508f8468c624c41b46b63b2ba52441, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &913959668
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12250,6 +12346,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.310001, y: 3.1155126, z: 14.94}
   m_Center: {x: 0.0000002893443, y: -4.959437, z: 0.27416405}
+--- !u!114 &913959672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913959657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to equip first aid kit
+  sphereRadius: 3
+  equipableObject: {fileID: 913959657}
 --- !u!1 &921612184
 GameObject:
   m_ObjectHideFlags: 0
@@ -13014,18 +13125,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8605351157582996230, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1022345918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1022345916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a508f8468c624c41b46b63b2ba52441, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1022345919
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13462,7 +13561,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8726111647147414416, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1088120051
+--- !u!114 &1088120063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13471,11 +13570,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1088120045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Text: Press E to equip saw
   sphereRadius: 3
+  equipableObject: {fileID: 1088120045}
 --- !u!1 &1089804553 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7008734550767129030, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
@@ -14557,32 +14657,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7200615796195160906, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1217937087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1217937082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Text: Press E to equip first aid kit
-  sphereRadius: 3
---- !u!114 &1217937092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1217937082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a508f8468c624c41b46b63b2ba52441, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1217937093
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14604,6 +14678,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.8, y: 4.75, z: 7.96}
   m_Center: {x: 0.00000028312206, y: 0.022800026, z: 2.2}
+--- !u!114 &1217937097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217937082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to equip first aid kit
+  sphereRadius: 3
+  equipableObject: {fileID: 1217937082}
 --- !u!1 &1220740138
 GameObject:
   m_ObjectHideFlags: 0
@@ -16070,6 +16159,7 @@ MonoBehaviour:
   CurrentScene: 
   CutsceneTime: 0
   UIManager: {fileID: 51700332}
+  PlayerCanvas: {fileID: 455792470}
   cameraCanvas: {fileID: 1254959161}
   cameraManagement: {fileID: 1254959163}
   cameraMsg: {fileID: 1664890787}
@@ -16750,6 +16840,121 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1431445816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1431445817}
+  - component: {fileID: 1431445821}
+  - component: {fileID: 1431445820}
+  - component: {fileID: 1431445819}
+  - component: {fileID: 1431445818}
+  m_Layer: 0
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1431445817
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431445816}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 284951862}
+  m_Father: {fileID: 19701282}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!225 &1431445818
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431445816}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &1431445819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431445816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1431445820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431445816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1431445821
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431445816}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1431518565
 GameObject:
   m_ObjectHideFlags: 0
@@ -17386,6 +17591,10 @@ PrefabInstance:
       value: 0.6309004
       objectReference: {fileID: 0}
     - target: {fileID: 5452075960120460221, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452075960120460221, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_Center.y
       value: -0.5483279
       objectReference: {fileID: 0}
@@ -17400,6 +17609,10 @@ PrefabInstance:
     - target: {fileID: 5563761366772484695, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637074216992939167, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5708108540996411605, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17556,6 +17769,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 854904355033615558, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1482992026}
+    - targetCorrespondingSourceObject: {fileID: 854904355033615558, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1482992027}
     - targetCorrespondingSourceObject: {fileID: 5071861185589620545, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1482992025}
@@ -17627,6 +17843,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1482992027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482992024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1add04529c16e89468a3abc7e60a9ce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1482992028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17895,6 +18123,7 @@ Transform:
   m_Children:
   - {fileID: 687606504}
   - {fileID: 1176687376}
+  - {fileID: 19701282}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1509956492
@@ -17911,6 +18140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 17528524}
   button: {fileID: 720244533}
+  menu: {fileID: 19701281}
 --- !u!1 &1511153325
 GameObject:
   m_ObjectHideFlags: 0
@@ -17957,6 +18187,21 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 6281877333910449676, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
   m_PrefabInstance: {fileID: 7388300744193666054}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1512205559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512205549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to equip knife
+  sphereRadius: 2.5
+  equipableObject: {fileID: 1512205549}
 --- !u!1 &1514940827
 GameObject:
   m_ObjectHideFlags: 0
@@ -18405,7 +18650,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5377476074237352833, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1561588772
+--- !u!114 &1561588784
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18414,11 +18659,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1561588766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Text: Press E to equip file
   sphereRadius: 3
+  equipableObject: {fileID: 1561588766}
 --- !u!1001 &1566508397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18888,7 +19134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1599072388
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19593,7 +19839,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3573084778126927385, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1638161641
+--- !u!114 &1638161653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19602,11 +19848,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1638161635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Text: Press E to equip chisel
   sphereRadius: 3
+  equipableObject: {fileID: 1638161635}
 --- !u!1 &1643627665 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1256151129932735245, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
@@ -20322,15 +20569,12 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2034179033855149247, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 57307821}
     - targetCorrespondingSourceObject: {fileID: 8006052255771564513, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
       insertIndex: -1
       addedObject: {fileID: 239840165}
     - targetCorrespondingSourceObject: {fileID: 8006052255771564513, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 239840164}
+      addedObject: {fileID: 239840173}
   m_SourcePrefab: {fileID: 100100000, guid: 8fc0909805568a740b4f204e7e07e051, type: 3}
 --- !u!1 &1736320815
 GameObject:
@@ -20612,6 +20856,7 @@ GameObject:
   - component: {fileID: 1762078017}
   - component: {fileID: 1762078016}
   - component: {fileID: 1762078019}
+  - component: {fileID: 1762078020}
   m_Layer: 5
   m_Name: CameraMsg
   m_TagString: Untagged
@@ -20713,6 +20958,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be45927d4568eac4ba37b38e804859a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1762078020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762078014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d23cf6c75b5e042a750ab2bc36166b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1763424794
@@ -20836,7 +21093,7 @@ Transform:
   m_GameObject: {fileID: 1786836909}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.792}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20962,7 +21219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1846354366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21495,7 +21752,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}
   m_PrefabInstance: {fileID: 2122953881}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1858508960
+--- !u!114 &1858508964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21504,23 +21761,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1858508952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a508f8468c624c41b46b63b2ba52441, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1858508961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858508952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Text: Press E to equip gun
   sphereRadius: 3
+  equipableObject: {fileID: 1858508952}
 --- !u!1 &1868385040
 GameObject:
   m_ObjectHideFlags: 0
@@ -21574,6 +21820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1875410250}
   - component: {fileID: 1875410251}
+  - component: {fileID: 1875410252}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -21609,6 +21856,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be45927d4568eac4ba37b38e804859a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1875410252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875410249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758213b5a94b2d144b0d2488c5937c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1883534508 stripped
@@ -22194,6 +22453,26 @@ MonoBehaviour:
   keypadInput: {fileID: 862446323}
   doorScript: {fileID: 2132775567}
   doorNearText: {fileID: 1782392757}
+--- !u!1 &1950019486 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5124379377187409557, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1950019487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950019486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to equip oxygen tank
+  sphereRadius: 2.5
+  equipableObject: {fileID: 2002893944}
 --- !u!1 &1972535567
 GameObject:
   m_ObjectHideFlags: 0
@@ -22616,18 +22895,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 170521126036016332, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2002893946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002893944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a508f8468c624c41b46b63b2ba52441, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &2002893947
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23263,7 +23530,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7609704740855268050, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2066790401
+--- !u!114 &2066790415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23272,11 +23539,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2066790394}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
+  m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Text: Press E to equip axe
   sphereRadius: 3
+  equipableObject: {fileID: 2066790394}
 --- !u!1 &2082838419
 GameObject:
   m_ObjectHideFlags: 0
@@ -23688,10 +23956,7 @@ PrefabInstance:
       addedObject: {fileID: 1858508953}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1858508961}
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1858508960}
+      addedObject: {fileID: 1858508964}
   m_SourcePrefab: {fileID: 100100000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}
 --- !u!1001 &2123253616
 PrefabInstance:
@@ -23959,32 +24224,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5103598266449559117, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2141401792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141401787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Text: Press E to equip first aid kit
-  sphereRadius: 3
---- !u!114 &2141401797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141401787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a508f8468c624c41b46b63b2ba52441, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &2141401798
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24006,6 +24245,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.8, y: 4.75, z: 7.96}
   m_Center: {x: 0.00000028312206, y: 0.022800026, z: 3.39}
+--- !u!114 &2141401802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141401787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to equip first aid kit
+  sphereRadius: 3
+  equipableObject: {fileID: 2141401787}
 --- !u!1001 &7388300744193666054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24019,8 +24273,20 @@ PrefabInstance:
       value: m9_bayonet
       objectReference: {fileID: 0}
     - target: {fileID: 1960495409052354686, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960495409052354686, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960495409052354686, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960495409052354686, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.5599976
+      value: -5.797
       objectReference: {fileID: 0}
     - target: {fileID: 1960495409052354686, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -24028,23 +24294,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1960495409052354686, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.64
+      value: -25.499
       objectReference: {fileID: 0}
     - target: {fileID: 1960495409052354686, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1960495409052354686, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1960495409052354686, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1960495409052354686, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7071068
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1960495409052354686, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -24052,16 +24318,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1960495409052354686, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1960495409052354686, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4239568381174001083, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
+    - {fileID: 8077653288011074729, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1188603420251640516, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1512205559}
   m_SourcePrefab: {fileID: 100100000, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
 --- !u!1001 &8819977944634643912
 PrefabInstance:
