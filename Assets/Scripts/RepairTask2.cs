@@ -52,6 +52,7 @@ public class RepairTask2 : MonoBehaviour
     private void Start()
     {
         Debug.Log("RepairTask2 Start");
+        GameManager.Instance.Save();
         player = GameManager.Instance.player;
         promptText.gameObject.SetActive(false);
         StartAdditionalDialogues();

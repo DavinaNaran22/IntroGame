@@ -64,7 +64,7 @@ public class MissionManager : MonoBehaviour
 
     private void Start()
     {
-      
+        GameManager.Instance.Save();
         player = GameManager.Instance.player;
         cameraManagement = GameManager.Instance.cameraManagement;
 
