@@ -9159,6 +9159,8 @@ MonoBehaviour:
   woodImage: {fileID: 0}
   stoneImage: {fileID: 0}
   clueImage: {fileID: 0}
+  clueCompletionButton: {fileID: 0}
+  clueCompletionPanel: {fileID: 0}
   medicines: []
   clues: []
   medicineText: {fileID: 0}
