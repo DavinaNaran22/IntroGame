@@ -27,22 +27,25 @@ class PlayerData
     public Difficulty difficulty;
     public float volume;
     public float mouseSens;
+    public float xPos; // Cant serialize unity specific things e.g. Vector3
+    public float yPos;
+    public float zPos;
 }
 
 public class GameManager : Singleton<GameManager>
 {
-    public bool unlockedDoor;
+    [Header("Player")]
     public GameObject player;
-    public TextMeshProUGUI hoverText;
-    public bool playFirstCutscene;
     public float playerHealth;
-    public string CurrentScene;
-    public double CutsceneTime = 0;
-    public GameObject UIManager;
     public GameObject PlayerCanvas;
-    public GameObject cameraCanvas;
-    public CameraManagement cameraManagement;
-    public TextMeshProUGUI cameraMsg;
+    public float xPos;
+    public float yPos;
+    public float zPos;
+
+    [Header("Interior")]
+    public bool unlockedDoor;
+    public bool playFirstCutscene;
+    public double CutsceneTime = 0;
 
     [Header("Options UI")]
     public ColourMode colourMode;
@@ -59,6 +62,15 @@ public class GameManager : Singleton<GameManager>
     public GameObject SwordPrefab;
 
     public GameObject MinimapCanvas;
+
+    [Header("Miscellaneous State")]
+    public string CurrentScene;
+    public TextMeshProUGUI hoverText;
+    public GameObject UIManager;
+    public GameObject cameraCanvas;
+    public CameraManagement cameraManagement;
+    public TextMeshProUGUI cameraMsg;
+
     private void Start()
     {
         // The following are values chagned by pause menu
@@ -105,10 +117,13 @@ public class GameManager : Singleton<GameManager>
         data.playFirstCutscene = playFirstCutscene;
         data.health = playerHealth;
         data.colorMode = colourMode;
-        data.currentScene = CurrentScene;
+        data.currentScene = GetCurrentScene();
         data.difficulty = Difficulty;
         data.volume = Volume;
         data.mouseSens = MouseSens;
+        data.xPos = player.transform.position.x;
+        data.yPos = player.transform.position.y;
+        data.zPos = player.transform.position.z;
 
         bf.Serialize(file, data);
         file.Close();
@@ -134,6 +149,10 @@ public class GameManager : Singleton<GameManager>
             Difficulty = data.difficulty;
             Volume = data.volume;
             MouseSens = data.mouseSens;
+
+            // Load scene and spawn player in saved position
+            SceneManager.LoadScene(CurrentScene);
+            SceneManager.sceneLoaded += OnSavedSceneLoad;
             Debug.Log("Loaded Player data");
         }
         else
@@ -142,8 +161,15 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void SetCurrentScene()
+    private void OnSavedSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        CurrentScene = SceneManager.GetActiveScene().name;
+        player.transform.position = new Vector3(xPos, yPos, zPos);
+        player.transform.rotation = (Quaternion.Euler(0, 0, 0));
+        hoverText.text = "";
+    }
+
+    private string GetCurrentScene()
+    {
+        return SceneManager.GetActiveScene().name;
     }
 }
