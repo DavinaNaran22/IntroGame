@@ -12,6 +12,7 @@ public class Scene5PT2 : MonoBehaviour
     private bool finishedD;
     private bool additionalDialoguesActive = false;
     private int currentDialogueIndex = 0;
+    public GameObject map;
 
     private PlayerInputActions inputActions;
 
@@ -45,6 +46,7 @@ public class Scene5PT2 : MonoBehaviour
 
     private void Start()
     {
+        map.SetActive(true);
         GameManager.Instance.Save();
         player = GameManager.Instance.player;
 
@@ -104,6 +106,8 @@ public class Scene5PT2 : MonoBehaviour
 
             Debug.Log("All dialogues finished");
 
+            EquipMap();
+
         }
     }
 
@@ -111,5 +115,14 @@ public class Scene5PT2 : MonoBehaviour
     {
         //return dialogueText.gameObject.activeSelf;
         return additionalDialoguesActive;
+    }
+
+    private void EquipMap()
+    {
+        if (Input.GetKeyDown(KeyCode.E)) // NEED TO CHANGE SO CLUE CAN BE EQUIPPED
+        {
+            Debug.Log("Map equipped");
+            map.SetActive(false);
+        }
     }
 }
