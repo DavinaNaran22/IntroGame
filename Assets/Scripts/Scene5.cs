@@ -12,7 +12,7 @@ public class Scene5 : MonoBehaviour
 
     public GameObject player;
     public TextMeshProUGUI dialogueText;
-    public GameObject Part2;
+    public GameObject scene5;
 
     private bool dialogueShown = false;
     private bool finishedD;
@@ -67,7 +67,8 @@ public class Scene5 : MonoBehaviour
         if (!puzzleText.activeInHierarchy && finishedD == true)
         {
             logic.SetActive(false);
-            Part2.SetActive(true);
+            scene5.SetActive(true);
+
         }
     }
 
@@ -123,6 +124,9 @@ public class Scene5 : MonoBehaviour
             Debug.Log("All dialogues finished");
             finishedD = true;
             puzzleText.SetActive(true);
+            scene5.SetActive(false);
+
+
         }
     }
 

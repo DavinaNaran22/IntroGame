@@ -13,6 +13,9 @@ public class Scene5PT2 : MonoBehaviour
     private bool additionalDialoguesActive = false;
     private int currentDialogueIndex = 0;
     public GameObject map;
+    public GameObject scene5;
+    public GameObject scene5PT2;
+
 
     private PlayerInputActions inputActions;
 
@@ -49,7 +52,7 @@ public class Scene5PT2 : MonoBehaviour
         map.SetActive(true);
         GameManager.Instance.Save();
         player = GameManager.Instance.player;
-
+        scene5.SetActive(false);
         StartAdditionalDialogues();
     }
 
@@ -123,6 +126,7 @@ public class Scene5PT2 : MonoBehaviour
         {
             Debug.Log("Map equipped");
             map.SetActive(false);
+            scene5PT2.SetActive(false);
         }
     }
 }

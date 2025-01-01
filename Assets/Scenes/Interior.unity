@@ -7420,12 +7420,12 @@ GameObject:
   - component: {fileID: 576515066}
   - component: {fileID: 576515067}
   m_Layer: 0
-  m_Name: Part2
+  m_Name: Scene5Part2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &576515066
 Transform:
   m_ObjectHideFlags: 0
@@ -7434,14 +7434,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576515065}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 338285991}
   - {fileID: 540214381}
-  m_Father: {fileID: 2047101252}
+  m_Father: {fileID: 1986050367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &576515067
 MonoBehaviour:
@@ -7457,6 +7457,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   dialogueText: {fileID: 1311633919}
+  map: {fileID: 540214380}
+  scene5: {fileID: 2047101250}
+  scene5PT2: {fileID: 576515065}
   additionalDialogues:
   - It looks like an entrance to somewhere.
   - Could it be a cave?
@@ -7920,6 +7923,7 @@ MonoBehaviour:
   passcode: {fileID: 1669729659}
   mini_map: {fileID: 345240224}
   Exit_control_panel: {fileID: 727739784}
+  scene5PT2: {fileID: 576515065}
 --- !u!65 &620499743
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23695,6 +23699,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1986050366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1986050367}
+  - component: {fileID: 1986050368}
+  m_Layer: 0
+  m_Name: S5PT2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1986050367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986050366}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 576515066}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1986050368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986050366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0078ab53e428db5439e6c45570993452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene5: {fileID: 2047101250}
+  scene5pt2: {fileID: 576515065}
+  puzzleMessage: {fileID: 791425444}
 --- !u!1 &1991281953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2771261484669979908, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
@@ -24279,7 +24331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2039609983
 Transform:
   m_ObjectHideFlags: 0
@@ -24464,7 +24516,7 @@ MonoBehaviour:
   logic: {fileID: 2039609982}
   player: {fileID: 0}
   dialogueText: {fileID: 1821306955}
-  Part2: {fileID: 576515065}
+  scene5: {fileID: 2047101250}
   additionalDialogues:
   - Looks like the ship is finally repaired!
   - 'SYSTEM: Power required for take-off.'
@@ -24485,7 +24537,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2039609983}
-  - {fileID: 576515066}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2050139096 stripped
@@ -25620,4 +25671,5 @@ SceneRoots:
   - {fileID: 945245042}
   - {fileID: 727739785}
   - {fileID: 2047101252}
+  - {fileID: 1986050367}
   - {fileID: 1509956491}
