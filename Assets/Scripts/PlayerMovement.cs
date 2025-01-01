@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 12f; // Speed of player
     public float crouchSpeed = 6f; // Movement speed while crouching
     public float crouchHeight = 0f; // Height when crouching
-    public float normalHeight = 3f; // Normal height of the player
+    public const float normalHeight = 3f; // Normal height of the player
 
     Vector3 velocity; // Velocity of player
     public float gravity = -9.81f; // Gravity of player
@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool canMove = true;
     public Vector3 lockCoords; // Used for exiting cockpit
+
+    bool movedControllerBack = true; // Need to move controller back
 
     private void Awake()
     {
@@ -57,7 +59,6 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Player.Crouch.performed -= ctx => ToggleCrouch();
         inputActions.Player.ExitChair.performed -= ctx => ExitChair();
     }
-
 
     // Update is called once per frame
     void Update()
@@ -85,11 +86,17 @@ public class PlayerMovement : MonoBehaviour
         {
             controller.height = crouchHeight; // Set to crouch height
             speed = crouchSpeed; // Slow down while crouching
+            movedControllerBack = false;
         }
         else
         {
-            controller.height = normalHeight; // Set to normal height
-            speed = 12f; // Reset speed to normal
+            if (!movedControllerBack) // Need to move controller up so player doesn't fall through ground
+            {
+                controller.Move(Vector3.up * (normalHeight - crouchHeight) * 0.5f);
+                controller.height = normalHeight; // Set to normal height
+                speed = 12f; // Reset speed to normal
+                movedControllerBack = true;
+            }
         }
             
         // Gets input from player and moves player in direction they are facing
