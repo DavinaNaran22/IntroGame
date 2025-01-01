@@ -14,6 +14,7 @@ public class Interior_Manager : MonoBehaviour
     public BoxCollider passcode;
     public GameObject mini_map;
     public GameObject Exit_control_panel;
+    public GameObject scene5PT2;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +51,7 @@ public class Interior_Manager : MonoBehaviour
                         SceneManager.LoadScene("Puzzle");
                         SceneManager.sceneLoaded += OnSceneLoad;
                         Debug.Log("Loading puzzle scene");
+                        scene5PT2.SetActive(true);
 
                     }
                 }
