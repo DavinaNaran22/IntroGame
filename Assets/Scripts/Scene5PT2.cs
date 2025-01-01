@@ -1,18 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Scene5 : MonoBehaviour
+public class Scene5PT2 : MonoBehaviour
 {
-    public GameObject map1;
-    public GameObject puzzleText;
-    public GameObject logic;
-
     public GameObject player;
     public TextMeshProUGUI dialogueText;
-    public GameObject Part2;
 
     private bool dialogueShown = false;
     private bool finishedD;
@@ -24,11 +18,10 @@ public class Scene5 : MonoBehaviour
 
     public List<string> additionalDialogues = new List<string>
     {
-        "Looks like the ship is finally repaired!",
-        "SYSTEM: Power required for take-off.",
-        "Oh no! Where do I find a power source?",
-        "Wait, I have these three pieces of drawings I found earlier. Could that help?",
-        "It looks to be some sort of puzzle.",
+        "It looks like an entrance to somewhere.",
+        "Could it be a cave?",
+        "I'm not sure what the back of it means. But I'll take it with me.",
+        "Maybe I should look for this and hopefully I can find a power source.",
     };
 
 
@@ -54,22 +47,11 @@ public class Scene5 : MonoBehaviour
     {
         GameManager.Instance.Save();
         player = GameManager.Instance.player;
+
+        StartAdditionalDialogues();
     }
 
-    private void Update()
-    {
-        if (map1.activeInHierarchy)
-        {
-            logic.SetActive(true);
-            StartAdditionalDialogues();
-        }
 
-        if (!puzzleText.activeInHierarchy && finishedD == true)
-        {
-            logic.SetActive(false);
-            Part2.SetActive(true);
-        }
-    }
 
     private void DismissDialogue()
     {
@@ -121,8 +103,7 @@ public class Scene5 : MonoBehaviour
             HideDialogue();
 
             Debug.Log("All dialogues finished");
-            finishedD = true;
-            puzzleText.SetActive(true);
+
         }
     }
 
