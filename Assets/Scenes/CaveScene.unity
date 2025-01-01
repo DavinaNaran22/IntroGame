@@ -9727,8 +9727,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 388237709}
     - target: {fileID: 6429222996098318200, guid: c8911424a3a9d6245a60826432450cb8, type: 3}
+      propertyPath: cameraModel
+      value: 
+      objectReference: {fileID: 996156743}
+    - target: {fileID: 6429222996098318200, guid: c8911424a3a9d6245a60826432450cb8, type: 3}
       propertyPath: maxDistance
-      value: 25
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 6429222996098318200, guid: c8911424a3a9d6245a60826432450cb8, type: 3}
       propertyPath: photoViewer
@@ -11348,18 +11352,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df9346f915047047b44d35cf79ddd1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockedDoor: 0
   player: {fileID: 0}
-  hoverText: {fileID: 0}
-  playFirstCutscene: 1
   playerHealth: 0
-  CurrentScene: 
-  CutsceneTime: 0
-  UIManager: {fileID: 0}
   PlayerCanvas: {fileID: 0}
-  cameraCanvas: {fileID: 388237707}
-  cameraManagement: {fileID: 388237708}
-  cameraMsg: {fileID: 713401664}
+  xPos: 0
+  yPos: 0
+  zPos: 0
+  unlockedDoor: 0
+  playFirstCutscene: 1
+  CutsceneTime: 0
   colourMode: 0
   colourDropdown: {fileID: 0}
   difficultyDropdown: {fileID: 0}
@@ -11370,6 +11371,12 @@ MonoBehaviour:
   knifePrefab: {fileID: 0}
   SwordPrefab: {fileID: 0}
   MinimapCanvas: {fileID: 0}
+  CurrentScene: 
+  hoverText: {fileID: 0}
+  UIManager: {fileID: 0}
+  cameraCanvas: {fileID: 388237707}
+  cameraManagement: {fileID: 388237708}
+  cameraMsg: {fileID: 713401664}
 --- !u!114 &444127644
 MonoBehaviour:
   m_ObjectHideFlags: 0
