@@ -18,6 +18,10 @@ public class RepairTask4 : MonoBehaviour
     private bool additionalDialoguesActive = false;
     private int currentDialogueIndex = 0;
 
+    public GameObject task4part2;
+    public GameObject cube;
+    public GameObject startClue;
+
 
     private PlayerInputActions inputActions;
 
@@ -55,6 +59,14 @@ public class RepairTask4 : MonoBehaviour
         wingDupe.SetActive(false);
         player = GameManager.Instance.player;
         StartAdditionalDialogues();
+    }
+
+    private void Update()
+    {
+        if (task4part2.activeSelf == false && cube.activeSelf == false)
+        {
+            startClue.SetActive(true);
+        }
     }
 
 

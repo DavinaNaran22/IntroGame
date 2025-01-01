@@ -14,7 +14,7 @@ public class WireRepair : MonoBehaviour
     public TextMeshProUGUI promptText;
     public bool playerin = false;
     public static Vector3 Player_Task5;
-    public TextMeshProUGUI returnText;
+    public GameObject StartClue;
     //public Canvas Message_wire;
 
     public GameObject stopWingAttached;
@@ -62,8 +62,8 @@ public class WireRepair : MonoBehaviour
             SceneManager.LoadScene("Game");
             SceneManager.sceneLoaded += OnSceneLoad;
             Debug.Log("Loading game scene");
-            returnText.gameObject.SetActive(true);
-            StartCoroutine(returnTextShow());
+            StartClue.SetActive(true);
+
         }
     }
 
@@ -74,11 +74,7 @@ public class WireRepair : MonoBehaviour
         promptText.gameObject.SetActive(true);
     }
 
-    private IEnumerator returnTextShow()
-    {
-        yield return new WaitForSeconds(5f);
-        returnText.gameObject.SetActive(false);
-    }
+
 
 
     // Disable player in game scene (messes with wires)
