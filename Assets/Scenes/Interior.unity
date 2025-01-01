@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020619242, g: 0.0019479868, b: 0.0021169633, a: 1}
+  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -18296,7 +18296,7 @@ GameObject:
   - component: {fileID: 1509956492}
   m_Layer: 0
   m_Name: EndingScene
-  m_TagString: Untagged
+  m_TagString: EndingScene
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18335,6 +18335,8 @@ MonoBehaviour:
   button: {fileID: 720244533}
   menu: {fileID: 19701281}
   turnOffText: {fileID: 574984652}
+  turnOffText2: {fileID: 1891343434}
+  turnOffText3: {fileID: 2045668583}
 --- !u!1 &1511153325
 GameObject:
   m_ObjectHideFlags: 0

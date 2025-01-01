@@ -11356,6 +11356,7 @@ MonoBehaviour:
   CurrentScene: 
   CutsceneTime: 0
   UIManager: {fileID: 0}
+  PlayerCanvas: {fileID: 0}
   cameraCanvas: {fileID: 388237707}
   cameraManagement: {fileID: 388237708}
   cameraMsg: {fileID: 713401664}
@@ -34684,9 +34685,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1497279329}
-  - component: {fileID: 1497279330}
   - component: {fileID: 1497279331}
   - component: {fileID: 1497279332}
+  - component: {fileID: 1497279333}
   m_Layer: 0
   m_Name: TransitionScene
   m_TagString: Untagged
@@ -34710,22 +34711,6 @@ Transform:
   - {fileID: 363740273}
   m_Father: {fileID: 982021046}
   m_LocalEulerAnglesHint: {x: 0, y: -18.022, z: 0}
---- !u!114 &1497279330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1497279328}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ad0f3a499d517d469d9a92fdafc8b2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scene: Interior
-  spawnPoint: {x: 566.557, y: 9.339998, z: 505.13}
-  fadeCanvasGroup: {fileID: 1656150667}
-  fadeDuration: 1
 --- !u!65 &1497279331
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34754,13 +34739,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497279328}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7030b90a096234200932d5eacd534184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Interior
   spawnPoint: {x: 566.557, y: 9.339998, z: 505.13}
+--- !u!114 &1497279333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497279328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3135c38d849b2074b977f2c9c3f53234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: Interior
+  spawnPoint: {x: 566.557, y: 9.339998, z: 505.13}
+  fadeCanvasGroup: {fileID: 1656150667}
+  fadeDuration: 1
 --- !u!1 &1497344227 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 994636081164947213, guid: c6ee9a3b02d704893981ff5f6a5b6c2a, type: 3}

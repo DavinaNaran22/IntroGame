@@ -11,6 +11,8 @@ public class Ending : MonoBehaviour
     public GameObject button;
     public GameObject menu;
     public GameObject turnOffText;
+    public GameObject turnOffText2;
+    public GameObject turnOffText3;
 
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
@@ -26,20 +28,20 @@ public class Ending : MonoBehaviour
         "YOU: Yes! It works!",
         "System: Destination set to Earth.",
         "System: Initiating countdown.",
-        "System: 10.",
-        "System: 9.",
+        "System: 10",
+        "System: 9",
         "What a journey it has been. I'm glad I landed on Xenos and helped the aliens out.",
-        "System: 8.",
-        "System: 7.",
+        "System: 8",
+        "System: 7",
         "YOU: I hope they can bring back the much needed life to the planet.",
-        "System: 6.",
-        "System: 5.",
+        "System: 6",
+        "System: 5",
         "YOU: At least I will always have the pictures I took of the aliens as a keepsake.",
-        "System: 4.",
-        "System: 3.",
+        "System: 4",
+        "System: 3",
         "YOU: But I am looking forward to going back home.",
-        "System: 2.",
-        "System: 1.",
+        "System: 2",
+        "System: 1",
         "System: Takeoff.",
         "System: Spaceship has left the planet.",
         "YOU: Goodbye, Xenos. I hope to see you again someday.",
@@ -66,6 +68,8 @@ public class Ending : MonoBehaviour
     void Start()
     {
         turnOffText.SetActive(false);
+        turnOffText2.SetActive(false);
+        turnOffText3.SetActive(false);
         ShowDialogue("YOU: Let’s see if the crystal can power this spaceship.");
         // NEED TO ADD A BUTTON THAT WILL LET THE CRYSTAL LEAVE INVENTORY
         if (button != null)
