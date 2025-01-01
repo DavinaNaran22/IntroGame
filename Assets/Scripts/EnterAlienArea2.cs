@@ -128,7 +128,7 @@ public class EnterAlienArea2 : MonoBehaviour
         }
 
 
-        if (clue.activeSelf == false) // NEED TO CHANGE SO CLUE CAN BE EQUIPPED
+        if (blocksEquipped && waitingForEquipC && Input.GetKeyDown(KeyCode.R)) // NEED TO CHANGE SO CLUE CAN BE EQUIPPED
         {
             Debug.Log("Clue equipped");
             EquipClue();
