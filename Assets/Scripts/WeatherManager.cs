@@ -1,18 +1,31 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WeatherManager : MonoBehaviour
 {
-    public RainController rainController; // Reference to the RainController script
-    public FogController fogController; // Reference to the FogController script
-    public LightningController lightningController; // Reference to the LightningController script
-
+    public RainController rainController;
+    public FogController fogController; 
+    public LightningController lightningController;
+    public GameObject weather; 
     public float minWeatherInterval = 30f;  // Minimum time between weather changes
     public float maxWeatherInterval = 120f; // Maximum time between weather changes
 
     private void Start()
     {
         StartCoroutine(WeatherCycle());
+    }
+
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "landscape")
+        {
+            weather.SetActive(true); // Activate the GameObject if in Landscape scene
+        }
+        else
+        {
+            weather.SetActive(false); // Deactivate if not in Landscape
+        }
     }
 
     IEnumerator WeatherCycle()
