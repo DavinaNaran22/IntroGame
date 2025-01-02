@@ -10,21 +10,18 @@ public class Interior_Manager : MonoBehaviour
     public GameObject Passcode;
     public GameObject Message3;
     public GameObject Message4;
-    public Canvas Message_Exit;
+    //public GameObject MessagePuzzle;
     public BoxCollider passcode;
     public GameObject mini_map;
     public GameObject Exit_control_panel;
-    public GameObject scene5PT2;
 
     // Start is called before the first frame update
     void Start()
     {
-       
-        scene5PT2.SetActive(false);
+        //MessagePuzzle.SetActive(false);
         Message3.SetActive(false);
         Message4.SetActive(false);
         Passcode.SetActive(false);
-        Message_Exit.enabled = false;
         GameObject storage = GameObject.Find("Storage_Collider"); 
         storage_scene = storage.GetComponent<Storage_Scene>();
         storage_scene.deactivate_task2();
@@ -43,12 +40,16 @@ public class Interior_Manager : MonoBehaviour
                 {
                     Message4.SetActive(false);
 
-                    if (Puzzle.Puzzle_Complete == true)
-                    {
-                        scene5PT2.SetActive(true);
 
-                    }
+                    //if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false) {
+                    //    Debug.Log("PUZZLE");
+                    //    MessagePuzzle.SetActive(false);
+                    //    //SceneManager.LoadScene("Puzzle");
+                    //    //SceneManager.sceneLoaded += OnSceneLoad;
+                    //    //Debug.Log("Loading puzzle scene");
+                    //    scene5PT2.SetActive(true);
 
+                    //}
                 }
                 else {
                     Message4.SetActive(true);
@@ -56,22 +57,15 @@ public class Interior_Manager : MonoBehaviour
                     if (mini_map.activeSelf)
                     {
                         Message4.SetActive(false);
-                        Message_Exit.enabled = true;
                     }
                 }
                
            
             }
             storage_scene.Task1 = true;
-            
 
 
-
-        }
-
-        if (control_panel.IN == false) {
-
-            Message_Exit.enabled = false;
+           
         }
 
         if (control_panel.task1_completed == true && storage_scene.Task2 == true)

@@ -71,6 +71,9 @@ public class GameManager : Singleton<GameManager>
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;
 
+    [Header("Game Ending")]
+    public bool triggerEnding = false;
+
     private void Start()
     {
         // The following are values chagned by pause menu
@@ -101,6 +104,10 @@ public class GameManager : Singleton<GameManager>
             {
                 difficultyDropdown = gameObject.GetComponent<TMP_Dropdown>();
             }
+        }
+        if (triggerEnding && SceneManager.GetActiveScene().name == "Interior")
+        {
+            ActivateEnding();
         }
     }
 
@@ -171,5 +178,14 @@ public class GameManager : Singleton<GameManager>
     private string GetCurrentScene()
     {
         return SceneManager.GetActiveScene().name;
+    }
+
+    public void ActivateEnding()
+    {
+        GameObject.Find("EndingScene").GetComponent<Ending>().enabled = true;
+        //Ending = GameObject.Find("EndingScene");
+        //Ending.SetActive(false);
+        //Ending.SetActive(true);
+        Debug.Log("Enabled ending game object");
     }
 }

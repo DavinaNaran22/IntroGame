@@ -67,6 +67,7 @@ public class Ending : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("START ENDING");
         turnOffText.SetActive(false);
         turnOffText2.SetActive(false);
         turnOffText3.SetActive(false);
