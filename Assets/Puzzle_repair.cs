@@ -9,6 +9,7 @@ public class Puzzle_repair : MonoBehaviour
     public GameObject ClueTask;
     public GameObject repair4;
     public GameObject caveEntrance;
+    public GameObject showClue;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class Puzzle_repair : MonoBehaviour
             MessagePuzzle.SetActive(false);
             repair4.SetActive(false);
             caveEntrance.SetActive(true);
+            showClue.SetActive(true);
 
         }
         if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false && Task4Clue.Clue_Collected == true)
