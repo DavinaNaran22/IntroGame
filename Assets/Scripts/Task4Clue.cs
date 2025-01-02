@@ -72,7 +72,7 @@ public class Task4Clue : MonoBehaviour
     private void ActivateRepairTasksWithDelay()
     {
         Debug.Log("Activating repair tasks after delay");
-        ShowDialogue("YOU: How weird, this is the third boulder I�ve seen with a weird drawing on it. I guess I should take that with me too.");
+        ShowDialogue("YOU: How weird, this is the third boulder I've seen with a weird drawing on it. I guess I should take that with me too.");
     }
 
     private void EquipClue()
