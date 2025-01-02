@@ -17,9 +17,8 @@ public class CaveToEnding : MonoBehaviour
     // When player enters trigger switch scene (and if no check condition)
     void Start()
     {
-
+        GameManager.Instance.triggerEnding = true;
         StartCoroutine(LoadAsyncScene());
-
     }
 
     IEnumerator LoadAsyncScene()
@@ -27,6 +26,7 @@ public class CaveToEnding : MonoBehaviour
         yield return StartCoroutine(Fade(1f));
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
         SceneManager.sceneLoaded += OnSceneLoad;
+        GameManager.Instance.triggerEnding = true;
         while (!asyncLoad.isDone)
         {
             yield return null;
@@ -43,10 +43,12 @@ public class CaveToEnding : MonoBehaviour
     // When scene loaded, move player to spawn point 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        player.transform.position = spawnPoint;
-        player.transform.rotation = (Quaternion.Euler(0, 0, 0));
+        GameManager.Instance.player.transform.position = spawnPoint;
+        GameManager.Instance.player.transform.rotation = (Quaternion.Euler(0, 0, 0));
         // So that text from one scene doesn't carry over from another
         GameManager.Instance.hoverText.text = "";
+        // Activate EndingScene game object in interior
+        GameManager.Instance.triggerEnding = true;
 
         StartCoroutine(Fade(0f));
 
