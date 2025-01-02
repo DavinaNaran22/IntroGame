@@ -59,7 +59,7 @@ public class Task4Clue : MonoBehaviour
     private void Update()
     {
         dialogueText.gameObject.SetActive(true);
-        if (Input.GetKeyDown(KeyCode.E)) // NEED TO CHANGE SO CLUE CAN BE EQUIPPED
+        if (clue.activeSelf == false) 
         {
             Debug.Log("Clue equipped");
             EquipClue();
