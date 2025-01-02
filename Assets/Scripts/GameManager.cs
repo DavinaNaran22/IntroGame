@@ -70,6 +70,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject cameraCanvas;
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;
+    public GameObject Weather;
 
     [Header("Game Ending")]
     public bool triggerEnding = false;
@@ -108,6 +109,16 @@ public class GameManager : Singleton<GameManager>
         if (triggerEnding && SceneManager.GetActiveScene().name == "Interior")
         {
             ActivateEnding();
+        }
+
+        if (SceneManager.GetActiveScene().name == "landscape")
+        {
+            Debug.Log("Weather Active");
+            Weather.SetActive(true); // Activate the GameObject if in Landscape scene
+        }
+        else
+        {
+            Weather.SetActive(false); // Deactivate if not in Landscape
         }
     }
 
