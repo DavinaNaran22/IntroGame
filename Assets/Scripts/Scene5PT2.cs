@@ -54,6 +54,7 @@ public class Scene5PT2 : MonoBehaviour
         player = GameManager.Instance.player;
         scene5.SetActive(false);
         StartAdditionalDialogues();
+        
     }
 
 

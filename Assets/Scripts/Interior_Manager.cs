@@ -10,7 +10,7 @@ public class Interior_Manager : MonoBehaviour
     public GameObject Passcode;
     public GameObject Message3;
     public GameObject Message4;
-    public GameObject MessagePuzzle;
+    //public GameObject MessagePuzzle;
     public BoxCollider passcode;
     public GameObject mini_map;
     public GameObject Exit_control_panel;
@@ -19,8 +19,8 @@ public class Interior_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MessagePuzzle.SetActive(false);
-
+        //MessagePuzzle.SetActive(false);
+        scene5PT2.SetActive(false);
         Message3.SetActive(false);
         Message4.SetActive(false);
         Passcode.SetActive(false);
@@ -41,19 +41,22 @@ public class Interior_Manager : MonoBehaviour
                 if (win_message.win == true)
                 {
                     Message4.SetActive(false);
-                    
-                    MessagePuzzle.SetActive(true);
-                    if (Puzzle.Puzzle_Complete == true){
-                        MessagePuzzle.SetActive(false);
-                    }
-                    if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false) {
-                        MessagePuzzle.SetActive(false);
-                        SceneManager.LoadScene("Puzzle");
-                        SceneManager.sceneLoaded += OnSceneLoad;
-                        Debug.Log("Loading puzzle scene");
+
+                    //MessagePuzzle.SetActive(true);
+                    if (Puzzle.Puzzle_Complete == true)
+                    {
                         scene5PT2.SetActive(true);
 
                     }
+                    //if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false) {
+                    //    Debug.Log("PUZZLE");
+                    //    MessagePuzzle.SetActive(false);
+                    //    //SceneManager.LoadScene("Puzzle");
+                    //    //SceneManager.sceneLoaded += OnSceneLoad;
+                    //    //Debug.Log("Loading puzzle scene");
+                    //    scene5PT2.SetActive(true);
+
+                    //}
                 }
                 else {
                     Message4.SetActive(true);
@@ -90,11 +93,11 @@ public class Interior_Manager : MonoBehaviour
     }
 
 
-    private void OnSceneLoad(Scene scene, LoadSceneMode mode)
-    {
-        GameManager.Instance.PlayerCanvas.SetActive(false);
-        GameManager.Instance.player.SetActive(false);
-    }
+    //private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    //{
+    //    GameManager.Instance.PlayerCanvas.SetActive(false);
+    //    GameManager.Instance.player.SetActive(false);
+    //}
 
 
 

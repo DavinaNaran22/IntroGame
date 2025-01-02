@@ -18,6 +18,7 @@ public class Task4Clue : MonoBehaviour
     private bool hasDialoguePlayed = false;
     private int currentDialogueIndex = 0;
     public bool isPlayerNearby = false;
+    public static bool Clue_Collected = false;
 
 
     private CharacterController characterController;
@@ -71,7 +72,7 @@ public class Task4Clue : MonoBehaviour
     private void ActivateRepairTasksWithDelay()
     {
         Debug.Log("Activating repair tasks after delay");
-        ShowDialogue("YOU: How weird, this is the third boulder I’ve seen with a weird drawing on it. I guess I should take that with me too.");
+        ShowDialogue("YOU: How weird, this is the third boulder Iï¿½ve seen with a weird drawing on it. I guess I should take that with me too.");
     }
 
     private void EquipClue()
@@ -89,6 +90,7 @@ public class Task4Clue : MonoBehaviour
         Debug.Log("Activating clue tasks after delay");
         drawingsCompletedText.gameObject.SetActive(false);
         ShowDialogue("YOU: Now I can go back in the ship and assess the damage.");
+        Clue_Collected = true;
         yield return new WaitForSeconds(5);
         caveOn.SetActive(true);
         turnOff.SetActive(false);
