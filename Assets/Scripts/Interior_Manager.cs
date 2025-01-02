@@ -11,6 +11,7 @@ public class Interior_Manager : MonoBehaviour
     public GameObject Message3;
     public GameObject Message4;
     //public GameObject MessagePuzzle;
+    public Canvas Message_Exit;
     public BoxCollider passcode;
     public GameObject mini_map;
     public GameObject Exit_control_panel;
@@ -19,6 +20,7 @@ public class Interior_Manager : MonoBehaviour
     void Start()
     {
         //MessagePuzzle.SetActive(false);
+        Message_Exit.enabled = false;
         Message3.SetActive(false);
         Message4.SetActive(false);
         Passcode.SetActive(false);
@@ -57,6 +59,7 @@ public class Interior_Manager : MonoBehaviour
                     if (mini_map.activeSelf)
                     {
                         Message4.SetActive(false);
+                        Message_Exit.enabled = true;
                     }
                 }
                
@@ -67,6 +70,13 @@ public class Interior_Manager : MonoBehaviour
 
            
         }
+
+        if (control_panel.IN == false)
+        {
+
+            Message_Exit.enabled = false;
+        }
+
 
         if (control_panel.task1_completed == true && storage_scene.Task2 == true)
         {

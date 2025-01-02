@@ -17,6 +17,8 @@ public class Scene5 : MonoBehaviour
     private bool finishedD;
     private bool additionalDialoguesActive = false;
     private int currentDialogueIndex = 0;
+    public Canvas Message_Exit;
+
 
     private PlayerInputActions inputActions;
 
@@ -52,6 +54,7 @@ public class Scene5 : MonoBehaviour
 
     private void Start()
     {
+        Message_Exit.enabled = false;
         GameManager.Instance.Save();
         player = GameManager.Instance.player;
     }
@@ -114,6 +117,7 @@ public class Scene5 : MonoBehaviour
         {
             additionalDialoguesActive = false;
             HideDialogue();
+            Message_Exit.enabled = true;
 
             Debug.Log("All dialogues finished");
             finishedD = true;
