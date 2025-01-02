@@ -26,11 +26,11 @@ public class CaveToEnding : MonoBehaviour
         yield return StartCoroutine(Fade(1f));
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
         SceneManager.sceneLoaded += OnSceneLoad;
+        GameManager.Instance.triggerEnding = true;
         while (!asyncLoad.isDone)
         {
             yield return null;
         }
-        GameManager.Instance.ActivateEnding();
     }
 
     protected void LoadOtherScene(GameObject Player)
@@ -48,7 +48,7 @@ public class CaveToEnding : MonoBehaviour
         // So that text from one scene doesn't carry over from another
         GameManager.Instance.hoverText.text = "";
         // Activate EndingScene game object in interior
-        GameManager.Instance.ActivateEnding();
+        GameManager.Instance.triggerEnding = true;
 
         StartCoroutine(Fade(0f));
 

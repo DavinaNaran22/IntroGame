@@ -71,8 +71,8 @@ public class GameManager : Singleton<GameManager>
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;
 
-    [Header("Game End")]
-    public GameObject Ending;
+    [Header("Game Ending")]
+    public bool triggerEnding = false;
 
     private void Start()
     {
@@ -104,6 +104,10 @@ public class GameManager : Singleton<GameManager>
             {
                 difficultyDropdown = gameObject.GetComponent<TMP_Dropdown>();
             }
+        }
+        if (triggerEnding && SceneManager.GetActiveScene().name == "Interior")
+        {
+            ActivateEnding();
         }
     }
 
