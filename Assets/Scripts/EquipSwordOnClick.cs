@@ -9,7 +9,20 @@ public class EquipSwordOnClick : MonoBehaviour
     public Transform weaponParent; // Transform of the WeaponParent (to be rotated)
     public Button equipSwordButton;
 
-    private GameObject equippedSword;
+    public GameObject equippedSword;
+    public GameObject EquippedSword
+    {
+        get { return equippedSword; }
+    }
+
+    private bool isSwordBoosted = false; // Tracks if the sword is boosted
+
+    public bool IsSwordBoosted
+    {
+        get { return isSwordBoosted; }
+        set { isSwordBoosted = value; }
+    }
+
     private bool isEquipped = false;
     private bool isSwinging = false;
 
@@ -94,9 +107,16 @@ public class EquipSwordOnClick : MonoBehaviour
         equippedSword.transform.localPosition = Vector3.zero;
         equippedSword.transform.localRotation = Quaternion.identity;
 
+        // Reapply boost effect if sword is boosted
+        if (isSwordBoosted)
+        {
+            ApplyBoostEffect();
+        }
+
         isEquipped = true;
         Debug.Log("Sword equipped.");
     }
+
 
     public void UnequipSword()
     {
@@ -160,6 +180,24 @@ public class EquipSwordOnClick : MonoBehaviour
 
         isSwinging = false;
     }
+
+    public void ApplyBoostEffect()
+    {
+        if (equippedSword != null)
+        {
+            Light swordLight = equippedSword.GetComponent<Light>();
+            if (swordLight == null)
+            {
+                swordLight = equippedSword.AddComponent<Light>();
+            }
+            swordLight.type = LightType.Directional; // Set the light type to Directional
+            swordLight.color = Color.magenta;        // Shiny purple light
+            swordLight.intensity = 1f;              // Set intensity to 1
+
+            Debug.Log("Boost effect reapplied to the sword.");
+        }
+    }
+
 
     private void DetectAlienHit()
     {

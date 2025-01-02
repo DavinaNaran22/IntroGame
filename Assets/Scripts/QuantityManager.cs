@@ -30,6 +30,8 @@ public class QuantityManager : MonoBehaviour
     public GameObject woodImage; // Added
     public GameObject stoneImage; // Changed to single item
     public GameObject clueImage;
+    public GameObject clueCompletionButton;
+    public GameObject clueCompletionPanel;
 
     [Header("Collectible Items")]
     public List<GameObject> medicines;
@@ -47,6 +49,9 @@ public class QuantityManager : MonoBehaviour
 
     public GameObject shovelParent;
     public GameObject swordParent;
+
+    public EquipSwordOnClick equipSwordScript;
+
 
     private int medicineCount = 0;
     private int herbsCount = 0;
@@ -107,13 +112,6 @@ public class QuantityManager : MonoBehaviour
         {
             Debug.Log($"Scene '{scene.name}' loaded. Checking item states...");
 
-            // Check single items
-            //CheckAndActivateUIElement("AlienAlloy", alienAlloyImage);
-            //CheckAndActivateUIElement("thruster1", thrusterImage);
-            //CheckAndActivateUIElement("ThermalConductor", thermalConductorImage);
-            //CheckAndActivateUIElement("Shovel", shovelImage);
-            //CheckAndActivateUIElement("MetalsDropped", metalsDroppedImage);
-            //CheckAndActivateUIElement("Wood", woodImage);
 
             // Find metalsDropped and woodDropped
             TrackDroppedItem("RepairTask1Manager", "MetalDropped", metalsDroppedImage);
@@ -132,6 +130,48 @@ public class QuantityManager : MonoBehaviour
             // Find and add all clues to the list
             FindAndAddCluesByTag(); 
         }
+
+        if (scene.name == "landscape")
+        {
+            // Locate the panel by parent and child name
+            GameObject parentObject = GameObject.Find("cluecompletedcanvas"); // Replace with actual parent name
+            if (parentObject != null)
+            {
+                Transform panelTransform = parentObject.transform.Find("completedpanel"); // Replace with actual child name
+                if (panelTransform != null)
+                {
+                    clueCompletionPanel = panelTransform.gameObject;
+                    Debug.Log("Clue Completion Panel found and assigned.");
+                }
+                else
+                {
+                    Debug.LogError("Clue Completion Panel not found as a child of the parent.");
+                }
+            }
+            else
+            {
+                Debug.LogError("Parent object for Clue Completion Panel not found in the scene.");
+            }
+
+            // Initialize the button and ensure it is disabled
+            if (clueCompletionButton != null)
+            {
+                clueCompletionButton.GetComponent<UnityEngine.UI.Button>().interactable = false;
+            }
+        }
+        else
+        {
+            // Deactivate clueImage in all other scenes
+            if (clueImage != null)
+            {
+                SetActive(clueImage, false);
+                Debug.Log("Clue image is deactivated in the current scene.");
+            }
+        }
+
+
+
+
         if (scene.name == "CaveScene")
         {
             Debug.Log($"Scene '{scene.name}' loaded. Checking item states...");
@@ -166,6 +206,16 @@ public class QuantityManager : MonoBehaviour
         {
             // Activate the shovelParent when the conditions are met
             SetActive(shovelParent, true);
+        }
+
+        // Check if both sword and stone images are active in the UI
+        if (swordImage.activeSelf && stoneImage.activeSelf)
+        {
+            SetActive(swordParent, true);
+        }
+        else
+        {
+            SetActive(swordParent, false);
         }
     }
 
@@ -294,26 +344,7 @@ public class QuantityManager : MonoBehaviour
     }
 
 
-    private void CheckAndActivateUIElement(string itemName, GameObject uiElement)
-    {
-        GameObject item = GameObject.Find(itemName); // Finds GameObject by name in the scene
-        if (item != null)
-        {
-            if (!item.activeInHierarchy)
-            {
-                Debug.Log($"{itemName} is inactive. Activating its UI element.");
-                SetActive(uiElement, true);
-            }
-            else
-            {
-                Debug.Log($"{itemName} is active. UI element remains hidden.");
-            }
-        }
-        else
-        {
-            Debug.LogError($"GameObject '{itemName}' not found in the scene. Please check the scene setup.");
-        }
-    }
+    
 
     private void FindAndAddHerbsByTag()
     {
@@ -413,7 +444,35 @@ public class QuantityManager : MonoBehaviour
                 SetActive(clueImage, true);
             }
         }
+
+        // Enable the button only if all clues are collected
+        if (clueCount == 3 && clueCompletionButton != null) // Replace 3 with the actual total number of clues
+        {
+            clueCompletionButton.GetComponent<UnityEngine.UI.Button>().interactable = true;
+        }
     }
+
+
+    public void OnClueCompletionButtonClicked()
+    {
+        if (clueCount == 3) // Replace 3 with the total number of clues
+        {
+            if (clueCompletionPanel != null)
+            {
+                SetActive(clueCompletionPanel, true);
+                Debug.Log("Clue Completion Panel is now active.");
+            }
+            else
+            {
+                Debug.LogError("Clue Completion Panel is not assigned.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Button clicked, but not all clues are collected yet.");
+        }
+    }
+
 
 
 
@@ -563,4 +622,37 @@ public class QuantityManager : MonoBehaviour
             ShowCraftingMessage("Not enough metal or wood to craft a shovel!");
         }
     }
+
+    public void CraftSword()
+    {
+        if (swordImage.activeSelf && stoneImage.activeSelf)
+        {
+            Debug.Log("Both sword and stone are available. Crafting the enhanced sword.");
+
+            // Turn off SwordParent and StoneImage
+            SetActive(swordParent, false);
+            SetActive(stoneImage, false);
+
+            // Access the EquipSwordOnClick script
+            if (equipSwordScript != null)
+            {
+                equipSwordScript.IsSwordBoosted = true; // Mark the sword as boosted
+
+                // Apply the boost to the currently equipped sword (if any)
+                equipSwordScript.ApplyBoostEffect();
+            }
+            else
+            {
+                Debug.LogWarning("EquipSwordOnClick script reference is missing.");
+            }
+
+            ShowCraftingMessage("Sword enhanced successfully!");
+        }
+        else
+        {
+            ShowCraftingMessage("Not enough materials to craft an enhanced sword!");
+        }
+    }
+
+
 }

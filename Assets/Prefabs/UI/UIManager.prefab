@@ -9159,6 +9159,8 @@ MonoBehaviour:
   woodImage: {fileID: 0}
   stoneImage: {fileID: 0}
   clueImage: {fileID: 0}
+  clueCompletionButton: {fileID: 0}
+  clueCompletionPanel: {fileID: 0}
   medicines: []
   clues: []
   medicineText: {fileID: 0}
@@ -9168,6 +9170,7 @@ MonoBehaviour:
   craftingMessageText: {fileID: 0}
   shovelParent: {fileID: 0}
   swordParent: {fileID: 0}
+  equipSwordScript: {fileID: 0}
 --- !u!1 &6803282228478082394
 GameObject:
   m_ObjectHideFlags: 0
