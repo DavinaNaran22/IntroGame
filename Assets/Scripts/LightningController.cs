@@ -12,7 +12,7 @@ public class LightningController : MonoBehaviour
     public GameObject lightning3;
 
     public GameObject audio1;
-    public GameObject weather;
+    //public GameObject weather;
 
     // Make the lightning and audio not show initially
     private void Start()
@@ -25,17 +25,17 @@ public class LightningController : MonoBehaviour
         Invoke("CallLightning", 20.75f);
     }
 
-    private void Update()
-    {
-        if (SceneManager.GetActiveScene().name == "landscape")
-        {
-            weather.SetActive(true); // Activate the GameObject if in Landscape scene
-        }
-        else
-        {
-            weather.SetActive(false); // Deactivate if not in Landscape
-        }
-    }
+    //private void Update()
+    //{
+    //    if (SceneManager.GetActiveScene().name == "landscape")
+    //    {
+    //        weather.SetActive(true); // Activate the GameObject if in Landscape scene
+    //    }
+    //    else
+    //    {
+    //        weather.SetActive(false); // Deactivate if not in Landscape
+    //    }
+    //}
 
     // Call the lightning, add time delays for flashing effect
     // Call the thunder sound after the last lightning
