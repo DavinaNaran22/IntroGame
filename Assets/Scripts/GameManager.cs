@@ -72,7 +72,7 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI cameraMsg;
 
     [Header("Game End")]
-    public GameObject EndingScene;
+    public GameObject Ending;
 
     private void Start()
     {
@@ -178,6 +178,10 @@ public class GameManager : Singleton<GameManager>
 
     public void ActivateEnding()
     {
-        EndingScene.SetActive(true);
+        GameObject.Find("EndingScene").GetComponent<Ending>().enabled = true;
+        //Ending = GameObject.Find("EndingScene");
+        //Ending.SetActive(false);
+        //Ending.SetActive(true);
+        Debug.Log("Enabled ending game object");
     }
 }
