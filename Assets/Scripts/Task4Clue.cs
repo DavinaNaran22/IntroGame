@@ -9,13 +9,16 @@ public class Task4Clue : MonoBehaviour
     public Transform player;
     public GameObject clue;
     public TextMeshProUGUI dialogueText;
-    public GameObject drawingsCompletedText;
+    public TextMeshProUGUI drawingsCompletedText;
+    public GameObject turnOff;
+    public GameObject caveOn;
 
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
     private bool hasDialoguePlayed = false;
     private int currentDialogueIndex = 0;
     public bool isPlayerNearby = false;
+
 
     private CharacterController characterController;
     private PlayerInputActions inputActions;
@@ -76,7 +79,7 @@ public class Task4Clue : MonoBehaviour
         Debug.Log("Clue equipped");
         clue.SetActive(false);
         HideDialogue();
-        drawingsCompletedText.SetActive(true);
+        drawingsCompletedText.gameObject.SetActive(true);
         StartCoroutine(ActivateClueTasksWithDelay());
     }
 
@@ -84,8 +87,11 @@ public class Task4Clue : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         Debug.Log("Activating clue tasks after delay");
-        drawingsCompletedText.SetActive(false);
+        drawingsCompletedText.gameObject.SetActive(false);
         ShowDialogue("YOU: Now I can go back in the ship and assess the damage.");
+        yield return new WaitForSeconds(5);
+        caveOn.SetActive(true);
+        turnOff.SetActive(false);
     }
 
     private void HideDialogue()

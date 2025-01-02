@@ -32,6 +32,7 @@ TagManager:
   - VolumeSlider
   - DifficultyDropdown
   - GameTimeSlider
+  - EndingScene
   layers:
   - Default
   - TransparentFX

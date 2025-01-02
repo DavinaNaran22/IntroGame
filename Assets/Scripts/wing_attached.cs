@@ -9,9 +9,11 @@ public class wing_attached : MonoBehaviour
 {
     public GameObject Wing;
     public GameObject Cube;
-    public Canvas Message1;
+    public TextMeshProUGUI Message1;
     public GameObject promptText;
     public static bool WingTask = false;
+
+    public GameObject startWireRepair;
     
     
     // Start is called before the first frame update
@@ -28,10 +30,10 @@ public class wing_attached : MonoBehaviour
     void Update()
     {
         if (!WingTask == true) {
-            Message1.enabled = false;
+            Message1.gameObject.SetActive(false);
         }
         if (Storage_Scene.Tools_collected == true) {
-            Message1.enabled = false;
+            Message1.gameObject.SetActive(false);
         }
         
     }
@@ -42,8 +44,8 @@ public class wing_attached : MonoBehaviour
         Wing.SetActive(false);
         Cube.SetActive(false);
         promptText.SetActive(false);
-        Message1.enabled = true;
-       
+        Message1.gameObject.SetActive(true);
+        startWireRepair.SetActive(true);
 
     }
 
