@@ -38,6 +38,7 @@ public class CaveAlienMoving : FindPlayerTransform
             // Continue pacing if the player is outside the detection radius
             PaceAround();
         }
+
     }
 
     private void PaceAround()
@@ -50,6 +51,7 @@ public class CaveAlienMoving : FindPlayerTransform
         {
             if (hit.collider.CompareTag(obstacleTag))
             {
+                Debug.Log("Obstacle detected, setting new target position");
                 // Obstacle detected, set a new target position
                 SetNewTargetPosition();
                 return;
