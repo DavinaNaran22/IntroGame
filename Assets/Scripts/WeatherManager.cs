@@ -16,19 +16,6 @@ public class WeatherManager : MonoBehaviour
         StartCoroutine(WeatherCycle());
     }
 
-    void Update()
-    {
-        if (SceneManager.GetActiveScene().name == "landscape")
-        {
-            Debug.Log("Weather Active");
-            weather.SetActive(true); // Activate the GameObject if in Landscape scene
-        }
-        else
-        {
-            weather.SetActive(false); // Deactivate if not in Landscape
-        }
-    }
-
     IEnumerator WeatherCycle()
     {
         while (true)
