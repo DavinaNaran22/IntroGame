@@ -19,7 +19,7 @@ public class Interior_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //MessagePuzzle.SetActive(false);
+       
         scene5PT2.SetActive(false);
         Message3.SetActive(false);
         Message4.SetActive(false);
@@ -42,21 +42,12 @@ public class Interior_Manager : MonoBehaviour
                 {
                     Message4.SetActive(false);
 
-                    //MessagePuzzle.SetActive(true);
                     if (Puzzle.Puzzle_Complete == true)
                     {
                         scene5PT2.SetActive(true);
 
                     }
-                    //if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false) {
-                    //    Debug.Log("PUZZLE");
-                    //    MessagePuzzle.SetActive(false);
-                    //    //SceneManager.LoadScene("Puzzle");
-                    //    //SceneManager.sceneLoaded += OnSceneLoad;
-                    //    //Debug.Log("Loading puzzle scene");
-                    //    scene5PT2.SetActive(true);
 
-                    //}
                 }
                 else {
                     Message4.SetActive(true);
