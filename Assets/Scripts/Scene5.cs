@@ -7,7 +7,6 @@ using UnityEngine;
 public class Scene5 : MonoBehaviour
 {
     public GameObject map1;
-    public GameObject puzzleText;
     public GameObject logic;
 
     public GameObject player;
@@ -27,8 +26,9 @@ public class Scene5 : MonoBehaviour
         "Looks like the ship is finally repaired!",
         "SYSTEM: Power required for take-off.",
         "Oh no! Where do I find a power source?",
-        "Wait, I have these three pieces of drawings I found earlier. Could that help?",
-        "It looks to be some sort of puzzle.",
+        "I guess I have no other option to look for something like that.",
+        "What if I start by looking for that cave entrance that I pieced together?",
+        "Hopefully I can find something useful there.",
     };
 
 
@@ -64,12 +64,6 @@ public class Scene5 : MonoBehaviour
             StartAdditionalDialogues();
         }
 
-        if (!puzzleText.activeInHierarchy && finishedD == true)
-        {
-            logic.SetActive(false);
-            scene5.SetActive(true);
-
-        }
     }
 
     private void DismissDialogue()
@@ -123,10 +117,7 @@ public class Scene5 : MonoBehaviour
 
             Debug.Log("All dialogues finished");
             finishedD = true;
-            puzzleText.SetActive(true);
             scene5.SetActive(false);
-
-
         }
     }
 
