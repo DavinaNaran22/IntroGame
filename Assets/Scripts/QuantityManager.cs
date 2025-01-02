@@ -50,6 +50,9 @@ public class QuantityManager : MonoBehaviour
     public GameObject shovelParent;
     public GameObject swordParent;
 
+    public EquipSwordOnClick equipSwordScript;
+
+
     private int medicineCount = 0;
     private int herbsCount = 0;
     private int clueCount = 0; 
@@ -203,6 +206,16 @@ public class QuantityManager : MonoBehaviour
         {
             // Activate the shovelParent when the conditions are met
             SetActive(shovelParent, true);
+        }
+
+        // Check if both sword and stone images are active in the UI
+        if (swordImage.activeSelf && stoneImage.activeSelf)
+        {
+            SetActive(swordParent, true);
+        }
+        else
+        {
+            SetActive(swordParent, false);
         }
     }
 
@@ -609,4 +622,37 @@ public class QuantityManager : MonoBehaviour
             ShowCraftingMessage("Not enough metal or wood to craft a shovel!");
         }
     }
+
+    public void CraftSword()
+    {
+        if (swordImage.activeSelf && stoneImage.activeSelf)
+        {
+            Debug.Log("Both sword and stone are available. Crafting the enhanced sword.");
+
+            // Turn off SwordParent and StoneImage
+            SetActive(swordParent, false);
+            SetActive(stoneImage, false);
+
+            // Access the EquipSwordOnClick script
+            if (equipSwordScript != null)
+            {
+                equipSwordScript.IsSwordBoosted = true; // Mark the sword as boosted
+
+                // Apply the boost to the currently equipped sword (if any)
+                equipSwordScript.ApplyBoostEffect();
+            }
+            else
+            {
+                Debug.LogWarning("EquipSwordOnClick script reference is missing.");
+            }
+
+            ShowCraftingMessage("Sword enhanced successfully!");
+        }
+        else
+        {
+            ShowCraftingMessage("Not enough materials to craft an enhanced sword!");
+        }
+    }
+
+
 }

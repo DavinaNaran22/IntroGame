@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
+  m_IndirectSpecularColor: {r: 0.002063206, g: 0.0019480612, b: 0.0021180937, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1362,6 +1362,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 776087375}
     - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: equipSwordScript
+      value: 
+      objectReference: {fileID: 644578576}
+    - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: herbs.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1596,6 +1600,34 @@ PrefabInstance:
     - target: {fileID: 4286806783078438375, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378150016102654867, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378150016102654867, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378150016102654867, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 644578572}
+    - target: {fileID: 4378150016102654867, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378150016102654867, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CraftSword
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378150016102654867, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuantityManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378150016102654867, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4803017115198490528, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_Type
@@ -8596,6 +8628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponParent: {fileID: 1511153326}
   equipSwordButton: {fileID: 51700336}
+  equippedSword: {fileID: 0}
   swingSpeed: 10
   swingPauseDuration: 0
   hitDetectionRadius: 10
