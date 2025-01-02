@@ -15,6 +15,7 @@ public class Scene5PT2 : MonoBehaviour
     public GameObject map;
     public GameObject scene5;
     public GameObject scene5PT2;
+    public Canvas Message_Exit;
 
 
     private PlayerInputActions inputActions;
@@ -49,6 +50,7 @@ public class Scene5PT2 : MonoBehaviour
 
     private void Start()
     {
+        Message_Exit.enabled = false;
         map.SetActive(true);
         GameManager.Instance.Save();
         player = GameManager.Instance.player;
@@ -107,12 +109,13 @@ public class Scene5PT2 : MonoBehaviour
         {
             additionalDialoguesActive = false;
             HideDialogue();
-
+            Message_Exit.enabled = true;
             Debug.Log("All dialogues finished");
-
             EquipMap();
+            
 
         }
+        
     }
 
     public bool IsDialogueActive()
