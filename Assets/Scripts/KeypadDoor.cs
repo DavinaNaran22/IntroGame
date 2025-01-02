@@ -49,6 +49,7 @@ public class KeypadDoor : PlayerSceneTransition
                 hasCheckCondition = false;
                 Debug.Log("Moving to other scene because of keypad");
                 mouseLook.canLook = true;
+                GameManager.Instance.hoverText.text = "Right click to leave ship";
                 base.LoadOtherScene(Player);
             }
             else if (!keypadShowing)
