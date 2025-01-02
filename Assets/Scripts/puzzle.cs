@@ -27,23 +27,23 @@ public class Puzzle : MonoBehaviour
         Debug.Log(Count_puzzle);
         if (Count_puzzle == 3) {
             Puzzle_Complete = true;
-            StartCoroutine(BackToGame());
+            //StartCoroutine(BackToGame());
         }
     }
 
-    IEnumerator BackToGame()
-    {
-        yield return new WaitForSeconds(2f);
+    //IEnumerator BackToGame()
+    //{
+    //    yield return new WaitForSeconds(2f);
      
-        // Reactivate Player
-        SceneManager.LoadScene("Interior");
-        SceneManager.sceneLoaded += OnSceneLoad;
+    //    // Reactivate Player
+    //    SceneManager.LoadScene("Interior");
+    //    SceneManager.sceneLoaded += OnSceneLoad;
       
-    }
+    //}
 
-    private void OnSceneLoad(Scene scene, LoadSceneMode mode)
-    {
-        GameManager.Instance.PlayerCanvas.SetActive(true);
-        GameManager.Instance.player.SetActive(true);
-    }
+    //private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    //{
+    //    GameManager.Instance.PlayerCanvas.SetActive(true);
+    //    GameManager.Instance.player.SetActive(true);
+    //}
 }
