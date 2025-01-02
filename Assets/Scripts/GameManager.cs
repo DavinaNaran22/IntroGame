@@ -71,6 +71,9 @@ public class GameManager : Singleton<GameManager>
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;
 
+    [Header("Game End")]
+    public GameObject EndingScene;
+
     private void Start()
     {
         // The following are values chagned by pause menu
@@ -171,5 +174,10 @@ public class GameManager : Singleton<GameManager>
     private string GetCurrentScene()
     {
         return SceneManager.GetActiveScene().name;
+    }
+
+    public void ActivateEnding()
+    {
+        EndingScene.SetActive(true);
     }
 }

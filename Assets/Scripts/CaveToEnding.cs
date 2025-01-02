@@ -47,6 +47,8 @@ public class CaveToEnding : MonoBehaviour
         player.transform.rotation = (Quaternion.Euler(0, 0, 0));
         // So that text from one scene doesn't carry over from another
         GameManager.Instance.hoverText.text = "";
+        // Activate EndingScene game object in interior
+        GameManager.Instance.ActivateEnding();
 
         StartCoroutine(Fade(0f));
 
