@@ -89,7 +89,7 @@ public class Task4Clue : MonoBehaviour
         yield return new WaitForSeconds(5);
         Debug.Log("Activating clue tasks after delay");
         drawingsCompletedText.gameObject.SetActive(false);
-        ShowDialogue("YOU: Now I can go back in the ship and assess the damage.");
+        ShowDialogue("YOU: Maybe I could piece these drawings together and then go back in the ship to assess the damage.");
         Clue_Collected = true;
         yield return new WaitForSeconds(5);
         caveOn.SetActive(true);
