@@ -26,6 +26,10 @@ public class PlayerNearText : MonoBehaviour
     {
         LocateHoverText();
         ToggleText();
+        // If this is attached to MainDoor in interior and player right clicks door
+        // It will briefly change hover text back to Right click to enter keypad before they're taken to landscape
+        // This stops it
+        if (this.name == "CockpitDoor" && GameManager.Instance.unlockedDoor) GameManager.Instance.hoverText.text = "Right click to leave ship"; 
     }
 
     // Locate hoverText if it's null
