@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class Control_panel : MonoBehaviour
 {
     public Collider Cockpit;
-    public static bool IN = false;
+    public bool IN = false;
     public GameObject C_panel;
     public Canvas ship_status;
     public Canvas ship_map;
