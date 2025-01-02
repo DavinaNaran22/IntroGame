@@ -14,13 +14,11 @@ public class Interior_Manager : MonoBehaviour
     public BoxCollider passcode;
     public GameObject mini_map;
     public GameObject Exit_control_panel;
-    public GameObject scene5PT2;
 
     // Start is called before the first frame update
     void Start()
     {
         //MessagePuzzle.SetActive(false);
-        scene5PT2.SetActive(false);
         Message3.SetActive(false);
         Message4.SetActive(false);
         Passcode.SetActive(false);
@@ -42,12 +40,7 @@ public class Interior_Manager : MonoBehaviour
                 {
                     Message4.SetActive(false);
 
-                    //MessagePuzzle.SetActive(true);
-                    if (Puzzle.Puzzle_Complete == true)
-                    {
-                        scene5PT2.SetActive(true);
 
-                    }
                     //if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false) {
                     //    Debug.Log("PUZZLE");
                     //    MessagePuzzle.SetActive(false);
