@@ -17,7 +17,7 @@ public class CaveToEnding : MonoBehaviour
     // When player enters trigger switch scene (and if no check condition)
     void Start()
     {
-
+        GameManager.Instance.triggerEnding = true;
         StartCoroutine(LoadAsyncScene());
     }
 
