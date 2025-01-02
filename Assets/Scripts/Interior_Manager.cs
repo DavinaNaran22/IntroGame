@@ -15,12 +15,13 @@ public class Interior_Manager : MonoBehaviour
     public GameObject mini_map;
     public GameObject Exit_control_panel;
     public GameObject scene5PT2;
+    public GameObject Message_Exit;
 
     // Start is called before the first frame update
     void Start()
     {
         MessagePuzzle.SetActive(false);
-
+        Message_Exit.SetActive(false);
         Message3.SetActive(false);
         Message4.SetActive(false);
         Passcode.SetActive(false);
@@ -37,7 +38,19 @@ public class Interior_Manager : MonoBehaviour
     void Update()
     {    
         if (control_panel.task1_completed == true) {
+            
             if (!Exit_control_panel.activeSelf) {
+                if (Control_panel.IN == true && !Message4.activeSelf)
+                {
+                    Message_Exit.SetActive(true);
+
+                }
+                else
+                {
+
+                    Message_Exit.SetActive(false);
+
+                }
                 if (win_message.win == true)
                 {
                     Message4.SetActive(false);
@@ -58,6 +71,7 @@ public class Interior_Manager : MonoBehaviour
                 else {
                     Message4.SetActive(true);
                     StartCoroutine(MiniMap_active(3f));
+                   
                     if (mini_map.activeSelf)
                     {
                         Message4.SetActive(false);
@@ -71,6 +85,12 @@ public class Interior_Manager : MonoBehaviour
 
            
         }
+        
+        if (Control_panel.IN == true && Puzzle.Puzzle_Complete == true) {
+            Message_Exit.SetActive(true);
+
+        }
+        
 
         if (control_panel.task1_completed == true && storage_scene.Task2 == true)
         {
@@ -104,6 +124,7 @@ public class Interior_Manager : MonoBehaviour
 
         mini_map.SetActive(true);
        
+
     }
 
 
