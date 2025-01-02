@@ -36,7 +36,7 @@ public class Puzzle : MonoBehaviour
         yield return new WaitForSeconds(2f);
      
         // Reactivate Player
-        SceneManager.LoadScene("Interior");
+        SceneManager.LoadScene("Landscape");
         SceneManager.sceneLoaded += OnSceneLoad;
       
     }
