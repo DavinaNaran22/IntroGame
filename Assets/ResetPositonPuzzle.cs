@@ -8,9 +8,9 @@ public class ResetPositionPuzzle : MonoBehaviour
 {
     [SerializeField] private string scene;
     [SerializeField] private Vector3 Cockpit_Position = new Vector3(567.340027f, 8.90999985f, 505.584991f);
-    private GameObject player;
     //private InstantiateParts PartsManager;
     protected bool hasCheckCondition = false;
+    private GameObject player;
 
 
     // When player enters trigger switch scene (and if no check condition)
@@ -46,10 +46,11 @@ public class ResetPositionPuzzle : MonoBehaviour
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
       
-        GameManager.Instance.PlayerCanvas.SetActive(true);
-        GameManager.Instance.player.SetActive(true);
-        GameManager.Instance.player.transform.position = Cockpit_Position;
+        //GameManager.Instance.PlayerCanvas.SetActive(true);
+        //GameManager.Instance.player.SetActive(true);
+        player.transform.position = Cockpit_Position;
         Debug.Log("COCKPIT");
-
+        // So that text from one scene doesn't carry over from another
+        GameManager.Instance.hoverText.text = "";
     }
 }

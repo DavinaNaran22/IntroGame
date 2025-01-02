@@ -58,13 +58,14 @@ public class Interior_Manager : MonoBehaviour
                     MessagePuzzle.SetActive(true);
                     if (Puzzle.Puzzle_Complete == true){
                         MessagePuzzle.SetActive(false);
+                        scene5PT2.SetActive(true);
                     }
                     if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false) {
                         MessagePuzzle.SetActive(false);
                         SceneManager.LoadScene("Puzzle");
                         SceneManager.sceneLoaded += OnSceneLoad;
                         Debug.Log("Loading puzzle scene");
-                        scene5PT2.SetActive(true);
+                       
 
                     }
                 }
