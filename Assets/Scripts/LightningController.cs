@@ -25,18 +25,6 @@ public class LightningController : MonoBehaviour
         Invoke("CallLightning", 20.75f);
     }
 
-    private void Update()
-    {
-        if (SceneManager.GetActiveScene().name == "landscape")
-        {
-            weather.SetActive(true); // Activate the GameObject if in Landscape scene
-        }
-        else
-        {
-            weather.SetActive(false); // Deactivate if not in Landscape
-        }
-    }
-
     // Call the lightning, add time delays for flashing effect
     // Call the thunder sound after the last lightning
     void CallLightning()
