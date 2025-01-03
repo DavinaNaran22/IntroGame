@@ -25,6 +25,9 @@ public class EnterAlienArea : MonoBehaviour
     private bool restrictionEnabled = true;
     private bool waitingForEquip = false;
 
+    public AudioSource alienAreaAudio; // Audio to play in the alien area
+    public AudioSource backgroundAudio; // Background audio to resume after the task is completed
+
 
 
     private void Start()
@@ -44,6 +47,10 @@ public class EnterAlienArea : MonoBehaviour
         {
             Debug.LogError("No BoxCollider found on the alien area!");
         }
+
+        // Ensure initial audio state
+        if (alienAreaAudio) alienAreaAudio.Stop();
+        if (backgroundAudio) backgroundAudio.Play();
     }
 
     private void Update()
@@ -98,6 +105,10 @@ public class EnterAlienArea : MonoBehaviour
             RestrictPlayerMovement();
         }
 
+        // Play alien area audio and stop background audio
+        if (alienAreaAudio) alienAreaAudio.Play();
+        if (backgroundAudio) backgroundAudio.Stop();
+
     }
 
     //Runs every frame player is in alien area
@@ -106,6 +117,18 @@ public class EnterAlienArea : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             RestrictPlayerMovement();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player left alien area");
+
+            // Stop alien area audio and resume background audio
+            if (alienAreaAudio) alienAreaAudio.Stop();
+            if (backgroundAudio) backgroundAudio.Play();
         }
     }
 
@@ -157,6 +180,7 @@ public class EnterAlienArea : MonoBehaviour
         HideDialogue();
         completedRepairText.SetActive(true); // 5 SECS AFTER, BELOW EXECUTES
         StartCoroutine(ActivateRepairTasksWithDelay()); 
+
     }
 
     private IEnumerator ActivateRepairTasksWithDelay()
