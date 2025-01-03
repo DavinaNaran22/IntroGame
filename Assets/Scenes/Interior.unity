@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020619242, g: 0.0019479868, b: 0.0021169633, a: 1}
+  m_IndirectSpecularColor: {r: 0.0020581514, g: 0.001948524, b: 0.0021128268, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12990,6 +12990,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5124379377187409557, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1950019487}
+    - targetCorrespondingSourceObject: {fileID: 5124379377187409557, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1950019488}
     - targetCorrespondingSourceObject: {fileID: 5103598266449559117, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2141401798}
@@ -22865,7 +22868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Task1: 0
   control_panel: {fileID: 1599072390}
-  OxygenTank1: {fileID: 2002893947}
+  OxygenTank1: {fileID: 1950019488}
   OxygenTank2: {fileID: 1534498747}
   OxygenTank3: {fileID: 589333968}
   FirstAidKit1: {fileID: 2141401798}
@@ -24067,6 +24070,27 @@ MonoBehaviour:
   Text: Press E to equip oxygen tank
   sphereRadius: 2.5
   equipableObject: {fileID: 2002893944}
+--- !u!65 &1950019488
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950019486}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1972535567
 GameObject:
   m_ObjectHideFlags: 0

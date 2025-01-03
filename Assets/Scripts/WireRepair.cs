@@ -15,12 +15,41 @@ public class WireRepair : MonoBehaviour
     public bool playerin = false;
     public static Vector3 Player_Task5;
     public GameObject StartClue;
+    private PlayerInputActions inputActions;
     //public Canvas Message_wire;
 
     public GameObject stopWingAttached;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
+    {
+        inputActions = new PlayerInputActions();
+    }
+
+    private void OnEnable(){
+
+        inputActions.Player.Enable();
+        inputActions.Player.Repair.performed += ctx => ToggleRepair();
+    }
+
+    private void OnDestroy()
+    {
+        inputActions.Player.Disable();
+        inputActions.Player.Repair.performed += ctx => ToggleRepair();
+    }
+    private void ToggleRepair()
+    {
+        if (playerin == true && wing_attached.WingTask == true)
+        {
+            turnOnMessage.gameObject.SetActive(false);
+            SceneManager.LoadScene("Game");
+            SceneManager.sceneLoaded += OnSceneLoad;
+            Debug.Log("Loading game scene");
+            StartClue.SetActive(true);
+
+        }
+    }
+        // Start is called before the first frame update
+        void Start()
     {
         
         stopWingAttached.SetActive(false);
@@ -56,15 +85,15 @@ public class WireRepair : MonoBehaviour
         //    Message_wire.enabled = true;
         //}
       // when the player is in the collider, wing is attached and the key r is pressed game scene activates and the clue scene is activated to be used when back to interior scene 
-        if (playerin == true && Input.GetKeyDown(KeyCode.R) && wing_attached.WingTask == true)
-        {
-            turnOnMessage.gameObject.SetActive(false);
-            SceneManager.LoadScene("Game");
-            SceneManager.sceneLoaded += OnSceneLoad;
-            Debug.Log("Loading game scene");
-            StartClue.SetActive(true);
+        //if (playerin == true && Input.GetKeyDown(KeyCode.R) && wing_attached.WingTask == true)
+        //{
+        //    turnOnMessage.gameObject.SetActive(false);
+        //    SceneManager.LoadScene("Game");
+        //    SceneManager.sceneLoaded += OnSceneLoad;
+        //    Debug.Log("Loading game scene");
+        //    StartClue.SetActive(true);
 
-        }
+        //}
     }
 
     private IEnumerator promptTextShow()
