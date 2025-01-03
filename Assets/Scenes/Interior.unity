@@ -12884,7 +12884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8605351157582996230, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8605351157582996230, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
       propertyPath: m_TagString
@@ -13013,6 +13013,26 @@ PrefabInstance:
 --- !u!1 &898348827 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7781150177999098673, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &898348828 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 7123593634488536100, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &898348829 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 5180083930008255716, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &898348830 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 8612384839159300814, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
+  m_PrefabInstance: {fileID: 898348826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &898348831 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 7920295892733131147, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &905433306
@@ -22822,9 +22842,13 @@ MonoBehaviour:
   FirstAidKit1: {fileID: 2141401798}
   FirstAidKit2: {fileID: 913959668}
   FirstAidKit3: {fileID: 1217937093}
+  Camera: {fileID: 239840165}
   Gun: {fileID: 1858508953}
   ScrewDriver: {fileID: 1512205555}
-  Tools: {fileID: 1022345919}
+  Axe: {fileID: 898348831}
+  Saw: {fileID: 898348830}
+  Chisel: {fileID: 898348829}
+  Rasp: {fileID: 898348828}
   Task2: 0
 --- !u!65 &1846354367
 BoxCollider:

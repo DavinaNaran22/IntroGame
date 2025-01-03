@@ -31,13 +31,11 @@ public class wing_attached : MonoBehaviour
     void Update()
     {
         // when the wing isnt attached disable the message prompting the user to next scene
-        if (!WingTask == true) {
-            Message1.gameObject.SetActive(false);
-        }
+        //if (!WingTask == true) {
+        //    Message1.gameObject.SetActive(false);
+        //}
         // when the tools are collected deactivate the message prompting the user to next scene
-        if (Storage_Scene.Tools_collected == true) {
-            Message1.gameObject.SetActive(false);
-        }
+        
         
     }
 
