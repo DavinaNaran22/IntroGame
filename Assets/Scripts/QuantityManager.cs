@@ -288,6 +288,16 @@ public class QuantityManager : MonoBehaviour
         {
             SetActive(swordParent, false);
         }
+
+        // Check if both wood and metal images are active
+        if (woodImage.activeSelf && metalsDroppedImage.activeSelf)
+        {
+            SetActive(shovelParent, true);
+        }
+        else
+        {
+            SetActive(shovelParent, false);
+        }
     }
 
 
