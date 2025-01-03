@@ -3335,13 +3335,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 0
   dropdown: {fileID: 555276803}
-  HealthBar: {fileID: 3675507920588773738, guid: 924c554ceea3c6b4eba0adc53a6c9e9d, type: 3}
-  EnemyMinimapIcon: {fileID: 7902214997937131776, guid: 0f33faa75e7d9dd48adf19676fd6aa1c, type: 3}
-  RedSubtitleBox: {fileID: 5707067015601992020, guid: 2a0bdf8fe950d7741a79682717efeee6, type: 3}
-  GreenSubtitleBox: {fileID: 2163442181180620439, guid: a97083f60d7dadd44a0201b50deb10d1, type: 3}
-  PromptText: {fileID: 8589343724939435848, guid: 6b633eaba7daf404eb672c56b7fa0a4e, type: 3}
-  ExitButton: {fileID: 5853264908095730182, guid: 0cb24bb24f12a9344871afc16cf18d0a, type: 3}
-  PlayerHealthBar: {fileID: 227501062228276775, guid: 124e6b18d4a9690439d83e28745e5942, type: 3}
+  curDropdownValue: 0
+  RedText: []
+  RedImages: []
+  GreenText: []
+  GreenImages: []
+  greenLight: {fileID: 2100000, guid: 32dfcc7bfd7fd49f0b6222478bc3a3fd, type: 2}
   red: {r: 242, g: 0, b: 0, a: 1}
   blue: {r: 0, g: 46, b: 255, a: 1}
   green: {r: 0.22513103, g: 1, b: 0, a: 255}

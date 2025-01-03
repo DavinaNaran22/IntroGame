@@ -31,7 +31,8 @@ public class ColourDropdown : Singleton<ColourDropdown>
     public List<TextMeshProUGUI> GreenText = new List<TextMeshProUGUI>();
     public List<Image> GreenImages = new List<Image>();
 
-    // Drag prefabs to these
+    [SerializeField] Material greenLight;
+
     //[SerializeField] Image RedSubtitleBox;
     //[SerializeField] Image GreenSubtitleBox;
     [SerializeField] Color red = new Color(242f, 0f, 0f, 255f);
@@ -62,6 +63,7 @@ public class ColourDropdown : Singleton<ColourDropdown>
     {
         foreach (var text in GreenText) text.color = green;
         foreach (var image in GreenImages) image.color = green;
+        greenLight.color = green;
         //GreenSubtitleBox.color = green;
     }
 
@@ -78,6 +80,7 @@ public class ColourDropdown : Singleton<ColourDropdown>
     {
         foreach (var text in GreenText) text.color = yellow;
         foreach (var image in GreenImages) image.color = yellow;
+        greenLight.color = yellow;
         //GreenSubtitleBox.color = yellow;
     }
 
