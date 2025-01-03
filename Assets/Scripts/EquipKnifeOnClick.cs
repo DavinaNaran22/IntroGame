@@ -26,7 +26,7 @@ public class EquipKnifeOnClick : MonoBehaviour
 
     // variables for audio
     public AudioClip stabAudioClip; // The sound effect for the swing
-    private AudioSource audioSource; // AudioSource component
+    public AudioSource audioSource; // AudioSource component
 
     void Start()
     {
