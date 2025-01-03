@@ -19,6 +19,7 @@ public class EnterAlienArea4 : MonoBehaviour
     public GameObject drawingsCompletedText;
     public RepairTask3 repairTask3;
     public RepairTask4 repairTask4;
+    public TaskManager taskManager;
 
     private bool isActive = false;
     private bool dialogueShown = false;
@@ -73,6 +74,7 @@ public class EnterAlienArea4 : MonoBehaviour
     private void Start()
     {
         player = GameManager.Instance.player.transform;
+        taskManager = GameManager.Instance.taskManager;
 
         characterController = player.GetComponent<CharacterController>();
         if (characterController == null)
@@ -171,6 +173,8 @@ public class EnterAlienArea4 : MonoBehaviour
         blocksEquipped = true;
         HideDialogue();
         completedRepairText.SetActive(true);
+        taskManager.IncreaseProgress(5);
+        taskManager.SetTaskText("Connect damaged wing");
         StartCoroutine(ActivateRepairTasksWithDelay());
     }
 
