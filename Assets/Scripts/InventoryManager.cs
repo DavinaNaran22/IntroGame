@@ -18,12 +18,8 @@ public class InventoryManager : MonoBehaviour
     public EquipKnifeOnClick knifeScript;
     public EquipSwordOnClick swordScript;
 
-    [SerializeField] Image exitButton;
-
     void Start()
     {
-        ColourDropdown.AddToImageList(ColourChangeColours.Red, exitButton);
-
         // Ensure the canvas starts disabled
         inventoryCanvas.SetActive(false);
 
