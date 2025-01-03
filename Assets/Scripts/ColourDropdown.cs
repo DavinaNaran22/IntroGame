@@ -32,13 +32,8 @@ public class ColourDropdown : Singleton<ColourDropdown>
     public List<Image> GreenImages = new List<Image>();
 
     // Drag prefabs to these
-    //[SerializeField] Image HealthBar;
-    //[SerializeField] Image EnemyMinimapIcon;
     //[SerializeField] Image RedSubtitleBox;
     //[SerializeField] Image GreenSubtitleBox;
-    //[SerializeField] TextMeshProUGUI PromptText;
-    //[SerializeField] Image ExitButton;
-    //[SerializeField] Image PlayerHealthBar;
     [SerializeField] Color red = new Color(242f, 0f, 0f, 255f);
     [SerializeField] Color blue = new Color(0f, 46f, 255f, 255f);
     [SerializeField] Color green = new Color(48f, 215f, 0f, 1f);
@@ -59,11 +54,7 @@ public class ColourDropdown : Singleton<ColourDropdown>
     {
         foreach (var text in RedText) text.color = red;
         foreach (var image in RedImages) image.color = red;
-        //HealthBar.color = red;
-        //EnemyMinimapIcon.color = red;
         //RedSubtitleBox.color = red;
-        //PromptText.color = red;
-        //ExitButton.color = red;
     }
 
     // Set colours back to original green
@@ -71,28 +62,22 @@ public class ColourDropdown : Singleton<ColourDropdown>
     {
         foreach (var text in GreenText) text.color = green;
         foreach (var image in GreenImages) image.color = green;
-        //PlayerHealthBar.color = green;
         //GreenSubtitleBox.color = green;
     }
 
-    // Make red images blue
+    // Make red stuff blue
     void SetRedToBlue()
     {
         foreach (var text in RedText) text.color = blue;
         foreach (var image in RedImages) image.color = blue;
-        //HealthBar.color = blue;
-        //EnemyMinimapIcon.color = blue;
         //RedSubtitleBox.color = blue;
-        //PromptText.color = blue;
-        //ExitButton.color = blue;
     }
 
-    // Make green images yellow
+    // Make green stuff yellow
     void SetGreenToYellow()
     {
         foreach (var text in GreenText) text.color = yellow;
         foreach (var image in GreenImages) image.color = yellow;
-        //PlayerHealthBar.color = yellow;
         //GreenSubtitleBox.color = yellow;
     }
 

@@ -1590,6 +1590,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 644578567}
     - target: {fileID: 3298869225951123383, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: exitButton
+      value: 
+      objectReference: {fileID: 1906752610}
+    - target: {fileID: 3298869225951123383, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: knifeScript
       value: 
       objectReference: {fileID: 644578571}
@@ -7333,6 +7337,7 @@ GameObject:
   - component: {fileID: 518812039}
   - component: {fileID: 518812041}
   - component: {fileID: 518812040}
+  - component: {fileID: 518812042}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -7458,6 +7463,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518812038}
   m_CullTransparentMesh: 1
+--- !u!114 &518812042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518812038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a256b853973b71b4d87add750395d112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519417028
 GameObject:
   m_ObjectHideFlags: 0
@@ -17315,6 +17332,7 @@ MonoBehaviour:
   CutsceneTime: 0
   colourMode: 0
   colourDropdown: {fileID: 0}
+  colourScript: {fileID: 0}
   difficultyDropdown: {fileID: 0}
   Volume: 0
   MouseSens: 0
@@ -19646,6 +19664,7 @@ GameObject:
   - component: {fileID: 1520172772}
   - component: {fileID: 1520172774}
   - component: {fileID: 1520172773}
+  - component: {fileID: 1520172775}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -19701,8 +19720,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190292
-  m_fontColor: {r: 0.8301887, g: 0, b: 0, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -19769,6 +19788,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520172771}
   m_CullTransparentMesh: 1
+--- !u!114 &1520172775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520172771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a256b853973b71b4d87add750395d112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1531710929
 GameObject:
   m_ObjectHideFlags: 0
@@ -23563,6 +23594,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8957019203168652948, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
   m_PrefabInstance: {fileID: 898348826}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1906752610 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8045390425794344737, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+  m_PrefabInstance: {fileID: 51700331}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1914829215
 GameObject:
   m_ObjectHideFlags: 0
