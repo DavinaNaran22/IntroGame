@@ -50,6 +50,7 @@ public class ShowClue : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.Instance.task4Completed) showClue.SetActive(false);
         map.SetActive(true);
         GameManager.Instance.Save();
         player = GameManager.Instance.player;
