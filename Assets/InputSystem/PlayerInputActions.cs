@@ -188,6 +188,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mouse_Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""49bcf379-467e-42cc-9690-26282272d7f1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mouse_Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""b4eb9c46-bbc6-44b2-9001-0830dd3e129a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -487,6 +505,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""ControlPanel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""535f6e02-16d2-42da-8c62-63b1b39dd871"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mouse_Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""35d1d7d4-30c5-4890-85f7-4dfb86e4f146"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mouse_Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -513,6 +553,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Swing = m_Player.FindAction("Swing", throwIfNotFound: true);
         m_Player_Repair = m_Player.FindAction("Repair", throwIfNotFound: true);
         m_Player_ControlPanel = m_Player.FindAction("ControlPanel", throwIfNotFound: true);
+        m_Player_Mouse_Down = m_Player.FindAction("Mouse_Down", throwIfNotFound: true);
+        m_Player_Mouse_Up = m_Player.FindAction("Mouse_Up", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -592,6 +634,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Swing;
     private readonly InputAction m_Player_Repair;
     private readonly InputAction m_Player_ControlPanel;
+    private readonly InputAction m_Player_Mouse_Down;
+    private readonly InputAction m_Player_Mouse_Up;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -614,6 +658,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Swing => m_Wrapper.m_Player_Swing;
         public InputAction @Repair => m_Wrapper.m_Player_Repair;
         public InputAction @ControlPanel => m_Wrapper.m_Player_ControlPanel;
+        public InputAction @Mouse_Down => m_Wrapper.m_Player_Mouse_Down;
+        public InputAction @Mouse_Up => m_Wrapper.m_Player_Mouse_Up;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -677,6 +723,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ControlPanel.started += instance.OnControlPanel;
             @ControlPanel.performed += instance.OnControlPanel;
             @ControlPanel.canceled += instance.OnControlPanel;
+            @Mouse_Down.started += instance.OnMouse_Down;
+            @Mouse_Down.performed += instance.OnMouse_Down;
+            @Mouse_Down.canceled += instance.OnMouse_Down;
+            @Mouse_Up.started += instance.OnMouse_Up;
+            @Mouse_Up.performed += instance.OnMouse_Up;
+            @Mouse_Up.canceled += instance.OnMouse_Up;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -735,6 +787,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ControlPanel.started -= instance.OnControlPanel;
             @ControlPanel.performed -= instance.OnControlPanel;
             @ControlPanel.canceled -= instance.OnControlPanel;
+            @Mouse_Down.started -= instance.OnMouse_Down;
+            @Mouse_Down.performed -= instance.OnMouse_Down;
+            @Mouse_Down.canceled -= instance.OnMouse_Down;
+            @Mouse_Up.started -= instance.OnMouse_Up;
+            @Mouse_Up.performed -= instance.OnMouse_Up;
+            @Mouse_Up.canceled -= instance.OnMouse_Up;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -772,5 +830,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnSwing(InputAction.CallbackContext context);
         void OnRepair(InputAction.CallbackContext context);
         void OnControlPanel(InputAction.CallbackContext context);
+        void OnMouse_Down(InputAction.CallbackContext context);
+        void OnMouse_Up(InputAction.CallbackContext context);
     }
 }

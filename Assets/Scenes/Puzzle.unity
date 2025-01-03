@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -567,6 +567,7 @@ GameObject:
   - component: {fileID: 677726307}
   - component: {fileID: 677726308}
   - component: {fileID: 677726309}
+  - component: {fileID: 677726310}
   m_Layer: 0
   m_Name: clue3
   m_TagString: Untagged
@@ -648,12 +649,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677726304}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da8b502023d2b475399ccba599494596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Drag: 0
+  Drag: 1
   correct_position: {x: 0.08, y: -0.085, z: 0.034828007}
 --- !u!61 &677726308
 BoxCollider2D:
@@ -728,6 +729,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &677726310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677726304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b96ba7e716848c08d3d962025df527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drag: 0
+  correct_position: {x: 0.08, y: -0.085, z: 0.034828007}
 --- !u!1 &977761239
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,9 +845,10 @@ GameObject:
   m_Component:
   - component: {fileID: 984378711}
   - component: {fileID: 984378710}
-  - component: {fileID: 984378712}
   - component: {fileID: 984378713}
   - component: {fileID: 984378714}
+  - component: {fileID: 984378715}
+  - component: {fileID: 984378716}
   m_Layer: 0
   m_Name: clue2
   m_TagString: Untagged
@@ -907,20 +923,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &984378712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984378709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da8b502023d2b475399ccba599494596, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Drag: 0
-  correct_position: {x: 0.66, y: -0.48, z: 0.12}
 --- !u!61 &984378713
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -994,6 +996,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &984378715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984378709}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da8b502023d2b475399ccba599494596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drag: 0
+  correct_position: {x: 0.67, y: -0.43, z: 0}
+--- !u!114 &984378716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984378709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e9bf9068a71428aa9b8a4353c8da18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drag: 0
+  correct_position: {x: 0.67, y: -0.43, z: 0}
 --- !u!1 &1014481175
 GameObject:
   m_ObjectHideFlags: 0

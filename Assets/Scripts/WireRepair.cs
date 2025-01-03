@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class WireRepair : MonoBehaviour
 {
@@ -61,12 +62,12 @@ public class WireRepair : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.N)) // Change to check if storage box is collected
-        {
-            turnOffMessage.gameObject.SetActive(false);
-            turnOnMessage.gameObject.SetActive(true);
-            StartCoroutine(promptTextShow());
-        }
+        //if (Input.GetKeyDown(KeyCode.N)) // Change to check if storage box is collected
+        //{
+        //    turnOffMessage.gameObject.SetActive(false);
+        //    turnOnMessage.gameObject.SetActive(true);
+        //    StartCoroutine(promptTextShow());
+        //}
 
 
 
