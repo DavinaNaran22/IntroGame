@@ -3338,9 +3338,11 @@ MonoBehaviour:
   curDropdownValue: 0
   RedText: []
   RedImages: []
+  RedLights: []
   GreenText: []
   GreenImages: []
   greenLight: {fileID: 2100000, guid: 32dfcc7bfd7fd49f0b6222478bc3a3fd, type: 2}
+  redCrystal: {fileID: 2100000, guid: d43ae590d6f04de48817c416343eaba7, type: 2}
   red: {r: 242, g: 0, b: 0, a: 1}
   blue: {r: 0, g: 46, b: 255, a: 1}
   green: {r: 0.22513103, g: 1, b: 0, a: 255}

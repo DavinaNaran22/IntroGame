@@ -33,6 +33,7 @@ public class ColourDropdown : Singleton<ColourDropdown>
     public List<Image> GreenImages = new List<Image>();
 
     [SerializeField] Material greenLight;
+    [SerializeField] Material redCrystal;
 
     //[SerializeField] Image RedSubtitleBox;
     //[SerializeField] Image GreenSubtitleBox;
@@ -57,6 +58,7 @@ public class ColourDropdown : Singleton<ColourDropdown>
         foreach (var text in RedText) text.color = red;
         foreach (var image in RedImages) image.color = red;
         foreach (var light in RedLights) light.color = red;
+        redCrystal.color = red;
         //RedSubtitleBox.color = red;
     }
 
@@ -75,6 +77,7 @@ public class ColourDropdown : Singleton<ColourDropdown>
         foreach (var text in RedText) text.color = blue;
         foreach (var image in RedImages) image.color = blue;
         foreach (var light in RedLights) light.color = blue;
+        redCrystal.color = blue;
         //RedSubtitleBox.color = blue;
     }
 
