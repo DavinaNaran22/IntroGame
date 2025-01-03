@@ -9142,10 +9142,6 @@ MonoBehaviour:
   knife: {fileID: 0}
   gun: {fileID: 0}
   toolbox: {fileID: 0}
-  axe: {fileID: 0}
-  saw: {fileID: 0}
-  chisel: {fileID: 0}
-  rasp: {fileID: 0}
   metalsDropped: {fileID: 0}
   woodDropped: {fileID: 0}
   stone: {fileID: 0}
