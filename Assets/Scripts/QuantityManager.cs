@@ -11,14 +11,6 @@ public class QuantityManager : MonoBehaviour
     private GameObject alienAlloy;
     //private GameObject thruster;
     public GameObject toolbox;
-
-    private GameObject crystalObject; // Reference to the crystal object in the scene
-    [Header("Additional Tools")]
-    public GameObject axe;
-    public GameObject saw;
-    public GameObject chisel;
-    public GameObject rasp;
-
     private GameObject shovel;
     public GameObject metalsDropped; // Changed to single item
     public GameObject woodDropped; // Changed to single item

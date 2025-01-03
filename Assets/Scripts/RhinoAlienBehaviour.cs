@@ -32,7 +32,6 @@ public class RhinoAlienBehaviour : MonoBehaviour
     {
         taskManager = GameManager.Instance.taskManager;
         GameObject uimanager = GameManager.Instance.UIManager;
-        Player = GameManager.Instance.player.transform;
 
     }
 
@@ -243,7 +242,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
         animator.SetTrigger("backIdle");
         craftSwordText.SetActive(true);
 
-        //IF CRAFTED SWORD BECOMES ACTIVE, ALIEN WILL BECOME VULNERABLE
+        // IF CRAFTED SWORD BECOMES ACTIVE, ALIEN WILL BECOME VULNERABLE
         if (GameManager.Instance.boostedSwordCrafted == true)
         {
             craftSwordText.SetActive(false);
