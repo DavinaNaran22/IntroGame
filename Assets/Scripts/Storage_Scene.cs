@@ -14,6 +14,7 @@ public class Storage_Scene : MonoBehaviour
     public BoxCollider FirstAidKit1;
     public BoxCollider FirstAidKit2;
     public BoxCollider FirstAidKit3;
+   
     
 
     public BoxCollider Gun;
@@ -37,12 +38,16 @@ public class Storage_Scene : MonoBehaviour
 
         deactivate_task2();
 
+
     }
 
     public void OnTriggerEnter(Collider other)
     { // when the player enters the storage room and task1 is completed
+        
+        
         if (other.CompareTag("Player") && Task1 == true)
         {
+            Debug.Log("SET TO TRUE TASK 1");
             // set the instruction to go to the storage room off 
             control_panel.Message2.SetActive(false);
             activate_task2();
@@ -61,12 +66,14 @@ public class Storage_Scene : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        // once exited the storage room,set the task2 to true indicated that task2 is done
+        //once exited the storage room,set the task2 to true indicated that task2 is done
         if (other.CompareTag("Player") && Task1 == true)
         {
             Task2 = true;
 
         }
+
+
     }
     //deactivates the objects so that they dont start task2 before completing task 1 
 
@@ -87,13 +94,26 @@ public class Storage_Scene : MonoBehaviour
 
         Gun.enabled = false;
 
+        DisableEquip<PlayerNearEquipable>(OxygenTank1.gameObject);
+        DisableEquip<PlayerNearEquipable>(OxygenTank2.gameObject);
+        DisableEquip<PlayerNearEquipable>(OxygenTank3.gameObject);
+
+        DisableEquip<PlayerNearEquipable>(FirstAidKit1.gameObject);
+        DisableEquip<PlayerNearEquipable>(FirstAidKit2.gameObject);
+        DisableEquip<PlayerNearEquipable>(FirstAidKit3.gameObject);
+
+        DisableEquip<PlayerNearEquipable>(ScrewDriver.gameObject);
+        DisableEquip<PlayerNearEquipable>(Tools.gameObject);
+
+        DisableEquip<PlayerNearEquipable>(Gun.gameObject);
+
     }
     //activates the objects once task1 is completed 
     public void activate_task2()
     {
 
-      
 
+        Debug.Log("ENabled");
         OxygenTank1.enabled = true;
         OxygenTank2.enabled = true;
         OxygenTank3.enabled = true;
@@ -107,7 +127,42 @@ public class Storage_Scene : MonoBehaviour
 
 
         Gun.enabled = true;
+
+
+        EnableEquip<PlayerNearEquipable>(OxygenTank1.gameObject);
+        EnableEquip<PlayerNearEquipable>(OxygenTank2.gameObject);
+        EnableEquip<PlayerNearEquipable>(OxygenTank3.gameObject);
+
+        EnableEquip<PlayerNearEquipable>(FirstAidKit1.gameObject);
+        EnableEquip<PlayerNearEquipable>(FirstAidKit2.gameObject);
+        EnableEquip<PlayerNearEquipable>(FirstAidKit3.gameObject);
+
+        EnableEquip<PlayerNearEquipable>(ScrewDriver.gameObject);
+        EnableEquip<PlayerNearEquipable>(Tools.gameObject);
+
+        EnableEquip<PlayerNearEquipable>(Gun.gameObject);
     }
 
- 
+    private void DisableEquip<T>(GameObject obj) where T : MonoBehaviour {
+
+        T EQUIP_script = obj.GetComponent<T>();
+        if (EQUIP_script != null)
+        {
+            EQUIP_script.enabled = false;
+        }
+
+    }
+
+    private void EnableEquip<T>(GameObject obj) where T : MonoBehaviour
+    {
+
+        T EQUIP_script = obj.GetComponent<T>();
+        if (EQUIP_script != null)
+        {
+            EQUIP_script.enabled = true;
+        }
+        
+
+    }
+
 }

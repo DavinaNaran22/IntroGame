@@ -37,7 +37,10 @@ public class Interior_Manager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {    // enables tasks after task 1 is completed 
+    {
+       
+            // enables tasks after task 1 is completed
+        Debug.Log("Task1" + storage_scene.Task1);
         if (control_panel.task1_completed == true) {
             //if the control panel is off 
             if (!Exit_control_panel.activeSelf) {
@@ -66,7 +69,7 @@ public class Interior_Manager : MonoBehaviour
             storage_scene.Task1 = true;
 
 
-           
+
         }
         // Disables the exit message once left the cockpit 
         if (control_panel.IN == false)

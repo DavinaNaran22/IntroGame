@@ -170,6 +170,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Repair"",
+                    ""type"": ""Button"",
+                    ""id"": ""2a012985-4a31-472c-a0a0-adad13ea1016"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ControlPanel"",
+                    ""type"": ""Button"",
+                    ""id"": ""2de8ece5-07f1-4bd9-8efe-74a1fd1c0ae1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -447,6 +465,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Swing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""23cbc53d-0690-4e27-b4e6-2951514d2c42"",
+                    ""path"": ""<Keyboard>/#(R)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Repair"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6c4dd282-71ff-41d3-bcb4-de8657f6d517"",
+                    ""path"": ""<Keyboard>/#(A)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControlPanel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -471,6 +511,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_TakePhoto = m_Player.FindAction("TakePhoto", throwIfNotFound: true);
         m_Player_ExitCamera = m_Player.FindAction("ExitCamera", throwIfNotFound: true);
         m_Player_Swing = m_Player.FindAction("Swing", throwIfNotFound: true);
+        m_Player_Repair = m_Player.FindAction("Repair", throwIfNotFound: true);
+        m_Player_ControlPanel = m_Player.FindAction("ControlPanel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -548,6 +590,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_TakePhoto;
     private readonly InputAction m_Player_ExitCamera;
     private readonly InputAction m_Player_Swing;
+    private readonly InputAction m_Player_Repair;
+    private readonly InputAction m_Player_ControlPanel;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -568,6 +612,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @TakePhoto => m_Wrapper.m_Player_TakePhoto;
         public InputAction @ExitCamera => m_Wrapper.m_Player_ExitCamera;
         public InputAction @Swing => m_Wrapper.m_Player_Swing;
+        public InputAction @Repair => m_Wrapper.m_Player_Repair;
+        public InputAction @ControlPanel => m_Wrapper.m_Player_ControlPanel;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -625,6 +671,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Swing.started += instance.OnSwing;
             @Swing.performed += instance.OnSwing;
             @Swing.canceled += instance.OnSwing;
+            @Repair.started += instance.OnRepair;
+            @Repair.performed += instance.OnRepair;
+            @Repair.canceled += instance.OnRepair;
+            @ControlPanel.started += instance.OnControlPanel;
+            @ControlPanel.performed += instance.OnControlPanel;
+            @ControlPanel.canceled += instance.OnControlPanel;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -677,6 +729,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Swing.started -= instance.OnSwing;
             @Swing.performed -= instance.OnSwing;
             @Swing.canceled -= instance.OnSwing;
+            @Repair.started -= instance.OnRepair;
+            @Repair.performed -= instance.OnRepair;
+            @Repair.canceled -= instance.OnRepair;
+            @ControlPanel.started -= instance.OnControlPanel;
+            @ControlPanel.performed -= instance.OnControlPanel;
+            @ControlPanel.canceled -= instance.OnControlPanel;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -712,5 +770,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnTakePhoto(InputAction.CallbackContext context);
         void OnExitCamera(InputAction.CallbackContext context);
         void OnSwing(InputAction.CallbackContext context);
+        void OnRepair(InputAction.CallbackContext context);
+        void OnControlPanel(InputAction.CallbackContext context);
     }
 }
