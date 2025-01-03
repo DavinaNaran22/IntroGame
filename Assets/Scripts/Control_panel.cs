@@ -22,7 +22,7 @@ public class Control_panel : MonoBehaviour
     public TextMeshProUGUI Status_details;
     public GameObject Map;
     public GameObject Map2;
-    bool task1Completed = false;
+    //bool task1Completed = false;
 
 
 
@@ -43,19 +43,21 @@ public class Control_panel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("IN");
-        Debug.Log(win_message.win);
+        ////Debug.Log("IN");
+        //Debug.Log(win_message.win);
         // When the player is in the cockpit if they press A task 1 is enabled/ first version of control panel 
-        if (IN == true && Input.GetKeyDown(KeyCode.A) && !task1Completed)
+        if (IN == true && Input.GetKeyDown(KeyCode.A) && task1_completed == false)
         {
+            Debug.Log("IN" + IN);
             //Debug.Log("ACTIVE");
+
             C_panel.SetActive(true);
             ship_map.enabled = false;
             Msg1.SetActive(false);
             task1_completed = true;
             taskManager.IncreaseProgress(7); // Increase progress by 7%
             taskManager.SetTaskText("Collect resources"); // Update the task description
-            task1Completed = true;
+   
 
 
 
