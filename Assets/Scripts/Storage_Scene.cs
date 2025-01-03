@@ -17,7 +17,7 @@ public class Storage_Scene : MonoBehaviour
     public BoxCollider FirstAidKit3;
     public BoxCollider Camera;
     public BoxCollider Gun;
-    public BoxCollider ScrewDriver;
+    public BoxCollider Knife;
 
     public BoxCollider Axe;
     public MeshCollider Saw;
@@ -85,7 +85,7 @@ public class Storage_Scene : MonoBehaviour
         FirstAidKit2.enabled = false;
         FirstAidKit3.enabled = false;
 
-        ScrewDriver.enabled = false;
+        Knife.enabled = false;
         Axe.enabled = false;
         Chisel.enabled = false;
         Saw.enabled = false;
@@ -101,7 +101,7 @@ public class Storage_Scene : MonoBehaviour
         DisableEquip<PlayerNearEquipable>(FirstAidKit2.gameObject);
         DisableEquip<PlayerNearEquipable>(FirstAidKit3.gameObject);
         DisableEquip<PlayerNearEquipable>(Camera.gameObject);
-        DisableEquip<PlayerNearEquipable>(ScrewDriver.gameObject);
+        DisableEquip<PlayerNearEquipable>(Knife.gameObject);
         DisableEquip<PlayerNearEquipable>(Axe.gameObject);
         DisableEquip<PlayerNearEquipable>(Chisel.gameObject);
         DisableEquip<PlayerNearEquipable>(Saw.gameObject);
@@ -124,7 +124,7 @@ public class Storage_Scene : MonoBehaviour
         FirstAidKit2.enabled = true;
         FirstAidKit3.enabled = true;
 
-        ScrewDriver.enabled = true;
+        Knife.enabled = true;
 
         Camera.enabled = true;
 
@@ -139,14 +139,14 @@ public class Storage_Scene : MonoBehaviour
         EnableEquip<PlayerNearEquipable>(FirstAidKit2.gameObject);
         EnableEquip<PlayerNearEquipable>(FirstAidKit3.gameObject);
         EnableEquip<PlayerNearEquipable>(Camera.gameObject);
-        EnableEquip<PlayerNearEquipable>(ScrewDriver.gameObject);
+        EnableEquip<PlayerNearEquipable>(Knife.gameObject);
         EnableEquip<PlayerNearEquipable>(Axe.gameObject);
         EnableEquip<PlayerNearEquipable>(Chisel.gameObject);
         EnableEquip<PlayerNearEquipable>(Saw.gameObject);
         EnableEquip<PlayerNearEquipable>(Rasp.gameObject);
 
 
-        EnableEquip<PlayerNearEquipable>(ScrewDriver.gameObject);
+        EnableEquip<PlayerNearEquipable>(Knife.gameObject);
         
 
         EnableEquip<PlayerNearEquipable>(Gun.gameObject);
