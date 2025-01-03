@@ -117,6 +117,7 @@ public class Scene5 : MonoBehaviour
         {
             additionalDialoguesActive = false;
             HideDialogue();
+            // enable the exit cockpit message after main dialouge 
             Message_Exit.enabled = true;
 
             Debug.Log("All dialogues finished");
