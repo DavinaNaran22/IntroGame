@@ -28,7 +28,7 @@ public class Interior_Manager : MonoBehaviour
         Passcode.SetActive(false);
         GameObject storage = GameObject.Find("Storage_Collider"); 
         storage_scene = storage.GetComponent<Storage_Scene>();
-        storage_scene.deactivate_task2();
+        //storage_scene.deactivate_task2();
 
         GameObject control = GameObject.Find("Cockpit_collider");
         control_panel = control.GetComponent<Control_panel>();
