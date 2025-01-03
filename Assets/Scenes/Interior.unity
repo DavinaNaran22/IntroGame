@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
+  m_IndirectSpecularColor: {r: 0.002063206, g: 0.0019480612, b: 0.0021180937, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1306,13 +1306,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: axe
+      value: 
+      objectReference: {fileID: 2066790394}
+    - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: gun
       value: 
       objectReference: {fileID: 1858508952}
     - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: saw
+      value: 
+      objectReference: {fileID: 1088120045}
+    - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: rasp
+      value: 
+      objectReference: {fileID: 1561588766}
+    - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: knife
       value: 
       objectReference: {fileID: 1512205549}
+    - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: chisel
+      value: 
+      objectReference: {fileID: 1638161635}
     - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: shovel
       value: 
@@ -17395,6 +17411,7 @@ MonoBehaviour:
   cameraMsg: {fileID: 1664890787}
   Weather: {fileID: 1482992022}
   taskManager: {fileID: 251013341}
+  boostedSwordCrafted: 0
   triggerEnding: 0
 --- !u!4 &1352790603
 Transform:
@@ -19440,6 +19457,7 @@ MonoBehaviour:
   turnOffText: {fileID: 574984652}
   turnOffText2: {fileID: 1891343434}
   turnOffText3: {fileID: 2045668583}
+  taskManager: {fileID: 0}
 --- !u!1 &1511153325
 GameObject:
   m_ObjectHideFlags: 0
@@ -19576,11 +19594,6 @@ Transform:
 --- !u!1 &1512205549 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1188603420251640516, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
-  m_PrefabInstance: {fileID: 7388300744193666054}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1512205555 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 6281877333910449676, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
   m_PrefabInstance: {fileID: 7388300744193666054}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1512205559
@@ -22899,7 +22912,7 @@ MonoBehaviour:
   FirstAidKit3: {fileID: 1217937093}
   Camera: {fileID: 239840165}
   Gun: {fileID: 1858508953}
-  ScrewDriver: {fileID: 1512205555}
+  Knife: {fileID: 0}
   Axe: {fileID: 898348831}
   Saw: {fileID: 898348830}
   Chisel: {fileID: 898348829}
@@ -25071,6 +25084,7 @@ MonoBehaviour:
   player: {fileID: 0}
   dialogueText: {fileID: 1821306955}
   scene5: {fileID: 2047101250}
+  taskManager: {fileID: 0}
   Message_Exit: {fileID: 1008247222}
   additionalDialogues:
   - Looks like the ship is finally repaired!
