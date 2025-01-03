@@ -26,6 +26,7 @@ public class ColourDropdown : Singleton<ColourDropdown>
     [Header("Red")]
     public List<TextMeshProUGUI> RedText = new List<TextMeshProUGUI>();
     public List<Image> RedImages = new List<Image>();
+    public List<Light> RedLights = new List<Light>();
 
     [Header("Green")]
     public List<TextMeshProUGUI> GreenText = new List<TextMeshProUGUI>();
@@ -55,6 +56,7 @@ public class ColourDropdown : Singleton<ColourDropdown>
     {
         foreach (var text in RedText) text.color = red;
         foreach (var image in RedImages) image.color = red;
+        foreach (var light in RedLights) light.color = red;
         //RedSubtitleBox.color = red;
     }
 
@@ -72,6 +74,7 @@ public class ColourDropdown : Singleton<ColourDropdown>
     {
         foreach (var text in RedText) text.color = blue;
         foreach (var image in RedImages) image.color = blue;
+        foreach (var light in RedLights) light.color = blue;
         //RedSubtitleBox.color = blue;
     }
 
@@ -140,6 +143,17 @@ public class ColourDropdown : Singleton<ColourDropdown>
             colourScript.GreenText.Add(text);
         }
 
+        colourScript.UpdateColours();
+    }
+
+    // Add light to correct list and update its colour
+    public static void AddToLightList(ColourChangeColours colour, Light light)
+    {
+        ColourDropdown colourScript = GameManager.Instance.colourScript;
+        if (colour == ColourChangeColours.Red)
+        {
+            colourScript.RedLights.Add(light);
+        }
         colourScript.UpdateColours();
     }
 
