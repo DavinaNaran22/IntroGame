@@ -725,10 +725,11 @@ public class QuantityManager : MonoBehaviour
             {
                 equipSwordScript.IsSwordBoosted = true; // Mark the sword as boosted
 
+                GameManager.Instance.boostedSwordCrafted = true;
+
                 // Apply the boost to the currently equipped sword (if any)
                 equipSwordScript.ApplyBoostEffect();
 
-                GameManager.Instance.boostedSwordCrafted = true;
             }
             else
             {

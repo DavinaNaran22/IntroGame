@@ -31,6 +31,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
     {
         Healthlimit = GameObject.FindWithTag("HealthLimit");
         GameObject uimanager = GameManager.Instance.UIManager;
+        Player = GameManager.Instance.player.transform;
     }
 
     private void Update()
