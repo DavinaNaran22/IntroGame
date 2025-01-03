@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class PlayerNearDoor : PlayerNearText
 {
+    private void Start()
+    {
+        // So player taken back to interior if they pause
+        GameManager.Instance.CurrentScene = "Interior";
+    }
     new void Update()
     {
         base.Update();

@@ -43,8 +43,8 @@ public class Control_panel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("IN");
-        Debug.Log(win_message.win);
+        //Debug.Log("IN");
+        //Debug.Log(win_message.win);
         // When the player is in the cockpit if they press A task 1 is enabled/ first version of control panel 
         if (IN == true && Input.GetKeyDown(KeyCode.A) && !task1Completed)
         {

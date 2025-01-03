@@ -50,6 +50,7 @@ public class GameManager : Singleton<GameManager>
     [Header("Options UI")]
     public ColourMode colourMode;
     public TMP_Dropdown colourDropdown;
+    public ColourDropdown colourScript;
     public TMP_Dropdown difficultyDropdown;
     public Difficulty Difficulty;
     public float Volume;
@@ -81,7 +82,8 @@ public class GameManager : Singleton<GameManager>
         // If player edits default values at start
         // Then the values have to be updated like this
         GameObject optionsManager = GameObject.Find("OptionsManager");
-        colourMode = optionsManager.GetComponent<ColourDropdown>().mode;
+        colourScript = optionsManager.GetComponent<ColourDropdown>();
+        colourMode = colourScript.mode;
         Difficulty = optionsManager.GetComponent<DifficultyDropdown>().difficulty;
         optionsManager.GetComponent<VolumeSlider>().AudioMixer.GetFloat("volume", out Volume);
         MouseSens = MouseLook.mouseSensitivity;
