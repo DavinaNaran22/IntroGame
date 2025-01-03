@@ -2485,7 +2485,7 @@ PlayableDirector:
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
-  m_InitialTime: 122
+  m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 4328387496966043073, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
     value: {fileID: 1482992026}
@@ -7983,6 +7983,7 @@ MonoBehaviour:
   passcode: {fileID: 1669729659}
   mini_map: {fileID: 345240224}
   Exit_control_panel: {fileID: 727739784}
+  task2ProgressAdded: 0
 --- !u!65 &620499743
 BoxCollider:
   m_ObjectHideFlags: 0
