@@ -28,6 +28,8 @@ public class RhinoAlienBehaviour : MonoBehaviour
     public bool isInvulnerable = true; // Checks if alien is in fight mode before player can kill it
     public bool isCriticalHealth = false;
 
+    private bool madeAlienVulnerable = false;
+
     private void Start()
     {
         taskManager = GameManager.Instance.taskManager;
@@ -58,6 +60,17 @@ public class RhinoAlienBehaviour : MonoBehaviour
         if (playerNearby && animator.GetCurrentAnimatorStateInfo(0).IsName("Attack(3)"))
         {
             AutoShootAtPlayer();
+        }
+
+        // IF CRAFTED SWORD BECOMES ACTIVE, ALIEN WILL BECOME VULNERABLE
+        if (!madeAlienVulnerable && GameManager.Instance.boostedSwordCrafted == true)
+        {
+            madeAlienVulnerable = true;
+            craftSwordText.SetActive(false);
+            Debug.Log("Sword has been crafted. Alien is now vulnerable.");
+            isCriticalHealth = false;
+            isInvulnerable = false;
+            StartCoroutine(ExecuteEscapeSequence());
         }
     }
 
@@ -241,25 +254,9 @@ public class RhinoAlienBehaviour : MonoBehaviour
         Debug.Log("Critical health dialogue triggered.");
         animator.SetTrigger("backIdle");
         craftSwordText.SetActive(true);
-
-        //IF CRAFTED SWORD BECOMES ACTIVE, ALIEN WILL BECOME VULNERABLE
-        if (GameManager.Instance.boostedSwordCrafted == true)
-        {
-            craftSwordText.SetActive(false);
-            Debug.Log("Sword has been crafted. Alien is now vulnerable.");
-            isCriticalHealth = false;
-            isInvulnerable = false;
-            StartCoroutine(ExecuteEscapeSequence());
-        }
-
-        //craftSwordText.SetActive(false);
-        //Debug.Log("Sword has been crafted. Alien is now vulnerable.");
-        //isCriticalHealth = false;
-        //isInvulnerable = false;
-        //StartCoroutine(ExecuteEscapeSequence());
     }
 
-
+    
 
 }
 

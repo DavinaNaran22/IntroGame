@@ -761,6 +761,7 @@ public class QuantityManager : MonoBehaviour
             SetActive(stoneImage, false);
             GameManager.Instance.boostedSwordCrafted = true;
 
+            GameManager.Instance.boostedSwordCrafted = true;
             // Access the EquipSwordOnClick script
             if (equipSwordScript != null)
             {
