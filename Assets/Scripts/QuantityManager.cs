@@ -234,6 +234,21 @@ public class QuantityManager : MonoBehaviour
         {
             SetActive(swordParent, false);
         }
+
+        // Check if both wood and metal images are active in the UI
+        if (woodImage.activeSelf && metalsDroppedImage.activeSelf)
+        {
+            // Activate the shovelParent when the conditions are met
+            SetActive(shovelParent, true);
+        }
+
+
+        // Check if all tools are inactive
+        if (AreAllToolsInactive())
+        {
+            SetActive(toolboxImage, true); // Show the toolbox image
+        }
+
     }
 
 
