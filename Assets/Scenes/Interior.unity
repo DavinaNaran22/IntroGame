@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.002063206, g: 0.0019480612, b: 0.0021180937, a: 1}
+  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17677,6 +17677,7 @@ MonoBehaviour:
   Weather: {fileID: 1482992022}
   taskManager: {fileID: 251013341}
   boostedSwordCrafted: 0
+  task4Completed: 0
   triggerEnding: 0
 --- !u!4 &1352790603
 Transform:
@@ -23177,7 +23178,7 @@ MonoBehaviour:
   FirstAidKit3: {fileID: 1217937093}
   Camera: {fileID: 239840165}
   Gun: {fileID: 1858508953}
-  Knife: {fileID: 0}
+  Knife: {fileID: 7388300744193666055}
   Axe: {fileID: 898348831}
   Saw: {fileID: 898348830}
   Chisel: {fileID: 898348829}
@@ -26358,6 +26359,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1512205559}
   m_SourcePrefab: {fileID: 100100000, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
+--- !u!65 &7388300744193666055 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 6281877333910449676, guid: f49b46dbdb3ffef4d9b6a5233117e1eb, type: 3}
+  m_PrefabInstance: {fileID: 7388300744193666054}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8819977944634643912
 PrefabInstance:
   m_ObjectHideFlags: 0
