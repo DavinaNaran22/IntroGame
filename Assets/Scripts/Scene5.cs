@@ -12,6 +12,7 @@ public class Scene5 : MonoBehaviour
     public GameObject player;
     public TextMeshProUGUI dialogueText;
     public GameObject scene5;
+    public TaskManager taskManager;
 
     private bool dialogueShown = false;
     private bool finishedD;
@@ -57,6 +58,8 @@ public class Scene5 : MonoBehaviour
         Message_Exit.enabled = false;
         GameManager.Instance.Save();
         player = GameManager.Instance.player;
+        taskManager = GameManager.Instance.taskManager;
+
     }
 
     private void Update()
@@ -64,6 +67,7 @@ public class Scene5 : MonoBehaviour
         if (map1.activeInHierarchy)
         {
             logic.SetActive(true);
+            taskManager.IncreaseProgress(10);
             StartAdditionalDialogues();
         }
 
@@ -121,6 +125,7 @@ public class Scene5 : MonoBehaviour
             Message_Exit.enabled = true;
 
             Debug.Log("All dialogues finished");
+            taskManager.SetTaskText("Find the cave");
             finishedD = true;
             scene5.SetActive(false);
         }

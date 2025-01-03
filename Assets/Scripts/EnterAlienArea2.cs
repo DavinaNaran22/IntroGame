@@ -18,6 +18,7 @@ public class EnterAlienArea2 : MonoBehaviour
     public GameObject drawingsCompletedText;
     public RepairTask2 repairTask2;
     public RepairTask3 repairTask3;
+    public TaskManager taskManager;
 
     private bool isActive = false; 
     private bool dialogueShown = false;
@@ -73,6 +74,7 @@ public class EnterAlienArea2 : MonoBehaviour
     private void Start()
     {
         player = GameManager.Instance.player.transform;
+        taskManager = GameManager.Instance.taskManager;
 
         characterController = player.GetComponent<CharacterController>();
         if (characterController == null)
@@ -167,6 +169,8 @@ public class EnterAlienArea2 : MonoBehaviour
         blocksEquipped = true;
         HideDialogue();
         completedRepairText.SetActive(true);
+        taskManager.IncreaseProgress(5);
+        taskManager.SetTaskText("Fix temperature control system");
         StartCoroutine(ActivateRepairTasksWithDelay());
  
     }
