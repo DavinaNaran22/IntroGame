@@ -37,6 +37,9 @@ public class CameraManagement : Singleton<CameraManagement>
 
     public GameObject HUD;
 
+    public AudioSource audioSource; // Reference to the AudioSource component
+    public AudioClip captureSound;  // Audio clip for the camera shutter sound
+
     // Input system
     private PlayerInputActions inputActions;
 
@@ -258,6 +261,16 @@ public class CameraManagement : Singleton<CameraManagement>
         string fileName = Path.Combine(folderPath, $"Screenshot_{System.DateTime.Now:yyyyMMdd_HHmmss}.png");
         File.WriteAllBytes(fileName, screenshot.EncodeToPNG());
         Debug.Log($"Screenshot saved to: {fileName}");
+
+        // Play the sound effect
+        if (audioSource != null && captureSound != null)
+        {
+            audioSource.PlayOneShot(captureSound);
+        }
+        else
+        {
+            Debug.LogWarning("AudioSource or CaptureSound is not assigned!");
+        }
 
         // Add the screenshot to the log
         AddPhotoToLog(screenshot);
