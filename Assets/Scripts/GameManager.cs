@@ -73,6 +73,7 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI cameraMsg;
     public GameObject Weather;
     public TaskManager taskManager;
+    public bool boostedSwordCrafted = false;
 
     [Header("Game Ending")]
     public bool triggerEnding = false;

@@ -5,7 +5,7 @@ public class RhinoDamageBar : MonoBehaviour
 {
     public Image damageBarImage; // UI Image representing health bar
     public const float maxAmount = 1f; // Max health (100%)
-    private float currentAmount; // Current health
+    public float currentAmount; // Current health
 
     public delegate void AlienDiedHandler();
     public event AlienDiedHandler OnAlienDied; // Event for alien death
