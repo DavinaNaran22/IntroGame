@@ -40,14 +40,15 @@ public class Storage_Scene : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider other)
-    {
+    { // when the player enters the storage room and task1 is completed
         if (other.CompareTag("Player") && Task1 == true)
         {
+            // set the instruction to go to the storage room off 
             control_panel.Message2.SetActive(false);
             activate_task2();
 
         }
-
+        // when the wing is attached enable the tools to repair the wing 
         if (wing_attached.WingTask == true) {
 
             Tools.enabled = true;
@@ -59,6 +60,7 @@ public class Storage_Scene : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
+        // once exited the storage room,set the task2 to true indicated that task2 is done
         if (other.CompareTag("Player") && Task1 == true)
         {
             Task2 = true;
@@ -85,7 +87,7 @@ public class Storage_Scene : MonoBehaviour
         Gun.enabled = false;
 
     }
-
+    //activates the objects once task1 is completed 
     public void activate_task2()
     {
 

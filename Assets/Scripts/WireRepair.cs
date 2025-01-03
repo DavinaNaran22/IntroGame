@@ -55,7 +55,7 @@ public class WireRepair : MonoBehaviour
         //    //Debug.Log("True");
         //    Message_wire.enabled = true;
         //}
-      
+      // when the player is in the collider, wing is attached and the key r is pressed game scene activates and the clue scene is activated to be used when back to interior scene 
         if (playerin == true && Input.GetKeyDown(KeyCode.R) && wing_attached.WingTask == true)
         {
             turnOnMessage.gameObject.SetActive(false);
@@ -83,7 +83,7 @@ public class WireRepair : MonoBehaviour
         GameManager.Instance.PlayerCanvas.SetActive(false);
         GameManager.Instance.player.SetActive(false);
     }
-
+    // checks if the player is in the collider for the scene and checks if the tools have been collected 
     public void OnTriggerEnter(Collider other)
 
     {

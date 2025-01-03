@@ -16,6 +16,7 @@ public class win_message : MonoBehaviour
     }
 
     // Update is called once per frame
+    // when the light color turn green, go back to landscape scene
     void Update()
     {
         if (Light.color == Color.green)
@@ -26,7 +27,7 @@ public class win_message : MonoBehaviour
 
         }
     }
-
+    // delays the scene load, updates the public static win boolean (indicates that game is finished)
     IEnumerator BackToGame() 
     {
         yield return new WaitForSeconds(3f);
@@ -37,6 +38,7 @@ public class win_message : MonoBehaviour
         win = true;
     }
 
+    // reactivating the player object/canvas
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
         GameManager.Instance.PlayerCanvas.SetActive(true);
