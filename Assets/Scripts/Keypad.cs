@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Keypad : FindPlayerTransform
 {
+    public TaskManager taskManager;
     [SerializeField] TMP_InputField keypadInput;
     [SerializeField] KeypadDoor doorScript;
     private const string CODE = "2836";
@@ -65,6 +66,7 @@ public class Keypad : FindPlayerTransform
         {
             Debug.Log("CORRECT CODE");
             GameManager.Instance.unlockedDoor = true;
+            taskManager.IncreaseProgress(7); // Increase progress by 7%
             GameManager.Instance.hoverText.text = "Right click to leave ship";
             ExitUI();
         }

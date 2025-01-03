@@ -5,96 +5,40 @@ using TMPro;
 
 public class TaskManager : MonoBehaviour
 {
-    public List<string> tasks; // List of task descriptions
+    
     public TextMeshProUGUI taskText; // Task description text
     public TextMeshProUGUI progressText; // Progress percentage text
     public Image progressBar; // Image with fillAmount
-    public List<GameObject> aliens;
 
-    private int currentTaskIndex = 0;
+
+    private float currentProgress = 0f; // Current progress as a fraction (0 to 1)
 
     void Start()
     {
         progressBar.fillAmount = 0f;
-        UpdateTaskUI();
+        taskText.text = "Task: Find control panel"; // 1st task
+        UpdateProgressUI();
     }
 
-
-
-    // Function to check conditions for each task based on its index
-    private bool IsTaskConditionMet()
+    public void SetTaskText(string taskDescription)
     {
-        switch (currentTaskIndex)
-        {
-            case 0:
-                // Conditions for Task 0
-                //Example to test when alien1 is defeated.
-                //if (!aliens[0].activeSelf)
-                //{
-                //    return true;
-                //}
-                //break;
-
-            case 1:
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    return true;
-                }
-
-                break;
-
-            case 2:
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    return true;
-                }
-                break;
-
-                // Add more cases as needed for additional tasks
-                // Each case should return true if the specific conditions for that task are met
-        }
-
-        // If none of the conditions are met, return false
-        return false;
+        taskText.text = taskDescription;
     }
 
-    private void CompleteTask()
+    public void IncreaseProgress(float percentage)
     {
-        if (currentTaskIndex < tasks.Count)
-        {
-            currentTaskIndex++;
-            UpdateProgress();
-            UpdateTaskUI();
-        }
+        float progressIncrement = percentage / 100f;
+        currentProgress = Mathf.Clamp(currentProgress + progressIncrement, 0f, 1f); // Ensure progress stays between 0 and 1
+        UpdateProgressUI();
     }
 
-    void Update()
+    private void UpdateProgressUI()
     {
-        if (IsTaskConditionMet())
-        {
-            CompleteTask();
-        }
-        {
-
-        }
+        progressBar.fillAmount = currentProgress;
+        progressText.text = "Progress: " + Mathf.RoundToInt(currentProgress * 100) + "%";
     }
 
-    private void UpdateTaskUI()
-    {
-        if (currentTaskIndex < tasks.Count)
-        {
-            taskText.text = "Task: " + tasks[currentTaskIndex];
-        }
-        else
-        {
-            taskText.text = "All tasks completed!";
-        }
-    }
 
-    private void UpdateProgress()
-    {
-        float progress = (float)currentTaskIndex / tasks.Count;
-        progressBar.fillAmount = progress;
-        progressText.text = "Progress: " + Mathf.RoundToInt(progress * 100) + "%";
-    }
+
+
 }
