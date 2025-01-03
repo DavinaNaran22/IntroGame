@@ -35,7 +35,7 @@ public class CaveDialogue2 : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (redCrystal.activeSelf == false)
         {
             taskManager.SetTaskText("Power ship with crystal");
             Debug.Log("Crystal equipped");
@@ -45,7 +45,7 @@ public class CaveDialogue2 : MonoBehaviour
 
     private void EquipCrystal()
     {
-        redCrystal.SetActive(false);
+        //redCrystal.SetActive(false);
         ShowDialogue("Maybe I can use this crystal as a power source for my spaceship...");
         
     }
