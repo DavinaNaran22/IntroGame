@@ -540,45 +540,53 @@ public class QuantityManager : MonoBehaviour
 
     public void UseMedicine()
     {
-        if (medicineCount > 0) // Check if there's at least one medicine
+        if (healthBar != null)
         {
-            // Reduce the medicine count
-            medicineCount--;
-
-            // Update the medicine count in the UI
-            UpdateText(medicineText, "Medicine", medicineCount);
-
             // Get the Image component of the health bar
-            if (healthBar != null)
+            UnityEngine.UI.Image healthBarImage = healthBar.GetComponent<UnityEngine.UI.Image>();
+            if (healthBarImage != null)
             {
-                UnityEngine.UI.Image healthBarImage = healthBar.GetComponent<UnityEngine.UI.Image>();
-                if (healthBarImage != null)
+                // Check if the health bar is already full
+                if (Mathf.Approximately(healthBarImage.fillAmount, 1f))
                 {
+                    ShowCraftingMessage("Health is already full!");
+                    Debug.Log("Health is full. Cannot use medicine.");
+                    return; // Exit the method if health is full
+                }
+
+                if (medicineCount > 0) // Check if there's at least one medicine
+                {
+                    // Reduce the medicine count
+                    medicineCount--;
+
+                    // Update the medicine count in the UI
+                    UpdateText(medicineText, "Medicine", medicineCount);
+
                     // Increase the fill amount, clamping it to a maximum of 1
                     healthBarImage.fillAmount = Mathf.Clamp(healthBarImage.fillAmount + healthIncreaseAmount, 0f, 1f);
 
                     // Show success message
                     ShowCraftingMessage("Health increased successfully!");
+                    Debug.Log("Used one medicine. Health bar updated.");
                 }
                 else
                 {
-                    Debug.LogError("Health bar does not have an Image component.");
+                    // Show failure message
+                    ShowCraftingMessage("Not enough medicine!");
+                    Debug.LogWarning("No medicine available to use.");
                 }
             }
             else
             {
-                Debug.LogError("Health bar reference is missing.");
+                Debug.LogError("Health bar does not have an Image component.");
             }
-
-            Debug.Log("Used one medicine. Health bar updated.");
         }
         else
         {
-            // Show failure message
-            ShowCraftingMessage("Not enough medicine!");
-            Debug.LogWarning("No medicine available to use.");
+            Debug.LogError("Health bar reference is missing.");
         }
     }
+
 
 
     // Show the crafting message
