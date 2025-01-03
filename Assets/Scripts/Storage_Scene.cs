@@ -38,7 +38,7 @@ public class Storage_Scene : MonoBehaviour
         GameObject control = GameObject.Find("Cockpit_collider");
         control_panel = control.GetComponent<Control_panel>();
 
-        deactivate_task2();
+        //deactivate_task2();
 
 
     }
