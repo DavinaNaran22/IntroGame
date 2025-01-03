@@ -9124,6 +9124,9 @@ MonoBehaviour:
   closeButton: {fileID: 5181928178551263195}
   inventoryTabButton: {fileID: 2806947272239222425}
   logsTabButton: {fileID: 44682219936960138}
+  gunScript: {fileID: 0}
+  knifeScript: {fileID: 0}
+  swordScript: {fileID: 0}
 --- !u!114 &2750011887527124078
 MonoBehaviour:
   m_ObjectHideFlags: 0
