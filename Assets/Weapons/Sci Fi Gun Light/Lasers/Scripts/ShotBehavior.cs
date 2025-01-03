@@ -1,4 +1,4 @@
-﻿//https://www.youtube.com/watch?v=1rv8lv_TOc8
+﻿//https://www.youtube.com/watch?v=Yl9MhhoBkFU
 
 using UnityEngine;
 using System.Collections;
@@ -18,11 +18,6 @@ public class ShotBehavior : MonoBehaviour
 
         if (m_target != null)
         {
-            if (transform.position == m_target)
-            {
-                explode();
-                return;
-            }
             transform.position = Vector3.MoveTowards(transform.position, m_target, step);
         }
 
@@ -34,18 +29,6 @@ public class ShotBehavior : MonoBehaviour
     }
 
 
-    // Creates an explosion effect when the shot hits a target
-    void explode()
-    {
-        if (collisionExplosion != null)
-        {
-            GameObject explosion = (GameObject)Instantiate(
-                collisionExplosion, transform.position, transform.rotation);
-            Destroy(gameObject);
-            Destroy(explosion, 1f);
-        }
 
-
-    }
 
 }

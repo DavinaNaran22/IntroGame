@@ -30,7 +30,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
     private void Start()
     {
         Healthlimit = GameObject.FindWithTag("HealthLimit");
-        Player = GameManager.Instance.player.transform;
+        GameObject uimanager = GameManager.Instance.UIManager;
     }
 
     private void Update()
@@ -88,7 +88,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
         laser.GetComponent<ShotBehavior>().setTarget(targetPosition);
 
         // Damages player when alien fires lasers
-        PlayerHealth playerHealth = Healthlimit.GetComponent<PlayerHealth>();
+        PlayerHealth playerHealth = GameManager.Instance.UIManager.GetComponentInChildren<PlayerHealth>();
         if (playerHealth != null)
         {
             playerHealth.TakeDamage(0.03f); // Adjust damage percentage as needed

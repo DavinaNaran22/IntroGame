@@ -27,8 +27,7 @@ public class GreenAlienBehavior : MonoBehaviour
     private void Start()
     {
         Player = GameManager.Instance.player.transform;
-        //GameObject uimanager = GameManager.Instance.UIManager;
-        Healthlimit = GameObject.FindWithTag("HealthLimit");
+        GameObject uimanager = GameManager.Instance.UIManager;
     }
 
     private void Update()
@@ -86,8 +85,7 @@ public class GreenAlienBehavior : MonoBehaviour
         laser.GetComponent<ShotBehavior>().setTarget(targetPosition);
 
         // Damages player when alien fires lasers
-        PlayerHealth playerHealth = Healthlimit.GetComponent<PlayerHealth>();
-        //PlayerHealth playerHealth = GameManager.Instance.UIManager.GetComponentInChildren<PlayerHealth>();
+        PlayerHealth playerHealth = GameManager.Instance.UIManager.GetComponentInChildren<PlayerHealth>();
         if (playerHealth != null)
         {
             playerHealth.TakeDamage(GameManager.Instance.Difficulty.alienDamage); // Damage dealt according to difficulty
