@@ -11,10 +11,18 @@ public class QuantityManager : MonoBehaviour
     private GameObject alienAlloy;
     //private GameObject thruster;
     public GameObject toolbox;
+    private GameObject crystalObject; // Reference to the crystal object in the scene
+    [Header("Additional Tools")]
+    public GameObject axe;
+    public GameObject saw;
+    public GameObject chisel;
+    public GameObject rasp;
+
     private GameObject shovel;
     public GameObject metalsDropped; // Changed to single item
     public GameObject woodDropped; // Changed to single item
     public GameObject stone; // Changed to single item
+
 
 
     [Header("Single Item UI Elements")]
@@ -30,6 +38,7 @@ public class QuantityManager : MonoBehaviour
     public GameObject woodImage; // Added
     public GameObject stoneImage; // Changed to single item
     public GameObject clueImage;
+    public GameObject crystalImage; // Reference to the UI image for the crystal
     public GameObject clueCompletionButton;
     public GameObject clueCompletionPanel;
     public GameObject healthBar; // Reference to the health bar (Image component)
@@ -84,6 +93,7 @@ public class QuantityManager : MonoBehaviour
         SetActive(swordParent, false);
         SetActive(stoneImage, false);
         SetActive(clueImage, false);
+        SetActive(crystalImage, false);
 
         TrackAlienAlloy("RepairTask2Manager", "AlienAlloy", alienAlloyImage);
         // Add tracking for Alien Skin and Stone drops in Area 3
@@ -204,10 +214,54 @@ public class QuantityManager : MonoBehaviour
                 Debug.LogError("RhinoParent not found in the scene.");
             }
 
-            // Other existing logic for the scene...
+            // Find the crystal object with the tag "Crystal"
+            crystalObject = GameObject.FindWithTag("Crystal");
+
+            if (crystalObject != null)
+            {
+                Debug.Log("Crystal object found in CaveScene. Monitoring its state...");
+                // Start monitoring the state of the crystal object
+                StartCoroutine(WaitForCrystalStateChange());
+            }
+            else
+            {
+                Debug.LogError("Crystal object not found in CaveScene!");
+            }
         }
 
     }
+
+    private System.Collections.IEnumerator WaitForCrystalStateChange()
+    {
+        while (true)
+        {
+            if (crystalObject != null)
+            {
+                // Wait until the crystal becomes inactive
+                yield return new WaitUntil(() => !crystalObject.activeInHierarchy);
+
+                Debug.Log("Crystal object became inactive. Updating crystal image in inventory.");
+
+                // Activate the crystal image in the inventory UI
+                if (crystalImage != null)
+                {
+                    SetActive(crystalImage, true);
+                }
+                else
+                {
+                    Debug.LogError("Crystal image UI is not assigned.");
+                }
+
+                yield break; // Stop monitoring once the state has been handled
+            }
+            else
+            {
+                Debug.LogWarning("Crystal object reference is missing. Stopping monitoring.");
+                yield break;
+            }
+        }
+    }
+
 
     private void Update()
     {
@@ -234,6 +288,13 @@ public class QuantityManager : MonoBehaviour
         {
             SetActive(swordParent, false);
         }
+
+        // Check if all tools are inactive
+        if (AreAllToolsInactive())
+        {
+            SetActive(toolboxImage, true); // Show the toolbox image
+        }
+
     }
 
 
@@ -338,6 +399,7 @@ public class QuantityManager : MonoBehaviour
     }
 
 
+
     private System.Collections.IEnumerator WaitForItemStateChange(GameObject item, GameObject image)
     {
         while (true)
@@ -404,8 +466,13 @@ public class QuantityManager : MonoBehaviour
     }
 
 
+    private bool AreAllToolsInactive()
+    {
+        return !axe.activeInHierarchy && !saw.activeInHierarchy && !chisel.activeInHierarchy && !rasp.activeInHierarchy;
 
-    private void HandleHerbs()
+    }
+
+        private void HandleHerbs()
     {
         // Create a list to track herbs that need to be processed
         List<GameObject> herbsToProcess = new List<GameObject>();
@@ -699,16 +766,17 @@ public class QuantityManager : MonoBehaviour
             // Turn off SwordParent and StoneImage
             SetActive(swordParent, false);
             SetActive(stoneImage, false);
+            GameManager.Instance.boostedSwordCrafted = true;
 
             // Access the EquipSwordOnClick script
             if (equipSwordScript != null)
             {
                 equipSwordScript.IsSwordBoosted = true; // Mark the sword as boosted
 
+
                 // Apply the boost to the currently equipped sword (if any)
                 equipSwordScript.ApplyBoostEffect();
 
-                GameManager.Instance.boostedSwordCrafted = true;
             }
             else
             {

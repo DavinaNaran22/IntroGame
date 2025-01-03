@@ -34,6 +34,7 @@ TagManager:
   - GameTimeSlider
   - EndingScene
   - Passcode
+  - Crystal
   layers:
   - Default
   - TransparentFX
