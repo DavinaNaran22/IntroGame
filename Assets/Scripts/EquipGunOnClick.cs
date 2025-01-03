@@ -63,6 +63,10 @@ public class EquipGunOnClick : MonoBehaviour
             equipSwordScript.UnequipSword();
         }
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+
         // Instantiate and equip the gun
         equippedGun = Instantiate(gunPrefab, playerHand);
         equippedGun.layer = WEAPON_LAYER; // So only rendered by weapon camera
@@ -109,6 +113,9 @@ public class EquipGunOnClick : MonoBehaviour
         {
             crosshair.SetActive(false);
         }
+        // Unlock the cursor and make it visible
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public bool IsGunEquipped => equippedGun != null;

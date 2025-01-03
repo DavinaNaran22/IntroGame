@@ -101,6 +101,9 @@ public class EquipSwordOnClick : MonoBehaviour
             knifeScript.UnequipKnife();
         }
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false; // Hides the cursor
+
         // Instantiate and attach the sword to the WeaponParent
         equippedSword = Instantiate(swordPrefab, weaponParent);
         equippedSword.SetActive(true);
@@ -134,6 +137,9 @@ public class EquipSwordOnClick : MonoBehaviour
 
             Debug.Log("Sword unequipped.");
         }
+        // Unlock the cursor and make it visible
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public bool IsSwordEquipped => isEquipped; // Public property to check if sword is equipped

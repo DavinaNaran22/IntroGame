@@ -74,9 +74,14 @@ public class InventoryManager : MonoBehaviour
             Time.timeScale = 0f; // Pause the game
             isInventoryOpen = true;
 
+            // Unlock and make the cursor visible
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
             // Default to the Inventory tab
             ToggleTab("Inventory");
         }
+
         
     }
 
