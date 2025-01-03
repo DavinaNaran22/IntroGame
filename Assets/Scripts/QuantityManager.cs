@@ -11,10 +11,17 @@ public class QuantityManager : MonoBehaviour
     private GameObject alienAlloy;
     //private GameObject thruster;
     public GameObject toolbox;
+    [Header("Additional Tools")]
+    public GameObject axe;
+    public GameObject saw;
+    public GameObject chisel;
+    public GameObject rasp;
+
     private GameObject shovel;
     public GameObject metalsDropped; // Changed to single item
     public GameObject woodDropped; // Changed to single item
     public GameObject stone; // Changed to single item
+
 
 
     [Header("Single Item UI Elements")]
@@ -234,6 +241,13 @@ public class QuantityManager : MonoBehaviour
         {
             SetActive(swordParent, false);
         }
+
+        // Check if all tools are inactive
+        if (AreAllToolsInactive())
+        {
+            SetActive(toolboxImage, true); // Show the toolbox image
+        }
+
     }
 
 
@@ -338,6 +352,7 @@ public class QuantityManager : MonoBehaviour
     }
 
 
+
     private System.Collections.IEnumerator WaitForItemStateChange(GameObject item, GameObject image)
     {
         while (true)
@@ -404,8 +419,13 @@ public class QuantityManager : MonoBehaviour
     }
 
 
+    private bool AreAllToolsInactive()
+    {
+        return !axe.activeInHierarchy && !saw.activeInHierarchy && !chisel.activeInHierarchy && !rasp.activeInHierarchy;
 
-    private void HandleHerbs()
+    }
+
+        private void HandleHerbs()
     {
         // Create a list to track herbs that need to be processed
         List<GameObject> herbsToProcess = new List<GameObject>();

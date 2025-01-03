@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
+  m_IndirectSpecularColor: {r: 0.002063206, g: 0.0019480612, b: 0.0021180937, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1306,13 +1306,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: axe
+      value: 
+      objectReference: {fileID: 2066790394}
+    - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: gun
       value: 
       objectReference: {fileID: 1858508952}
     - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: saw
+      value: 
+      objectReference: {fileID: 1088120045}
+    - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: rasp
+      value: 
+      objectReference: {fileID: 1561588766}
+    - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: knife
       value: 
       objectReference: {fileID: 1512205549}
+    - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: chisel
+      value: 
+      objectReference: {fileID: 1638161635}
     - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: shovel
       value: 
@@ -17394,6 +17410,7 @@ MonoBehaviour:
   cameraManagement: {fileID: 1254959163}
   cameraMsg: {fileID: 1664890787}
   Weather: {fileID: 1482992022}
+  boostedSwordCrafted: 0
   triggerEnding: 0
 --- !u!4 &1352790603
 Transform:
