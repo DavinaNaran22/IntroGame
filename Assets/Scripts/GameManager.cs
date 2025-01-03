@@ -74,6 +74,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject Weather;
     public TaskManager taskManager;
     public bool boostedSwordCrafted = false;
+    public bool task4Completed = false;
 
     [Header("Game Ending")]
     public bool triggerEnding = false;
