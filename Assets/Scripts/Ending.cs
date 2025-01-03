@@ -21,6 +21,7 @@ public class Ending : MonoBehaviour
 
     private CharacterController characterController;
     private PlayerInputActions inputActions;
+    public TaskManager taskManager;
 
     private List<string> additionalDialogues = new List<string>
     {
@@ -85,6 +86,7 @@ public class Ending : MonoBehaviour
     private void OnButtonClicked()
     {
         HideDialogue(); // Executes only when the button is clicked
+        taskManager.IncreaseProgress(5);
         button.SetActive(false);
         StartAdditionalDialogues();
     }
