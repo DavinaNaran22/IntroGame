@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Interior_Manager : MonoBehaviour
 {
+    public TaskManager taskManager;
     public Storage_Scene storage_scene;
     public Control_panel control_panel;
     public GameObject Passcode;
@@ -15,6 +16,7 @@ public class Interior_Manager : MonoBehaviour
     public BoxCollider passcode;
     public GameObject mini_map;
     public GameObject Exit_control_panel;
+    public bool task2ProgressAdded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -45,15 +47,7 @@ public class Interior_Manager : MonoBehaviour
                     Message4.SetActive(false);
 
 
-                    //if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false) {
-                    //    Debug.Log("PUZZLE");
-                    //    MessagePuzzle.SetActive(false);
-                    //    //SceneManager.LoadScene("Puzzle");
-                    //    //SceneManager.sceneLoaded += OnSceneLoad;
-                    //    //Debug.Log("Loading puzzle scene");
-                    //    scene5PT2.SetActive(true);
 
-                    //}
                 }
                 else {
                     //enables the directions and the map for task 2 
@@ -82,10 +76,16 @@ public class Interior_Manager : MonoBehaviour
         }
 
         // when task 1 and task 2 is completed start the next task ans its instructions
-        if (control_panel.task1_completed == true && storage_scene.Task2 == true)
+        if (control_panel.task1_completed == true && storage_scene.Task2 == true && !task2ProgressAdded)
         {
             Message3.SetActive(true);
+            Debug.Log("Adding 11% to progress");
+            taskManager.IncreaseProgress(11); // Increase progress by 11%
+            taskManager.SetTaskText("Find passcode to leave");
             Passcode.SetActive(true);
+            task2ProgressAdded = true;
+
+
             //Debug.Log("TASK1 AND 2 COMPLETE");
             if (Passcode.activeSelf == false) {
                 Message3.SetActive(false);
