@@ -8339,6 +8339,7 @@ MonoBehaviour:
   playerHand: {fileID: 677467755}
   equipGunButton: {fileID: 929672215}
   equipKnifeScript: {fileID: 644578571}
+  equipSwordScript: {fileID: 644578576}
   crosshair: {fileID: 905433306}
 --- !u!114 &644578571
 MonoBehaviour:
@@ -8357,6 +8358,7 @@ MonoBehaviour:
   stabDistance: 0.5
   stabSpeed: 10
   gunScript: {fileID: 644578567}
+  equipSwordScript: {fileID: 644578576}
 --- !u!114 &644578572 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}

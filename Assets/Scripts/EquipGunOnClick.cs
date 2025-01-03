@@ -12,6 +12,8 @@ public class EquipGunOnClick : MonoBehaviour
 
     // Reference to the EquipKnifeOnClick script
     public EquipKnifeOnClick equipKnifeScript;
+    public EquipSwordOnClick equipSwordScript;
+
 
     // Reference to the Crosshair UI
     public GameObject crosshair;
@@ -53,6 +55,12 @@ public class EquipGunOnClick : MonoBehaviour
         if (equipKnifeScript != null && equipKnifeScript.IsKnifeEquipped)
         {
             equipKnifeScript.UnequipKnife();
+        }
+
+        // If the sword is equipped, unequip it
+        if (equipSwordScript != null && equipSwordScript.IsSwordEquipped)
+        {
+            equipSwordScript.UnequipSword();
         }
 
         // Instantiate and equip the gun

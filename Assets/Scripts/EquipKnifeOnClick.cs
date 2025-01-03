@@ -22,6 +22,7 @@ public class EquipKnifeOnClick : MonoBehaviour
 
     // Reference to the EquipGunOnClick script
     public EquipGunOnClick gunScript;
+    public EquipSwordOnClick equipSwordScript;
 
     void Start()
     {
@@ -71,6 +72,12 @@ public class EquipKnifeOnClick : MonoBehaviour
         if (gunScript != null && gunScript.IsGunEquipped)
         {
             gunScript.UnequipGun();
+        }
+
+        // If the sword is equipped, unequip it
+        if (equipSwordScript != null && equipSwordScript.IsSwordEquipped)
+        {
+            equipSwordScript.UnequipSword();
         }
 
         // Instantiate and attach the knife to the WeaponParent
