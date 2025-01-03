@@ -17394,6 +17394,7 @@ MonoBehaviour:
   cameraManagement: {fileID: 1254959163}
   cameraMsg: {fileID: 1664890787}
   Weather: {fileID: 1482992022}
+  taskManager: {fileID: 251013341}
   triggerEnding: 0
 --- !u!4 &1352790603
 Transform:
