@@ -32,6 +32,8 @@ public class QuantityManager : MonoBehaviour
     public GameObject clueImage;
     public GameObject clueCompletionButton;
     public GameObject clueCompletionPanel;
+    public GameObject healthBar; // Reference to the health bar (Image component)
+    public float healthIncreaseAmount = 0.1f; // Amount to increase health per medicine
 
     [Header("Collectible Items")]
     public List<GameObject> medicines;
@@ -521,9 +523,51 @@ public class QuantityManager : MonoBehaviour
         }
     }
 
+    public void UseMedicine()
+    {
+        if (medicineCount > 0) // Check if there's at least one medicine
+        {
+            // Reduce the medicine count
+            medicineCount--;
+
+            // Update the medicine count in the UI
+            UpdateText(medicineText, "Medicine", medicineCount);
+
+            // Get the Image component of the health bar
+            if (healthBar != null)
+            {
+                UnityEngine.UI.Image healthBarImage = healthBar.GetComponent<UnityEngine.UI.Image>();
+                if (healthBarImage != null)
+                {
+                    // Increase the fill amount, clamping it to a maximum of 1
+                    healthBarImage.fillAmount = Mathf.Clamp(healthBarImage.fillAmount + healthIncreaseAmount, 0f, 1f);
+
+                    // Show success message
+                    ShowCraftingMessage("Health increased successfully!");
+                }
+                else
+                {
+                    Debug.LogError("Health bar does not have an Image component.");
+                }
+            }
+            else
+            {
+                Debug.LogError("Health bar reference is missing.");
+            }
+
+            Debug.Log("Used one medicine. Health bar updated.");
+        }
+        else
+        {
+            // Show failure message
+            ShowCraftingMessage("Not enough medicine!");
+            Debug.LogWarning("No medicine available to use.");
+        }
+    }
+
 
     // Show the crafting message
-    private void ShowCraftingMessage(string message)
+    public void ShowCraftingMessage(string message)
     {
         if (craftingMessageCanvas != null && craftingMessageText != null)
         {

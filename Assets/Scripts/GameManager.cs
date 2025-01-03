@@ -86,6 +86,8 @@ public class GameManager : Singleton<GameManager>
         optionsManager.GetComponent<VolumeSlider>().AudioMixer.GetFloat("volume", out Volume);
         MouseSens = MouseLook.mouseSensitivity;
         GameTime = optionsManager.GetComponent<GameSpeedSlider>().GameTime;
+        //Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.visible = true; // Keeps the cursor visible
     }
 
     private void Update()
@@ -120,6 +122,7 @@ public class GameManager : Singleton<GameManager>
         {
             Weather.SetActive(false); // Deactivate if not in Landscape
         }
+
     }
 
     // Save() and Load() are from Resource 10.1 Data Persistance on QMPlus

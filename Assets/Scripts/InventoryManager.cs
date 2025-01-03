@@ -14,6 +14,9 @@ public class InventoryManager : MonoBehaviour
 
     private bool isInventoryOpen = false;
     private PlayerInputActions inputActions;
+    public EquipGunOnClick gunScript;
+    public EquipKnifeOnClick knifeScript;
+    public EquipSwordOnClick swordScript;
 
     void Start()
     {
@@ -50,19 +53,36 @@ public class InventoryManager : MonoBehaviour
 
 
 
-    //void Update()
-    //{
-    //    // Open inventory with "I"
-    //    if (Input.GetKeyDown(KeyCode.I) && !isInventoryOpen)
-    //    {
-    //        OpenInventory();
-    //    }
-    //    // Close inventory with "ESC"
-    //    else if (Input.GetKeyDown(KeyCode.Escape) && isInventoryOpen)
-    //    {
-    //        CloseInventory();
-    //    }
-    //}
+    void Update()
+    {
+        if (inventoryCanvas.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else if (!inventoryCanvas.activeSelf && gunScript.IsGunEquipped)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else if (!inventoryCanvas.activeSelf && knifeScript.IsKnifeEquipped)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else if (!inventoryCanvas.activeSelf && swordScript.IsSwordEquipped)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+
+
 
     void OpenInventory()
     {
@@ -77,7 +97,7 @@ public class InventoryManager : MonoBehaviour
             // Default to the Inventory tab
             ToggleTab("Inventory");
         }
-        
+
     }
 
     void CloseInventory()

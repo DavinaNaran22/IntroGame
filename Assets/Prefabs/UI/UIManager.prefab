@@ -9155,6 +9155,8 @@ MonoBehaviour:
   clueImage: {fileID: 0}
   clueCompletionButton: {fileID: 0}
   clueCompletionPanel: {fileID: 0}
+  healthBar: {fileID: 0}
+  healthIncreaseAmount: 0.1
   medicines: []
   clues: []
   medicineText: {fileID: 0}

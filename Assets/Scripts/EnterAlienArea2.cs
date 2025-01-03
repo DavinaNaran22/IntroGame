@@ -37,6 +37,9 @@ public class EnterAlienArea2 : MonoBehaviour
     private bool waitingForEquipC = false;
     private bool blocksEquipped = false;
 
+    public AudioSource alienAreaAudio; // Audio to play in the alien area
+    public AudioSource backgroundAudio; // Background audio to resume after the task is completed
+
 
     public List<string> additionalDialogues = new List<string>
     {
@@ -93,6 +96,10 @@ public class EnterAlienArea2 : MonoBehaviour
                 a.enterAlienArea2 = this;
             }
         }
+
+        // Ensure initial audio state
+        if (alienAreaAudio) alienAreaAudio.Stop();
+        if (backgroundAudio) backgroundAudio.Play();
     }
 
     private void Update()
@@ -202,6 +209,10 @@ public class EnterAlienArea2 : MonoBehaviour
             Debug.Log("Player is now inside the box.");
         }
 
+        // Play alien area audio and stop background audio
+        if (alienAreaAudio) alienAreaAudio.Play();
+        if (backgroundAudio) backgroundAudio.Stop();
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -212,6 +223,10 @@ public class EnterAlienArea2 : MonoBehaviour
             isPlayerNearby = false;
             Debug.Log("Player attempted to leave the box.");
         }
+
+        // Stop alien area audio and resume background audio
+        if (alienAreaAudio) alienAreaAudio.Stop();
+        if (backgroundAudio) backgroundAudio.Play();
     }
 
     private void KeepPlayerInsideBox()
