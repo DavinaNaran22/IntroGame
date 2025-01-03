@@ -40,6 +40,9 @@ public class EquipSwordOnClick : MonoBehaviour
 
     private Quaternion originalRotation; // Original rotation of the parent
 
+    // variables for audio
+    public AudioClip swingAudioClip; // The sound effect for the swing
+    private AudioSource audioSource; // AudioSource component
     void Start()
     {
         swordPrefab = GameManager.Instance.SwordPrefab;
@@ -57,6 +60,14 @@ public class EquipSwordOnClick : MonoBehaviour
         {
             originalRotation = weaponParent.localRotation;
         }
+
+        // Initialize AudioSource
+        audioSource = weaponParent.gameObject.GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = weaponParent.gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.playOnAwake = false; // Ensure the sound doesn't play on start
     }
 
     private void Awake()
@@ -148,6 +159,12 @@ public class EquipSwordOnClick : MonoBehaviour
     {
         if (isEquipped && !isSwinging)
         {
+            // Play swing audio
+            if (swingAudioClip != null && audioSource != null)
+            {
+                audioSource.clip = swingAudioClip;
+                audioSource.Play();
+            }
             StartCoroutine(Swing());
         }
     }
