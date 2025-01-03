@@ -708,7 +708,7 @@ public class QuantityManager : MonoBehaviour
                 // Apply the boost to the currently equipped sword (if any)
                 equipSwordScript.ApplyBoostEffect();
 
-                GameManager.Instance.boostedSwordCrafted = true;
+                //GameManager.Instance.boostedSwordCrafted = true;
             }
             else
             {
