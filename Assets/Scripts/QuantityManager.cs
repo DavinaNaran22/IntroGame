@@ -53,6 +53,7 @@ public class QuantityManager : MonoBehaviour
     public GameObject swordParent;
 
     public EquipSwordOnClick equipSwordScript;
+    private RhinoAlienBehaviour rhinoAlienBehaviour;
 
 
     private int medicineCount = 0;
@@ -180,6 +181,28 @@ public class QuantityManager : MonoBehaviour
 
             // Track the sword
             TrackSwordInCave("CaveTaskManager", "MagicSword_Iron", swordImage);
+            // Locate the parent and find RhinoAlienBehaviour in the child
+            GameObject rhinoParent = GameObject.Find("CaveTaskManager"); // Replace with the actual parent object name
+            if (rhinoParent != null)
+            {
+                Transform rhinoChild = rhinoParent.transform.Find("Rhinoceros"); // Replace with the actual child object name
+                if (rhinoChild != null)
+                {
+                    rhinoAlienBehaviour = rhinoChild.GetComponent<RhinoAlienBehaviour>();
+                    if (rhinoAlienBehaviour == null)
+                    {
+                        Debug.LogError("RhinoAlienBehaviour script not found on RhinoChild.");
+                    }
+                }
+                else
+                {
+                    Debug.LogError("RhinoChild not found under RhinoParent.");
+                }
+            }
+            else
+            {
+                Debug.LogError("RhinoParent not found in the scene.");
+            }
 
             // Other existing logic for the scene...
         }
@@ -203,15 +226,7 @@ public class QuantityManager : MonoBehaviour
 
         HandleClues();
 
-        // Check if both wood and metal images are active in the UI
-        if (woodImage.activeSelf && metalsDroppedImage.activeSelf)
-        {
-            // Activate the shovelParent when the conditions are met
-            SetActive(shovelParent, true);
-        }
-
-        // Check if both sword and stone images are active in the UI
-        if (swordImage.activeSelf && stoneImage.activeSelf)
+        if (swordImage.activeSelf && stoneImage.activeSelf && rhinoAlienBehaviour != null && rhinoAlienBehaviour.isCriticalHealth)
         {
             SetActive(swordParent, true);
         }

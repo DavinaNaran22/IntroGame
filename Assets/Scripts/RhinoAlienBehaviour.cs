@@ -25,7 +25,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
     private bool isDead = false; // Flag to check if the alien is dead
     private bool isHit = false;
     public bool isInvulnerable = true; // Checks if alien is in fight mode before player can kill it
-    private bool isCriticalHealth = false;
+    public bool isCriticalHealth = false;
 
     private void Start()
     {
@@ -91,7 +91,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
         PlayerHealth playerHealth = Healthlimit.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
-            playerHealth.TakeDamage(0.03f); // Adjust damage percentage as needed
+            //playerHealth.TakeDamage(0.03f); // Adjust damage percentage as needed
             Debug.Log("Alien shot the player! Dealing damage.");
         }
 
