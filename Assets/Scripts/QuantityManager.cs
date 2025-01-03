@@ -298,6 +298,15 @@ public class QuantityManager : MonoBehaviour
         {
             SetActive(shovelParent, false);
         }
+
+        if (AreAllToolsInactive())
+        {
+            SetActive(toolboxImage, true);
+        }
+        else
+        {
+            SetActive(toolboxImage, false);
+        }
     }
 
 
