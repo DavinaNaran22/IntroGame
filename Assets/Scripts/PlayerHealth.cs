@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        ColourDropdown.AddToImageList(ColourChangeColours.Green, healthBarImage);
         currentHealth = maxHealth;
         GameManager.Instance.playerHealth = currentHealth;
         Debug.Log("Health Bar is at " + currentHealth * 100 + "%");

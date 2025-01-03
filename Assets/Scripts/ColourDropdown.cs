@@ -1,20 +1,42 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum ColourChangeTypes
+{
+    Image,
+    Text
+}
+
+public enum ColourChangeColours
+{
+    Red,
+    Green
+}
+
 public class ColourDropdown : Singleton<ColourDropdown>
 {
     public ColourMode mode;
     [SerializeField] TMP_Dropdown dropdown;
-    // Drag prefabs to these
-    [SerializeField] Image HealthBar;
-    [SerializeField] Image EnemyMinimapIcon;
-    [SerializeField] Image RedSubtitleBox;
-    [SerializeField] Image GreenSubtitleBox;
-    [SerializeField] TextMeshProUGUI PromptText;
-    [SerializeField] Image ExitButton;
-    [SerializeField] Image PlayerHealthBar;
+    [SerializeField] int curDropdownValue;
+
+    [Header("Red")]
+    public List<TextMeshProUGUI> RedText = new List<TextMeshProUGUI>();
+    public List<Image> RedImages = new List<Image>();
+    public List<Light> RedLights = new List<Light>();
+
+    [Header("Green")]
+    public List<TextMeshProUGUI> GreenText = new List<TextMeshProUGUI>();
+    public List<Image> GreenImages = new List<Image>();
+
+    [SerializeField] Material greenLight;
+    [SerializeField] Material redCrystal;
+
+    //[SerializeField] Image RedSubtitleBox;
+    //[SerializeField] Image GreenSubtitleBox;
     [SerializeField] Color red = new Color(242f, 0f, 0f, 255f);
     [SerializeField] Color blue = new Color(0f, 46f, 255f, 255f);
     [SerializeField] Color green = new Color(48f, 215f, 0f, 1f);
@@ -33,35 +55,39 @@ public class ColourDropdown : Singleton<ColourDropdown>
     // Set colours back to original red
     void SetColourRed()
     {
-        HealthBar.color = red;
-        EnemyMinimapIcon.color = red;
-        RedSubtitleBox.color = red;
-        PromptText.color = red;
-        ExitButton.color = red;
+        foreach (var text in RedText) text.color = red;
+        foreach (var image in RedImages) image.color = red;
+        foreach (var light in RedLights) light.color = red;
+        redCrystal.color = red;
+        //RedSubtitleBox.color = red;
     }
 
     // Set colours back to original green
     void SetColourGreen()
     {
-        PlayerHealthBar.color = green;
-        GreenSubtitleBox.color = green;
+        foreach (var text in GreenText) text.color = green;
+        foreach (var image in GreenImages) image.color = green;
+        greenLight.color = green;
+        //GreenSubtitleBox.color = green;
     }
 
-    // Make red images blue
-    void SetColourBlue()
+    // Make red stuff blue
+    void SetRedToBlue()
     {
-        HealthBar.color = blue;
-        EnemyMinimapIcon.color = blue;
-        RedSubtitleBox.color = blue;
-        PromptText.color = blue;
-        ExitButton.color = blue;
+        foreach (var text in RedText) text.color = blue;
+        foreach (var image in RedImages) image.color = blue;
+        foreach (var light in RedLights) light.color = blue;
+        redCrystal.color = blue;
+        //RedSubtitleBox.color = blue;
     }
 
-    // Make green images yellow
-    void SetColourYellow()
+    // Make green stuff yellow
+    void SetGreenToYellow()
     {
-        PlayerHealthBar.color = yellow;
-        GreenSubtitleBox.color = yellow;
+        foreach (var text in GreenText) text.color = yellow;
+        foreach (var image in GreenImages) image.color = yellow;
+        greenLight.color = yellow;
+        //GreenSubtitleBox.color = yellow;
     }
 
     void NoColourBlindness()
@@ -73,14 +99,14 @@ public class ColourDropdown : Singleton<ColourDropdown>
 
     void Protanopia()
     {
-        SetColourBlue();
-        SetColourYellow();
+        SetRedToBlue();
+        SetGreenToYellow();
         Debug.Log("Protanopia");
     }
     void Deuteranopia()
     {
-        SetColourBlue();
-        SetColourYellow();
+        SetRedToBlue();
+        SetGreenToYellow();
         Debug.Log("Deuteranopia");
     }
 
@@ -91,9 +117,73 @@ public class ColourDropdown : Singleton<ColourDropdown>
         Debug.Log("Tritanopia");
     }
 
+    // Add image to correct list and update its colour
+    public static void AddToImageList(ColourChangeColours colour, Image image)
+    {
+        ColourDropdown colourScript = GameManager.Instance.colourScript;
+        if (colour == ColourChangeColours.Red)
+        {
+            colourScript.RedImages.Add(image);
+        } else if (colour == ColourChangeColours.Green)
+        {
+            colourScript.GreenImages.Add(image);
+        }
+
+        colourScript.UpdateColours();
+
+    }
+
+    // Add text to correct list and update its colour
+    public static void AddToTextList(ColourChangeColours colour, TextMeshProUGUI text)
+    {
+        ColourDropdown colourScript = GameManager.Instance.colourScript;
+        if (colour == ColourChangeColours.Red)
+        {
+            colourScript.RedText.Add(text);
+        }
+        else if (colour == ColourChangeColours.Green)
+        {
+            colourScript.GreenText.Add(text);
+        }
+
+        colourScript.UpdateColours();
+    }
+
+    // Add light to correct list and update its colour
+    public static void AddToLightList(ColourChangeColours colour, Light light)
+    {
+        ColourDropdown colourScript = GameManager.Instance.colourScript;
+        if (colour == ColourChangeColours.Red)
+        {
+            colourScript.RedLights.Add(light);
+        }
+        colourScript.UpdateColours();
+    }
+
+    // Called after image/text added to list so it gets the correct colour
+    void UpdateColours()
+    {
+        switch (GameManager.Instance.colourMode)
+        {
+            case ColourMode.NoColourBlindness:
+                NoColourBlindness();
+                break;
+            case ColourMode.Protanopia:
+                Protanopia();
+                break;
+            case ColourMode.Deuteranopia:
+                Deuteranopia();
+                break;
+            case ColourMode.Tritanopia:
+                Tritanopia();
+                break;
+        }
+    }
+
     // Use dropdown value to select the correct colour mode
     void DropdownValueChanged(TMP_Dropdown dropdown)
     {
+        curDropdownValue = dropdown.value;
         switch (dropdown.value)
         {
             case 0:
@@ -123,7 +213,6 @@ public class ColourDropdown : Singleton<ColourDropdown>
 
     private void Update()
     {
-        
         // After player presses play, ref to original colour dropdown is gone
         // Have to update to reference new one
         // And the new one needs to have the event listener added to it for mode switch to work

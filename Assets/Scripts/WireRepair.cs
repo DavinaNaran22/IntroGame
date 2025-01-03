@@ -117,7 +117,7 @@ public class WireRepair : MonoBehaviour
 
     {
         Debug.Log("HEREEEE");
-        if (other.CompareTag("Player") && Storage_Scene.Tools_collected == true)
+        if (other.CompareTag("Player"))
         {
             Player_Task5 = Player.transform.position;
             Debug.Log("HEREEEE22222");

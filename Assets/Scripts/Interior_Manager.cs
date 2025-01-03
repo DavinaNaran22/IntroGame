@@ -40,7 +40,7 @@ public class Interior_Manager : MonoBehaviour
     {
        
             // enables tasks after task 1 is completed
-        Debug.Log("Task1" + storage_scene.Task1);
+        //Debug.Log("Task1" + storage_scene.Task1);
         if (control_panel.task1_completed == true) {
             //if the control panel is off 
             if (!Exit_control_panel.activeSelf) {

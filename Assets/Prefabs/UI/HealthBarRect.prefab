@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6489752957471245291}
   - component: {fileID: 1169420116422987597}
   - component: {fileID: 3675507920588773738}
+  - component: {fileID: 3319719723170564833}
   m_Layer: 0
   m_Name: HealthBarRect
   m_TagString: Untagged
@@ -75,3 +76,15 @@ MonoBehaviour:
   m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3319719723170564833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172439933430764664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0af9e6aa38d704eb0765cb26307107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
