@@ -700,12 +700,12 @@ public class QuantityManager : MonoBehaviour
             SetActive(swordParent, false);
             SetActive(stoneImage, false);
 
+            GameManager.Instance.boostedSwordCrafted = true;
             // Access the EquipSwordOnClick script
             if (equipSwordScript != null)
             {
                 equipSwordScript.IsSwordBoosted = true; // Mark the sword as boosted
 
-                GameManager.Instance.boostedSwordCrafted = true;
 
                 // Apply the boost to the currently equipped sword (if any)
                 equipSwordScript.ApplyBoostEffect();
