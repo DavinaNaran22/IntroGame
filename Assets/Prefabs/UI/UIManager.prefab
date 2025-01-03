@@ -540,15 +540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d57f70478718ef4e959066e73538c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasks:
-  - kill alien1
-  - jump
-  - jump again
   taskText: {fileID: 7012920967283899161}
   progressText: {fileID: 9096321748973276184}
   progressBar: {fileID: 3034785383452999117}
-  aliens:
-  - {fileID: 0}
 --- !u!1 &496388758210886460
 GameObject:
   m_ObjectHideFlags: 0
@@ -9161,6 +9155,8 @@ MonoBehaviour:
   clueImage: {fileID: 0}
   clueCompletionButton: {fileID: 0}
   clueCompletionPanel: {fileID: 0}
+  healthBar: {fileID: 0}
+  healthIncreaseAmount: 0.1
   medicines: []
   clues: []
   medicineText: {fileID: 0}

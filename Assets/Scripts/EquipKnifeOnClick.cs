@@ -22,6 +22,11 @@ public class EquipKnifeOnClick : MonoBehaviour
 
     // Reference to the EquipGunOnClick script
     public EquipGunOnClick gunScript;
+    public EquipSwordOnClick equipSwordScript;
+
+    // variables for audio
+    public AudioClip stabAudioClip; // The sound effect for the swing
+    public AudioSource audioSource; // AudioSource component
 
     void Start()
     {
@@ -34,6 +39,13 @@ public class EquipKnifeOnClick : MonoBehaviour
         {
             Debug.LogError("EquipKnifeButton is not assigned in the inspector.");
         }
+        // Initialize AudioSource
+        audioSource = weaponParent.gameObject.GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = weaponParent.gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.playOnAwake = false; // Ensure the sound doesn't play on start
     }
 
     private void Awake()
@@ -72,6 +84,14 @@ public class EquipKnifeOnClick : MonoBehaviour
         {
             gunScript.UnequipGun();
         }
+
+        // If the sword is equipped, unequip it
+        if (equipSwordScript != null && equipSwordScript.IsSwordEquipped)
+        {
+            equipSwordScript.UnequipSword();
+        }
+
+        
 
         // Instantiate and attach the knife to the WeaponParent
         equippedKnife = Instantiate(knifePrefab, weaponParent);
@@ -125,6 +145,7 @@ public class EquipKnifeOnClick : MonoBehaviour
             isEquipped = false;
             Debug.Log("Knife unequipped.");
         }
+        
     }
 
     public bool IsKnifeEquipped => isEquipped; // Public property to check if knife is equipped
@@ -133,6 +154,12 @@ public class EquipKnifeOnClick : MonoBehaviour
     {
         if (isEquipped && !isStabbing)
         {
+            // Play stab audio
+            if (stabAudioClip != null && audioSource != null)
+            {
+                audioSource.clip = stabAudioClip;
+                audioSource.Play();
+            }
             StartCoroutine(Stab());
         }
     }

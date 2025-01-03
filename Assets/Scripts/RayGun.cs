@@ -16,6 +16,8 @@ public class RayGun : MonoBehaviour
     float range = 1000.0f;
 
     private PlayerInputActions inputActions;
+    public InventoryManager inventoryManager; // Reference to InventoryManager
+
 
     private void Awake()
     {
@@ -35,11 +37,19 @@ public class RayGun : MonoBehaviour
     private void Start()
     {
         equipGunOnClick = GameObject.Find("InventoryManager").GetComponent<EquipGunOnClick>();
+        inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+
     }
 
 
     void Update()
     {
+        // Prevent shooting if the inventory canvas is active
+        if (inventoryManager != null && inventoryManager.inventoryCanvas.activeSelf)
+        {
+            return;
+        }
+
         // Shoots if gun is equipped
         if (equipGunOnClick != null && equipGunOnClick.IsGunEquipped)
         {
@@ -61,6 +71,13 @@ public class RayGun : MonoBehaviour
         if (Physics.Raycast(ray, out hit, range))
         {
             GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
+            // Play the shooting sound
+            AudioSource audioSource = laser.GetComponent<AudioSource>();
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
+
             laser.GetComponent<ShotBehavior>().setTarget(hit.point);
             GameObject.Destroy(laser, 0.3f);
 

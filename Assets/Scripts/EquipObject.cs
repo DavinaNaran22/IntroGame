@@ -4,7 +4,8 @@ public class EquipObject : MonoBehaviour
 {
     private bool playerIsInside = false;
     private bool isClueObject = false; // Track if the object is a clue
-
+    private bool isPasscodeObject = false;
+    public QuantityManager quantityManager;
     // This method is called when another collider enters the trigger zone.
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +18,12 @@ public class EquipObject : MonoBehaviour
             {
                 isClueObject = true;
             }
+
+            // Check if this object is tagged as "Passcode"
+            if (gameObject.CompareTag("Passcode"))
+            {
+                isPasscodeObject = true;
+            }
         }
     }
 
@@ -27,6 +34,7 @@ public class EquipObject : MonoBehaviour
         {
             playerIsInside = false;
             isClueObject = false; // Reset clue status when player leaves
+            isPasscodeObject = false;
         }
     }
 
@@ -35,7 +43,7 @@ public class EquipObject : MonoBehaviour
         if (playerIsInside)
         {
             // If the object is NOT a Clue, allow deactivation with "E"
-            if (!isClueObject && Input.GetKeyDown(KeyCode.E))
+            if (!isClueObject && !isPasscodeObject && Input.GetKeyDown(KeyCode.E))
             {
                 gameObject.SetActive(false);
             }
@@ -44,6 +52,19 @@ public class EquipObject : MonoBehaviour
             if (isClueObject && Input.GetKeyDown(KeyCode.R))
             {
                 gameObject.SetActive(false);
+            }
+
+            // If the object is a Passcode, show the passcode message with "E"
+            if (isPasscodeObject && Input.GetKeyDown(KeyCode.E))
+            {
+                if (quantityManager != null)
+                {
+                    quantityManager.ShowCraftingMessage("Passcode: 2836");
+                }
+                else
+                {
+                    Debug.LogError("QuantityManager reference is missing!");
+                }
             }
         }
     }

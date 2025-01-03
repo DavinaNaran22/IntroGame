@@ -18,6 +18,10 @@ public class EquipShovelOnClick : MonoBehaviour
 
     public GameObject crosshair; // Reference to the crosshair UI
 
+    // References to other weapon scripts
+    public EquipGunOnClick equipGunScript;
+    public EquipKnifeOnClick equipKnifeScript;
+
     void Start()
     {
         thrusterimg.SetActive(false);
@@ -78,6 +82,25 @@ public class EquipShovelOnClick : MonoBehaviour
 
     void EquipShovel()
     {
+        // Ensure other weapons are unequipped
+        if (equipGunScript != null && equipGunScript.IsGunEquipped)
+        {
+            equipGunScript.UnequipGun();
+            crosshair.SetActive(false);
+        }
+
+        if (equipKnifeScript != null && equipKnifeScript.IsKnifeEquipped)
+        {
+            equipKnifeScript.UnequipKnife();
+
+            // Ensure any ongoing stab actions are stopped
+            equipKnifeScript.StopAllCoroutines();
+            if (equipKnifeScript.audioSource != null && equipKnifeScript.audioSource.isPlaying)
+            {
+                equipKnifeScript.audioSource.Stop();
+            }
+        }
+
         // Ensure the thruster is active before equipping the shovel
         if (thruster == null || !thruster.activeSelf)
         {
@@ -91,25 +114,7 @@ public class EquipShovelOnClick : MonoBehaviour
             return;
         }
 
-        // Destroy children of gunParent and knifeParent
-        Transform gunParent = GameObject.Find("GunParent")?.transform;
-        Transform knifeParent = GameObject.Find("KnifeParent")?.transform;
-
-        if (gunParent != null)
-        {
-            foreach (Transform child in gunParent)
-            {
-                Destroy(child.gameObject);
-            }
-        }
-
-        if (knifeParent != null)
-        {
-            foreach (Transform child in knifeParent)
-            {
-                Destroy(child.gameObject);
-            }
-        }
+        
 
         // Instantiate and attach the shovel prefab to the placement transform
         equippedShovel = Instantiate(shovelPrefab, shovelPlacement);
@@ -128,11 +133,7 @@ public class EquipShovelOnClick : MonoBehaviour
         // Enable components on the thruster after the shovel is equipped
         ActivateThrusterComponents();
 
-        // Deactivate the crosshair
-        if (crosshair != null)
-        {
-            crosshair.SetActive(false);
-        }
+       
 
         Debug.Log("Shovel equipped.");
         isShovelDeactivated = false;
@@ -219,11 +220,7 @@ public class EquipShovelOnClick : MonoBehaviour
             shovelImage.SetActive(false);
         }
 
-        // Deactivate the crosshair
-        if (crosshair != null)
-        {
-            crosshair.SetActive(false);
-        }
+        
 
         thrusterimg.SetActive(true);
 

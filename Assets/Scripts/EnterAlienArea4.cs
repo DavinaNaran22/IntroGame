@@ -39,6 +39,9 @@ public class EnterAlienArea4 : MonoBehaviour
     private bool wasAlienDropActive = false; // To track alienDrop state
     private bool wasAlienDrop2Active = false; // To track alienDrop2 state
 
+    public AudioSource alienAreaAudio; // Audio to play in the alien area
+    public AudioSource backgroundAudio; // Background audio to resume after the task is completed
+
 
 
     public List<string> additionalDialogues = new List<string>
@@ -93,6 +96,10 @@ public class EnterAlienArea4 : MonoBehaviour
                 a.enterAlienArea4 = this;
             }
         }
+
+        // Ensure initial audio state
+        if (alienAreaAudio) alienAreaAudio.Stop();
+        if (backgroundAudio) backgroundAudio.Play();
     }
 
     private void Update()
@@ -205,6 +212,11 @@ public class EnterAlienArea4 : MonoBehaviour
             isPlayerNearby = true;
             Debug.Log("Player is now inside the box.");
         }
+
+        // Play alien area audio and stop background audio
+        if (alienAreaAudio) alienAreaAudio.Play();
+        if (backgroundAudio) backgroundAudio.Stop();
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -215,6 +227,10 @@ public class EnterAlienArea4 : MonoBehaviour
             isPlayerNearby = false;
             Debug.Log("Player attempted to leave the box.");
         }
+
+        // Stop alien area audio and resume background audio
+        if (alienAreaAudio) alienAreaAudio.Stop();
+        if (backgroundAudio) backgroundAudio.Play();
     }
 
     private void KeepPlayerInsideBox()

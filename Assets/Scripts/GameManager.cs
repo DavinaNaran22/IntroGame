@@ -70,6 +70,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject cameraCanvas;
     public CameraManagement cameraManagement;
     public TextMeshProUGUI cameraMsg;
+    public GameObject Weather;
 
     [Header("Game Ending")]
     public bool triggerEnding = false;
@@ -85,6 +86,8 @@ public class GameManager : Singleton<GameManager>
         optionsManager.GetComponent<VolumeSlider>().AudioMixer.GetFloat("volume", out Volume);
         MouseSens = MouseLook.mouseSensitivity;
         GameTime = optionsManager.GetComponent<GameSpeedSlider>().GameTime;
+        //Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.visible = true; // Keeps the cursor visible
     }
 
     private void Update()
@@ -109,6 +112,17 @@ public class GameManager : Singleton<GameManager>
         {
             ActivateEnding();
         }
+
+        if (SceneManager.GetActiveScene().name == "landscape")
+        {
+            Debug.Log("Weather Active");
+            Weather.SetActive(true); // Activate the GameObject if in Landscape scene
+        }
+        else
+        {
+            Weather.SetActive(false); // Deactivate if not in Landscape
+        }
+
     }
 
     // Save() and Load() are from Resource 10.1 Data Persistance on QMPlus

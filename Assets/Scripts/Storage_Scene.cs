@@ -47,6 +47,7 @@ public class Storage_Scene : MonoBehaviour
             control_panel.Message2.SetActive(false);
             activate_task2();
 
+
         }
         // when the wing is attached enable the tools to repair the wing 
         if (wing_attached.WingTask == true) {

@@ -12,6 +12,8 @@ public class EquipGunOnClick : MonoBehaviour
 
     // Reference to the EquipKnifeOnClick script
     public EquipKnifeOnClick equipKnifeScript;
+    public EquipSwordOnClick equipSwordScript;
+
 
     // Reference to the Crosshair UI
     public GameObject crosshair;
@@ -55,6 +57,12 @@ public class EquipGunOnClick : MonoBehaviour
             equipKnifeScript.UnequipKnife();
         }
 
+        // If the sword is equipped, unequip it
+        if (equipSwordScript != null && equipSwordScript.IsSwordEquipped)
+        {
+            equipSwordScript.UnequipSword();
+        }
+
         // Instantiate and equip the gun
         equippedGun = Instantiate(gunPrefab, playerHand);
         equippedGun.layer = WEAPON_LAYER; // So only rendered by weapon camera
@@ -82,7 +90,6 @@ public class EquipGunOnClick : MonoBehaviour
         {
             crosshair.SetActive(true);
         }
-
         Debug.Log("Gun equipped.");
     }
 
