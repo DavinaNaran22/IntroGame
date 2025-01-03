@@ -16,6 +16,8 @@ public class RayGun : MonoBehaviour
     float range = 1000.0f;
 
     private PlayerInputActions inputActions;
+    public InventoryManager inventoryManager; // Reference to InventoryManager
+
 
     private void Awake()
     {
@@ -35,11 +37,19 @@ public class RayGun : MonoBehaviour
     private void Start()
     {
         equipGunOnClick = GameObject.Find("InventoryManager").GetComponent<EquipGunOnClick>();
+        inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+
     }
 
 
     void Update()
     {
+        // Prevent shooting if the inventory canvas is active
+        if (inventoryManager != null && inventoryManager.inventoryCanvas.activeSelf)
+        {
+            return;
+        }
+
         // Shoots if gun is equipped
         if (equipGunOnClick != null && equipGunOnClick.IsGunEquipped)
         {

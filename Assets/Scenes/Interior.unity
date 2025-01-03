@@ -14116,6 +14116,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091460346}
   m_CullTransparentMesh: 1
+--- !u!114 &1100659025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3298869225951123383, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+  m_PrefabInstance: {fileID: 51700331}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644578565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d09c225a8aed9f4a8469c4dc4f08903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1103854952 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4154383487739904953, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
@@ -23831,6 +23842,7 @@ MonoBehaviour:
   shootRate: 0.3
   m_shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   equipGunOnClick: {fileID: 644578567}
+  inventoryManager: {fileID: 1100659025}
 --- !u!1 &2002893944 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 170521126036016332, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}
