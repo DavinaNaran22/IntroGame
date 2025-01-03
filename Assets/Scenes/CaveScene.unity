@@ -3890,7 +3890,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageBarImage: {fileID: 257706948}
-  currentAmount: 0
 --- !u!224 &152426253
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6082,7 +6081,6 @@ MonoBehaviour:
   redCrystal: {fileID: 1915877422}
   player: {fileID: 0}
   transition: {fileID: 982021045}
-  taskManager: {fileID: 0}
   additionalDialogues:
   - I finally defeated the Zyrog alien!
   - The Xenos aliens can finally live in peace with no more ruler on this planet.
@@ -8039,7 +8037,6 @@ MonoBehaviour:
   minimap: {fileID: 0}
   picBarrier: {fileID: 681031835}
   promptText: {fileID: 1366756579}
-  taskManager: {fileID: 0}
   isPlayerNearby: 0
 --- !u!4 &327061442
 Transform:
@@ -11630,8 +11627,6 @@ MonoBehaviour:
   cameraManagement: {fileID: 388237708}
   cameraMsg: {fileID: 713401664}
   Weather: {fileID: 0}
-  taskManager: {fileID: 0}
-  boostedSwordCrafted: 0
   triggerEnding: 0
 --- !u!114 &444127644
 MonoBehaviour:
@@ -15821,11 +15816,9 @@ MonoBehaviour:
   craftSwordText: {fileID: 59319830}
   craftedPurpleSword: {fileID: 1827978149}
   redCrystalText: {fileID: 227023230}
-  taskManager: {fileID: 0}
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 0.3
   isInvulnerable: 1
-  isCriticalHealth: 0
 --- !u!95 &640000445 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9566128, guid: fdc7c645919f60047929b2f994266803, type: 3}
@@ -45779,10 +45772,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -9181892908506501681, guid: 7965e55e17644450197bef8ae6595113, type: 3}
-      propertyPath: m_TagString
-      value: Crystal
-      objectReference: {fileID: 0}
     - target: {fileID: -8832907690923769944, guid: 7965e55e17644450197bef8ae6595113, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -45877,70 +45866,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2809082132647288885, guid: 7965e55e17644450197bef8ae6595113, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2038775183}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -9181892908506501681, guid: 7965e55e17644450197bef8ae6595113, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1915877425}
-    - targetCorrespondingSourceObject: {fileID: -9181892908506501681, guid: 7965e55e17644450197bef8ae6595113, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1915877424}
-    - targetCorrespondingSourceObject: {fileID: -9181892908506501681, guid: 7965e55e17644450197bef8ae6595113, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1915877423}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7965e55e17644450197bef8ae6595113, type: 3}
 --- !u!1 &1915877422 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -9181892908506501681, guid: 7965e55e17644450197bef8ae6595113, type: 3}
   m_PrefabInstance: {fileID: 1915877421}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &1915877423
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915877422}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.07
-  m_Center: {x: 0, y: -0.000000029802322, z: 0.03}
---- !u!114 &1915877424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915877422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b775f8305d97854dad991e3ee565da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Text: Press E to equip Crystal
-  sphereRadius: 3
---- !u!114 &1915877425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915877422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a508f8468c624c41b46b63b2ba52441, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quantityManager: {fileID: 0}
 --- !u!1 &1917209434 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8430508194340108916, guid: c6ee9a3b02d704893981ff5f6a5b6c2a, type: 3}

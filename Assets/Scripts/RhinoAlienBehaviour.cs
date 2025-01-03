@@ -32,7 +32,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
     {
         taskManager = GameManager.Instance.taskManager;
         GameObject uimanager = GameManager.Instance.UIManager;
-        Player = GameManager.Instance.player.transform;
+
     }
 
     private void Update()
@@ -242,7 +242,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
         animator.SetTrigger("backIdle");
         craftSwordText.SetActive(true);
 
-        //IF CRAFTED SWORD BECOMES ACTIVE, ALIEN WILL BECOME VULNERABLE
+        // IF CRAFTED SWORD BECOMES ACTIVE, ALIEN WILL BECOME VULNERABLE
         if (GameManager.Instance.boostedSwordCrafted == true)
         {
             craftSwordText.SetActive(false);
@@ -251,15 +251,9 @@ public class RhinoAlienBehaviour : MonoBehaviour
             isInvulnerable = false;
             StartCoroutine(ExecuteEscapeSequence());
         }
-
-        //craftSwordText.SetActive(false);
-        //Debug.Log("Sword has been crafted. Alien is now vulnerable.");
-        //isCriticalHealth = false;
-        //isInvulnerable = false;
-        //StartCoroutine(ExecuteEscapeSequence());
     }
 
-
+    
 
 }
 
