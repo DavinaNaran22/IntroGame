@@ -567,7 +567,7 @@ public class QuantityManager : MonoBehaviour
 
 
     // Show the crafting message
-    private void ShowCraftingMessage(string message)
+    public void ShowCraftingMessage(string message)
     {
         if (craftingMessageCanvas != null && craftingMessageText != null)
         {

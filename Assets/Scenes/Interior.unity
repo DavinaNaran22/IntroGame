@@ -21077,6 +21077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a508f8468c624c41b46b63b2ba52441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quantityManager: {fileID: 644578572}
 --- !u!114 &1669729661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24084,6 +24085,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b0cf1b2bc2f7746559d35b5de46db916, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b0cf1b2bc2f7746559d35b5de46db916, type: 3}
+      propertyPath: m_TagString
+      value: Passcode
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

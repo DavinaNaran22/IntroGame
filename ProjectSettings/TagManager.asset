@@ -33,6 +33,7 @@ TagManager:
   - DifficultyDropdown
   - GameTimeSlider
   - EndingScene
+  - Passcode
   layers:
   - Default
   - TransparentFX
