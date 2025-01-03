@@ -240,7 +240,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
         craftSwordText.SetActive(true);
 
         // IF CRAFTED SWORD BECOMES ACTIVE, ALIEN WILL BECOME VULNERABLE
-        if (craftedPurpleSword.activeSelf == true)
+        if (GameManager.Instance.boostedSwordCrafted == true)
         {
             craftSwordText.SetActive(false);
             Debug.Log("Sword has been crafted. Alien is now vulnerable.");
