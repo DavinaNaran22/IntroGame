@@ -15,6 +15,8 @@ public class InventoryManager : MonoBehaviour
     private bool isInventoryOpen = false;
     private PlayerInputActions inputActions;
     public EquipGunOnClick gunScript;
+    public EquipKnifeOnClick knifeScript;
+    public EquipSwordOnClick swordScript;
 
     void Start()
     {
@@ -59,6 +61,16 @@ public class InventoryManager : MonoBehaviour
             Cursor.visible = true;
         }
         else if (!inventoryCanvas.activeSelf && gunScript.IsGunEquipped)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else if (!inventoryCanvas.activeSelf && knifeScript.IsKnifeEquipped)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else if (!inventoryCanvas.activeSelf && swordScript.IsSwordEquipped)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;

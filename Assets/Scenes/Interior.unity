@@ -1553,6 +1553,14 @@ PrefabInstance:
       propertyPath: gunScript
       value: 
       objectReference: {fileID: 644578567}
+    - target: {fileID: 3298869225951123383, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: knifeScript
+      value: 
+      objectReference: {fileID: 644578571}
+    - target: {fileID: 3298869225951123383, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: swordScript
+      value: 
+      objectReference: {fileID: 644578576}
     - target: {fileID: 3309794609612305466, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 426.98
@@ -8598,7 +8606,6 @@ MonoBehaviour:
   equipKnifeScript: {fileID: 644578571}
   equipSwordScript: {fileID: 644578576}
   crosshair: {fileID: 905433306}
-  weaponEquipped: 0
 --- !u!114 &644578571
 MonoBehaviour:
   m_ObjectHideFlags: 0
