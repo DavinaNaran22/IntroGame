@@ -4,12 +4,13 @@ public class PlayerNearEquipable : PlayerNearText
 {
     [SerializeField] GameObject equipableObject;
     private PlayerInputActions inputActions;
+    public static int count = 0;
 
     private void Awake()
     {
         inputActions = new PlayerInputActions();
     }
-
+   
     private void OnEnable()
     {
         inputActions.Player.Enable();
@@ -30,6 +31,8 @@ public class PlayerNearEquipable : PlayerNearText
         if (hoverText.text == Text && modifyingText)
         {
             equipableObject.SetActive(false);
+            count += 1;
+            Debug.Log(count);
         }
     }
 }

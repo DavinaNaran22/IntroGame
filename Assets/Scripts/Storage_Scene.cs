@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Storage_Scene : MonoBehaviour
@@ -14,14 +15,15 @@ public class Storage_Scene : MonoBehaviour
     public BoxCollider FirstAidKit1;
     public BoxCollider FirstAidKit2;
     public BoxCollider FirstAidKit3;
-   
-    
-
+    public BoxCollider Camera;
     public BoxCollider Gun;
-
     public BoxCollider ScrewDriver;
-    public BoxCollider Tools;
-    public static bool Tools_collected = false;
+
+    public BoxCollider Axe;
+    public MeshCollider Saw;
+    public MeshCollider Chisel;
+    public MeshCollider Rasp;
+
 
 
  
@@ -47,7 +49,7 @@ public class Storage_Scene : MonoBehaviour
         
         if (other.CompareTag("Player") && Task1 == true)
         {
-            Debug.Log("SET TO TRUE TASK 1");
+            //Debug.Log("SET TO TRUE TASK 1");
             // set the instruction to go to the storage room off 
             control_panel.Message2.SetActive(false);
             activate_task2();
@@ -55,20 +57,14 @@ public class Storage_Scene : MonoBehaviour
 
         }
         // when the wing is attached enable the tools to repair the wing 
-        if (wing_attached.WingTask == true) {
-
-            Tools.enabled = true;
-            Tools_collected = true;
-
-
-        }
     }
 
     public void OnTriggerExit(Collider other)
     {
         //once exited the storage room,set the task2 to true indicated that task2 is done
-        if (other.CompareTag("Player") && Task1 == true)
+        if (other.CompareTag("Player") && Task1 == true && PlayerNearEquipable.count == 11)
         {
+            Debug.Log("Tools collected");
             Task2 = true;
 
         }
@@ -90,8 +86,11 @@ public class Storage_Scene : MonoBehaviour
         FirstAidKit3.enabled = false;
 
         ScrewDriver.enabled = false;
-        Tools.enabled = false;
-
+        Axe.enabled = false;
+        Chisel.enabled = false;
+        Saw.enabled = false;
+        Rasp.enabled = false;
+        Camera.enabled = false;
         Gun.enabled = false;
 
         DisableEquip<PlayerNearEquipable>(OxygenTank1.gameObject);
@@ -101,9 +100,12 @@ public class Storage_Scene : MonoBehaviour
         DisableEquip<PlayerNearEquipable>(FirstAidKit1.gameObject);
         DisableEquip<PlayerNearEquipable>(FirstAidKit2.gameObject);
         DisableEquip<PlayerNearEquipable>(FirstAidKit3.gameObject);
-
+        DisableEquip<PlayerNearEquipable>(Camera.gameObject);
         DisableEquip<PlayerNearEquipable>(ScrewDriver.gameObject);
-        DisableEquip<PlayerNearEquipable>(Tools.gameObject);
+        DisableEquip<PlayerNearEquipable>(Axe.gameObject);
+        DisableEquip<PlayerNearEquipable>(Chisel.gameObject);
+        DisableEquip<PlayerNearEquipable>(Saw.gameObject);
+        DisableEquip<PlayerNearEquipable>(Rasp.gameObject);
 
         DisableEquip<PlayerNearEquipable>(Gun.gameObject);
 
@@ -123,8 +125,8 @@ public class Storage_Scene : MonoBehaviour
         FirstAidKit3.enabled = true;
 
         ScrewDriver.enabled = true;
-        
 
+        Camera.enabled = true;
 
         Gun.enabled = true;
 
@@ -136,9 +138,16 @@ public class Storage_Scene : MonoBehaviour
         EnableEquip<PlayerNearEquipable>(FirstAidKit1.gameObject);
         EnableEquip<PlayerNearEquipable>(FirstAidKit2.gameObject);
         EnableEquip<PlayerNearEquipable>(FirstAidKit3.gameObject);
+        EnableEquip<PlayerNearEquipable>(Camera.gameObject);
+        EnableEquip<PlayerNearEquipable>(ScrewDriver.gameObject);
+        EnableEquip<PlayerNearEquipable>(Axe.gameObject);
+        EnableEquip<PlayerNearEquipable>(Chisel.gameObject);
+        EnableEquip<PlayerNearEquipable>(Saw.gameObject);
+        EnableEquip<PlayerNearEquipable>(Rasp.gameObject);
+
 
         EnableEquip<PlayerNearEquipable>(ScrewDriver.gameObject);
-        EnableEquip<PlayerNearEquipable>(Tools.gameObject);
+        
 
         EnableEquip<PlayerNearEquipable>(Gun.gameObject);
     }
