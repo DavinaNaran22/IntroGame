@@ -24,6 +24,10 @@ public class EquipKnifeOnClick : MonoBehaviour
     public EquipGunOnClick gunScript;
     public EquipSwordOnClick equipSwordScript;
 
+    // variables for audio
+    public AudioClip stabAudioClip; // The sound effect for the swing
+    private AudioSource audioSource; // AudioSource component
+
     void Start()
     {
         knifePrefab = GameManager.Instance.knifePrefab;
@@ -35,6 +39,13 @@ public class EquipKnifeOnClick : MonoBehaviour
         {
             Debug.LogError("EquipKnifeButton is not assigned in the inspector.");
         }
+        // Initialize AudioSource
+        audioSource = weaponParent.gameObject.GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = weaponParent.gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.playOnAwake = false; // Ensure the sound doesn't play on start
     }
 
     private void Awake()
@@ -146,6 +157,12 @@ public class EquipKnifeOnClick : MonoBehaviour
     {
         if (isEquipped && !isStabbing)
         {
+            // Play stab audio
+            if (stabAudioClip != null && audioSource != null)
+            {
+                audioSource.clip = stabAudioClip;
+                audioSource.Play();
+            }
             StartCoroutine(Stab());
         }
     }
