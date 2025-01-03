@@ -16,6 +16,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
     public GameObject craftSwordText;
     public GameObject craftedPurpleSword;
     public GameObject redCrystalText;
+    public TaskManager taskManager;
 
     public GameObject shotPrefab;
     public float shootRate = 0.5f;
@@ -25,12 +26,15 @@ public class RhinoAlienBehaviour : MonoBehaviour
     private bool isDead = false; // Flag to check if the alien is dead
     private bool isHit = false;
     public bool isInvulnerable = true; // Checks if alien is in fight mode before player can kill it
-    private bool isCriticalHealth = false;
+    public bool isCriticalHealth = false;
+
+    private bool madeAlienVulnerable = false;
 
     private void Start()
     {
-        Healthlimit = GameObject.FindWithTag("HealthLimit");
+        taskManager = GameManager.Instance.taskManager;
         GameObject uimanager = GameManager.Instance.UIManager;
+        Player = GameManager.Instance.player.transform;
     }
 
     private void Update()
@@ -56,6 +60,17 @@ public class RhinoAlienBehaviour : MonoBehaviour
         if (playerNearby && animator.GetCurrentAnimatorStateInfo(0).IsName("Attack(3)"))
         {
             AutoShootAtPlayer();
+        }
+
+        // IF CRAFTED SWORD BECOMES ACTIVE, ALIEN WILL BECOME VULNERABLE
+        if (!madeAlienVulnerable && GameManager.Instance.boostedSwordCrafted == true)
+        {
+            madeAlienVulnerable = true;
+            craftSwordText.SetActive(false);
+            Debug.Log("Sword has been crafted. Alien is now vulnerable.");
+            isCriticalHealth = false;
+            isInvulnerable = false;
+            StartCoroutine(ExecuteEscapeSequence());
         }
     }
 
@@ -91,7 +106,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
         PlayerHealth playerHealth = GameManager.Instance.UIManager.GetComponentInChildren<PlayerHealth>();
         if (playerHealth != null)
         {
-            playerHealth.TakeDamage(0.03f); // Adjust damage percentage as needed
+            //playerHealth.TakeDamage(0.03f); // Adjust damage percentage as needed
             Debug.Log("Alien shot the player! Dealing damage.");
         }
 
@@ -208,6 +223,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
         isDead = true;
         animator.SetTrigger("Dead"); // Trigger "Dead" animation
         Debug.Log("Alien has died!");
+        taskManager.IncreaseProgress(20);
         StartCoroutine(DelayedBlockAppearance());
     }
 
@@ -238,16 +254,6 @@ public class RhinoAlienBehaviour : MonoBehaviour
         Debug.Log("Critical health dialogue triggered.");
         animator.SetTrigger("backIdle");
         craftSwordText.SetActive(true);
-
-        // IF CRAFTED SWORD BECOMES ACTIVE, ALIEN WILL BECOME VULNERABLE
-        if (craftedPurpleSword.activeSelf == true)
-        {
-            craftSwordText.SetActive(false);
-            Debug.Log("Sword has been crafted. Alien is now vulnerable.");
-            isCriticalHealth = false;
-            isInvulnerable = false;
-            StartCoroutine(ExecuteEscapeSequence());
-        }
     }
 
     

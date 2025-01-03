@@ -9142,6 +9142,10 @@ MonoBehaviour:
   knife: {fileID: 0}
   gun: {fileID: 0}
   toolbox: {fileID: 0}
+  axe: {fileID: 0}
+  saw: {fileID: 0}
+  chisel: {fileID: 0}
+  rasp: {fileID: 0}
   metalsDropped: {fileID: 0}
   woodDropped: {fileID: 0}
   stone: {fileID: 0}
@@ -9156,6 +9160,7 @@ MonoBehaviour:
   woodImage: {fileID: 0}
   stoneImage: {fileID: 0}
   clueImage: {fileID: 0}
+  crystalImage: {fileID: 0}
   clueCompletionButton: {fileID: 0}
   clueCompletionPanel: {fileID: 0}
   healthBar: {fileID: 0}

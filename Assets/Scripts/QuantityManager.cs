@@ -11,10 +11,18 @@ public class QuantityManager : MonoBehaviour
     private GameObject alienAlloy;
     //private GameObject thruster;
     public GameObject toolbox;
+    private GameObject crystalObject; // Reference to the crystal object in the scene
+    [Header("Additional Tools")]
+    public GameObject axe;
+    public GameObject saw;
+    public GameObject chisel;
+    public GameObject rasp;
+
     private GameObject shovel;
     public GameObject metalsDropped; // Changed to single item
     public GameObject woodDropped; // Changed to single item
     public GameObject stone; // Changed to single item
+
 
 
     [Header("Single Item UI Elements")]
@@ -30,6 +38,7 @@ public class QuantityManager : MonoBehaviour
     public GameObject woodImage; // Added
     public GameObject stoneImage; // Changed to single item
     public GameObject clueImage;
+    public GameObject crystalImage; // Reference to the UI image for the crystal
     public GameObject clueCompletionButton;
     public GameObject clueCompletionPanel;
     public GameObject healthBar; // Reference to the health bar (Image component)
@@ -53,6 +62,7 @@ public class QuantityManager : MonoBehaviour
     public GameObject swordParent;
 
     public EquipSwordOnClick equipSwordScript;
+    private RhinoAlienBehaviour rhinoAlienBehaviour;
 
 
     private int medicineCount = 0;
@@ -83,6 +93,7 @@ public class QuantityManager : MonoBehaviour
         SetActive(swordParent, false);
         SetActive(stoneImage, false);
         SetActive(clueImage, false);
+        SetActive(crystalImage, false);
 
         TrackAlienAlloy("RepairTask2Manager", "AlienAlloy", alienAlloyImage);
         // Add tracking for Alien Skin and Stone drops in Area 3
@@ -180,11 +191,77 @@ public class QuantityManager : MonoBehaviour
 
             // Track the sword
             TrackSwordInCave("CaveTaskManager", "MagicSword_Iron", swordImage);
+            // Locate the parent and find RhinoAlienBehaviour in the child
+            GameObject rhinoParent = GameObject.Find("CaveTaskManager"); // Replace with the actual parent object name
+            if (rhinoParent != null)
+            {
+                Transform rhinoChild = rhinoParent.transform.Find("Rhinoceros"); // Replace with the actual child object name
+                if (rhinoChild != null)
+                {
+                    rhinoAlienBehaviour = rhinoChild.GetComponent<RhinoAlienBehaviour>();
+                    if (rhinoAlienBehaviour == null)
+                    {
+                        Debug.LogError("RhinoAlienBehaviour script not found on RhinoChild.");
+                    }
+                }
+                else
+                {
+                    Debug.LogError("RhinoChild not found under RhinoParent.");
+                }
+            }
+            else
+            {
+                Debug.LogError("RhinoParent not found in the scene.");
+            }
 
-            // Other existing logic for the scene...
+            // Find the crystal object with the tag "Crystal"
+            crystalObject = GameObject.FindWithTag("Crystal");
+
+            if (crystalObject != null)
+            {
+                Debug.Log("Crystal object found in CaveScene. Monitoring its state...");
+                // Start monitoring the state of the crystal object
+                StartCoroutine(WaitForCrystalStateChange());
+            }
+            else
+            {
+                Debug.LogError("Crystal object not found in CaveScene!");
+            }
         }
 
     }
+
+    private System.Collections.IEnumerator WaitForCrystalStateChange()
+    {
+        while (true)
+        {
+            if (crystalObject != null)
+            {
+                // Wait until the crystal becomes inactive
+                yield return new WaitUntil(() => !crystalObject.activeInHierarchy);
+
+                Debug.Log("Crystal object became inactive. Updating crystal image in inventory.");
+
+                // Activate the crystal image in the inventory UI
+                if (crystalImage != null)
+                {
+                    SetActive(crystalImage, true);
+                }
+                else
+                {
+                    Debug.LogError("Crystal image UI is not assigned.");
+                }
+
+                yield break; // Stop monitoring once the state has been handled
+            }
+            else
+            {
+                Debug.LogWarning("Crystal object reference is missing. Stopping monitoring.");
+                yield break;
+            }
+        }
+    }
+
 
     private void Update()
     {
@@ -203,21 +280,32 @@ public class QuantityManager : MonoBehaviour
 
         HandleClues();
 
-        // Check if both wood and metal images are active in the UI
-        if (woodImage.activeSelf && metalsDroppedImage.activeSelf)
-        {
-            // Activate the shovelParent when the conditions are met
-            SetActive(shovelParent, true);
-        }
-
-        // Check if both sword and stone images are active in the UI
-        if (swordImage.activeSelf && stoneImage.activeSelf)
+        if (swordImage.activeSelf && stoneImage.activeSelf && rhinoAlienBehaviour != null && rhinoAlienBehaviour.isCriticalHealth)
         {
             SetActive(swordParent, true);
         }
         else
         {
             SetActive(swordParent, false);
+        }
+
+        // Check if both wood and metal images are active
+        if (woodImage.activeSelf && metalsDroppedImage.activeSelf)
+        {
+            SetActive(shovelParent, true);
+        }
+        else
+        {
+            SetActive(shovelParent, false);
+        }
+
+        if (AreAllToolsInactive())
+        {
+            SetActive(toolboxImage, true);
+        }
+        else
+        {
+            SetActive(toolboxImage, false);
         }
     }
 
@@ -323,6 +411,7 @@ public class QuantityManager : MonoBehaviour
     }
 
 
+
     private System.Collections.IEnumerator WaitForItemStateChange(GameObject item, GameObject image)
     {
         while (true)
@@ -389,8 +478,13 @@ public class QuantityManager : MonoBehaviour
     }
 
 
+    private bool AreAllToolsInactive()
+    {
+        return !axe.activeInHierarchy && !saw.activeInHierarchy && !chisel.activeInHierarchy && !rasp.activeInHierarchy;
 
-    private void HandleHerbs()
+    }
+
+        private void HandleHerbs()
     {
         // Create a list to track herbs that need to be processed
         List<GameObject> herbsToProcess = new List<GameObject>();
@@ -525,45 +619,53 @@ public class QuantityManager : MonoBehaviour
 
     public void UseMedicine()
     {
-        if (medicineCount > 0) // Check if there's at least one medicine
+        if (healthBar != null)
         {
-            // Reduce the medicine count
-            medicineCount--;
-
-            // Update the medicine count in the UI
-            UpdateText(medicineText, "Medicine", medicineCount);
-
             // Get the Image component of the health bar
-            if (healthBar != null)
+            UnityEngine.UI.Image healthBarImage = healthBar.GetComponent<UnityEngine.UI.Image>();
+            if (healthBarImage != null)
             {
-                UnityEngine.UI.Image healthBarImage = healthBar.GetComponent<UnityEngine.UI.Image>();
-                if (healthBarImage != null)
+                // Check if the health bar is already full
+                if (Mathf.Approximately(healthBarImage.fillAmount, 1f))
                 {
+                    ShowCraftingMessage("Health is already full!");
+                    Debug.Log("Health is full. Cannot use medicine.");
+                    return; // Exit the method if health is full
+                }
+
+                if (medicineCount > 0) // Check if there's at least one medicine
+                {
+                    // Reduce the medicine count
+                    medicineCount--;
+
+                    // Update the medicine count in the UI
+                    UpdateText(medicineText, "Medicine", medicineCount);
+
                     // Increase the fill amount, clamping it to a maximum of 1
                     healthBarImage.fillAmount = Mathf.Clamp(healthBarImage.fillAmount + healthIncreaseAmount, 0f, 1f);
 
                     // Show success message
                     ShowCraftingMessage("Health increased successfully!");
+                    Debug.Log("Used one medicine. Health bar updated.");
                 }
                 else
                 {
-                    Debug.LogError("Health bar does not have an Image component.");
+                    // Show failure message
+                    ShowCraftingMessage("Not enough medicine!");
+                    Debug.LogWarning("No medicine available to use.");
                 }
             }
             else
             {
-                Debug.LogError("Health bar reference is missing.");
+                Debug.LogError("Health bar does not have an Image component.");
             }
-
-            Debug.Log("Used one medicine. Health bar updated.");
         }
         else
         {
-            // Show failure message
-            ShowCraftingMessage("Not enough medicine!");
-            Debug.LogWarning("No medicine available to use.");
+            Debug.LogError("Health bar reference is missing.");
         }
     }
+
 
 
     // Show the crafting message
@@ -676,14 +778,18 @@ public class QuantityManager : MonoBehaviour
             // Turn off SwordParent and StoneImage
             SetActive(swordParent, false);
             SetActive(stoneImage, false);
+            GameManager.Instance.boostedSwordCrafted = true;
 
+            GameManager.Instance.boostedSwordCrafted = true;
             // Access the EquipSwordOnClick script
             if (equipSwordScript != null)
             {
                 equipSwordScript.IsSwordBoosted = true; // Mark the sword as boosted
 
+
                 // Apply the boost to the currently equipped sword (if any)
                 equipSwordScript.ApplyBoostEffect();
+
             }
             else
             {

@@ -15,6 +15,8 @@ public class ShowClue : MonoBehaviour
     public GameObject map;
     public GameObject task5;
     public GameObject showClue;
+    public TaskManager taskManager;
+
 
 
     private PlayerInputActions inputActions;
@@ -48,11 +50,15 @@ public class ShowClue : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.Instance.task4Completed) showClue.SetActive(false);
         map.SetActive(true);
         GameManager.Instance.Save();
         player = GameManager.Instance.player;
+        taskManager = GameManager.Instance.taskManager;
         task5.SetActive(false);
         StartAdditionalDialogues();
+        taskManager.IncreaseProgress(5);
+        taskManager.SetTaskText("Review damage of spaceship");
 
     }
 
