@@ -45,7 +45,7 @@ public class CaveDialogue2 : MonoBehaviour
 
     private void EquipCrystal()
     {
-        //redCrystal.SetActive(false);
+        
         ShowDialogue("Maybe I can use this crystal as a power source for my spaceship...");
         
     }

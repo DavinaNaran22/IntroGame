@@ -3,11 +3,10 @@ using UnityEngine;
 public class EquipObject : MonoBehaviour
 {
     private bool playerIsInside = false;
-    //private bool isClueObject = false; // Track if the object is a clue
     private bool isPasscodeObject = false;
     public QuantityManager quantityManager;
-    // This method is called when another collider enters the trigger zone.
 
+    // Input system
     private PlayerInputActions inputActions;
 
     private void Awake()
@@ -27,41 +26,41 @@ public class EquipObject : MonoBehaviour
         inputActions.Player.Equip.performed -= ctx => HandleEquip();
     }
 
+    // This method is called when another collider enters the trigger zone.
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             playerIsInside = true;
 
-            
-
             // Check if this object is tagged as "Passcode"
             if (gameObject.CompareTag("Passcode"))
             {
                 isPasscodeObject = true;
             }
-
-            if (other.CompareTag("Player"))
-            {
-                playerIsInside = false;
-                isPasscodeObject = false;
-            }
         }
     }
 
-    
+    // This method is called when another collider leaves the trigger zone.
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerIsInside = false;
+            isPasscodeObject = false;
+        }
+    }
 
     private void HandleEquip()
     {
         if (playerIsInside)
         {
-            // If the object is NOT a Clue, allow deactivation with "E"
+            // If the object is NOT a Passcode, allow deactivation
             if (!isPasscodeObject)
             {
                 gameObject.SetActive(false);
             }
-
-            // If the object is a Passcode, show the passcode message with "E"
+            // If the object is a Passcode, show the passcode message
             else
             {
                 if (quantityManager != null)
