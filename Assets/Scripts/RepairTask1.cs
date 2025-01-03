@@ -14,8 +14,6 @@ public class MissionManager : MonoBehaviour
     public TextMeshProUGUI promptText; 
     public TextMeshProUGUI dialogueText;
     public CameraManagement cameraManagement;
-    public TaskManager taskManager;
-
 
     private bool photoTaken = false;
     private bool dialogueShown = false;
@@ -69,9 +67,7 @@ public class MissionManager : MonoBehaviour
         GameManager.Instance.Save();
         player = GameManager.Instance.player;
         cameraManagement = GameManager.Instance.cameraManagement;
-        taskManager = GameManager.Instance.taskManager;
 
-        taskManager.SetTaskText("Find missing thruster");
         // Calculate the bounds of the restricted area
         minBounds = restrictedArea.bounds.min;
         maxBounds = restrictedArea.bounds.max;
