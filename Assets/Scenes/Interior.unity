@@ -2693,6 +2693,8 @@ MonoBehaviour:
   HUD: {fileID: 1089804553}
   HealthBar: {fileID: 51700335}
   OxygenBar: {fileID: 2063951798}
+  wind: {fileID: 488625283}
+  thunder: {fileID: 1170464166}
 --- !u!1 &58673426
 GameObject:
   m_ObjectHideFlags: 0
@@ -7133,7 +7135,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 02167c1c4201a1046b1b33aa442a661b, type: 2}
   m_audioClip: {fileID: 8300000, guid: df81ff13b4e27490a97d74c1f325fe4e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
@@ -15195,7 +15197,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 02167c1c4201a1046b1b33aa442a661b, type: 2}
   m_audioClip: {fileID: 8300000, guid: 61494125f3dda784698ad58ddea3e707, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
