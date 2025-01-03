@@ -16,6 +16,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
     public GameObject craftSwordText;
     public GameObject craftedPurpleSword;
     public GameObject redCrystalText;
+    public TaskManager taskManager;
 
     public GameObject shotPrefab;
     public float shootRate = 0.5f;
@@ -29,8 +30,9 @@ public class RhinoAlienBehaviour : MonoBehaviour
 
     private void Start()
     {
-        Healthlimit = GameObject.FindWithTag("HealthLimit");
+        taskManager = GameManager.Instance.taskManager;
         GameObject uimanager = GameManager.Instance.UIManager;
+
     }
 
     private void Update()
@@ -208,6 +210,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
         isDead = true;
         animator.SetTrigger("Dead"); // Trigger "Dead" animation
         Debug.Log("Alien has died!");
+        taskManager.IncreaseProgress(20);
         StartCoroutine(DelayedBlockAppearance());
     }
 

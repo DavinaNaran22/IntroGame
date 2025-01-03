@@ -9,6 +9,7 @@ public class CaveDialogue2 : MonoBehaviour
     public GameObject redCrystal;
     public Transform player;
     public GameObject transition;
+    public TaskManager taskManager;
 
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
@@ -28,6 +29,7 @@ public class CaveDialogue2 : MonoBehaviour
     private void Start()
     {
         player = GameManager.Instance.player.transform;
+        taskManager = GameManager.Instance.taskManager;
         StartAdditionalDialogues();
     }
 
@@ -35,6 +37,7 @@ public class CaveDialogue2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            taskManager.SetTaskText("Power ship with crystal");
             Debug.Log("Crystal equipped");
             EquipCrystal();
         }
