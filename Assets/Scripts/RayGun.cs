@@ -71,6 +71,8 @@ public class RayGun : MonoBehaviour
         if (Physics.Raycast(ray, out hit, range))
         {
             GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
+            Debug.DrawRay(ray.origin, ray.direction * range, Color.red, 1.0f);
+
             // Play the shooting sound
             AudioSource audioSource = laser.GetComponent<AudioSource>();
             if (audioSource != null)

@@ -29,8 +29,7 @@ public class GAlienS2 : MonoBehaviour
     private void Start()
     {
         Player = GameManager.Instance.player.transform;
-        //GameObject uimanager = GameManager.Instance.UIManager;
-        Healthlimit = GameObject.FindWithTag("HealthLimit");
+        GameObject uimanager = GameManager.Instance.UIManager;
     }
 
     private void Update()
@@ -96,8 +95,7 @@ public class GAlienS2 : MonoBehaviour
         laser.GetComponent<ShotBehavior>().setTarget(targetPosition);
 
         // Damages player when alien fires lasers
-        PlayerHealth playerHealth = Healthlimit.GetComponent<PlayerHealth>();
-        //PlayerHealth playerHealth = GameManager.Instance.UIManager.GetComponentInChildren<PlayerHealth>();
+        PlayerHealth playerHealth = GameManager.Instance.UIManager.GetComponentInChildren<PlayerHealth>();
         if (playerHealth != null)
         {
             playerHealth.TakeDamage(0.02f); // Adjust damage percentage as needed
