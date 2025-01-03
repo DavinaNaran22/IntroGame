@@ -9,7 +9,6 @@ public class WireRepair : MonoBehaviour
 {
     public GameObject Player;
     public BoxCollider PART2;
-    public TextMeshProUGUI turnOffMessage;
     public TextMeshProUGUI turnOnMessage;
     public TextMeshProUGUI promptText;
     public bool playerin = false;
@@ -19,16 +18,50 @@ public class WireRepair : MonoBehaviour
 
     public GameObject stopWingAttached;
 
+<<<<<<< Updated upstream
     // Start is called before the first frame update
+=======
+    private void Awake()
+    {
+        inputActions = new PlayerInputActions();
+    }
+
+    private void OnEnable(){
+
+        inputActions.Player.Enable();
+        inputActions.Player.Repair.performed += ctx => ToggleRepair();
+    }
+
+    private void OnDestroy()
+    {
+        inputActions.Player.Disable();
+        inputActions.Player.Repair.performed += ctx => ToggleRepair();
+    }
+    private void ToggleRepair()
+    {
+        if (playerin == true && wing_attached.WingTask == true)
+        {
+            turnOnMessage.gameObject.SetActive(false);
+            SceneManager.LoadScene("Game");
+            SceneManager.sceneLoaded += OnSceneLoad;
+            Debug.Log("Loading game scene");
+            StartClue.SetActive(true);
+
+        }
+    }
+        // Start is called before the first frame update
+>>>>>>> Stashed changes
     void Start()
     {
         
         stopWingAttached.SetActive(false);
-        turnOffMessage.gameObject.SetActive(true);
         PART2.enabled = false;
+        turnOnMessage.gameObject.SetActive(true);
+        StartCoroutine(promptTextShow());
     }
 
     // Update is called once per frame
+<<<<<<< Updated upstream
     void Update()
     {
 
@@ -66,6 +99,9 @@ public class WireRepair : MonoBehaviour
 
         }
     }
+=======
+    
+>>>>>>> Stashed changes
 
     private IEnumerator promptTextShow()
     {

@@ -8,6 +8,7 @@ public class StartClue : MonoBehaviour
     public TextMeshProUGUI repairText;
     public GameObject clue;
     public GameObject repairTask4;
+    public GameObject repairTask5;
 
 
     private void Start()
@@ -23,6 +24,7 @@ public class StartClue : MonoBehaviour
         repairText.gameObject.SetActive(false);
         repairTask4.SetActive(false);
         clue.SetActive(true);
+        repairTask5.SetActive(true);
     }
     
 }

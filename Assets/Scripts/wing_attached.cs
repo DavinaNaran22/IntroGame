@@ -9,7 +9,7 @@ public class wing_attached : MonoBehaviour
 {
     public GameObject Wing;
     public GameObject Cube;
-    public TextMeshProUGUI Message1;
+    //public TextMeshProUGUI Message1;
     public GameObject promptText;
     public static bool WingTask = false;
 
@@ -32,11 +32,11 @@ public class wing_attached : MonoBehaviour
     {
         // when the wing isnt attached disable the message prompting the user to next scene
         if (!WingTask == true) {
-            Message1.gameObject.SetActive(false);
+            //Message1.gameObject.SetActive(false);
         }
         // when the tools are collected deactivate the message prompting the user to next scene
         if (Storage_Scene.Tools_collected == true) {
-            Message1.gameObject.SetActive(false);
+            //Message1.gameObject.SetActive(false);
         }
         
     }
@@ -49,7 +49,7 @@ public class wing_attached : MonoBehaviour
         Wing.SetActive(false);
         Cube.SetActive(false);
         promptText.SetActive(false);
-        Message1.gameObject.SetActive(true);
+        //Message1.gameObject.SetActive(true);
         startWireRepair.SetActive(true);
 
     }
