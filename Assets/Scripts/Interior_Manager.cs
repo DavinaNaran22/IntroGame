@@ -35,9 +35,11 @@ public class Interior_Manager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {    
+    {    // enables tasks after task 1 is completed 
         if (control_panel.task1_completed == true) {
+            //if the control panel is off 
             if (!Exit_control_panel.activeSelf) {
+                // and if the wire game is completed 
                 if (win_message.win == true)
                 {
                     Message4.SetActive(false);
@@ -54,6 +56,7 @@ public class Interior_Manager : MonoBehaviour
                     //}
                 }
                 else {
+                    //enables the directions and the map for task 2 
                     Message4.SetActive(true);
                     StartCoroutine(MiniMap_active(3f));
                     if (mini_map.activeSelf)
@@ -65,19 +68,20 @@ public class Interior_Manager : MonoBehaviour
                
            
             }
+            // enables the storage collider user can now pick up items 
             storage_scene.Task1 = true;
 
 
            
         }
-
+        // Disables the exit message once left the cockpit 
         if (control_panel.IN == false)
         {
 
             Message_Exit.enabled = false;
         }
 
-
+        // when task 1 and task 2 is completed start the next task ans its instructions
         if (control_panel.task1_completed == true && storage_scene.Task2 == true)
         {
             Message3.SetActive(true);
@@ -102,7 +106,7 @@ public class Interior_Manager : MonoBehaviour
     //    GameManager.Instance.player.SetActive(false);
     //}
 
-
+    // delays the activation of the minimap to allow for scanning
 
     IEnumerator MiniMap_active(float delay)
     {

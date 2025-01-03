@@ -10,6 +10,7 @@ public class Puzzle : MonoBehaviour
     public static int Count_puzzle = 0;
     public static bool Puzzle_Complete  = false;
 
+    // when the clue colliders are triggered set the boolean to true so the other script can snap it into place, increase count
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("COLLISON1");
@@ -21,7 +22,8 @@ public class Puzzle : MonoBehaviour
 
         }
     }
-
+    // check when the clue count reaches 3 ( all in the correct place/ pieced together)
+    // go back to landscape 
     private void Update()
     {
         Debug.Log(Count_puzzle);
@@ -30,7 +32,7 @@ public class Puzzle : MonoBehaviour
             StartCoroutine(BackToGame());
         }
     }
-
+    
     IEnumerator BackToGame()
     {
         yield return new WaitForSeconds(2f);
@@ -40,6 +42,8 @@ public class Puzzle : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoad;
       
     }
+
+    // reactivates the player canvas and object
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {

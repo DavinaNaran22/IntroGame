@@ -29,7 +29,7 @@ public class Control_panel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+        // deactivates messages and enabled the repair map
         Msg1.SetActive(false);
         Message.SetActive(false);
         C_panel.SetActive(false);
@@ -43,7 +43,7 @@ public class Control_panel : MonoBehaviour
     {
         Debug.Log("IN");
         Debug.Log(win_message.win);
-
+        // When the player is in the cockpit if they press A task 1 is enabled/ first version of control panel 
         if (IN == true && Input.GetKeyDown(KeyCode.A))
         {
             //Debug.Log("ACTIVE");
@@ -53,7 +53,7 @@ public class Control_panel : MonoBehaviour
             task1_completed = true;
 
         }
-
+        // if the wire game is completed update the control panel to reflect repairs 
         if (win_message.win == true)
         {
             Debug.Log("Updating");
@@ -70,6 +70,7 @@ public class Control_panel : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // when player is detected trigger bool is set to true = in cockpit, trigger control panel set true
         if (other.CompareTag("Player"))
         {
 
@@ -82,6 +83,7 @@ public class Control_panel : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        // when exiting the cockpit IN is false (no longer in cockit) messages to user deactivated 
         if (other.CompareTag("Player"))
         {
             IN = false;
@@ -91,15 +93,17 @@ public class Control_panel : MonoBehaviour
             Msg1.SetActive(false);
             //Debug.Log("WERE IN");
         }
-
+        // when the wire game is done disable instruction
         if (win_message.win == true)
         {
             Message2.SetActive(false);
-     
+          
 
         }
 
     }
+
+    // methods to switch between tabs within control panel, disabling one tab and enabling the other 
     
     public void enable_ship_map()
     {
