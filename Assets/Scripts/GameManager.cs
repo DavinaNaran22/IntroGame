@@ -81,6 +81,7 @@ public class GameManager : Singleton<GameManager>
     [Header("Game Ending")]
     public bool triggerEnding = false;
     public static bool StartClueActive = false;
+    public static bool ShowClueActive = false;
 
     private void Start()
     {
