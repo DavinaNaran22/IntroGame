@@ -29,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Puzzle.unity
     guid: 05ee2c8daa6f44589a0a78ae198f5447
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 5bb27e4a3926f9848905767c53e60742
+  - enabled: 1
+    path: Assets/Scenes/Death.unity
+    guid: 0e498ad4439900c4d8efe6c5888144e8
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0da675aeaae034d438b43d66b5a9577e, type: 2}
   m_UseUCBPForAssetBundles: 0

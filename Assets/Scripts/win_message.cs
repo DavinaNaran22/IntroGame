@@ -32,7 +32,7 @@ public class win_message : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         message.enabled = false;
-        GameManager.Instance.complTaskFour = true;
+        GameManager.Instance.completedTaskFour = true;
         GameManager.Instance.task4Completed = true;
         // Reactivate Player
         SceneManager.LoadScene("landscape");

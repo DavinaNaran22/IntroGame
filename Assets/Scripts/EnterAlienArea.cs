@@ -155,7 +155,7 @@ public class EnterAlienArea : MonoBehaviour
        equippedThruster = true;
         HideDialogue();
         completedRepairText.SetActive(true); // 5 SECS AFTER, BELOW EXECUTES
-        GameManager.Instance.complTaskOne = true;
+        GameManager.Instance.completedTaskOne = true;
         taskManager.IncreaseProgress(6);
         taskManager.SetTaskText("Find something to repair hole");
         StartCoroutine(ActivateRepairTasksWithDelay()); 
