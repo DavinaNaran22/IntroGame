@@ -64,6 +64,7 @@ public class QuantityManager : MonoBehaviour
     public EquipSwordOnClick equipSwordScript;
     private RhinoAlienBehaviour rhinoAlienBehaviour;
     private AlienRestrictScene2 alienRestrictScene;
+    public EquipGunOnClick equipGunScript;
 
 
     private int medicineCount = 0;
@@ -317,6 +318,15 @@ public class QuantityManager : MonoBehaviour
         if (alienSkinImage.activeSelf || stoneImage.activeSelf)
         {
             SetActive(gunImage, true);
+        }
+
+        if (alienRestrictScene.photoTaken == true)
+        {
+            SetActive(gunImage, false);
+            if (equipGunScript.IsGunEquipped)
+            {
+                equipGunScript.UnequipGun();
+            }
         }
     }
 

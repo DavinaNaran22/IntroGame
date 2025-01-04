@@ -428,7 +428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -25, y: 55}
+  m_AnchoredPosition: {x: -24.999878, y: 55}
   m_SizeDelta: {x: -950, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &19701281
@@ -1433,6 +1433,10 @@ PrefabInstance:
       propertyPath: alienSkinImage
       value: 
       objectReference: {fileID: 932157461}
+    - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: equipGunScript
+      value: 
+      objectReference: {fileID: 644578567}
     - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: alienAlloyImage
       value: 
