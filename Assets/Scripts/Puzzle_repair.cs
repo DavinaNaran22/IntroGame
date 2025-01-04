@@ -33,7 +33,9 @@ public class Puzzle_repair : MonoBehaviour
     {
         inputActions.Player.Disable();
         inputActions.Player.Repair.performed += ctx => ToggleRepair2();
-    } 
+    }
+
+    //  when the puzzle is not complete and the key r is pressed/ last clue collected load the puzzle scene
     private void ToggleRepair2()
     {
         if (Puzzle.Puzzle_Complete == false && Task4Clue.Clue_Collected == true)
@@ -61,18 +63,19 @@ public class Puzzle_repair : MonoBehaviour
 
         }
         // when the puzzle is not complete and the key r is pressed/ last clue collected load the puzzle scene
-        if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false && Task4Clue.Clue_Collected == true)
-        {
-            Debug.Log("PUZZLE");
-            MessagePuzzle.SetActive(false);
-            GameManager.ShowClueActive = true;
-            SceneManager.LoadScene("Puzzle");
-            SceneManager.sceneLoaded += OnSceneLoad;
-            Debug.Log("Loading puzzle scene");
-            showClue.SetActive(true);
+        //if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false && Task4Clue.Clue_Collected == true)
+        //{
+        //    Debug.Log("PUZZLE");
+        //    MessagePuzzle.SetActive(false);
+        //    GameManager.ShowClueActive = true;
+        //    SceneManager.LoadScene("Puzzle");
+        //    SceneManager.sceneLoaded += OnSceneLoad;
+        //    Debug.Log("Loading puzzle scene");
+        //    showClue.SetActive(true);
 
 
-        }
+        //}
+
       
     }
 
