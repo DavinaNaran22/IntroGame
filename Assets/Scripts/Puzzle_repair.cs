@@ -9,42 +9,9 @@ public class Puzzle_repair : MonoBehaviour
     public GameObject ClueTask;
     public GameObject repair4;
     public GameObject caveEntrance;
-    public GameObject showClue;
-    private PlayerInputActions inputActions;
-
-
-    private void Awake()
-    {
-        inputActions = new PlayerInputActions();
-    }
-
-    private void OnEnable()
-    {
-
-        inputActions.Player.Enable();
-        inputActions.Player.Repair.performed += ctx => ToggleRepair2();
-    }
-
-    private void OnDestroy()
-    {
-        inputActions.Player.Disable();
-        inputActions.Player.Repair.performed += ctx => ToggleRepair2();
-    }
-    private void ToggleRepair2()
-    {
-        if (Puzzle.Puzzle_Complete == false && Task4Clue.Clue_Collected == true)
-        {
-            Debug.Log("PUZZLE");
-            MessagePuzzle.SetActive(false);
-            SceneManager.LoadScene("Puzzle");
-            SceneManager.sceneLoaded += OnSceneLoad;
-            Debug.Log("Loading puzzle scene");
-
-
-        }
-    }
-        // Start is called before the first frame update
-        void Start()
+    //public GameObject showClue;
+    // Start is called before the first frame update
+    void Start()
     {
 
     }
@@ -58,20 +25,20 @@ public class Puzzle_repair : MonoBehaviour
             MessagePuzzle.SetActive(false);
             repair4.SetActive(false);
             caveEntrance.SetActive(true);
-            showClue.SetActive(true);
+            GameManager.Instance.ShowClueScript.enabled = true;
 
         }
         // when the puzzle is not complete and the key r is pressed/ last clue collected load the puzzle scene
-        //if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false && Task4Clue.Clue_Collected == true)
-        //{
-        //    Debug.Log("PUZZLE");
-        //    MessagePuzzle.SetActive(false);
-        //    SceneManager.LoadScene("Puzzle");
-        //    SceneManager.sceneLoaded += OnSceneLoad;
-        //    Debug.Log("Loading puzzle scene");
+        if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false && Task4Clue.Clue_Collected == true)
+        {
+            Debug.Log("PUZZLE");
+            MessagePuzzle.SetActive(false);
+            SceneManager.LoadScene("Puzzle");
+            SceneManager.sceneLoaded += OnSceneLoad;
+            Debug.Log("Loading puzzle scene");
           
 
-        //}
+        }
       
     }
 
