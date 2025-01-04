@@ -182,6 +182,8 @@ public class GameManager : Singleton<GameManager>
         bf.Serialize(file, data);
         file.Close();
         Debug.Log("Player progess saved at " + filename);
+
+        equipManager.Save();
     }
 
     public void Load()
@@ -218,6 +220,8 @@ public class GameManager : Singleton<GameManager>
         {
             Debug.Log("No file with player data at location " + filename + " so no loading of player data");
         }
+
+        equipManager.Load();
     }
 
     private void OnSavedSceneLoad(Scene scene, LoadSceneMode mode)
