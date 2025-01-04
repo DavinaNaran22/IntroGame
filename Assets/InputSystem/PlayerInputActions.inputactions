@@ -184,6 +184,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "EnterArea",
+                    "type": "Button",
+                    "id": "71b110e4-b6b0-4317-96a6-43413ed7f7af",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -503,6 +512,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Mouse_Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee79a043-238c-46a8-a7ad-fc5112e30c85",
+                    "path": "<Keyboard>/#(E)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnterArea",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
