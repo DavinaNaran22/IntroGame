@@ -40,7 +40,7 @@ public class EquipDataListSerializable
     {
         this.list = list;
     }
-
+        
     public List<EquipData> getList()
     {
         return list;
@@ -48,7 +48,7 @@ public class EquipDataListSerializable
 }
 
 public class EquipManager : Singleton<EquipManager>
-{
+    {
     public List<EquipData> equipObjects = new List<EquipData>();
 
     public EquipData GetFromEquipList(GameObject gameObject)
