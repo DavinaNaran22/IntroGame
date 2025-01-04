@@ -63,15 +63,15 @@ public class AlienRestrictScene : MonoBehaviour
         player = GameManager.Instance.player;
         cameraManagement = GameManager.Instance.cameraManagement;
 
-        if (promptText != null)
-        {
-            promptText.gameObject.SetActive(false);
-        }
+        //if (promptText != null)
+        //{
+        //    promptText.gameObject.SetActive(false);
+        //}
 
-        if (promptTextDial != null)
-        {
-            promptTextDial.gameObject.SetActive(false);
-        }
+        //if (promptTextDial != null)
+        //{
+        //    promptTextDial.gameObject.SetActive(false);
+        //}
 
         if (dialogueText != null)
         {
@@ -119,10 +119,10 @@ public class AlienRestrictScene : MonoBehaviour
             isPlayerInRestrictedArea = false;
             Debug.Log("Player has left the restricted area!");
 
-            if (promptText != null)
-            {
-                promptText.gameObject.SetActive(false);
-            }
+            //if (promptText != null)
+            //{
+            //    promptText.gameObject.SetActive(false);
+            //}
         }
     }
 
