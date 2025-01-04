@@ -63,36 +63,10 @@ public class EnterAlienArea : MonoBehaviour
             DisableRestriction();
         }
 
-        // Check if the player presses E while inside the thruster's box collider
-        if (waitingForEquip && Input.GetKeyDown(KeyCode.E))
+        
+        if (thruster.activeSelf == false)
         {
-            if (thruster != null)
-            {
-                // Get the BoxCollider from the thruster
-                BoxCollider thrusterCollider = thruster.GetComponent<BoxCollider>();
-
-                if (thrusterCollider != null)
-                {
-                    // Check if the player's position is inside the collider's bounds
-                    if (thrusterCollider.bounds.Contains(player.transform.position))
-                    {
-                        Debug.Log("Player is inside the thruster's box collider and pressed E");
-                        EquipThruster();
-                    }
-                    else
-                    {
-                        Debug.Log("Player is not inside the thruster's box collider.");
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning("Thruster does not have a BoxCollider yet.");
-                }
-            }
-            else
-            {
-                Debug.LogError("Thruster reference is null.");
-            }
+            EquipThruster();
         }
     }
 
