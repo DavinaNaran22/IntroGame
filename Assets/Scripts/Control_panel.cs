@@ -70,7 +70,7 @@ public class Control_panel : MonoBehaviour
         Message2.SetActive(false);
         Map2.SetActive(false);
         Map.SetActive(true);
-        taskManager =GameManager.Instance.taskManager;
+        taskManager = GameManager.Instance.taskManager;
     }
 
     // Update is called once per frame
