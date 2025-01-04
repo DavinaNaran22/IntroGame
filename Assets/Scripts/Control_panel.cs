@@ -49,17 +49,12 @@ public class Control_panel : MonoBehaviour
             //Debug.Log("ACTIVE");
 
             C_panel.SetActive(true);
-            // Enable progress game object so text can update
-            taskManager.gameObject.SetActive(true);
+            //taskManager.gameObject.SetActive(true);
             ship_map.enabled = false;
             Msg1.SetActive(false);
             task1_completed = true;
-            taskManager.SetTaskText("Collect resources"); // Update the task description
+            //taskManager.SetTaskText("Collect resources"); // Update the task description
             taskManager.IncreaseProgress(7); // Increase progress by 7%
-
-
-
-
         }
 
     }
@@ -91,10 +86,6 @@ public class Control_panel : MonoBehaviour
             Map2.SetActive(true);
             Status.text = "SHIP REPAIRED";
             Status_details.text = "WARNING: FUEL RESERVES LOW";
-            
-
-
-
         }
     }
 
@@ -103,11 +94,8 @@ public class Control_panel : MonoBehaviour
         // when player is detected trigger bool is set to true = in cockpit, trigger control panel set true
         if (other.CompareTag("Player"))
         {
-
             IN = true;
             Msg1.SetActive(true);
-            
-
         }
     }
 
@@ -117,10 +105,13 @@ public class Control_panel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             IN = false;
+
             Message.SetActive(false);
             C_panel.SetActive(false);
             Message2.SetActive(true);
             Msg1.SetActive(false);
+            // Enable progress game object so text can update
+            taskManager.gameObject.SetActive(true);
             taskManager.SetTaskText("Collect resources"); // Update the task description
             //Debug.Log("WERE IN");
         }
@@ -128,8 +119,6 @@ public class Control_panel : MonoBehaviour
         if (win_message.win == true)
         {
             Message2.SetActive(false);
-          
-
         }
     }
 
@@ -160,7 +149,4 @@ public class Control_panel : MonoBehaviour
         ship_status.enabled = false;
 
     }
-
-
-
 }

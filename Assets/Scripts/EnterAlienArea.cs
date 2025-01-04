@@ -28,7 +28,7 @@ public class EnterAlienArea : MonoBehaviour
     public AudioSource alienAreaAudio; // Audio to play in the alien area
     public AudioSource backgroundAudio; // Background audio to resume after the task is completed
 
-
+    private bool equippedThruster = false;
 
     private void Start()
     {
@@ -65,7 +65,7 @@ public class EnterAlienArea : MonoBehaviour
         
         if (thruster.activeSelf == false)
         {
-            EquipThruster();
+            if (!equippedThruster) EquipThruster();
             // Stop alien area audio and resume background audio
             if (alienAreaAudio) alienAreaAudio.Stop();
             if (backgroundAudio) backgroundAudio.Play();
@@ -152,7 +152,7 @@ public class EnterAlienArea : MonoBehaviour
 
     private void EquipThruster()
     {
-       
+       equippedThruster = true;
         HideDialogue();
         completedRepairText.SetActive(true); // 5 SECS AFTER, BELOW EXECUTES
         GameManager.Instance.complTaskOne = true;
