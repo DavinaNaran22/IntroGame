@@ -9,7 +9,6 @@ public class CaveCamRestrict : MonoBehaviour
     public GameObject player;
     public BoxCollider restrictedArea;
     public BoxCollider alienArea;
-    public GameObject promptText;
     public TextMeshProUGUI promptTextDial;
     public TextMeshProUGUI dialogueText;
     public CameraManagement cameraManagement;
@@ -60,21 +59,8 @@ public class CaveCamRestrict : MonoBehaviour
     {
         player = GameManager.Instance.player;
         cameraManagement = GameManager.Instance.cameraManagement;
+        StartAdditionalDialogues();
 
-        if (promptText != null)
-        {
-            promptText.gameObject.SetActive(false);
-        }
-
-        if (promptTextDial != null)
-        {
-            promptTextDial.gameObject.SetActive(false);
-        }
-
-        if (dialogueText != null)
-        {
-            dialogueText.gameObject.SetActive(false);
-        }
     }
 
     private void Update()
@@ -116,10 +102,10 @@ public class CaveCamRestrict : MonoBehaviour
             isPlayerInRestrictedArea = false;
             Debug.Log("Player has left the restricted area!");
 
-            if (promptText != null)
-            {
-                promptText.gameObject.SetActive(false);
-            }
+            //if (promptText != null)
+            //{
+            //    promptText.gameObject.SetActive(false);
+            //}
         }
     }
 
@@ -155,6 +141,14 @@ public class CaveCamRestrict : MonoBehaviour
         }  
     }
 
+    public void StartAdditionalDialogues()
+    {
+        Debug.Log("Starting additional dialogues");
+        additionalDialoguesActive = true;
+        currentDialogueIndex = 0;
+        ShowDialogue(additionalDialogues[currentDialogueIndex]);
+    }
+
     private void ShowDialogue(string message)
     {
         dialogueText.gameObject.SetActive(true);
@@ -181,12 +175,12 @@ public class CaveCamRestrict : MonoBehaviour
     private void ShowPrompt()
     {
         // Display the photo prompt message
-        promptText.gameObject.SetActive(true);
+        promptTextDial.gameObject.SetActive(true);
     }
 
     private void HidePrompt()
     {
-        promptText.gameObject.SetActive(false);
+        promptTextDial.gameObject.SetActive(false);
     }
 
 

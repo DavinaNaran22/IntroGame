@@ -330,8 +330,9 @@ public class QuantityManager : MonoBehaviour
             }
         }
 
-        if (rhinoAlienBehaviour.enterAlienArea3.finished)
+        if (rhinoAlienBehaviour.enterAlienArea3.finished == true)
         {
+            Debug.Log("Alien Area 3 finished. Disabling gun and knife images.");
             SetActive(gunImage, false);
             SetActive(knifeImage, false);
 

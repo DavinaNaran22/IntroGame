@@ -17,7 +17,7 @@ public class EnterAlienArea3 : MonoBehaviour
     private bool hasDialoguePlayed = false;
     private int currentDialogueIndex = 0;
     public bool isPlayerNearby = false;
-    public bool finished;
+    public bool finished = true;
 
     public Vector3 positionOffset = new Vector3(0, 0, 20);
 
@@ -69,12 +69,9 @@ public class EnterAlienArea3 : MonoBehaviour
         player = GameManager.Instance.player.transform;
         // Get the box collider component
         boxCollider = GetComponent<Collider>();
-        finished = true;
 
         // Ensure the collider is a trigger
         boxCollider.isTrigger = true;
-
-        //StartAdditionalDialogues();
 
         // Ensure initial audio state
         if (alienAreaAudio) alienAreaAudio.Stop();
