@@ -15,7 +15,7 @@ public class Puzzle_repair : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        showClue.SetActive(GameManager.ShowClueActive);
+        //showClue.SetActive(GameManager.ShowClueActive);
     }
     private void Awake()
     {
@@ -40,7 +40,7 @@ public class Puzzle_repair : MonoBehaviour
         {
             Debug.Log("PUZZLE");
             MessagePuzzle.SetActive(false);
-            GameManager.ShowClueActive = true;
+            //GameManager.ShowClueActive = true;
             SceneManager.LoadScene("Puzzle");
             SceneManager.sceneLoaded += OnSceneLoad;
             Debug.Log("Loading puzzle scene");
@@ -65,7 +65,6 @@ public class Puzzle_repair : MonoBehaviour
         {
             Debug.Log("PUZZLE");
             MessagePuzzle.SetActive(false);
-            GameManager.ShowClueActive = true;
             SceneManager.LoadScene("Puzzle");
             SceneManager.sceneLoaded += OnSceneLoad;
             Debug.Log("Loading puzzle scene");

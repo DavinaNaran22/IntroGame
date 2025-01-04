@@ -36,7 +36,9 @@ public class Puzzle : MonoBehaviour
     IEnumerator BackToGame()
     {
         yield return new WaitForSeconds(2f);
-     
+
+        // Make show clue script active
+        GameManager.Instance.canEnableShowClue = true;
         // Reactivate Player
         SceneManager.LoadScene("Landscape");
         SceneManager.sceneLoaded += OnSceneLoad;
