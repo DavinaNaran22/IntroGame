@@ -47,7 +47,7 @@ public class WireRepair : MonoBehaviour
             SceneManager.LoadScene("Game");
             SceneManager.sceneLoaded += OnSceneLoad;
             Debug.Log("Loading game scene");
-            StartClue.SetActive(true);
+            //StartClue.SetActive(true);
 
         }
     }
@@ -59,7 +59,7 @@ public class WireRepair : MonoBehaviour
         StartClue.SetActive(GameManager.StartClueActive);
         stopWingAttached.SetActive(false);
         PART2.enabled = false;
-        turnOnMessage.gameObject.SetActive(true);
+        if (!GameManager.Instance.complTaskFour) turnOnMessage.gameObject.SetActive(true);
         StartCoroutine(PromptTextShow());
     }
 
@@ -67,7 +67,7 @@ public class WireRepair : MonoBehaviour
     private IEnumerator PromptTextShow()
     {
         yield return new WaitForSeconds(2f);
-        turnOnMessage.gameObject.SetActive(false);
+        if (!GameManager.Instance.complTaskFour) turnOnMessage.gameObject.SetActive(false);
         promptText.gameObject.SetActive(true);
     }
 
