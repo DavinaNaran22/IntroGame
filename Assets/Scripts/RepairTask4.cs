@@ -54,7 +54,6 @@ public class RepairTask4 : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.ShowClueScript = GameObject.Find("ShowClue").GetComponent<ShowClue>();
         GameManager.Instance.Save();
         player = GameManager.Instance.player;
         Debug.Log("RepairTask4 Start");
