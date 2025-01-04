@@ -92,11 +92,15 @@ public class GameManager : Singleton<GameManager>
     public bool canEnableShowClue = false;
 
     [Header("Task Progress")]
+    public bool interiorTaskTwo = false;
     public bool complTaskOne = false;
     public bool complTaskTwo = false;
     public bool complTaskThree = false;
     public bool complTaskFour = false;
     public bool complTaskFive = false;
+
+    [Header("Equip Manager")]
+    public EquipManager equipManager;
 
     private void Start()
     {
@@ -178,6 +182,8 @@ public class GameManager : Singleton<GameManager>
         bf.Serialize(file, data);
         file.Close();
         Debug.Log("Player progess saved at " + filename);
+
+        equipManager.Save();
     }
 
     public void Load()
@@ -214,6 +220,8 @@ public class GameManager : Singleton<GameManager>
         {
             Debug.Log("No file with player data at location " + filename + " so no loading of player data");
         }
+
+        equipManager.Load();
     }
 
     private void OnSavedSceneLoad(Scene scene, LoadSceneMode mode)

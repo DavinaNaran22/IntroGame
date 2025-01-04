@@ -56,7 +56,7 @@ public class Scene5 : MonoBehaviour
     private void Start()
     {
         Message_Exit.enabled = false;
-        GameManager.Instance.Save();
+        if (map1.activeInHierarchy) GameManager.Instance.Save(); // Only save in interior if this task ready
         player = GameManager.Instance.player;
         taskManager = GameManager.Instance.taskManager;
 
