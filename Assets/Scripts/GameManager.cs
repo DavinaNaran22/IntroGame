@@ -92,6 +92,7 @@ public class GameManager : Singleton<GameManager>
     public bool canEnableShowClue = false;
 
     [Header("Task Progress")]
+    public bool interiorTaskTwo = false;
     public bool complTaskOne = false;
     public bool complTaskTwo = false;
     public bool complTaskThree = false;

@@ -26,11 +26,13 @@ public class PlayerNearEquipable : PlayerNearText
         objectData = equipManager.GetFromEquipList(equipableObject);
         if (objectData != null)
         {
+            Debug.Log("object check equip");
             // Deactivate if already been equipped
             if (objectData.hasBeenEquiped)
             {
                 equipableObject.SetActive(false);
             }
+            Debug.Log("object not been equipped");
         }
         else
         {

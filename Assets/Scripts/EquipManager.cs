@@ -7,7 +7,7 @@ using UnityEngine;
 public class EquipData
 {
     public string objectName;
-    public Vector3 objPos;
+    public Vector3 objPos; // Use object position to tell if object has been equipped or not
     public bool hasBeenEquiped = false;
 
     public EquipData(GameObject obj, bool hasBeenEquiped)
