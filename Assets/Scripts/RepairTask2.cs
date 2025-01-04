@@ -54,7 +54,7 @@ public class RepairTask2 : MonoBehaviour
         Debug.Log("RepairTask2 Start");
         GameManager.Instance.Save();
         player = GameManager.Instance.player;
-        promptText.gameObject.SetActive(false);
+        //promptText.gameObject.SetActive(false);
         StartAdditionalDialogues();
         //takePicScript.SetActive(true);
     }
@@ -118,6 +118,7 @@ public class RepairTask2 : MonoBehaviour
 
             Debug.Log("All dialogues finished");
             takePicsScene.SetActive(true);
+            promptText.gameObject.SetActive(true);
 
         }
     }

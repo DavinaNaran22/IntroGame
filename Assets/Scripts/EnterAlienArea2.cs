@@ -14,8 +14,8 @@ public class EnterAlienArea2 : MonoBehaviour
     public GameObject clue;
     public BoxCollider restrictPlayerCam;
     public TextMeshProUGUI dialogueText;
-    public GameObject completedRepairText;
-    public GameObject drawingsCompletedText;
+    public TextMeshProUGUI completedRepairText;
+    public TextMeshProUGUI drawingsCompletedText;
     public RepairTask2 repairTask2;
     public RepairTask3 repairTask3;
     public TaskManager taskManager;
@@ -168,7 +168,7 @@ public class EnterAlienArea2 : MonoBehaviour
         Debug.Log("Blocks equipped");
         blocksEquipped = true;
         HideDialogue();
-        completedRepairText.SetActive(true);
+        completedRepairText.gameObject.SetActive(true);
         taskManager.IncreaseProgress(5);
         taskManager.SetTaskText("Fix temperature control system");
         StartCoroutine(ActivateRepairTasksWithDelay());
@@ -179,7 +179,7 @@ public class EnterAlienArea2 : MonoBehaviour
     {
         yield return new WaitForSeconds(3); 
         Debug.Log("Activating repair tasks after delay");
-        completedRepairText.SetActive(false); 
+        completedRepairText.gameObject.SetActive(false); 
         boxCollider.isTrigger = true;
         ShowDialogue("YOU: Hang on, what is that strange drawing on that boulder over there? I should take it with me.");
     }
@@ -188,7 +188,7 @@ public class EnterAlienArea2 : MonoBehaviour
     {
         Debug.Log("Clue equipped");
         HideDialogue();
-        drawingsCompletedText.SetActive(true);
+        drawingsCompletedText.gameObject.SetActive(true);
         StartCoroutine(ActivateClueTasksWithDelay());
     }
 
@@ -196,7 +196,7 @@ public class EnterAlienArea2 : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         Debug.Log("Activating clue tasks after delay");
-        drawingsCompletedText.SetActive(false);
+        drawingsCompletedText.gameObject.SetActive(false);
         repairTask2.gameObject.SetActive(false);
         repairTask3.gameObject.SetActive(true);
     }
