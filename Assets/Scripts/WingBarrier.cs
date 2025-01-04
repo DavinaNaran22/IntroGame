@@ -11,6 +11,8 @@ public class WingBarrier : MonoBehaviour
     public GameObject promptText;
 
     public TextMeshProUGUI dialogueText;
+    public GameObject cube;
+    public GameObject part2;
 
     private bool dialogueShown = false;
     private bool additionalDialoguesActive = false;
@@ -53,6 +55,7 @@ public class WingBarrier : MonoBehaviour
     {
        
         player = GameManager.Instance.player;
+        cube.SetActive(true);
 
         if (dialogueText != null)
         {
@@ -66,6 +69,7 @@ public class WingBarrier : MonoBehaviour
         {
 
             restrictedArea.enabled = false;
+            part2.SetActive(true);
         }
         else {
 

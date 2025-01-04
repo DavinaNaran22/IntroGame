@@ -60,15 +60,17 @@ public class RepairTask4 : MonoBehaviour
         Debug.Log("RepairTask4 Start");
         wingDupe.SetActive(false);
         player = GameManager.Instance.player;
+        cube.SetActive(true);
+        Debug.Log("REPAIRRRRR");
         StartAdditionalDialogues();
     }
 
     private void Update()
     {
-        if (task4part2.activeSelf == false && cube.activeSelf == false)
-        {
-            startClue.SetActive(true);
-        }
+        //if (task4part2.activeSelf == false && cube.activeSelf == false)
+        //{
+        //    startClue.SetActive(true);
+        //}
     }
 
 
