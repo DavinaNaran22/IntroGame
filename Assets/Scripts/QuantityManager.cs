@@ -480,7 +480,14 @@ public class QuantityManager : MonoBehaviour
 
     private bool AreAllToolsInactive()
     {
-        return !axe.activeInHierarchy && !saw.activeInHierarchy && !chisel.activeInHierarchy && !rasp.activeInHierarchy;
+        if (axe != null && saw != null && chisel != null && rasp != null)
+        {
+            if (!axe.activeSelf && !saw.activeSelf && !chisel.activeSelf && !rasp.activeSelf)
+            {
+                return true;
+            }
+        }
+        return false;
 
     }
 

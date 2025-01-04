@@ -10,11 +10,12 @@ public class Puzzle_repair : MonoBehaviour
     public GameObject repair4;
     public GameObject caveEntrance;
     private PlayerInputActions inputActions;
+    public GameObject showClue;
     //public GameObject showClue;
     // Start is called before the first frame update
     void Start()
     {
-
+        showClue.SetActive(GameManager.ShowClueActive);
     }
     private void Awake()
     {
@@ -39,10 +40,11 @@ public class Puzzle_repair : MonoBehaviour
         {
             Debug.Log("PUZZLE");
             MessagePuzzle.SetActive(false);
+            GameManager.ShowClueActive = true;
             SceneManager.LoadScene("Puzzle");
             SceneManager.sceneLoaded += OnSceneLoad;
             Debug.Log("Loading puzzle scene");
-
+            showClue.SetActive(true);
 
         }
     }
@@ -55,7 +57,7 @@ public class Puzzle_repair : MonoBehaviour
             MessagePuzzle.SetActive(false);
             repair4.SetActive(false);
             caveEntrance.SetActive(true);
-            GameManager.Instance.ShowClueScript.enabled = true;
+            //GameManager.Instance.ShowClueScript.enabled = true;
 
         }
         // when the puzzle is not complete and the key r is pressed/ last clue collected load the puzzle scene
@@ -63,10 +65,12 @@ public class Puzzle_repair : MonoBehaviour
         {
             Debug.Log("PUZZLE");
             MessagePuzzle.SetActive(false);
+            GameManager.ShowClueActive = true;
             SceneManager.LoadScene("Puzzle");
             SceneManager.sceneLoaded += OnSceneLoad;
             Debug.Log("Loading puzzle scene");
-          
+            showClue.SetActive(true);
+
 
         }
       

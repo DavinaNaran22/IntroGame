@@ -2764,8 +2764,6 @@ MonoBehaviour:
   HUD: {fileID: 1089804553}
   HealthBar: {fileID: 51700335}
   OxygenBar: {fileID: 2063951798}
-  wind: {fileID: 488625283}
-  thunder: {fileID: 1170464166}
 --- !u!1 &58673426
 GameObject:
   m_ObjectHideFlags: 0
@@ -8865,6 +8863,7 @@ MonoBehaviour:
   crosshair: {fileID: 905433306}
   equipGunScript: {fileID: 644578567}
   equipKnifeScript: {fileID: 644578571}
+  equipObject: {fileID: 0}
 --- !u!114 &644578576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9821,6 +9820,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1141611168}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15007,7 +15018,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 62b469e132d46e943a65087b6afcf149, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17678,6 +17689,7 @@ MonoBehaviour:
   taskManager: {fileID: 251013341}
   boostedSwordCrafted: 0
   task4Completed: 0
+  ShowClueScript: {fileID: 0}
   triggerEnding: 0
 --- !u!4 &1352790603
 Transform:
@@ -19352,6 +19364,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5071861185589620545, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1482992028}
+    - targetCorrespondingSourceObject: {fileID: 4837221891645313814, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1618144373}
   m_SourcePrefab: {fileID: 100100000, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
 --- !u!1 &1482992022 stripped
 GameObject:
@@ -20422,7 +20437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Press E to equip file
+  Text: Press E to equip Rasp
   sphereRadius: 3
   equipableObject: {fileID: 1561588766}
 --- !u!1001 &1566508397
@@ -21092,6 +21107,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604267106}
   m_CullTransparentMesh: 1
+--- !u!1 &1618144369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4587406780090993205, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+  m_PrefabInstance: {fileID: 1482992021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1618144370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4837221891645313814, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+  m_PrefabInstance: {fileID: 1482992021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1618144371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2438838201980515980, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+  m_PrefabInstance: {fileID: 1482992021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1618144372 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1372190715681929979, guid: ddf6ff7c032f9c04f8a1a1d42f6ed642, type: 3}
+  m_PrefabInstance: {fileID: 1482992021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1618144373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618144370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c39c6fd5c15e84ba1880f00233312c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightning1: {fileID: 1618144372}
+  lightning2: {fileID: 1618144371}
+  lightning3: {fileID: 1618144369}
+  audio1: {fileID: 1170464164}
 --- !u!1 &1621753334
 GameObject:
   m_ObjectHideFlags: 0

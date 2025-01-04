@@ -2,8 +2,14 @@ using UnityEngine;
 
 public class LookAtPlayer : MonoBehaviour
 {
-    public Transform player; // The player (or camera) that the canvas should look at
+    private Transform player; // The player (or camera) that the canvas should look at
 
+
+
+    void Start()
+    {
+        player = GameManager.Instance.player.transform;
+    }
     void Update()
     {
         if (player != null)

@@ -80,6 +80,8 @@ public class GameManager : Singleton<GameManager>
 
     [Header("Game Ending")]
     public bool triggerEnding = false;
+    public static bool StartClueActive = false;
+    public static bool ShowClueActive = false;
 
     private void Start()
     {
@@ -122,7 +124,7 @@ public class GameManager : Singleton<GameManager>
 
         if (SceneManager.GetActiveScene().name == "landscape")
         {
-            Debug.Log("Weather Active");
+            //Debug.Log("Weather Active");
             Weather.SetActive(true); // Activate the GameObject if in Landscape scene
         }
         else

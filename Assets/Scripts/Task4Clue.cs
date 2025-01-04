@@ -9,7 +9,7 @@ public class Task4Clue : MonoBehaviour
     public Transform player;
     public GameObject clue;
     public TextMeshProUGUI dialogueText;
-    public TextMeshProUGUI drawingsCompletedText;
+    //public TextMeshProUGUI drawingsCompletedText;
     public GameObject turnOff;
     public GameObject caveOn;
 
@@ -80,7 +80,7 @@ public class Task4Clue : MonoBehaviour
         Debug.Log("Clue equipped");
         clue.SetActive(false);
         HideDialogue();
-        drawingsCompletedText.gameObject.SetActive(true);
+        //drawingsCompletedText.gameObject.SetActive(true);
         StartCoroutine(ActivateClueTasksWithDelay());
     }
 
@@ -88,7 +88,7 @@ public class Task4Clue : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         Debug.Log("Activating clue tasks after delay");
-        drawingsCompletedText.gameObject.SetActive(false);
+        //drawingsCompletedText.gameObject.SetActive(false);
         ShowDialogue("YOU: Maybe I could piece these drawings together and then go back in the ship to assess the damage.");
         Clue_Collected = true;
         yield return new WaitForSeconds(5);

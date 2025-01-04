@@ -10,7 +10,6 @@ public class EnterAlienArea : MonoBehaviour
     public GameObject silverCube;
     public GameObject brownCube;
     public GameObject thruster;
-    public GameObject shovel;
     public RepairTask2 repairTask2;
     public TextMeshProUGUI dialogueText;
     public GameObject completedRepairText;
@@ -65,6 +64,9 @@ public class EnterAlienArea : MonoBehaviour
         if (thruster.activeSelf == false)
         {
             EquipThruster();
+            // Stop alien area audio and resume background audio
+            if (alienAreaAudio) alienAreaAudio.Stop();
+            if (backgroundAudio) backgroundAudio.Play();
         }
     }
 
@@ -100,9 +102,7 @@ public class EnterAlienArea : MonoBehaviour
         {
             Debug.Log("Player left alien area");
 
-            // Stop alien area audio and resume background audio
-            if (alienAreaAudio) alienAreaAudio.Stop();
-            if (backgroundAudio) backgroundAudio.Play();
+            
         }
     }
 
