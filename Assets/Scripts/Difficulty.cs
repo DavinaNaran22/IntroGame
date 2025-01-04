@@ -50,6 +50,7 @@ public class Difficulty
     // For some reason accessing oxygenTime sometimes returns 0
     // After cutscene finished playing in interior
     // This works instead
+    // Hours oxygen should last for
     public float GetOxygenTime()
     {
         Debug.Log("In get oxygen time " + level);

@@ -27,6 +27,7 @@ public class TaskManager : MonoBehaviour
 
     public void IncreaseProgress(float percentage)
     {
+        Debug.Log("Progress added by " + percentage);
         float progressIncrement = percentage / 100f;
         currentProgress = Mathf.Clamp(currentProgress + progressIncrement, 0f, 1f); // Ensure progress stays between 0 and 1
         UpdateProgressUI();

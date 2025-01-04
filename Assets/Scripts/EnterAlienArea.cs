@@ -14,6 +14,7 @@ public class EnterAlienArea : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject completedRepairText;
     public MissionManager repairTask1;
+    public TaskManager taskManager;
 
     private CharacterController characterController;
 
@@ -27,11 +28,12 @@ public class EnterAlienArea : MonoBehaviour
     public AudioSource alienAreaAudio; // Audio to play in the alien area
     public AudioSource backgroundAudio; // Background audio to resume after the task is completed
 
-
+    private bool equippedThruster = false;
 
     private void Start()
     {
         player = GameManager.Instance.player;
+        taskManager = GameManager.Instance.taskManager;
 
 
         characterController = player.GetComponent<CharacterController>();
@@ -63,7 +65,7 @@ public class EnterAlienArea : MonoBehaviour
         
         if (thruster.activeSelf == false)
         {
-            EquipThruster();
+            if (!equippedThruster) EquipThruster();
             // Stop alien area audio and resume background audio
             if (alienAreaAudio) alienAreaAudio.Stop();
             if (backgroundAudio) backgroundAudio.Play();
@@ -150,9 +152,12 @@ public class EnterAlienArea : MonoBehaviour
 
     private void EquipThruster()
     {
-       
+       equippedThruster = true;
         HideDialogue();
         completedRepairText.SetActive(true); // 5 SECS AFTER, BELOW EXECUTES
+        GameManager.Instance.complTaskOne = true;
+        taskManager.IncreaseProgress(6);
+        taskManager.SetTaskText("Find something to repait hole");
         StartCoroutine(ActivateRepairTasksWithDelay()); 
 
     }
