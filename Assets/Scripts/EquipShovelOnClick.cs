@@ -22,6 +22,8 @@ public class EquipShovelOnClick : MonoBehaviour
     public EquipGunOnClick equipGunScript;
     public EquipKnifeOnClick equipKnifeScript;
 
+    public EquipObject equipObject;
+
     void Start()
     {
         thrusterimg.SetActive(false);
@@ -162,12 +164,17 @@ public class EquipShovelOnClick : MonoBehaviour
             playerNearText.Text = equipThrusterText;
 
             // Enable EquipObject script
-            EquipObject equipObject = thruster.GetComponent<EquipObject>();
+            equipObject = thruster.GetComponent<EquipObject>();
             if (equipObject == null)
             {
                 thruster.AddComponent<EquipObject>();
+                
             }
-            equipObject.enabled = true;
+            else
+            {
+                equipObject.enabled = true;
+            }
+            
 
             Debug.Log("Thruster components activated after equipping the shovel.");
         }

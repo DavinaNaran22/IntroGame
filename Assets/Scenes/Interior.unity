@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
+  m_IndirectSpecularColor: {r: 0.002063206, g: 0.0019480612, b: 0.0021180937, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2764,8 +2764,6 @@ MonoBehaviour:
   HUD: {fileID: 1089804553}
   HealthBar: {fileID: 51700335}
   OxygenBar: {fileID: 2063951798}
-  wind: {fileID: 488625283}
-  thunder: {fileID: 1170464166}
 --- !u!1 &58673426
 GameObject:
   m_ObjectHideFlags: 0
@@ -8865,6 +8863,7 @@ MonoBehaviour:
   crosshair: {fileID: 905433306}
   equipGunScript: {fileID: 644578567}
   equipKnifeScript: {fileID: 644578571}
+  equipObject: {fileID: 0}
 --- !u!114 &644578576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9821,6 +9820,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1141611168}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15007,7 +15018,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 62b469e132d46e943a65087b6afcf149, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17678,6 +17689,7 @@ MonoBehaviour:
   taskManager: {fileID: 251013341}
   boostedSwordCrafted: 0
   task4Completed: 0
+  ShowClueScript: {fileID: 0}
   triggerEnding: 0
 --- !u!4 &1352790603
 Transform:
@@ -20422,7 +20434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Press E to equip file
+  Text: Press E to equip Rasp
   sphereRadius: 3
   equipableObject: {fileID: 1561588766}
 --- !u!1001 &1566508397

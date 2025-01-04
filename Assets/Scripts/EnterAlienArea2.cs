@@ -15,7 +15,7 @@ public class EnterAlienArea2 : MonoBehaviour
     public BoxCollider restrictPlayerCam;
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI completedRepairText;
-    public TextMeshProUGUI drawingsCompletedText;
+    //public TextMeshProUGUI drawingsCompletedText;
     public RepairTask2 repairTask2;
     public RepairTask3 repairTask3;
     public TaskManager taskManager;
@@ -130,6 +130,8 @@ public class EnterAlienArea2 : MonoBehaviour
             {
                 Debug.Log("AlienDrop became inactive. Calling EquipBlocks.");
                 EquipBlocks();
+                if (alienAreaAudio) alienAreaAudio.Stop();
+                if (backgroundAudio) backgroundAudio.Play();
             }
 
             // Update the previous state
@@ -137,7 +139,7 @@ public class EnterAlienArea2 : MonoBehaviour
         }
 
 
-        if (blocksEquipped && waitingForEquipC && Input.GetKeyDown(KeyCode.E)) // NEED TO CHANGE SO CLUE CAN BE EQUIPPED
+        if (clue.activeSelf == false) // NEED TO CHANGE SO CLUE CAN BE EQUIPPED
         {
             Debug.Log("Clue equipped");
             EquipClue();
@@ -188,7 +190,7 @@ public class EnterAlienArea2 : MonoBehaviour
     {
         Debug.Log("Clue equipped");
         HideDialogue();
-        drawingsCompletedText.gameObject.SetActive(true);
+        //drawingsCompletedText.gameObject.SetActive(true);
         StartCoroutine(ActivateClueTasksWithDelay());
     }
 
@@ -196,7 +198,7 @@ public class EnterAlienArea2 : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         Debug.Log("Activating clue tasks after delay");
-        drawingsCompletedText.gameObject.SetActive(false);
+        //drawingsCompletedText.gameObject.SetActive(false);
         repairTask2.gameObject.SetActive(false);
         repairTask3.gameObject.SetActive(true);
     }
@@ -228,9 +230,8 @@ public class EnterAlienArea2 : MonoBehaviour
             Debug.Log("Player attempted to leave the box.");
         }
 
-        // Stop alien area audio and resume background audio
-        if (alienAreaAudio) alienAreaAudio.Stop();
-        if (backgroundAudio) backgroundAudio.Play();
+        
+        
     }
 
     private void KeepPlayerInsideBox()
