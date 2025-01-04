@@ -7,6 +7,7 @@ public class AssignClueScript : MonoBehaviour
     [SerializeField] GameObject task2;
     [SerializeField] GameObject task3;
     [SerializeField] GameObject task4;
+    [SerializeField] GameObject rt4clue;
     [SerializeField] GameObject task5;
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class AssignClueScript : MonoBehaviour
         if (GameManager.Instance.complTaskThree && !GameManager.Instance.complTaskFour)
         {
             task4.SetActive(true);
+            rt4clue.SetActive(true);
         }
 
         if (GameManager.Instance.complTaskFour && !GameManager.Instance.complTaskFive)
