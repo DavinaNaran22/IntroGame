@@ -47,13 +47,13 @@ public class CaveDialogue2 : MonoBehaviour
     {
         
         ShowDialogue("Maybe I can use this crystal as a power source for my spaceship...");
-        
+        StartCoroutine(transitionScene());
     }
 
     private IEnumerator transitionScene()
     {
         yield return new WaitForSeconds(4f);
-        transition.SetActive(false);
+        transition.SetActive(true);
     }
 
 
