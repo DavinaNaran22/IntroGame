@@ -6,6 +6,9 @@ public class PlayerNearEquipable : PlayerNearText
     private PlayerInputActions inputActions;
     public static int count = 0;
 
+    private EquipManager equipManager;
+    private EquipData objectData;
+
     private void Awake()
     {
         inputActions = new PlayerInputActions();
@@ -15,6 +18,25 @@ public class PlayerNearEquipable : PlayerNearText
     {
         inputActions.Player.Enable();
         inputActions.Player.Equip.performed += ctx => EquipObject();
+    }
+
+    private void Start()
+    {
+        equipManager = GameManager.Instance.equipManager;
+        objectData = equipManager.GetFromEquipList(equipableObject);
+        if (objectData != null)
+        {
+            // Deactivate if already been equipped
+            if (objectData.hasBeenEquiped)
+            {
+                equipableObject.SetActive(false);
+            }
+        }
+        else
+        {
+            objectData = new EquipData(equipableObject, false);
+            equipManager.equipObjects.Add(objectData);
+        }
     }
 
     new void OnDisable()
@@ -30,6 +52,7 @@ public class PlayerNearEquipable : PlayerNearText
     {
         if (hoverText.text == Text && modifyingText)
         {
+            objectData.hasBeenEquiped = true;
             equipableObject.SetActive(false);
             count += 1;
             Debug.Log(count);

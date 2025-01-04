@@ -6,12 +6,14 @@ using UnityEngine;
 [Serializable]
 public class EquipData
 {
+    public string objectName;
     public Vector3 objPos;
     public bool hasBeenEquiped = false;
 
-    public EquipData(Vector3 objPos, bool hasBeenEquiped)
+    public EquipData(GameObject obj, bool hasBeenEquiped)
     {
-        this.objPos = objPos;
+        this.objectName = obj.name;
+        this.objPos = obj.transform.position;
         this.hasBeenEquiped = hasBeenEquiped;
     }
 }
