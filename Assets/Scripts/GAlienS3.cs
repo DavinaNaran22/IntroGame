@@ -12,7 +12,7 @@ public class GAlienS3 : MonoBehaviour
     public AlienDamageBar damageBar;
     public GameObject Healthlimit;
     public float reduceHealth = 0.1f;
-    public AlienRestrictScene camRestrict;
+    public AlienRestrictScene2 camRestrict;
     public EnterAlienArea4 enterAlienArea4;
 
     public GameObject dropBlock;
