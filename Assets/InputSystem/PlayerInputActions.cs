@@ -206,15 +206,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""EnterArea"",
-                    ""type"": ""Button"",
-                    ""id"": ""71b110e4-b6b0-4317-96a6-43413ed7f7af"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -536,17 +527,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Mouse_Up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ee79a043-238c-46a8-a7ad-fc5112e30c85"",
-                    ""path"": ""<Keyboard>/#(E)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""EnterArea"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -575,7 +555,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_ControlPanel = m_Player.FindAction("ControlPanel", throwIfNotFound: true);
         m_Player_Mouse_Down = m_Player.FindAction("Mouse_Down", throwIfNotFound: true);
         m_Player_Mouse_Up = m_Player.FindAction("Mouse_Up", throwIfNotFound: true);
-        m_Player_EnterArea = m_Player.FindAction("EnterArea", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -657,7 +636,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ControlPanel;
     private readonly InputAction m_Player_Mouse_Down;
     private readonly InputAction m_Player_Mouse_Up;
-    private readonly InputAction m_Player_EnterArea;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -682,7 +660,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @ControlPanel => m_Wrapper.m_Player_ControlPanel;
         public InputAction @Mouse_Down => m_Wrapper.m_Player_Mouse_Down;
         public InputAction @Mouse_Up => m_Wrapper.m_Player_Mouse_Up;
-        public InputAction @EnterArea => m_Wrapper.m_Player_EnterArea;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -752,9 +729,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Mouse_Up.started += instance.OnMouse_Up;
             @Mouse_Up.performed += instance.OnMouse_Up;
             @Mouse_Up.canceled += instance.OnMouse_Up;
-            @EnterArea.started += instance.OnEnterArea;
-            @EnterArea.performed += instance.OnEnterArea;
-            @EnterArea.canceled += instance.OnEnterArea;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -819,9 +793,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Mouse_Up.started -= instance.OnMouse_Up;
             @Mouse_Up.performed -= instance.OnMouse_Up;
             @Mouse_Up.canceled -= instance.OnMouse_Up;
-            @EnterArea.started -= instance.OnEnterArea;
-            @EnterArea.performed -= instance.OnEnterArea;
-            @EnterArea.canceled -= instance.OnEnterArea;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -861,6 +832,5 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnControlPanel(InputAction.CallbackContext context);
         void OnMouse_Down(InputAction.CallbackContext context);
         void OnMouse_Up(InputAction.CallbackContext context);
-        void OnEnterArea(InputAction.CallbackContext context);
     }
 }
