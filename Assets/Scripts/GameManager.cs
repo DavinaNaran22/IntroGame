@@ -85,7 +85,6 @@ public class GameManager : Singleton<GameManager>
     public bool task4Completed = false;
     public ShowClue ShowClueScript;
 
-
     [Header("Game Ending")]
     public bool triggerEnding = false;
     public bool shownClue = false;
@@ -94,6 +93,7 @@ public class GameManager : Singleton<GameManager>
     public bool canEnableShowClue = false;
 
     [Header("Task Progress")]
+    public bool interiorTaskTwo = false;
     public bool completedTaskOne = false;
     public bool completedTaskTwo = false;
     public bool completedTaskThree = false;
@@ -101,6 +101,9 @@ public class GameManager : Singleton<GameManager>
     public bool puzzleCompleted = false;
     public bool completedTaskFive = false;
     public bool completedSceneFive = false;
+
+    [Header("Equip Manager")]
+    public EquipManager equipManager;
 
     private void Start()
     {
@@ -184,6 +187,8 @@ public class GameManager : Singleton<GameManager>
         bf.Serialize(file, data);
         file.Close();
         Debug.Log("Player progess saved at " + filename);
+
+        equipManager.Save();
     }
 
     public void Load()
@@ -222,6 +227,8 @@ public class GameManager : Singleton<GameManager>
         {
             Debug.Log("No file with player data at location " + filename + " so no loading of player data");
         }
+
+        equipManager.Load();
     }
 
     private void OnSavedSceneLoad(Scene scene, LoadSceneMode mode)
