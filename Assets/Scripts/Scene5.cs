@@ -64,8 +64,8 @@ public class Scene5 : MonoBehaviour
     private void Update()
     {
         if (GameManager.Instance.completedSceneFive) return;
-        //if (map1.activeInHierarchy)
-        if (GameManager.Instance.puzzleCompleted && !startedScene)
+        if (map1.activeInHierarchy && GameManager.Instance.puzzleCompleted && !startedScene)
+        //if (GameManager.Instance.puzzleCompleted && !startedScene)
         {
             logic.SetActive(true);
             taskManager.IncreaseProgress(10);
