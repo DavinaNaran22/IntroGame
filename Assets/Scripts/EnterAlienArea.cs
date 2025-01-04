@@ -15,7 +15,6 @@ public class EnterAlienArea : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject completedRepairText;
     public MissionManager repairTask1;
-    private PlayerInputActions inputActions;
 
     private CharacterController characterController;
 
@@ -29,59 +28,7 @@ public class EnterAlienArea : MonoBehaviour
     public AudioSource alienAreaAudio; // Audio to play in the alien area
     public AudioSource backgroundAudio; // Background audio to resume after the task is completed
 
-    private void Awake()
-    {
-        inputActions = new PlayerInputActions();
-    }
 
-    private void OnEnable()
-    {
-
-        inputActions.Player.Enable();
-        inputActions.Player.Equip.performed += ctx => ONEquip();
-    }
-
-    private void OnDestroy()
-    {
-        inputActions.Player.Disable();
-        inputActions.Player.Equip.performed += ctx => ONEquip();
-    }
-
-    private void ONEquip()
-    {
-        // Check if the player presses E while inside the thruster's box collider
-        if (waitingForEquip)
-        {
-            if (thruster != null)
-            {
-                // Get the BoxCollider from the thruster
-                BoxCollider thrusterCollider = thruster.GetComponent<BoxCollider>();
-
-                if (thrusterCollider != null)
-                {
-                    // Check if the player's position is inside the collider's bounds
-                    if (thrusterCollider.bounds.Contains(player.transform.position))
-                    {
-                        Debug.Log("Player is inside the thruster's box collider and pressed E");
-                        EquipThruster();
-                    }
-                    else
-                    {
-                        Debug.Log("Player is not inside the thruster's box collider.");
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning("Thruster does not have a BoxCollider yet.");
-                }
-            }
-            else
-            {
-                Debug.LogError("Thruster reference is null.");
-            }
-        }
-
-    }
 
     private void Start()
     {
@@ -114,6 +61,11 @@ public class EnterAlienArea : MonoBehaviour
             DisableRestriction();
         }
 
+        
+        if (thruster.activeSelf == false)
+        {
+            EquipThruster();
+        }
     }
 
 
