@@ -40,7 +40,7 @@ public class WireRepair : MonoBehaviour
     // Load the game scene for the player to repair the wires
     private void ToggleRepair()
     {
-        if (GameManager.Instance.complTaskFour) return;
+        if (GameManager.Instance.completedTaskFour) return;
         if (playerin == true && wing_attached.WingTask == true)
         {
             GameManager.StartClueActive = true;
@@ -59,7 +59,7 @@ public class WireRepair : MonoBehaviour
         StartClue.SetActive(GameManager.StartClueActive);
         stopWingAttached.SetActive(false);
         PART2.enabled = false;
-        if (!GameManager.Instance.complTaskFour) turnOnMessage.gameObject.SetActive(true);
+        if (!GameManager.Instance.completedTaskFour) turnOnMessage.gameObject.SetActive(true);
         StartCoroutine(PromptTextShow());
     }
 
@@ -67,7 +67,7 @@ public class WireRepair : MonoBehaviour
     private IEnumerator PromptTextShow()
     {
         yield return new WaitForSeconds(2f);
-        if (!GameManager.Instance.complTaskFour) turnOnMessage.gameObject.SetActive(false);
+        if (!GameManager.Instance.completedTaskFour) turnOnMessage.gameObject.SetActive(false);
         promptText.gameObject.SetActive(true);
     }
 

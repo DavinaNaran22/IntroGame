@@ -20,7 +20,7 @@ public class Scene5 : MonoBehaviour
     private int currentDialogueIndex = 0;
     public Canvas Message_Exit;
 
-
+    private bool startedScene = false;
     private PlayerInputActions inputActions;
 
 
@@ -59,18 +59,19 @@ public class Scene5 : MonoBehaviour
         if (map1.activeInHierarchy) GameManager.Instance.Save(); // Only save in interior if this task ready
         player = GameManager.Instance.player;
         taskManager = GameManager.Instance.taskManager;
-
     }
 
     private void Update()
     {
-        if (map1.activeInHierarchy)
+        if (GameManager.Instance.completedSceneFive) return;
+        if (map1.activeInHierarchy && GameManager.Instance.puzzleCompleted && !startedScene)
+        //if (GameManager.Instance.puzzleCompleted && !startedScene)
         {
             logic.SetActive(true);
             taskManager.IncreaseProgress(10);
             StartAdditionalDialogues();
+            startedScene = true;
         }
-
     }
 
     private void DismissDialogue()
@@ -127,6 +128,7 @@ public class Scene5 : MonoBehaviour
             Debug.Log("All dialogues finished");
             taskManager.SetTaskText("Find the cave");
             finishedD = true;
+            GameManager.Instance.completedSceneFive = true;
             scene5.SetActive(false);
         }
     }
