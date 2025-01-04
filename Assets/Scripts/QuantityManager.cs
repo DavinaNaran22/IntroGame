@@ -50,7 +50,7 @@ public class QuantityManager : MonoBehaviour
     [Header("Collectible Item UI Elements")]
     public TextMeshProUGUI medicineText;
     public TextMeshProUGUI herbsText;
-    public TextMeshProUGUI clueText; 
+    public TextMeshProUGUI clueText;
 
     // Reference to the Crafting Message Canvas and Text
     public GameObject craftingMessageCanvas;
@@ -63,11 +63,12 @@ public class QuantityManager : MonoBehaviour
 
     public EquipSwordOnClick equipSwordScript;
     private RhinoAlienBehaviour rhinoAlienBehaviour;
+    private AlienRestrictScene2 alienRestrictScene;
 
 
     private int medicineCount = 0;
     private int herbsCount = 0;
-    private int clueCount = 0; 
+    private int clueCount = 0;
 
     private Dictionary<GameObject, bool> medicineStates = new Dictionary<GameObject, bool>();
     private Dictionary<GameObject, bool> herbStates = new Dictionary<GameObject, bool>();
@@ -99,6 +100,7 @@ public class QuantityManager : MonoBehaviour
         // Add tracking for Alien Skin and Stone drops in Area 3
         TrackArea3Drops("RepairTask3Manager", "AlienSkinCube", alienSkinImage);
         TrackArea3Drops("RepairTask3Manager", "Stone", stoneImage);
+        TrackArea3Drops("RepairTask3Manager", "RestrictPlayerCam2", gunImage);
 
         // Initialize collectible item text
         UpdateText(medicineText, "Medicine", medicineCount);
@@ -141,7 +143,7 @@ public class QuantityManager : MonoBehaviour
             FindAndAddHerbsByTag();
 
             // Find and add all clues to the list
-            FindAndAddCluesByTag(); 
+            FindAndAddCluesByTag();
         }
 
         if (scene.name == "landscape")
@@ -307,6 +309,15 @@ public class QuantityManager : MonoBehaviour
         {
             SetActive(toolboxImage, false);
         }
+
+        if (alienRestrictScene.photoTaken == true)
+        {
+            SetActive(gunImage, false);
+        }
+        if (alienSkinImage.activeSelf || stoneImage.activeSelf)
+        {
+            SetActive(gunImage, true);
+        }
     }
 
 
@@ -408,6 +419,10 @@ public class QuantityManager : MonoBehaviour
         {
             Debug.LogError($"UI image for '{childName}' is not assigned.");
         }
+        if (childObject.name == "RestrictPlayerCam2" && uiImage == gunImage)
+        {
+            alienRestrictScene = childObject.GetComponent<AlienRestrictScene2>();
+        }
     }
 
 
@@ -435,7 +450,7 @@ public class QuantityManager : MonoBehaviour
     }
 
 
-    
+
 
     private void FindAndAddHerbsByTag()
     {
@@ -491,7 +506,7 @@ public class QuantityManager : MonoBehaviour
 
     }
 
-        private void HandleHerbs()
+    private void HandleHerbs()
     {
         // Create a list to track herbs that need to be processed
         List<GameObject> herbsToProcess = new List<GameObject>();
