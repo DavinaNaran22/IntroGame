@@ -130,6 +130,8 @@ public class EnterAlienArea2 : MonoBehaviour
             {
                 Debug.Log("AlienDrop became inactive. Calling EquipBlocks.");
                 EquipBlocks();
+                if (alienAreaAudio) alienAreaAudio.Stop();
+                if (backgroundAudio) backgroundAudio.Play();
             }
 
             // Update the previous state
@@ -137,7 +139,7 @@ public class EnterAlienArea2 : MonoBehaviour
         }
 
 
-        if (blocksEquipped && waitingForEquipC && Input.GetKeyDown(KeyCode.E)) // NEED TO CHANGE SO CLUE CAN BE EQUIPPED
+        if (clue.activeSelf == false) // NEED TO CHANGE SO CLUE CAN BE EQUIPPED
         {
             Debug.Log("Clue equipped");
             EquipClue();
@@ -228,9 +230,8 @@ public class EnterAlienArea2 : MonoBehaviour
             Debug.Log("Player attempted to leave the box.");
         }
 
-        // Stop alien area audio and resume background audio
-        if (alienAreaAudio) alienAreaAudio.Stop();
-        if (backgroundAudio) backgroundAudio.Play();
+        
+        
     }
 
     private void KeepPlayerInsideBox()
