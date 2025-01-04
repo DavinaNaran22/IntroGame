@@ -20421,7 +20421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Press E to equip file
+  Text: Press E to equip Rasp
   sphereRadius: 3
   equipableObject: {fileID: 1561588766}
 --- !u!1001 &1566508397
