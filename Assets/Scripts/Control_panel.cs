@@ -49,11 +49,13 @@ public class Control_panel : MonoBehaviour
             //Debug.Log("ACTIVE");
 
             C_panel.SetActive(true);
+            // Enable progress game object so text can update
+            taskManager.gameObject.SetActive(true);
             ship_map.enabled = false;
             Msg1.SetActive(false);
             task1_completed = true;
-            taskManager.IncreaseProgress(7); // Increase progress by 7%
             taskManager.SetTaskText("Collect resources"); // Update the task description
+            taskManager.IncreaseProgress(7); // Increase progress by 7%
 
 
 
@@ -129,11 +131,10 @@ public class Control_panel : MonoBehaviour
           
 
         }
-
     }
 
     // methods to switch between tabs within control panel, disabling one tab and enabling the other 
-    
+
     public void enable_ship_map()
     {
         ship_map.enabled = true;
