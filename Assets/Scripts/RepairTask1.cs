@@ -64,6 +64,7 @@ public class MissionManager : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.Instance.complTaskOne) gameObject.SetActive(false); // Deactivate parent game object (i.e. repair task 1 manager)
         GameManager.Instance.Save();
         player = GameManager.Instance.player;
         cameraManagement = GameManager.Instance.cameraManagement;

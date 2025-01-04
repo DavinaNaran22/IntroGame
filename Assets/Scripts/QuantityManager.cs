@@ -312,7 +312,7 @@ public class QuantityManager : MonoBehaviour
             SetActive(toolboxImage, false);
         }
 
-        if (alienRestrictScene.photoTaken == true)
+        if (alienRestrictScene && alienRestrictScene.photoTaken == true)
         {
             SetActive(gunImage, false);
         }
@@ -321,7 +321,7 @@ public class QuantityManager : MonoBehaviour
             SetActive(gunImage, true);
         }
 
-        if (alienRestrictScene.photoTaken == true)
+        if (alienRestrictScene && alienRestrictScene.photoTaken == true)
         {
             SetActive(gunImage, false);
             if (equipGunScript.IsGunEquipped)
@@ -330,7 +330,7 @@ public class QuantityManager : MonoBehaviour
             }
         }
 
-        if (rhinoAlienBehaviour.enterAlienArea3.finished == true)
+        if (rhinoAlienBehaviour && rhinoAlienBehaviour.enterAlienArea3.finished == true)
         {
             Debug.Log("Alien Area 3 finished. Disabling gun and knife images.");
             SetActive(gunImage, false);
@@ -348,7 +348,7 @@ public class QuantityManager : MonoBehaviour
         }
 
         
-        if (rhinoAlienBehaviour.isDead)
+        if (rhinoAlienBehaviour && rhinoAlienBehaviour.isDead)
         {
             SetActive(gunImage, true);
             SetActive(knifeImage, true);

@@ -153,6 +153,7 @@ public class EnterAlienArea : MonoBehaviour
        
         HideDialogue();
         completedRepairText.SetActive(true); // 5 SECS AFTER, BELOW EXECUTES
+        GameManager.Instance.complTaskOne = true;
         StartCoroutine(ActivateRepairTasksWithDelay()); 
 
     }

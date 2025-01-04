@@ -51,6 +51,7 @@ public class RepairTask2 : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.Instance.complTaskTwo) transform.parent.gameObject.SetActive(false);
         Debug.Log("RepairTask2 Start");
         GameManager.Instance.Save();
         player = GameManager.Instance.player;
