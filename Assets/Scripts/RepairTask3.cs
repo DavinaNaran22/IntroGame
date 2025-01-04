@@ -55,7 +55,7 @@ public class RepairTask3 : MonoBehaviour
 
     private void Start()
     {
-        if (GameManager.Instance.complTaskThree) transform.parent.gameObject.SetActive(false);
+        if (GameManager.Instance.completedTaskThree) transform.parent.gameObject.SetActive(false);
         GameManager.Instance.Save();
         Debug.Log("RepairTask3 Start");
         player = GameManager.Instance.player;

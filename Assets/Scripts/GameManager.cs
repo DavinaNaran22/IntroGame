@@ -35,7 +35,9 @@ class PlayerData
     public bool complTaskTwo;
     public bool complTaskThree;
     public bool complTaskFour;
+    public bool puzzleCompleted;
     public bool complTaskFive;
+    public bool completedSceneFive;
 }
 
 public class GameManager : Singleton<GameManager>
@@ -92,12 +94,13 @@ public class GameManager : Singleton<GameManager>
     public bool canEnableShowClue = false;
 
     [Header("Task Progress")]
-    public bool complTaskOne = false;
-    public bool complTaskTwo = false;
-    public bool complTaskThree = false;
-    public bool complTaskFour = false;
-    public bool puzzleStarted = false;
-    public bool complTaskFive = false;
+    public bool completedTaskOne = false;
+    public bool completedTaskTwo = false;
+    public bool completedTaskThree = false;
+    public bool completedTaskFour = false;
+    public bool puzzleCompleted = false;
+    public bool completedTaskFive = false;
+    public bool completedSceneFive = false;
 
     private void Start()
     {
@@ -170,11 +173,13 @@ public class GameManager : Singleton<GameManager>
         data.xPos = player.transform.position.x;
         data.yPos = player.transform.position.y;
         data.zPos = player.transform.position.z;
-        data.complTaskOne = complTaskOne;
-        data.complTaskTwo = complTaskTwo;
-        data.complTaskThree = complTaskThree;
-        data.complTaskFour = complTaskFour;
-        data.complTaskFive = complTaskFive;
+        data.complTaskOne = completedTaskOne;
+        data.complTaskTwo = completedTaskTwo;
+        data.complTaskThree = completedTaskThree;
+        data.puzzleCompleted = puzzleCompleted;
+        data.complTaskFour = completedTaskFour;
+        data.complTaskFive = completedTaskFive;
+        data.completedSceneFive = completedSceneFive;
 
         bf.Serialize(file, data);
         file.Close();
@@ -200,11 +205,13 @@ public class GameManager : Singleton<GameManager>
             Difficulty = data.difficulty;
             Volume = data.volume;
             MouseSens = data.mouseSens;
-            complTaskOne = data.complTaskOne;
-            complTaskTwo = data.complTaskTwo;
-            complTaskThree = data.complTaskThree;
-            complTaskFour = data.complTaskFour;
-            complTaskFive = data.complTaskFive;
+            completedTaskOne = data.complTaskOne;
+            completedTaskTwo = data.complTaskTwo;
+            completedTaskThree = data.complTaskThree;
+            completedTaskFour = data.complTaskFour;
+            puzzleCompleted = data.puzzleCompleted;
+            completedTaskFive = data.complTaskFive;
+            completedSceneFive = data.completedSceneFive;
 
             // Load scene and spawn player in saved position
             SceneManager.LoadScene(CurrentScene);

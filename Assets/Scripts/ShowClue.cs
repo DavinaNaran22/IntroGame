@@ -60,7 +60,7 @@ public class ShowClue : MonoBehaviour
         taskManager.IncreaseProgress(5);
         taskManager.SetTaskText("Review damage of spaceship");
         GameManager.Instance.shownClue = true;
-        GameManager.Instance.complTaskFive = true;
+        GameManager.Instance.completedTaskFive = true;
 
     }
 
