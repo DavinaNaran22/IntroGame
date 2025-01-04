@@ -10,7 +10,10 @@ public class Wire : MonoBehaviour
     public SpriteRenderer wirelight;
     public LineRenderer wiremiddle;
     public bool Repaired = false;
-    
+
+    private PlayerInputActions inputActions;
+
+
     bool Drag = false;
     Vector3 og_position;
     bool connected = false;
@@ -24,11 +27,47 @@ public class Wire : MonoBehaviour
             Instance = this;
            
         }
-       
+        inputActions = new PlayerInputActions();
+
     }
 
- 
-    // getting the original positon of the wire 
+    private void OnEnable()
+    {
+        inputActions.Player.Enable();
+        inputActions.Player.Mouse_Down.performed += _ => Mouse_Down();
+        inputActions.Player.Mouse_Up.performed += _ => Mouse_Up();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Player.Mouse_Down.performed -= _ => Mouse_Down();
+        inputActions.Player.Mouse_Up.performed -= _ => Mouse_Up();
+        inputActions.Player.Disable();
+    }
+
+    private void Mouse_Down()
+    {
+        // when the mouse button is down drag is set to true and ray cast hits collider
+        Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D detect_collider = Physics2D.Raycast(mouse_pos, Vector2.zero);
+
+        if (detect_collider.collider != null && detect_collider.collider.transform == transform)
+        {
+            Drag = true;
+        }
+
+    }
+
+    private void Mouse_Up()
+    {
+        Drag = false;
+        if (!connected)
+        {
+            Set_position(og_position);
+        }
+
+    }
+    // sets the original position of wire to wire when it doesnt connect and drag is false 
 
     void Start()
     {
@@ -36,13 +75,14 @@ public class Wire : MonoBehaviour
      
     }
 
+    // updates every frame to drag the object, changing its position every frame
     private void Update()
 
     {
       
         if (Drag) {
 
-            connected = false;            //converts the mouse position converted to world values 
+            connected = false;           
             Vector3 mousePostion = Input.mousePosition;
             Vector3 convertMousePosition = Camera.main.ScreenToWorldPoint(mousePostion);
             convertMousePosition.z = 0;
@@ -69,10 +109,10 @@ public class Wire : MonoBehaviour
 
 
     }
-
+    //method to reset position of wire 
     void Set_position(Vector3 position_new) {
         transform.position = position_new;
-        position_new.z = wiremiddle.transform.position.z; // Match the z-position
+        position_new.z = wiremiddle.transform.position.z;
 
 
 
@@ -83,26 +123,8 @@ public class Wire : MonoBehaviour
 
     }
 
-    private void OnMouseDown()
-    {
-        Drag = true;
-      
-      
-
-
-
-    }
-    private void OnMouseUp()
-    {
-        Drag = false;
-        if (!connected) {
-            Set_position(og_position);
-        }
-        
-
-        
-
-    }
+    // checks if the all the wires are connected using a count
+    // count increments when wire instance is connected checks each time incremented
 
     public void WireConnected()
     {
@@ -110,6 +132,7 @@ public class Wire : MonoBehaviour
 
         if (wire_count == 4) {
             Repaired = true;
+            // turns the wire light color to green to indicate the player has repaired the wires 
             wirelight.color = Color.green;
         }
     }

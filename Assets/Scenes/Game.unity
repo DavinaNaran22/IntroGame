@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -731,10 +731,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3460010823840478910, guid: f52bbf7d1ba3f4b5aa5ce875a707cfaa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1779785320781049078, guid: f52bbf7d1ba3f4b5aa5ce875a707cfaa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1109030265}
   m_SourcePrefab: {fileID: 100100000, guid: f52bbf7d1ba3f4b5aa5ce875a707cfaa, type: 3}
 --- !u!1 &736035457
 GameObject:
@@ -1043,6 +1047,57 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &1109030262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1779785320781049078, guid: f52bbf7d1ba3f4b5aa5ce875a707cfaa, type: 3}
+  m_PrefabInstance: {fileID: 694380181}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1109030265
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109030262}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.11672115, y: 0.24324593}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 6.7825766, y: 2.468187}
+  m_EdgeRadius: 0
 --- !u!1 &1119771296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,7 +1500,6 @@ GameObject:
   - component: {fileID: 1404872312}
   - component: {fileID: 1404872311}
   - component: {fileID: 1404872315}
-  - component: {fileID: 1404872316}
   m_Layer: 5
   m_Name: message
   m_TagString: Untagged
@@ -1550,19 +1604,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: {fileID: 1404872313}
   Light: {fileID: 1810426742}
---- !u!114 &1404872316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404872310}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f4967cf65aff4711a0d7f45247d7eb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scene: Landscape
 --- !u!1 &1456151114
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,37 +2775,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2056301691201076093, guid: eeff84e20f1424a8e9cefccdd392cb65, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3039111734930201421}
+      addedObject: {fileID: 3039111734930201424}
     - targetCorrespondingSourceObject: {fileID: 2056301691201076093, guid: eeff84e20f1424a8e9cefccdd392cb65, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3039111734930201424}
+      addedObject: {fileID: 3039111734930201426}
   m_SourcePrefab: {fileID: 100100000, guid: eeff84e20f1424a8e9cefccdd392cb65, type: 3}
 --- !u!1 &3039111734930201420 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2056301691201076093, guid: eeff84e20f1424a8e9cefccdd392cb65, type: 3}
   m_PrefabInstance: {fileID: 3039111734930201419}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &3039111734930201421
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039111734930201420}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5.676782, y: 3.424385, z: 1}
-  m_Center: {x: 1.0010321, y: -0.1780959, z: 0}
 --- !u!4 &3039111734930201422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1657355846824623092, guid: eeff84e20f1424a8e9cefccdd392cb65, type: 3}
@@ -2786,6 +2806,52 @@ MonoBehaviour:
   wirelight: {fileID: 1810426742}
   wiremiddle: {fileID: 1541105456}
   Repaired: 0
+--- !u!61 &3039111734930201426
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039111734930201420}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.47892618, y: 0.02781558}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 6.674615, y: 3.5051217}
+  m_EdgeRadius: 0
 --- !u!1001 &3858998138212832247
 PrefabInstance:
   m_ObjectHideFlags: 0
