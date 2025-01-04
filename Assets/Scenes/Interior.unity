@@ -8863,6 +8863,7 @@ MonoBehaviour:
   crosshair: {fileID: 905433306}
   equipGunScript: {fileID: 644578567}
   equipKnifeScript: {fileID: 644578571}
+  equipObject: {fileID: 0}
 --- !u!114 &644578576
 MonoBehaviour:
   m_ObjectHideFlags: 0
