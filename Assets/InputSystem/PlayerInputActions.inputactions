@@ -166,6 +166,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Mouse_Down",
+                    "type": "Button",
+                    "id": "49bcf379-467e-42cc-9690-26282272d7f1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Mouse_Up",
+                    "type": "Button",
+                    "id": "b4eb9c46-bbc6-44b2-9001-0830dd3e129a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -463,6 +481,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ControlPanel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "535f6e02-16d2-42da-8c62-63b1b39dd871",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mouse_Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "35d1d7d4-30c5-4890-85f7-4dfb86e4f146",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mouse_Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -22,10 +22,45 @@ public class Control_panel : MonoBehaviour
     public TextMeshProUGUI Status_details;
     public GameObject Map;
     public GameObject Map2;
-    //bool task1Completed = false;
+    private PlayerInputActions inputActions;
+
+    private void Awake()
+    {
+        inputActions = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Player.Enable();
+        inputActions.Player.ControlPanel.performed += ctx => Open_CockPit();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Player.ControlPanel.performed -= ctx => Open_CockPit();
+        inputActions.Player.Disable();
+    }
+
+    private void Open_CockPit() {
+        // When the player is in the cockpit if they press A task 1 is enabled/ first version of control panel 
+        if (IN == true && task1_completed == false)
+        {
+            Debug.Log("IN" + IN);
+            //Debug.Log("ACTIVE");
+
+            C_panel.SetActive(true);
+            ship_map.enabled = false;
+            Msg1.SetActive(false);
+            task1_completed = true;
+            taskManager.IncreaseProgress(7); // Increase progress by 7%
+            taskManager.SetTaskText("Collect resources"); // Update the task description
 
 
 
+
+        }
+
+    }
 
 
     // Start is called before the first frame update
@@ -45,23 +80,7 @@ public class Control_panel : MonoBehaviour
     {
         ////Debug.Log("IN");
         //Debug.Log(win_message.win);
-        // When the player is in the cockpit if they press A task 1 is enabled/ first version of control panel 
-        if (IN == true && Input.GetKeyDown(KeyCode.A) && task1_completed == false)
-        {
-            Debug.Log("IN" + IN);
-            //Debug.Log("ACTIVE");
-
-            C_panel.SetActive(true);
-            ship_map.enabled = false;
-            Msg1.SetActive(false);
-            task1_completed = true;
-            taskManager.IncreaseProgress(7); // Increase progress by 7%
-            taskManager.SetTaskText("Collect resources"); // Update the task description
-   
-
-
-
-        }
+    
         // if the wire game is completed update the control panel to reflect repairs 
         if (win_message.win == true)
         {

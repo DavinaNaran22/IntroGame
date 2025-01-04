@@ -2,17 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 public class Clue_drag : MonoBehaviour
 {
     public bool Drag = false;
     public Vector3 correct_position;
+    private PlayerInputActions inputActions;
 
-    public void OnMouseDown()
+    private void Awake()
     {
-        // when the mouse button is down drag is set to true 
-        Drag = true;
-        
+        inputActions = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+
+        inputActions.Player.Enable();
+        inputActions.Player.Mouse_Down.performed += ctx => Mouse_Down();
+        inputActions.Player.Mouse_Up.performed += ctx => Mouse_Up();
+    }
+
+    private void OnDestroy()
+    {
+      
+        inputActions.Player.Mouse_Down.performed += ctx => Mouse_Down();
+        inputActions.Player.Mouse_Up.performed += ctx => Mouse_Up();
+        inputActions.Player.Disable();
+    }
+    public void Mouse_Down()
+    {
+        // when the mouse button is down drag is set to true and ray cast hits collider
+        Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D detect_collider = Physics2D.Raycast(mouse_pos, Vector2.zero);
+
+        if (detect_collider.collider != null && detect_collider.collider.transform == transform)
+        {
+            Drag = true;
+        }
     }
     void Update()
     {
@@ -24,10 +51,10 @@ public class Clue_drag : MonoBehaviour
 
             transform.position = position_new;
 
-           
+
         }
     }
-    public void OnMouseUp()
+    public void Mouse_Up()
     {
         // sets the drag to false when the mouse button is released 
         Drag = false;
@@ -41,3 +68,4 @@ public class Clue_drag : MonoBehaviour
 
 
 }
+
