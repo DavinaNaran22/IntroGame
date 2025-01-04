@@ -19,6 +19,8 @@ public class EnterAlienArea4 : MonoBehaviour
     public GameObject drawingsCompletedText;
     public RepairTask3 repairTask3;
     public RepairTask4 repairTask4;
+    public GameObject repairTask4PT2;
+
     public TaskManager taskManager;
 
     private bool isActive = false;
@@ -138,7 +140,7 @@ public class EnterAlienArea4 : MonoBehaviour
             wasAlienDrop2Active = alienDrop2.activeSelf;
         }
 
-        if (blocksEquipped && waitingForEquipC && Input.GetKeyDown(KeyCode.R)) // Check for clue equip
+        if (blocksEquipped && waitingForEquipC && Input.GetKeyDown(KeyCode.E)) // Check for clue equip
         {
             Debug.Log("Clue equipped");
             EquipClue();
@@ -205,6 +207,7 @@ public class EnterAlienArea4 : MonoBehaviour
         drawingsCompletedText.SetActive(false);
         repairTask3.gameObject.SetActive(false);
         repairTask4.gameObject.SetActive(true);
+        repairTask4PT2.SetActive(true);
     }
 
     // Runs once when player enters alien area

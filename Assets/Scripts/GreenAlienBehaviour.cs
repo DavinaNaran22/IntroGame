@@ -88,7 +88,7 @@ public class GreenAlienBehavior : MonoBehaviour
         PlayerHealth playerHealth = GameManager.Instance.UIManager.GetComponentInChildren<PlayerHealth>();
         if (playerHealth != null)
         {
-            //playerHealth.TakeDamage(GameManager.Instance.Difficulty.alienDamage); // Damage dealt according to difficulty
+            playerHealth.TakeDamage(GameManager.Instance.Difficulty.alienDamage); // Damage dealt according to difficulty
             Debug.Log("Alien shot the player! Dealing damage.");
         }
 
