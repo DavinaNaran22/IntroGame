@@ -87,7 +87,6 @@ public class CaveScene : MonoBehaviour
         picBarrier.gameObject.SetActive(false);
         dialogueText.gameObject.SetActive(true);
         taskManager.IncreaseProgress(10);
-        taskManager.SetTaskText("");
         ShowDialogue("Navigation cutting out.");
         StartCoroutine(DeactivateMiniMap(3f));
     }
@@ -167,6 +166,7 @@ public class CaveScene : MonoBehaviour
         {
             additionalDialoguesActive = false;
             HideDialogue();
+            taskManager.SetTaskText("Kill the Zyrog alien");
         }
     }
 

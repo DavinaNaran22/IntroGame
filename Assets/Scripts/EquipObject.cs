@@ -5,6 +5,8 @@ public class EquipObject : MonoBehaviour
     private bool playerIsInside = false;
     private bool isPasscodeObject = false;
     public QuantityManager quantityManager;
+    private EquipManager equipManager;
+    private EquipData objectData;
 
     // Input system
     private PlayerInputActions inputActions;
@@ -24,6 +26,25 @@ public class EquipObject : MonoBehaviour
     {
         inputActions.Player.Disable();
         inputActions.Player.Equip.performed -= ctx => HandleEquip();
+    }
+
+    private void Start()
+    {
+        equipManager = GameManager.Instance.equipManager;
+        objectData = equipManager.GetFromEquipList(gameObject);
+        if (objectData != null)
+        {
+            // Deactivate if already been equipped
+            if (objectData.hasBeenEquiped)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            objectData = new EquipData(gameObject, false);
+            equipManager.equipObjects.Add(objectData);
+        }
     }
 
     // This method is called when another collider enters the trigger zone.
@@ -58,6 +79,7 @@ public class EquipObject : MonoBehaviour
             // If the object is NOT a Passcode, allow deactivation
             if (!isPasscodeObject)
             {
+                objectData.hasBeenEquiped = true;
                 gameObject.SetActive(false);
             }
             // If the object is a Passcode, show the passcode message

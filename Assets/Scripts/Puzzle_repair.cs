@@ -33,7 +33,7 @@ public class Puzzle_repair : MonoBehaviour
     private void OnDestroy()
     {
         inputActions.Player.Disable();
-        inputActions.Player.Repair.performed += ctx => ToggleRepair2();
+        inputActions.Player.Repair.performed -= ctx => ToggleRepair2();
     }
 
     private void ToggleRepair2()
@@ -42,6 +42,7 @@ public class Puzzle_repair : MonoBehaviour
         {
             Debug.Log("PUZZLE");
             MessagePuzzle.SetActive(false);
+            GameManager.Instance.puzzleStarted = true;
             //GameManager.ShowClueActive = true;
             SceneManager.LoadScene("Puzzle");
             SceneManager.sceneLoaded += OnSceneLoad;
@@ -62,16 +63,16 @@ public class Puzzle_repair : MonoBehaviour
             caveEntrance.SetActive(true);
 
         }
-        // when the puzzle is not complete and the key r is pressed/ last clue collected load the puzzle scene
-        if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false && Task4Clue.Clue_Collected == true)
-        {
-            Debug.Log("PUZZLE");
-            MessagePuzzle.SetActive(false);
-            SceneManager.LoadScene("Puzzle");
-            SceneManager.sceneLoaded += OnSceneLoad;
-            Debug.Log("Loading puzzle scene");
-            showClue.SetActive(true);
-        }
+        //// when the puzzle is not complete and the key r is pressed/ last clue collected load the puzzle scene
+        //if (Input.GetKeyDown(KeyCode.R) && Puzzle.Puzzle_Complete == false && Task4Clue.Clue_Collected == true)
+        //{
+        //    Debug.Log("PUZZLE");
+        //    MessagePuzzle.SetActive(false);
+        //    SceneManager.LoadScene("Puzzle");
+        //    SceneManager.sceneLoaded += OnSceneLoad;
+        //    Debug.Log("Loading puzzle scene");
+        //    showClue.SetActive(true);
+        //}
 
     }
 

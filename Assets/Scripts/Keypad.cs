@@ -67,6 +67,7 @@ public class Keypad : FindPlayerTransform
             Debug.Log("CORRECT CODE");
             GameManager.Instance.unlockedDoor = true;
             taskManager.IncreaseProgress(7); // Increase progress by 7%
+            taskManager.SetTaskText("Find missing thruster");
             GameManager.Instance.hoverText.text = "Right click to leave ship";
             ExitUI();
         }
