@@ -321,7 +321,7 @@ public class QuantityManager : MonoBehaviour
             SetActive(gunImage, true);
         }
 
-        if (alienRestrictScene.photoTaken == true)
+        if (alienRestrictScene && alienRestrictScene.photoTaken == true)
         {
             SetActive(gunImage, false);
             if (equipGunScript.IsGunEquipped)
