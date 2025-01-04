@@ -60,15 +60,13 @@ public class EquipManager : Singleton<EquipManager>
         return null; // Change to something better if possible
 }
 
+    // Save/Load as json since it's easier to work with
     public void Save()
     {
-        Debug.Log("In Equip Save");
         EquipDataListSerializable serializableList = new EquipDataListSerializable(equipObjects);
         string filename = Application.persistentDataPath + "/equipInfo.json";
         string json = JsonUtility.ToJson(serializableList);
 
-        Debug.Log("Json");
-        Debug.Log(json);
         File.WriteAllText(filename, json);
 
         Debug.Log("Equip list saved at " + filename);
