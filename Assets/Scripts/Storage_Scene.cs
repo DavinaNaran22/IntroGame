@@ -34,7 +34,8 @@ public class Storage_Scene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-  
+        if (GameManager.Instance.interiorTaskTwo) return;
+
         GameObject control = GameObject.Find("Cockpit_collider");
         control_panel = control.GetComponent<Control_panel>();
 
@@ -66,7 +67,7 @@ public class Storage_Scene : MonoBehaviour
         {
             Debug.Log("Tools collected");
             Task2 = true;
-
+            GameManager.Instance.interiorTaskTwo = true;
         }
 
 
@@ -75,6 +76,7 @@ public class Storage_Scene : MonoBehaviour
 
     public void deactivate_task2()
     {
+        if (GameManager.Instance.interiorTaskTwo) return; // Equipable script will disable objects which have been equipped
         Debug.Log("disabled");
         OxygenTank1.enabled = false;
         OxygenTank2.enabled = false;
