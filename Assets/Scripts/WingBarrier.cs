@@ -9,6 +9,7 @@ public class WingBarrier : MonoBehaviour
     public GameObject player;
     public BoxCollider restrictedArea;
     public GameObject promptText;
+    public GameObject canvasDT;
 
     public TextMeshProUGUI dialogueText;
     public GameObject cube;
@@ -146,6 +147,8 @@ public class WingBarrier : MonoBehaviour
             HideDialogue();
             dialogueShown = true;
             promptText.SetActive(true);
+            canvasDT.SetActive(false);
+
 
         }
     }
