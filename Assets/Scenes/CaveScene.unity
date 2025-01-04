@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.002063206, g: 0.0019480612, b: 0.0021180937, a: 1}
+  m_IndirectSpecularColor: {r: 0.0020587384, g: 0.0019495602, b: 0.0021148664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3923,7 +3923,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4de0243fc3af943bb1a3ef04d19422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!114 &152426255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4758,6 +4757,10 @@ PrefabInstance:
     - target: {fileID: 52883992851786344, guid: 6b633eaba7daf404eb672c56b7fa0a4e, type: 3}
       propertyPath: m_Name
       value: PromptText
+      objectReference: {fileID: 0}
+    - target: {fileID: 52883992851786344, guid: 6b633eaba7daf404eb672c56b7fa0a4e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2147411957033669481, guid: 6b633eaba7daf404eb672c56b7fa0a4e, type: 3}
       propertyPath: m_Pivot.x
@@ -11632,6 +11635,8 @@ MonoBehaviour:
   Weather: {fileID: 0}
   taskManager: {fileID: 0}
   boostedSwordCrafted: 0
+  task4Completed: 0
+  ShowClueScript: {fileID: 0}
   triggerEnding: 0
 --- !u!114 &444127644
 MonoBehaviour:
@@ -15824,6 +15829,7 @@ MonoBehaviour:
   taskManager: {fileID: 0}
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   shootRate: 0.3
+  isDead: 0
   isInvulnerable: 1
   isCriticalHealth: 0
 --- !u!95 &640000445 stripped
@@ -16798,7 +16804,6 @@ MonoBehaviour:
   player: {fileID: 0}
   restrictedArea: {fileID: 681031838}
   alienArea: {fileID: 1041454074}
-  promptText: {fileID: 1062247280}
   promptTextDial: {fileID: 1366756579}
   dialogueText: {fileID: 1999539803}
   cameraManagement: {fileID: 388237708}
@@ -17457,7 +17462,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Get a bit closer
+  m_text: Wait until it comes closer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -25072,6 +25077,7 @@ MonoBehaviour:
   restrictPlayerCam: {fileID: 681031838}
   dialogueText: {fileID: 1999539803}
   isPlayerNearby: 0
+  finished: 1
   positionOffset: {x: 0, y: 0, z: 20}
   alienAreaAudio: {fileID: 108617545}
   backgroundAudio: {fileID: 640872963}
@@ -25458,7 +25464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1062247281
 RectTransform:
   m_ObjectHideFlags: 0

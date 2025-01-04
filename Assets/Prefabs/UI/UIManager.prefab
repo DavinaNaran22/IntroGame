@@ -9175,6 +9175,8 @@ MonoBehaviour:
   shovelParent: {fileID: 0}
   swordParent: {fileID: 0}
   equipSwordScript: {fileID: 0}
+  equipGunScript: {fileID: 0}
+  equipKnifeScript: {fileID: 0}
 --- !u!1 &6803282228478082394
 GameObject:
   m_ObjectHideFlags: 0

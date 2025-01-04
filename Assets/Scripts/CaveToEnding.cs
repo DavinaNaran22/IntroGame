@@ -54,6 +54,7 @@ public class CaveToEnding : MonoBehaviour
 
     }
 
+    // Fade in and out
     private IEnumerator Fade(float targetAlpha)
     {
         float startAlpha = fadeCanvasGroup.alpha;
