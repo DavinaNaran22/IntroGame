@@ -42,6 +42,7 @@ public class Puzzle_repair : MonoBehaviour
         {
             Debug.Log("PUZZLE");
             MessagePuzzle.SetActive(false);
+            GameManager.Instance.puzzleStarted = true;
             //GameManager.ShowClueActive = true;
             SceneManager.LoadScene("Puzzle");
             SceneManager.sceneLoaded += OnSceneLoad;
