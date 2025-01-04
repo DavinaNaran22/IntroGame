@@ -8,6 +8,7 @@ public class AssignClueScript : MonoBehaviour
     [SerializeField] GameObject task3;
     [SerializeField] GameObject task4;
     [SerializeField] GameObject rt4clue;
+    [SerializeField] GameObject StartClue;
     [SerializeField] GameObject task5;
     // Start is called before the first frame update
     void Start()
@@ -28,12 +29,20 @@ public class AssignClueScript : MonoBehaviour
         if (GameManager.Instance.complTaskThree && !GameManager.Instance.complTaskFour)
         {
             task4.SetActive(true);
-            rt4clue.SetActive(true);
         }
 
-        if (GameManager.Instance.complTaskFour && !GameManager.Instance.complTaskFive)
+        if (GameManager.Instance.complTaskFour)
         {
-            task5.SetActive(true);
+            task4.SetActive(false);
+            if (!GameManager.Instance.puzzleStarted)
+            {
+                rt4clue.SetActive(true);
+                StartClue.SetActive(true);
+            } 
+            else if (!GameManager.Instance.complTaskFive)
+            {
+                task5.SetActive(true);
+            }
         }
     }
 }

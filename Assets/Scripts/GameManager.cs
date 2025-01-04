@@ -96,6 +96,7 @@ public class GameManager : Singleton<GameManager>
     public bool complTaskTwo = false;
     public bool complTaskThree = false;
     public bool complTaskFour = false;
+    public bool puzzleStarted = false;
     public bool complTaskFive = false;
 
     private void Start()
