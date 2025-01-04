@@ -43,6 +43,7 @@ public class WireRepair : MonoBehaviour
         if (playerin == true && wing_attached.WingTask == true)
         {
             turnOnMessage.gameObject.SetActive(true);
+            GameManager.StartClueActive = true;
             SceneManager.LoadScene("Game");
             SceneManager.sceneLoaded += OnSceneLoad;
             Debug.Log("Loading game scene");
@@ -55,6 +56,7 @@ public class WireRepair : MonoBehaviour
     void Start()
     {
         Player = GameManager.Instance.player;
+        StartClue.SetActive(GameManager.StartClueActive);
         stopWingAttached.SetActive(false);
         PART2.enabled = false;
         turnOnMessage.gameObject.SetActive(true);
