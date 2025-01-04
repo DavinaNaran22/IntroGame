@@ -310,7 +310,7 @@ public class QuantityManager : MonoBehaviour
             SetActive(toolboxImage, false);
         }
 
-        if (alienRestrictScene.photoTaken == true)
+        if (alienRestrictScene && alienRestrictScene.photoTaken == true)
         {
             SetActive(gunImage, false);
         }
