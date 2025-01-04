@@ -15,7 +15,7 @@ public class EnterAlienArea2 : MonoBehaviour
     public BoxCollider restrictPlayerCam;
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI completedRepairText;
-    public TextMeshProUGUI drawingsCompletedText;
+    //public TextMeshProUGUI drawingsCompletedText;
     public RepairTask2 repairTask2;
     public RepairTask3 repairTask3;
     public TaskManager taskManager;
@@ -190,7 +190,7 @@ public class EnterAlienArea2 : MonoBehaviour
     {
         Debug.Log("Clue equipped");
         HideDialogue();
-        drawingsCompletedText.gameObject.SetActive(true);
+        //drawingsCompletedText.gameObject.SetActive(true);
         StartCoroutine(ActivateClueTasksWithDelay());
     }
 
@@ -198,7 +198,7 @@ public class EnterAlienArea2 : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         Debug.Log("Activating clue tasks after delay");
-        drawingsCompletedText.gameObject.SetActive(false);
+        //drawingsCompletedText.gameObject.SetActive(false);
         repairTask2.gameObject.SetActive(false);
         repairTask3.gameObject.SetActive(true);
     }
