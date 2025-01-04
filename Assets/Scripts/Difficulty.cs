@@ -56,13 +56,13 @@ public class Difficulty
         switch (level)
         {
             case DifficultyLevel.Easy:
-                return 2;
-            case DifficultyLevel.Medium:
-                return 1.5f;
-            case DifficultyLevel.Hard:
                 return 1f;
+            case DifficultyLevel.Medium:
+                return 0.75f;
+            case DifficultyLevel.Hard:
+                return 0.5f;
             default:
-                return 1.5f;
+                return 0.75f;
         }
     }
 }
