@@ -42,7 +42,7 @@ public class WireRepair : MonoBehaviour
     {
         if (playerin == true && wing_attached.WingTask == true)
         {
-            turnOnMessage.gameObject.SetActive(false);
+            turnOnMessage.gameObject.SetActive(true);
             SceneManager.LoadScene("Game");
             SceneManager.sceneLoaded += OnSceneLoad;
             Debug.Log("Loading game scene");
@@ -57,10 +57,12 @@ public class WireRepair : MonoBehaviour
         Player = GameManager.Instance.player;
         stopWingAttached.SetActive(false);
         PART2.enabled = false;
+        turnOnMessage.gameObject.SetActive(true);
+        StartCoroutine(PromptTextShow());
     }
 
 
-    private IEnumerator promptTextShow()
+    private IEnumerator PromptTextShow()
     {
         yield return new WaitForSeconds(2f);
         turnOnMessage.gameObject.SetActive(false);
