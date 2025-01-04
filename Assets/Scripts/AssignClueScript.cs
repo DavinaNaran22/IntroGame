@@ -10,6 +10,7 @@ public class AssignClueScript : MonoBehaviour
     [SerializeField] GameObject task3;
     [SerializeField] GameObject task4;
     [SerializeField] GameObject rt4clue;
+    [SerializeField] GameObject cavePlane;
     [SerializeField] GameObject StartClue;
     [SerializeField] GameObject task5;
     void Start()
@@ -20,21 +21,19 @@ public class AssignClueScript : MonoBehaviour
         if (GameManager.Instance.completedTaskOne && !GameManager.Instance.completedTaskTwo)
         {
             task2.SetActive(true);
-        }
-
-        if (GameManager.Instance.completedTaskTwo && !GameManager.Instance.completedTaskThree)
+        } 
+        else if (GameManager.Instance.completedTaskTwo && !GameManager.Instance.completedTaskThree)
         {
             task3.SetActive(true);
         }
-
-        if (GameManager.Instance.completedTaskThree && !GameManager.Instance.completedTaskFour)
+        else if (GameManager.Instance.completedTaskThree && !GameManager.Instance.completedTaskFour)
         {
             task4.SetActive(true);
         }
-
-        if (GameManager.Instance.completedTaskFour)
+        else if (GameManager.Instance.completedTaskFour)
         {
             task4.SetActive(false);
+            cavePlane.SetActive(true);
             if (!GameManager.Instance.puzzleCompleted)
             {
                 rt4clue.SetActive(true);
