@@ -50,18 +50,6 @@ public class EquipDataListSerializable
 public class EquipManager : Singleton<EquipManager>
 {
     public List<EquipData> equipObjects = new List<EquipData>();
-    //public EquipDataListSerializable equipObjects = new EquipDataListSerializable();
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public EquipData GetFromEquipList(GameObject gameObject)
     {
