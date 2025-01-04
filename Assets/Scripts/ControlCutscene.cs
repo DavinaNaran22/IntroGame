@@ -17,8 +17,6 @@ public class ControlCutscene : MonoBehaviour
     [SerializeField] GameObject OxygenBar;
     public static double cutsceneLength = 120;
 
-    public AudioSource wind; // Audio to play in the alien area
-    public AudioSource thunder; // Background audio to resume after the task is completed
     private void Start()
     {        
         if (GameManager.Instance.playFirstCutscene)
@@ -58,10 +56,6 @@ public class ControlCutscene : MonoBehaviour
         HealthBar.SetActive(true);
         OxygenBar.SetActive(false);
         ShowDeadAstros();
-
-        // Play your two audios here
-        wind.Play();
-        thunder.Play();
     }
 
     private void ShowDeadAstros()

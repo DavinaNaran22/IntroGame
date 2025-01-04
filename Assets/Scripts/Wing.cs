@@ -10,7 +10,27 @@ public class Wing : MonoBehaviour
     public Vector3 pos_offset;
     public GameObject Cube;
     private Vector3 ogposition;
+    private PlayerInputActions inputActions;
+  
+    private void Awake()
+    {
+        inputActions = new PlayerInputActions();
+    }
 
+    private void OnEnable()
+    {
+
+        inputActions.Player.Enable();
+        inputActions.Player.Mouse_Down.performed += ctx => Mouse_Down();
+        inputActions.Player.Mouse_Up.performed += ctx => Mouse_Up();
+    }
+
+    private void OnDestroy()
+    {
+        inputActions.Player.Disable();
+        inputActions.Player.Mouse_Down.performed += ctx => Mouse_Down();
+        inputActions.Player.Mouse_Up.performed += ctx => Mouse_Up();
+    }
     private void Update()
     {
        
@@ -25,7 +45,7 @@ public class Wing : MonoBehaviour
             }
         }
     }
-    void OnMouseDown()
+    void Mouse_Down()
     {
         // when the object is clicked drag is enabled 
         Debug.Log("CLICKED");
@@ -44,7 +64,7 @@ public class Wing : MonoBehaviour
         }
     }
 
-    void OnMouseUp()
+    void Mouse_Up()
     {
         Drag = false;
         //  if the wing doesnt enter collider, revert back to original position on release
