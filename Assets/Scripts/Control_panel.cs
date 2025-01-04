@@ -101,10 +101,15 @@ public class Control_panel : MonoBehaviour
             C_panel.SetActive(false);
             Message2.SetActive(true);
             Msg1.SetActive(false);
-            // Enable progress game object so text can update
-            taskManager.gameObject.SetActive(true);
-            taskManager.SetTaskText("Collect resources"); // Update the task description
-            //Debug.Log("WERE IN");
+
+            // Only if haven't completed first task...
+            if (!GameManager.Instance.interiorTaskOne)
+            {
+                // Enable progress game object so text can update
+                taskManager.gameObject.SetActive(true);
+                taskManager.SetTaskText("Collect resources");
+                GameManager.Instance.interiorTaskOne = true;
+            }
         }
         // when the wire game is done disable instruction
         if (win_message.win == true)
@@ -120,6 +125,7 @@ public class Control_panel : MonoBehaviour
         ship_status.enabled = false;
 
     }
+
     public void enable_ship_status()
     {
         ship_map.enabled = false;
@@ -133,6 +139,7 @@ public class Control_panel : MonoBehaviour
         ship_status.enabled = true;
 
     }
+
     public void disable_ship_status()
     {
         ship_map.enabled = true;

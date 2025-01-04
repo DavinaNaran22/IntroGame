@@ -42,4 +42,9 @@ public class TaskManager : MonoBehaviour
         progressBar.fillAmount = currentProgress;
         progressText.text = "Progress: " + Mathf.RoundToInt(currentProgress * 100) + "%";
     }
+
+    public float GetProgress()
+    {
+        return currentProgress;
+    }
 }

@@ -31,6 +31,8 @@ class PlayerData
     public float yPos;
     public float zPos;
 
+    public bool interiorTaskOne;
+    public bool interiorTaskTwo;
     public bool complTaskOne;
     public bool complTaskTwo;
     public bool complTaskThree;
@@ -93,6 +95,7 @@ public class GameManager : Singleton<GameManager>
     public bool canEnableShowClue = false;
 
     [Header("Task Progress")]
+    public bool interiorTaskOne = false;
     public bool interiorTaskTwo = false;
     public bool completedTaskOne = false;
     public bool completedTaskTwo = false;
@@ -123,6 +126,19 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
+        FindDropdowns();
+
+        if (triggerEnding && SceneManager.GetActiveScene().name == "Interior")
+        {
+            ActivateEnding();
+        }
+
+        ToggleWeather();
+    }
+
+    // Dropdowns aren't null in Main scene when in view
+    private void FindDropdowns()
+    {
         if (colourDropdown == null)
         {
             GameObject gameObject = GameObject.FindWithTag("ColourDropdown");
@@ -139,21 +155,18 @@ public class GameManager : Singleton<GameManager>
                 difficultyDropdown = gameObject.GetComponent<TMP_Dropdown>();
             }
         }
-        if (triggerEnding && SceneManager.GetActiveScene().name == "Interior")
-        {
-            ActivateEnding();
-        }
+    }
 
+    private void ToggleWeather()
+    {
         if (SceneManager.GetActiveScene().name == "landscape")
         {
-            //Debug.Log("Weather Active");
             Weather.SetActive(true); // Activate the GameObject if in Landscape scene
         }
         else
         {
             Weather.SetActive(false); // Deactivate if not in Landscape
         }
-
     }
 
     // Save() and Load() are from Resource 10.1 Data Persistance on QMPlus
@@ -176,6 +189,8 @@ public class GameManager : Singleton<GameManager>
         data.xPos = player.transform.position.x;
         data.yPos = player.transform.position.y;
         data.zPos = player.transform.position.z;
+        data.interiorTaskOne = interiorTaskOne;
+        data.interiorTaskTwo = interiorTaskTwo;
         data.complTaskOne = completedTaskOne;
         data.complTaskTwo = completedTaskTwo;
         data.complTaskThree = completedTaskThree;
@@ -210,6 +225,8 @@ public class GameManager : Singleton<GameManager>
             Difficulty = data.difficulty;
             Volume = data.volume;
             MouseSens = data.mouseSens;
+            interiorTaskOne = data.interiorTaskOne;
+            interiorTaskTwo = data.interiorTaskTwo;
             completedTaskOne = data.complTaskOne;
             completedTaskTwo = data.complTaskTwo;
             completedTaskThree = data.complTaskThree;
@@ -246,9 +263,6 @@ public class GameManager : Singleton<GameManager>
     public void ActivateEnding()
     {
         GameObject.Find("EndingScene").GetComponent<Ending>().enabled = true;
-        //Ending = GameObject.Find("EndingScene");
-        //Ending.SetActive(false);
-        //Ending.SetActive(true);
         Debug.Log("Enabled ending game object");
     }
 }
