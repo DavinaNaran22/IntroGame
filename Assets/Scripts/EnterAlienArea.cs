@@ -14,6 +14,7 @@ public class EnterAlienArea : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject completedRepairText;
     public MissionManager repairTask1;
+    public TaskManager taskManager;
 
     private CharacterController characterController;
 
@@ -32,6 +33,7 @@ public class EnterAlienArea : MonoBehaviour
     private void Start()
     {
         player = GameManager.Instance.player;
+        taskManager = GameManager.Instance.taskManager;
 
 
         characterController = player.GetComponent<CharacterController>();
@@ -154,6 +156,8 @@ public class EnterAlienArea : MonoBehaviour
         HideDialogue();
         completedRepairText.SetActive(true); // 5 SECS AFTER, BELOW EXECUTES
         GameManager.Instance.complTaskOne = true;
+        taskManager.IncreaseProgress(6);
+        taskManager.SetTaskText("Find something to repait hole");
         StartCoroutine(ActivateRepairTasksWithDelay()); 
 
     }
