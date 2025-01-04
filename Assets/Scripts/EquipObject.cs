@@ -42,7 +42,7 @@ public class EquipObject : MonoBehaviour
         }
         else
         {
-            objectData = new EquipData(gameObject, false);
+            objectData = new EquipData(transform.position, false);
             equipManager.equipObjects.Add(objectData);
         }
     }

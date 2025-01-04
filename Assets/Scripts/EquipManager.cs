@@ -6,12 +6,12 @@ using UnityEngine;
 [Serializable]
 public class EquipData
 {
-    public GameObject equipableObject;
+    public Vector3 objPos;
     public bool hasBeenEquiped = false;
 
-    public EquipData(GameObject equipableObject, bool hasBeenEquiped)
+    public EquipData(Vector3 objPos, bool hasBeenEquiped)
     {
-        this.equipableObject = equipableObject;
+        this.objPos = objPos;
         this.hasBeenEquiped = hasBeenEquiped;
     }
 }
@@ -35,7 +35,7 @@ public class EquipManager : Singleton<EquipManager>
     {
         foreach (var equip in equipObjects)
         {
-            if (equip.equipableObject == gameObject) return equip;
+            if (equip.objPos == gameObject.transform.position) return equip;
         }
         return null; // Change to something better if possible
 }
