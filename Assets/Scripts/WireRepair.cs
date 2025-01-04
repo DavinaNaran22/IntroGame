@@ -50,9 +50,9 @@ public class WireRepair : MonoBehaviour
         }
     }
         // Start is called before the first frame update
-        void Start()
+    void Start()
     {
-        
+        Player = GameManager.Instance.player;
         stopWingAttached.SetActive(false);
         turnOffMessage.gameObject.SetActive(true);
         PART2.enabled = false;
