@@ -132,7 +132,8 @@ public class PlayerHealth : MonoBehaviour
         if (!hasDied)
         {
             hasDied = true;
-            StartCoroutine(LoadDeathSceneAsync());
+            SceneManager.LoadScene("Death");
+            //StartCoroutine(LoadDeathSceneAsync());
         }
     }
 
