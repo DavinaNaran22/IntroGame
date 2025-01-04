@@ -94,13 +94,6 @@ public class EquipShovelOnClick : MonoBehaviour
         if (equipKnifeScript != null && equipKnifeScript.IsKnifeEquipped)
         {
             equipKnifeScript.UnequipKnife();
-
-            // Ensure any ongoing stab actions are stopped
-            equipKnifeScript.StopAllCoroutines();
-            if (equipKnifeScript.audioSource != null && equipKnifeScript.audioSource.isPlaying)
-            {
-                equipKnifeScript.audioSource.Stop();
-            }
         }
 
         // Ensure the thruster is active before equipping the shovel
