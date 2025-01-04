@@ -52,6 +52,7 @@ public class RepairTask4 : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.Instance.complTaskFour) transform.parent.gameObject.SetActive(false);
         GameManager.Instance.ShowClueScript = GameObject.Find("ShowClue").GetComponent<ShowClue>();
         GameManager.Instance.Save();
         player = GameManager.Instance.player;

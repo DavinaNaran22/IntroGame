@@ -15,6 +15,7 @@ public class Puzzle_repair : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (GameManager.Instance.complTaskFive) transform.parent.gameObject.SetActive(false);
         //showClue.SetActive(GameManager.ShowClueActive);
     }
     private void Awake()
@@ -34,6 +35,7 @@ public class Puzzle_repair : MonoBehaviour
         inputActions.Player.Disable();
         inputActions.Player.Repair.performed += ctx => ToggleRepair2();
     } 
+
     private void ToggleRepair2()
     {
         if (Puzzle.Puzzle_Complete == false && Task4Clue.Clue_Collected == true)
@@ -53,11 +55,11 @@ public class Puzzle_repair : MonoBehaviour
     { // if the puzzle is  complete show the clue to pickup, deactivte previous scene/ activate next
         if (Puzzle.Puzzle_Complete == true)
         {
+            GameManager.Instance.complTaskFour = true;
             ClueTask.SetActive(false);
             MessagePuzzle.SetActive(false);
             repair4.SetActive(false);
             caveEntrance.SetActive(true);
-            //GameManager.Instance.ShowClueScript.enabled = true;
 
         }
         // when the puzzle is not complete and the key r is pressed/ last clue collected load the puzzle scene
@@ -69,8 +71,6 @@ public class Puzzle_repair : MonoBehaviour
             SceneManager.sceneLoaded += OnSceneLoad;
             Debug.Log("Loading puzzle scene");
             showClue.SetActive(true);
-
-
         }
       
     }
