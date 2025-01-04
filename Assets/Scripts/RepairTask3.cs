@@ -12,7 +12,7 @@ public class RepairTask3 : MonoBehaviour
     public GameObject player;
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI promptText;
-    public AlienRestrictScene alienRestrictScene;
+    public AlienRestrictScene2 alienRestrictScene;
     public GameObject takePicsScene;
 
 
