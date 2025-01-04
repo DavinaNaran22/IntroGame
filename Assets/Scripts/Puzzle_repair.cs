@@ -33,7 +33,7 @@ public class Puzzle_repair : MonoBehaviour
     private void OnDestroy()
     {
         inputActions.Player.Disable();
-        inputActions.Player.Repair.performed += ctx => ToggleRepair2();
+        inputActions.Player.Repair.performed -= ctx => ToggleRepair2();
     }
 
     private void ToggleRepair2()
