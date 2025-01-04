@@ -50,6 +50,7 @@ public class ShowClue : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.Instance.sawClueMap) return; // Prevent activating multiple times
         map.SetActive(true);
         GameManager.Instance.Save();
         player = GameManager.Instance.player;
@@ -58,6 +59,7 @@ public class ShowClue : MonoBehaviour
         StartAdditionalDialogues();
         taskManager.IncreaseProgress(5);
         taskManager.SetTaskText("Review damage of spaceship");
+        GameManager.Instance.sawClueMap = true;
 
     }
 
