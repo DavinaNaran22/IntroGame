@@ -215,6 +215,18 @@ public class EquipKnifeOnClick : MonoBehaviour
                     alien.TakeDamage();
                     break;
                 }
+
+                GAlienS2 alien2 = hit.GetComponent<GAlienS2>();
+                if (alien2 != null)
+                {
+                    alien2.TakeDamage();
+                }
+
+                GAlienS3 alien3 = hit.GetComponent<GAlienS3>();
+                if (alien3 != null)
+                {
+                    alien3.TakeDamage();
+                }
             }
 
             if (hit.CompareTag("RhinoAlien"))

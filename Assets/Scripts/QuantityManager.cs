@@ -64,6 +64,8 @@ public class QuantityManager : MonoBehaviour
     public EquipSwordOnClick equipSwordScript;
     private RhinoAlienBehaviour rhinoAlienBehaviour;
     private AlienRestrictScene2 alienRestrictScene;
+    public EquipGunOnClick equipGunScript;
+    public EquipKnifeOnClick equipKnifeScript;
 
 
     private int medicineCount = 0;
@@ -318,6 +320,40 @@ public class QuantityManager : MonoBehaviour
         {
             SetActive(gunImage, true);
         }
+
+        if (alienRestrictScene.photoTaken == true)
+        {
+            SetActive(gunImage, false);
+            if (equipGunScript.IsGunEquipped)
+            {
+                equipGunScript.UnequipGun();
+            }
+        }
+
+        if (rhinoAlienBehaviour.enterAlienArea3.finished == true)
+        {
+            Debug.Log("Alien Area 3 finished. Disabling gun and knife images.");
+            SetActive(gunImage, false);
+            SetActive(knifeImage, false);
+
+            if (equipGunScript.IsGunEquipped)
+            {
+                equipGunScript.UnequipGun();
+            }
+
+            if (equipKnifeScript.IsKnifeEquipped)
+            {
+                equipKnifeScript.UnequipKnife();
+            }
+        }
+
+        
+        if (rhinoAlienBehaviour.isDead)
+        {
+            SetActive(gunImage, true);
+            SetActive(knifeImage, true);
+        }
+
     }
 
 

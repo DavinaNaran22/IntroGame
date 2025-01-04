@@ -34,6 +34,9 @@ public class Puzzle_repair : MonoBehaviour
     {
         inputActions.Player.Disable();
         inputActions.Player.Repair.performed += ctx => ToggleRepair2();
+    }
+
+    //  when the puzzle is not complete and the key r is pressed/ last clue collected load the puzzle scene
     } 
 
     private void ToggleRepair2()
