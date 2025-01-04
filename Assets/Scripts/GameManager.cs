@@ -76,6 +76,7 @@ public class GameManager : Singleton<GameManager>
     public bool boostedSwordCrafted = false;
     public bool task4Completed = false;
     public ShowClue ShowClueScript;
+    public bool sawClueMap = false;
 
 
     [Header("Game Ending")]
