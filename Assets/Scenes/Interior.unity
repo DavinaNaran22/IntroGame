@@ -1442,6 +1442,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 776087375}
     - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: equipKnifeScript
+      value: 
+      objectReference: {fileID: 644578571}
+    - target: {fileID: 2750011887527124078, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: equipSwordScript
       value: 
       objectReference: {fileID: 644578576}

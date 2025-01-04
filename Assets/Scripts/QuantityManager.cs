@@ -330,20 +330,29 @@ public class QuantityManager : MonoBehaviour
             }
         }
 
-        if (rhinoAlienBehaviour.isCriticalHealth && SetActive(gunImage, false))
+        if (rhinoAlienBehaviour.enterAlienArea3.finished)
         {
+            SetActive(gunImage, false);
+            SetActive(knifeImage, false);
+
             if (equipGunScript.IsGunEquipped)
             {
                 equipGunScript.UnequipGun();
-                SetActive(knifeImage, false);
             }
 
             if (equipKnifeScript.IsKnifeEquipped)
             {
                 equipKnifeScript.UnequipKnife();
-                SetActive(gunImage, false);
             }
         }
+
+        
+        if (rhinoAlienBehaviour.isDead)
+        {
+            SetActive(gunImage, true);
+            SetActive(knifeImage, true);
+        }
+
     }
 
 
