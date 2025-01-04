@@ -106,7 +106,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
         PlayerHealth playerHealth = GameManager.Instance.UIManager.GetComponentInChildren<PlayerHealth>();
         if (playerHealth != null)
         {
-            //playerHealth.TakeDamage(0.03f); // Adjust damage percentage as needed
+            playerHealth.TakeDamage(0.03f); // Adjust damage percentage as needed
             Debug.Log("Alien shot the player! Dealing damage.");
         }
 
