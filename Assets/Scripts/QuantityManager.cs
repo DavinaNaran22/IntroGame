@@ -65,6 +65,7 @@ public class QuantityManager : MonoBehaviour
     private RhinoAlienBehaviour rhinoAlienBehaviour;
     private AlienRestrictScene2 alienRestrictScene;
     public EquipGunOnClick equipGunScript;
+    public EquipKnifeOnClick equipKnifeScript;
 
 
     private int medicineCount = 0;
@@ -326,6 +327,21 @@ public class QuantityManager : MonoBehaviour
             if (equipGunScript.IsGunEquipped)
             {
                 equipGunScript.UnequipGun();
+            }
+        }
+
+        if (rhinoAlienBehaviour.isCriticalHealth && SetActive(gunImage, false))
+        {
+            if (equipGunScript.IsGunEquipped)
+            {
+                equipGunScript.UnequipGun();
+                SetActive(knifeImage, false);
+            }
+
+            if (equipKnifeScript.IsKnifeEquipped)
+            {
+                equipKnifeScript.UnequipKnife();
+                SetActive(gunImage, false);
             }
         }
     }
