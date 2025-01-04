@@ -40,9 +40,9 @@ public class WireRepair : MonoBehaviour
     // Load the game scene for the player to repair the wires
     private void ToggleRepair()
     {
+        if (GameManager.Instance.complTaskFour) return;
         if (playerin == true && wing_attached.WingTask == true)
         {
-            turnOnMessage.gameObject.SetActive(true);
             GameManager.StartClueActive = true;
             SceneManager.LoadScene("Game");
             SceneManager.sceneLoaded += OnSceneLoad;
