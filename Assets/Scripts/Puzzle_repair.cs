@@ -36,9 +36,6 @@ public class Puzzle_repair : MonoBehaviour
         inputActions.Player.Repair.performed += ctx => ToggleRepair2();
     }
 
-    //  when the puzzle is not complete and the key r is pressed/ last clue collected load the puzzle scene
-    } 
-
     private void ToggleRepair2()
     {
         if (Puzzle.Puzzle_Complete == false && Task4Clue.Clue_Collected == true)
@@ -75,21 +72,22 @@ public class Puzzle_repair : MonoBehaviour
             Debug.Log("Loading puzzle scene");
             showClue.SetActive(true);
         }
-      
+
     }
 
     public void OnTriggerEnter(Collider other)
     {
         // message to direct player to piece together the clue once the last clue is collected 
-        if (Task4Clue.Clue_Collected == true && Puzzle.Puzzle_Complete == false) {
+        if (Task4Clue.Clue_Collected == true && Puzzle.Puzzle_Complete == false)
+        {
             Debug.Log("Here");
             MessagePuzzle.SetActive(true);
         }
-        
-    } 
+
+    }
 
 
-// deactivates the player that messes with the mouse input in the puzzle scene
+    // deactivates the player that messes with the mouse input in the puzzle scene
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
         GameManager.Instance.PlayerCanvas.SetActive(false);
