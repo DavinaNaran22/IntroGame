@@ -49,6 +49,7 @@ public class Puzzle : MonoBehaviour
     {
         GameManager.Instance.PlayerCanvas.SetActive(true);
         GameManager.Instance.player.SetActive(true);
-        GameManager.Instance.ShowClueScript.enabled = true;
+        //GameManager.Instance.ShowClueScript.enabled = true;
+        GameObject.Find("ShowClue").GetComponent<ShowClue>().enabled = true;
     }
 }
