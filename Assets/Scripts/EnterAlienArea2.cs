@@ -191,6 +191,7 @@ public class EnterAlienArea2 : MonoBehaviour
         Debug.Log("Clue equipped");
         HideDialogue();
         //drawingsCompletedText.gameObject.SetActive(true);
+        GameManager.Instance.completedTaskTwo = true;
         StartCoroutine(ActivateClueTasksWithDelay());
     }
 

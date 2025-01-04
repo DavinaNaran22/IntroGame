@@ -30,6 +30,16 @@ class PlayerData
     public float xPos; // Cant serialize unity specific things e.g. Vector3
     public float yPos;
     public float zPos;
+
+    public bool interiorTaskOne;
+    public bool interiorTaskTwo;
+    public bool complTaskOne;
+    public bool complTaskTwo;
+    public bool complTaskThree;
+    public bool complTaskFour;
+    public bool puzzleCompleted;
+    public bool complTaskFive;
+    public bool completedSceneFive;
 }
 
 public class GameManager : Singleton<GameManager>
@@ -77,11 +87,26 @@ public class GameManager : Singleton<GameManager>
     public bool task4Completed = false;
     public ShowClue ShowClueScript;
 
-
     [Header("Game Ending")]
     public bool triggerEnding = false;
+    public bool shownClue = false;
     public static bool StartClueActive = false;
-    public static bool ShowClueActive = false;
+    //public static bool ShowClueActive = false;
+    public bool canEnableShowClue = false;
+
+    [Header("Task Progress")]
+    public bool interiorTaskOne = false;
+    public bool interiorTaskTwo = false;
+    public bool completedTaskOne = false;
+    public bool completedTaskTwo = false;
+    public bool completedTaskThree = false;
+    public bool completedTaskFour = false;
+    public bool puzzleCompleted = false;
+    public bool completedTaskFive = false;
+    public bool completedSceneFive = false;
+
+    [Header("Equip Manager")]
+    public EquipManager equipManager;
 
     private void Start()
     {
@@ -101,6 +126,19 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
+        FindDropdowns();
+
+        if (triggerEnding && SceneManager.GetActiveScene().name == "Interior")
+        {
+            ActivateEnding();
+        }
+
+        ToggleWeather();
+    }
+
+    // Dropdowns aren't null in Main scene when in view
+    private void FindDropdowns()
+    {
         if (colourDropdown == null)
         {
             GameObject gameObject = GameObject.FindWithTag("ColourDropdown");
@@ -117,21 +155,18 @@ public class GameManager : Singleton<GameManager>
                 difficultyDropdown = gameObject.GetComponent<TMP_Dropdown>();
             }
         }
-        if (triggerEnding && SceneManager.GetActiveScene().name == "Interior")
-        {
-            ActivateEnding();
-        }
+    }
 
+    private void ToggleWeather()
+    {
         if (SceneManager.GetActiveScene().name == "landscape")
         {
-            //Debug.Log("Weather Active");
             Weather.SetActive(true); // Activate the GameObject if in Landscape scene
         }
         else
         {
             Weather.SetActive(false); // Deactivate if not in Landscape
         }
-
     }
 
     // Save() and Load() are from Resource 10.1 Data Persistance on QMPlus
@@ -154,10 +189,21 @@ public class GameManager : Singleton<GameManager>
         data.xPos = player.transform.position.x;
         data.yPos = player.transform.position.y;
         data.zPos = player.transform.position.z;
+        data.interiorTaskOne = interiorTaskOne;
+        data.interiorTaskTwo = interiorTaskTwo;
+        data.complTaskOne = completedTaskOne;
+        data.complTaskTwo = completedTaskTwo;
+        data.complTaskThree = completedTaskThree;
+        data.puzzleCompleted = puzzleCompleted;
+        data.complTaskFour = completedTaskFour;
+        data.complTaskFive = completedTaskFive;
+        data.completedSceneFive = completedSceneFive;
 
         bf.Serialize(file, data);
         file.Close();
         Debug.Log("Player progess saved at " + filename);
+
+        equipManager.Save();
     }
 
     public void Load()
@@ -179,6 +225,15 @@ public class GameManager : Singleton<GameManager>
             Difficulty = data.difficulty;
             Volume = data.volume;
             MouseSens = data.mouseSens;
+            interiorTaskOne = data.interiorTaskOne;
+            interiorTaskTwo = data.interiorTaskTwo;
+            completedTaskOne = data.complTaskOne;
+            completedTaskTwo = data.complTaskTwo;
+            completedTaskThree = data.complTaskThree;
+            completedTaskFour = data.complTaskFour;
+            puzzleCompleted = data.puzzleCompleted;
+            completedTaskFive = data.complTaskFive;
+            completedSceneFive = data.completedSceneFive;
 
             // Load scene and spawn player in saved position
             SceneManager.LoadScene(CurrentScene);
@@ -189,6 +244,8 @@ public class GameManager : Singleton<GameManager>
         {
             Debug.Log("No file with player data at location " + filename + " so no loading of player data");
         }
+
+        equipManager.Load();
     }
 
     private void OnSavedSceneLoad(Scene scene, LoadSceneMode mode)
@@ -206,9 +263,6 @@ public class GameManager : Singleton<GameManager>
     public void ActivateEnding()
     {
         GameObject.Find("EndingScene").GetComponent<Ending>().enabled = true;
-        //Ending = GameObject.Find("EndingScene");
-        //Ending.SetActive(false);
-        //Ending.SetActive(true);
         Debug.Log("Enabled ending game object");
     }
 }

@@ -46,6 +46,7 @@ public class Task4Clue : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.Instance.completedTaskFive) transform.parent.gameObject.SetActive(false); // Need to disable RT4 clue as well as rt4 manager
         player = GameManager.Instance.player.transform;
 
         characterController = player.GetComponent<CharacterController>();

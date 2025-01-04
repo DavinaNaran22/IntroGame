@@ -12,7 +12,7 @@ public class RepairTask3 : MonoBehaviour
     public GameObject player;
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI promptText;
-    public AlienRestrictScene alienRestrictScene;
+    public AlienRestrictScene2 alienRestrictScene;
     public GameObject takePicsScene;
 
 
@@ -55,10 +55,11 @@ public class RepairTask3 : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.Instance.completedTaskThree) transform.parent.gameObject.SetActive(false);
         GameManager.Instance.Save();
         Debug.Log("RepairTask3 Start");
         player = GameManager.Instance.player;
-        promptText.gameObject.SetActive(false);
+      
         StartAdditionalDialogues();
     }
 
@@ -120,6 +121,7 @@ public class RepairTask3 : MonoBehaviour
             HideDialogue();
 
             Debug.Log("All dialogues finished");
+            promptText.gameObject.SetActive(true);
             takePicsScene.SetActive(true);
 
         }

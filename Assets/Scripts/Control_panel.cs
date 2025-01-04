@@ -45,23 +45,13 @@ public class Control_panel : MonoBehaviour
         // When the player is in the cockpit if they press A task 1 is enabled/ first version of control panel 
         if (IN == true && task1_completed == false)
         {
-            Debug.Log("IN" + IN);
-            //Debug.Log("ACTIVE");
-
             C_panel.SetActive(true);
             ship_map.enabled = false;
             Msg1.SetActive(false);
             task1_completed = true;
             taskManager.IncreaseProgress(7); // Increase progress by 7%
-            taskManager.SetTaskText("Collect resources"); // Update the task description
-
-
-
-
         }
-
     }
-
 
     // Start is called before the first frame update
     void Start()
@@ -73,14 +63,12 @@ public class Control_panel : MonoBehaviour
         Message2.SetActive(false);
         Map2.SetActive(false);
         Map.SetActive(true);
+        taskManager = GameManager.Instance.taskManager;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ////Debug.Log("IN");
-        //Debug.Log(win_message.win);
-    
         // if the wire game is completed update the control panel to reflect repairs 
         if (win_message.win == true)
         {
@@ -89,10 +77,6 @@ public class Control_panel : MonoBehaviour
             Map2.SetActive(true);
             Status.text = "SHIP REPAIRED";
             Status_details.text = "WARNING: FUEL RESERVES LOW";
-            
-
-
-
         }
     }
 
@@ -101,11 +85,8 @@ public class Control_panel : MonoBehaviour
         // when player is detected trigger bool is set to true = in cockpit, trigger control panel set true
         if (other.CompareTag("Player"))
         {
-
             IN = true;
             Msg1.SetActive(true);
-            
-
         }
     }
 
@@ -115,31 +96,36 @@ public class Control_panel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             IN = false;
+
             Message.SetActive(false);
             C_panel.SetActive(false);
             Message2.SetActive(true);
             Msg1.SetActive(false);
-            taskManager.SetTaskText("Collect resources"); // Update the task description
-            //Debug.Log("WERE IN");
+
+            // Only if haven't completed first task...
+            if (!GameManager.Instance.interiorTaskOne)
+            {
+                // Enable progress game object so text can update
+                taskManager.gameObject.SetActive(true);
+                taskManager.SetTaskText("Collect resources");
+                GameManager.Instance.interiorTaskOne = true;
+            }
         }
         // when the wire game is done disable instruction
         if (win_message.win == true)
         {
             Message2.SetActive(false);
-          
-
         }
-
     }
 
     // methods to switch between tabs within control panel, disabling one tab and enabling the other 
-    
     public void enable_ship_map()
     {
         ship_map.enabled = true;
         ship_status.enabled = false;
 
     }
+
     public void enable_ship_status()
     {
         ship_map.enabled = false;
@@ -153,13 +139,11 @@ public class Control_panel : MonoBehaviour
         ship_status.enabled = true;
 
     }
+
     public void disable_ship_status()
     {
         ship_map.enabled = true;
         ship_status.enabled = false;
 
     }
-
-
-
 }

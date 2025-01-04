@@ -23,7 +23,7 @@ public class RhinoAlienBehaviour : MonoBehaviour
     private float m_shootRateTimeStamp;
 
     private bool playerNearby = false;
-    private bool isDead = false; // Flag to check if the alien is dead
+    public bool isDead = false; // Flag to check if the alien is dead
     private bool isHit = false;
     public bool isInvulnerable = true; // Checks if alien is in fight mode before player can kill it
     public bool isCriticalHealth = false;
