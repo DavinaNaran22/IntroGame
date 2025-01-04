@@ -98,6 +98,9 @@ public class GameManager : Singleton<GameManager>
     public bool complTaskFour = false;
     public bool complTaskFive = false;
 
+    [Header("Equip Manager")]
+    public EquipManager equipManager;
+
     private void Start()
     {
         // The following are values chagned by pause menu
