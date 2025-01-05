@@ -45,7 +45,7 @@ public class EnterAlienArea2 : MonoBehaviour
     public List<string> additionalDialogues = new List<string>
     {
         "YOU: Hello! I need some help.",
-        "YOU: I’m trying to find some sort of metal alloy to repair a hole in my ship.",
+        "YOU: I'm trying to find some sort of metal alloy to repair a hole in my ship.",
         "YOU: Where can I find some?",
         "ALIEN: We have the most advanced technology in the galaxy.",
         "ALIEN: Our skin is made of strong metal alloy to make us indestructible.",
