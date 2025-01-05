@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2294516991933457423}
   - component: {fileID: 3606327155090305409}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,6 +47,7 @@ MonoBehaviour:
   shootRate: 0.3
   m_shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   equipGunOnClick: {fileID: 0}
+  inventoryManager: {fileID: 0}
 --- !u!1001 &2192913056035143632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,6 +59,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}
       propertyPath: m_Name
       value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}
       propertyPath: m_IsActive
@@ -213,6 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a508f8468c624c41b46b63b2ba52441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quantityManager: {fileID: 0}
 --- !u!4 &2192913056035267920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}

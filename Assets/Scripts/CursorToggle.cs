@@ -31,7 +31,8 @@ public class CursorToggle : MonoBehaviour
     // Need cursor to always be enabled in the scenes;
     private void CheckCursorScene(Scene cur, Scene next)
     {
-        if (next.name == "Game" || next.name == "Puzzle")
+        // If scene is wire or puzzle game, or they haven't done the drag/drop task
+        if (next.name == "Game" || next.name == "Puzzle" || next.name == "landscape" && GameManager.Instance.completedTaskThree && !GameManager.Instance.completedTaskFour)
         {
             forceCursorVisible = true;
             lockCursor = false;
@@ -39,6 +40,7 @@ public class CursorToggle : MonoBehaviour
         else
         {
             forceCursorVisible = false;
+            lockCursor = true;
         }
     }
 
@@ -51,11 +53,13 @@ public class CursorToggle : MonoBehaviour
 
     void Update()
     {
+        // These need to have cursor visible for better gameplay or for gameplay to work
         if (
             !forceCursorVisible && (GameObject.FindWithTag("EndingButton") != null && GameObject.FindWithTag("EndingButton").activeSelf 
             || GameObject.FindWithTag("PauseMenu") != null && GameObject.FindWithTag("PauseMenu").activeSelf 
             || GameObject.FindWithTag("InventoryCanvas") != null && GameObject.FindWithTag("InventoryCanvas").activeSelf 
-            || GameObject.FindWithTag("Keypad") != null && GameObject.FindWithTag("Keypad").activeSelf))
+            || GameObject.FindWithTag("Keypad") != null && GameObject.FindWithTag("Keypad").activeSelf)
+            || GameObject.FindWithTag("WeaponCursor") != null && GameObject.FindWithTag("WeaponCursor"))
         {
             lockCursor = false;
         } 
