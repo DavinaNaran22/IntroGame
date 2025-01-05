@@ -150,6 +150,7 @@ public class QuantityManager : MonoBehaviour
 
         if (scene.name == "landscape")
         {
+            SetActive(toolboxImage, true);
             // Locate the panel by parent and child name
             GameObject parentObject = GameObject.Find("cluecompletedcanvas"); // Replace with actual parent name
             if (parentObject != null)
@@ -191,6 +192,7 @@ public class QuantityManager : MonoBehaviour
 
         if (scene.name == "CaveScene")
         {
+            SetActive(stoneImage, true);
             Debug.Log($"Scene '{scene.name}' loaded. Checking item states...");
 
             // Track the sword

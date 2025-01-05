@@ -68,6 +68,7 @@ public class Ending : MonoBehaviour
 
     void Start()
     {
+        taskManager = GameManager.Instance.taskManager;
         Debug.Log("START ENDING");
         turnOffText.SetActive(false);
         turnOffText2.SetActive(false);
