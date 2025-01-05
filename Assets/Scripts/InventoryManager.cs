@@ -51,40 +51,6 @@ public class InventoryManager : MonoBehaviour
         inputActions.Player.CloseInventory.performed -= ctx => CloseInventory();
     }
 
-
-
-    void Update()
-    {
-        if (inventoryCanvas.activeSelf || GameObject.FindWithTag("Keypad") != null && GameObject.FindWithTag("Keypad").activeSelf)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        // Need cursor visible for keypad
-        else if (!inventoryCanvas.activeSelf && gunScript.IsGunEquipped)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else if (!inventoryCanvas.activeSelf && knifeScript.IsKnifeEquipped)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else if (!inventoryCanvas.activeSelf && swordScript.IsSwordEquipped)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-    }
-
-
-
     void OpenInventory()
     {
 

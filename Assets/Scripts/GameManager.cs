@@ -139,8 +139,6 @@ public class GameManager : Singleton<GameManager>
         optionsManager.GetComponent<VolumeSlider>().AudioMixer.GetFloat("volume", out Volume);
         MouseSens = MouseLook.mouseSensitivity;
         GameTime = optionsManager.GetComponent<GameSpeedSlider>().GameTime;
-        //Cursor.lockState = CursorLockMode.Confined;
-        //Cursor.visible = true; // Keeps the cursor visible
     }
 
     private void Update()

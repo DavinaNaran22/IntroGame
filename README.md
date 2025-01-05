@@ -10,16 +10,16 @@
 - Right click to open some doors
 - Q to exit chairs
 
-## How to Load Game:
-
-- Press Play in main menu
-- Press pause button in top left
-- Press Load
-
 ## How to Save Game:
 
 - The game saves at the start of each task
-- Follow the instructions above but press Save instead of Load
+- Press pause button in top left corner
+- Press Save
+
+## How to Load Game:
+
+Unfortunately the game doesn't load previously saved games in the WebGL build, only in the Unity Editor.
+However, you are able to load the game from checkpoints you have reached in your current playthrough of the game by opening the pause menu and pressing the Load button
 
 ## Notes
 
@@ -62,3 +62,4 @@
 • Wooden Spikes – 3D model: https://sketchfab.com/3d-models/wooden-spikes-fca76e93d1c4455b8d4de9ef667c685d
 • Terrain Sample Asset Pack – Terrain Package: https://assetstore.unity.com/packages/3d/environments/landscapes/terrain-sample-asset-pack-145808
 • StampIt! Collection – Terrain: https://assetstore.unity.com/packages/tools/terrain/stampit-collection-free-examples-218286
+• FREE Lomo Camera – 3D model: https://assetstore.unity.com/packages/3d/props/electronics/free-lomo-camera-186797
