@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 270668371211418519, guid: abf153cb2c6a19645b683bdd25aed10a, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: abf153cb2c6a19645b683bdd25aed10a, type: 3}
       propertyPath: m_Name
@@ -70,7 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: abf153cb2c6a19645b683bdd25aed10a, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: abf153cb2c6a19645b683bdd25aed10a, type: 3}
+      propertyPath: m_TagString
+      value: WeaponCursor
       objectReference: {fileID: 0}
     - target: {fileID: 3966843587579703492, guid: abf153cb2c6a19645b683bdd25aed10a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -78,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 680f839c3e24f2e4e987f5851f481cb6, type: 2}
     - target: {fileID: 6545136484630121345, guid: abf153cb2c6a19645b683bdd25aed10a, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7531686595803625041, guid: abf153cb2c6a19645b683bdd25aed10a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -86,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 09f060ef41a432548a1bfab705f11885, type: 2}
     - target: {fileID: 8939196909575815729, guid: abf153cb2c6a19645b683bdd25aed10a, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

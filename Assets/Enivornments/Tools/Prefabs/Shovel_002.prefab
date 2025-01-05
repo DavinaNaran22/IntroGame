@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4658930850491653746}
   - component: {fileID: 4658930850491653749}
   - component: {fileID: 4658930850491653748}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Shovel_002
-  m_TagString: Untagged
+  m_TagString: WeaponCursor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 4658930850534101365}
   - component: {fileID: 4658930850534101363}
   - component: {fileID: 4658930850534101362}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Shovel_002_C04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 4658930850690499548}
   - component: {fileID: 4658930850690499546}
   - component: {fileID: 4658930850690499549}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Shovel_002_C01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 4658930850896202360}
   - component: {fileID: 4658930850896202358}
   - component: {fileID: 4658930850896202361}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Shovel_002_C03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 4658930850905414582}
   - component: {fileID: 4658930850905414580}
   - component: {fileID: 4658930850905414583}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Shovel_002_C05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 4658930851037548469}
   - component: {fileID: 4658930851037548467}
   - component: {fileID: 4658930851037548466}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Shovel_002_C02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

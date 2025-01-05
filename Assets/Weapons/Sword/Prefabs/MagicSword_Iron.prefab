@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4420664804571618}
   - component: {fileID: 33638725473550416}
   - component: {fileID: 23351253654449770}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: MagicSword_Iron
-  m_TagString: Untagged
+  m_TagString: WeaponCursor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
