@@ -55,11 +55,12 @@ public class InventoryManager : MonoBehaviour
 
     void Update()
     {
-        if (inventoryCanvas.activeSelf)
+        if (inventoryCanvas.activeSelf || GameObject.FindWithTag("Keypad") != null && GameObject.FindWithTag("Keypad").activeSelf)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+        // Need cursor visible for keypad
         else if (!inventoryCanvas.activeSelf && gunScript.IsGunEquipped)
         {
             Cursor.lockState = CursorLockMode.Locked;
