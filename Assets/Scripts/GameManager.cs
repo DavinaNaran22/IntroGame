@@ -44,6 +44,10 @@ class PlayerData
     public int medicineCount;
     public int clueCount;
     public int herbsCount;
+
+    public float currentProgress;
+    public string currentTask;
+    public string progressText;
 }
 
 public class GameManager : Singleton<GameManager>
@@ -90,6 +94,11 @@ public class GameManager : Singleton<GameManager>
     public bool boostedSwordCrafted = false;
     public bool task4Completed = false;
     public ShowClue ShowClueScript;
+
+    [Header("Progress")]
+    public float currentProgress;
+    public string currentTask;
+    public string progressText;
 
     [Header("Game Ending")]
     public bool triggerEnding = false;
@@ -211,6 +220,9 @@ public class GameManager : Singleton<GameManager>
         data.medicineCount = medicineCount;
         data.clueCount = clueCount;
         data.herbsCount = herbsCount;
+        data.progressText = progressText;
+        data.currentTask = currentTask;
+        data.currentProgress = currentProgress;
 
         bf.Serialize(file, data);
         file.Close();
@@ -251,6 +263,9 @@ public class GameManager : Singleton<GameManager>
             medicineCount = data.medicineCount;
             herbsCount = data.herbsCount;
             clueCount = data.clueCount;
+            progressText = data.progressText;
+            currentProgress = data.currentProgress;
+            currentTask = data.currentTask;
 
             // Load scene and spawn player in saved position
             SceneManager.LoadScene(CurrentScene);
@@ -264,6 +279,7 @@ public class GameManager : Singleton<GameManager>
 
         equipManager.Load();
         quantitySaveManager.Load();
+        taskManager.LoadProgress();
     }
 
     private void OnSavedSceneLoad(Scene scene, LoadSceneMode mode)
