@@ -10,6 +10,8 @@ public class UIManager : Singleton<UIManager>
         string activeScene = SceneManager.GetActiveScene().name;
         if (activeScene == "Death" || activeScene == "Win")
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             gameObject.SetActive(false);
         }
     }
