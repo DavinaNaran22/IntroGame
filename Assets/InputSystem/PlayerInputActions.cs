@@ -206,6 +206,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleCursor"",
+                    ""type"": ""Button"",
+                    ""id"": ""88d98e5f-2f4a-45d0-9fe2-2defbde3283c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -527,6 +536,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Mouse_Up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""35d6011b-3591-4542-b967-bef19a80ebea"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleCursor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -555,6 +575,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_ControlPanel = m_Player.FindAction("ControlPanel", throwIfNotFound: true);
         m_Player_Mouse_Down = m_Player.FindAction("Mouse_Down", throwIfNotFound: true);
         m_Player_Mouse_Up = m_Player.FindAction("Mouse_Up", throwIfNotFound: true);
+        m_Player_ToggleCursor = m_Player.FindAction("ToggleCursor", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -636,6 +657,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ControlPanel;
     private readonly InputAction m_Player_Mouse_Down;
     private readonly InputAction m_Player_Mouse_Up;
+    private readonly InputAction m_Player_ToggleCursor;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -660,6 +682,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @ControlPanel => m_Wrapper.m_Player_ControlPanel;
         public InputAction @Mouse_Down => m_Wrapper.m_Player_Mouse_Down;
         public InputAction @Mouse_Up => m_Wrapper.m_Player_Mouse_Up;
+        public InputAction @ToggleCursor => m_Wrapper.m_Player_ToggleCursor;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -729,6 +752,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Mouse_Up.started += instance.OnMouse_Up;
             @Mouse_Up.performed += instance.OnMouse_Up;
             @Mouse_Up.canceled += instance.OnMouse_Up;
+            @ToggleCursor.started += instance.OnToggleCursor;
+            @ToggleCursor.performed += instance.OnToggleCursor;
+            @ToggleCursor.canceled += instance.OnToggleCursor;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -793,6 +819,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Mouse_Up.started -= instance.OnMouse_Up;
             @Mouse_Up.performed -= instance.OnMouse_Up;
             @Mouse_Up.canceled -= instance.OnMouse_Up;
+            @ToggleCursor.started -= instance.OnToggleCursor;
+            @ToggleCursor.performed -= instance.OnToggleCursor;
+            @ToggleCursor.canceled -= instance.OnToggleCursor;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -832,5 +861,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnControlPanel(InputAction.CallbackContext context);
         void OnMouse_Down(InputAction.CallbackContext context);
         void OnMouse_Up(InputAction.CallbackContext context);
+        void OnToggleCursor(InputAction.CallbackContext context);
     }
 }

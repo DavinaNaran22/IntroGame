@@ -1981,6 +1981,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6099435584623421444, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_TagString
+      value: PauseMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 6101939712375839470, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2232,6 +2236,10 @@ PrefabInstance:
     - target: {fileID: 7091134414642512760, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7091134414642512760, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_TagString
+      value: InventoryCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 7168908853407447796, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2662,7 +2670,7 @@ PlayableDirector:
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
-  m_InitialTime: 0
+  m_InitialTime: 122
   m_SceneBindings:
   - key: {fileID: 4328387496966043073, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
     value: {fileID: 1482992026}
@@ -9841,7 +9849,7 @@ GameObject:
   - component: {fileID: 720244535}
   m_Layer: 0
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: EndingButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9983,7 +9991,7 @@ GameObject:
   - component: {fileID: 727739785}
   m_Layer: 0
   m_Name: Control_PANEL
-  m_TagString: Untagged
+  m_TagString: InventoryCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17773,6 +17781,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1352790603}
+  - component: {fileID: 1352790604}
   - component: {fileID: 1352790602}
   - component: {fileID: 1352790601}
   m_Layer: 0
@@ -17872,6 +17881,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1352790604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352790600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a3536ac0540314ba9c8f908e45ed46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockCursor: 1
+  forceCursorVisible: 0
 --- !u!1 &1352841177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9187140238586950442, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}

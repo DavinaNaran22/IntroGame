@@ -36,6 +36,9 @@ TagManager:
   - Passcode
   - Crystal
   - Keypad
+  - EndingButton
+  - PauseMenu
+  - InventoryCanvas
   layers:
   - Default
   - TransparentFX
