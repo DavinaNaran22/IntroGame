@@ -10,6 +10,7 @@
 - Right click to open some doors
 - Q to exit chairs
 - Escape to make cursor appear for buttons, then Escape and left click in game to make cursor disappear
+- Left click to tap through dialogue text
 
 ## How to Save Game:
 
