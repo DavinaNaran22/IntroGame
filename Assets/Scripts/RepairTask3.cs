@@ -65,7 +65,7 @@ public class RepairTask3 : MonoBehaviour
 
     private void Update()
     {
-        if (alienRestrictScene.isPlayerNearby)
+        if (alienRestrictScene && alienRestrictScene.isPlayerNearby)
         {
             takePicsScene.SetActive(true);
         }

@@ -15,6 +15,7 @@ public class AssignClueScript : MonoBehaviour
     [SerializeField] GameObject task5;
     void Start()
     {
+        GameManager.Instance.CurrentScene = "landscape";
         GameManager.Instance.ShowClueScript = GameObject.Find("ShowClue").GetComponent<ShowClue>();
         if (GameManager.Instance.canEnableShowClue) GameManager.Instance.ShowClueScript.enabled = true;
         

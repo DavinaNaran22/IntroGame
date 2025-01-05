@@ -73,7 +73,7 @@ public class Ending : MonoBehaviour
         turnOffText.SetActive(false);
         turnOffText2.SetActive(false);
         turnOffText3.SetActive(false);
-        ShowDialogue("YOU: Let’s see if the crystal can power this spaceship.");
+        ShowDialogue("YOU: Let's see if the crystal can power this spaceship.");
         // NEED TO ADD A BUTTON THAT WILL LET THE CRYSTAL LEAVE INVENTORY
         if (button != null)
         {

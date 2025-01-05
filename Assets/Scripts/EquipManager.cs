@@ -1,11 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [Serializable]
 public class EquipData
@@ -40,7 +36,7 @@ public class EquipDataListSerializable
     {
         this.list = list;
     }
-        
+
     public List<EquipData> getList()
     {
         return list;
@@ -48,7 +44,7 @@ public class EquipDataListSerializable
 }
 
 public class EquipManager : Singleton<EquipManager>
-    {
+{
     public List<EquipData> equipObjects = new List<EquipData>();
 
     public EquipData GetFromEquipList(GameObject gameObject)
@@ -58,7 +54,7 @@ public class EquipManager : Singleton<EquipManager>
             if (new Vector3(equip.x, equip.y, equip.z) == gameObject.transform.position) return equip;
         }
         return null; // Change to something better if possible
-}
+    }
 
     // Save/Load as json since it's easier to work with
     public void Save()

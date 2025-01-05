@@ -578,7 +578,7 @@ public class QuantityManager : MonoBehaviour
 
         foreach (var clue in clueStates.Keys)
         {
-            if (clue != null && !clue.activeInHierarchy && clueStates[clue])
+            if (clue != null && !clue.activeInHierarchy && clueStates[clue] && cluesToProcess.Count < 3)
             {
                 cluesToProcess.Add(clue);
             }
