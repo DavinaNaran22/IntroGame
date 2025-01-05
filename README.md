@@ -10,16 +10,16 @@
 - Right click to open some doors
 - Q to exit chairs
 
-## How to Load Game:
-
-- Press Play in main menu
-- Press pause button in top left
-- Press Load
-
 ## How to Save Game:
 
 - The game saves at the start of each task
-- Follow the instructions above but press Save instead of Load
+- Press pause button in top left corner
+- Press Save
+
+## How to Load Game:
+
+Unfortunately the game doesn't load previously saved games in the WebGL build, only in the Unity Editor.
+However, you are able to load the game from checkpoints you have reached in your current playthrough of the game by opening the pause menu and pressing the Load button
 
 ## Notes
 
