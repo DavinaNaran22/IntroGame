@@ -58,8 +58,7 @@ public class CursorToggle : MonoBehaviour
             !forceCursorVisible && (GameObject.FindWithTag("EndingButton") != null && GameObject.FindWithTag("EndingButton").activeSelf 
             || GameObject.FindWithTag("PauseMenu") != null && GameObject.FindWithTag("PauseMenu").activeSelf 
             || GameObject.FindWithTag("InventoryCanvas") != null && GameObject.FindWithTag("InventoryCanvas").activeSelf 
-            || GameObject.FindWithTag("Keypad") != null && GameObject.FindWithTag("Keypad").activeSelf)
-            || GameObject.FindWithTag("WeaponCursor") != null && GameObject.FindWithTag("WeaponCursor").activeSelf)
+            || GameObject.FindWithTag("Keypad") != null && GameObject.FindWithTag("Keypad").activeSelf))
         {
             lockCursor = false;
         } 
