@@ -56,7 +56,7 @@ public class EquipManager : Singleton<EquipManager>
         return null; // Change to something better if possible
     }
 
-    // Save/Load as json since it's easier to work with
+    // Save/Load as json since it's easier to work with for lists?
     public void Save()
     {
         EquipDataListSerializable serializableList = new EquipDataListSerializable(equipObjects);

@@ -40,6 +40,14 @@ class PlayerData
     public bool puzzleCompleted;
     public bool complTaskFive;
     public bool completedSceneFive;
+
+    public int medicineCount;
+    public int clueCount;
+    public int herbsCount;
+
+    public float currentProgress;
+    public string currentTask;
+    public string progressText;
 }
 
 public class GameManager : Singleton<GameManager>
@@ -87,6 +95,11 @@ public class GameManager : Singleton<GameManager>
     public bool task4Completed = false;
     public ShowClue ShowClueScript;
 
+    [Header("Progress")]
+    public float currentProgress;
+    public string currentTask;
+    public string progressText;
+
     [Header("Game Ending")]
     public bool triggerEnding = false;
     public bool shownClue = false;
@@ -105,8 +118,14 @@ public class GameManager : Singleton<GameManager>
     public bool completedTaskFive = false;
     public bool completedSceneFive = false;
 
-    [Header("Equip Manager")]
+    [Header("State Managers")]
     public EquipManager equipManager;
+    public QuantitySaveManager quantitySaveManager;
+
+    [Header("Quantity State")]
+    public int medicineCount = 0;
+    public int clueCount = 0;
+    public int herbsCount = 0;
 
     private void Start()
     {
@@ -198,12 +217,19 @@ public class GameManager : Singleton<GameManager>
         data.complTaskFour = completedTaskFour;
         data.complTaskFive = completedTaskFive;
         data.completedSceneFive = completedSceneFive;
+        data.medicineCount = medicineCount;
+        data.clueCount = clueCount;
+        data.herbsCount = herbsCount;
+        data.progressText = progressText;
+        data.currentTask = currentTask;
+        data.currentProgress = currentProgress;
 
         bf.Serialize(file, data);
         file.Close();
         Debug.Log("Player progess saved at " + filename);
 
         equipManager.Save();
+        quantitySaveManager.Save();
     }
 
     public void Load()
@@ -234,6 +260,12 @@ public class GameManager : Singleton<GameManager>
             puzzleCompleted = data.puzzleCompleted;
             completedTaskFive = data.complTaskFive;
             completedSceneFive = data.completedSceneFive;
+            medicineCount = data.medicineCount;
+            herbsCount = data.herbsCount;
+            clueCount = data.clueCount;
+            progressText = data.progressText;
+            currentProgress = data.currentProgress;
+            currentTask = data.currentTask;
 
             // Load scene and spawn player in saved position
             SceneManager.LoadScene(CurrentScene);
@@ -246,6 +278,8 @@ public class GameManager : Singleton<GameManager>
         }
 
         equipManager.Load();
+        quantitySaveManager.Load();
+        taskManager.LoadProgress();
     }
 
     private void OnSavedSceneLoad(Scene scene, LoadSceneMode mode)

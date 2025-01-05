@@ -35,6 +35,7 @@ TagManager:
   - EndingScene
   - Passcode
   - Crystal
+  - Keypad
   layers:
   - Default
   - TransparentFX
@@ -48,7 +49,7 @@ TagManager:
   - HideFromMinimap
   - Camera
   - Weapon
-  - 
+  - PostProcessing
   - 
   - 
   - 

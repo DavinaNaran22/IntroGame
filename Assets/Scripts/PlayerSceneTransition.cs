@@ -33,6 +33,8 @@ public class PlayerSceneTransition: MonoBehaviour
     {
         player.transform.position = spawnPoint;
         player.transform.rotation = (Quaternion.Euler(0, 0, 0));
+        // Make sure player can move!
+        player.GetComponent<PlayerMovement>().EnableMovement();
         // So that text from one scene doesn't carry over from another
         GameManager.Instance.hoverText.text = "";
     }
