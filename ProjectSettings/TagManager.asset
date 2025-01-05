@@ -35,6 +35,7 @@ TagManager:
   - EndingScene
   - Passcode
   - Crystal
+  - Keypad
   layers:
   - Default
   - TransparentFX

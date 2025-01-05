@@ -17812,6 +17812,9 @@ MonoBehaviour:
   completedSceneFive: 0
   equipManager: {fileID: 1684844126}
   quantitySaveManager: {fileID: 1100659026}
+  medicineCount: 0
+  clueCount: 0
+  herbsCount: 0
 --- !u!4 &1352790603
 Transform:
   m_ObjectHideFlags: 0
@@ -24597,7 +24600,7 @@ GameObject:
   - component: {fileID: 1947306956}
   m_Layer: 0
   m_Name: Keypad
-  m_TagString: Untagged
+  m_TagString: Keypad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
