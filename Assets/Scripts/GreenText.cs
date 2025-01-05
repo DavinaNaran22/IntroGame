@@ -8,7 +8,6 @@ public class GreenText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ColourDropdown.AddToTextList(ColourChangeColours.Green, GetComponent<TextMeshProUGUI>());
-
+        GameManager.Instance.colourScript.AddToTextList(ColourChangeColours.Green, GetComponent<TextMeshProUGUI>());
     }
 }

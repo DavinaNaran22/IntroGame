@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Build;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum ColourChangeTypes
@@ -52,12 +54,23 @@ public class ColourDropdown : Singleton<ColourDropdown>
         });
     }
 
+    // Have to check if null since Some items might be null if they lose reference between scenes
+    // Better solution would remove the null items...
     // Set colours back to original red
     void SetColourRed()
     {
-        foreach (var text in RedText) text.color = red;
-        foreach (var image in RedImages) image.color = red;
-        foreach (var light in RedLights) light.color = red;
+        foreach (var text in RedText)
+        {
+            if (text != null) text.color = red;
+        }
+        foreach (var image in RedImages)
+        {
+            if (image != null) image.color = red;
+        }
+        foreach (var light in RedLights)
+        {
+            if (light != null) light.color = red;
+        }
         redCrystal.color = red;
         //RedSubtitleBox.color = red;
     }
@@ -65,8 +78,14 @@ public class ColourDropdown : Singleton<ColourDropdown>
     // Set colours back to original green
     void SetColourGreen()
     {
-        foreach (var text in GreenText) text.color = green;
-        foreach (var image in GreenImages) image.color = green;
+        foreach (var text in GreenText)
+        {
+            if (text != null) text.color = green;
+        }
+        foreach (var image in GreenImages)
+        {
+            if (image != null) image.color = green;
+        }
         greenLight.color = green;
         //GreenSubtitleBox.color = green;
     }
@@ -74,9 +93,18 @@ public class ColourDropdown : Singleton<ColourDropdown>
     // Make red stuff blue
     void SetRedToBlue()
     {
-        foreach (var text in RedText) text.color = blue;
-        foreach (var image in RedImages) image.color = blue;
-        foreach (var light in RedLights) light.color = blue;
+        foreach (var image in RedImages)
+        {
+            if (image != null) image.color = blue;
+        }
+        foreach (var text in RedText)
+        {
+            if (text != null) text.color = blue; 
+        }
+        foreach (var light in RedLights)
+        {
+            if (light != null) light.color = blue;
+        }
         redCrystal.color = blue;
         //RedSubtitleBox.color = blue;
     }
@@ -84,84 +112,83 @@ public class ColourDropdown : Singleton<ColourDropdown>
     // Make green stuff yellow
     void SetGreenToYellow()
     {
-        foreach (var text in GreenText) text.color = yellow;
-        foreach (var image in GreenImages) image.color = yellow;
+        foreach (var text in GreenText)
+        {
+            if (text != null) text.color = yellow;
+        }
+        foreach (var image in GreenImages)
+        {
+            if (image != null) image.color = yellow;
+        }
         greenLight.color = yellow;
         //GreenSubtitleBox.color = yellow;
     }
 
+    // Methods to change colours according to colour mode
     void NoColourBlindness()
     {
         SetColourRed();
         SetColourGreen();
-        Debug.Log("No Colour blindness");
     }
 
     void Protanopia()
     {
         SetRedToBlue();
         SetGreenToYellow();
-        Debug.Log("Protanopia");
     }
+
     void Deuteranopia()
     {
         SetRedToBlue();
         SetGreenToYellow();
-        Debug.Log("Deuteranopia");
     }
 
     void Tritanopia()
     {
         SetColourRed();
         SetColourGreen();
-        Debug.Log("Tritanopia");
     }
 
     // Add image to correct list and update its colour
-    public static void AddToImageList(ColourChangeColours colour, Image image)
+    public void AddToImageList(ColourChangeColours colour, Image image)
     {
-        ColourDropdown colourScript = GameManager.Instance.colourScript;
         if (colour == ColourChangeColours.Red)
         {
-            colourScript.RedImages.Add(image);
+            RedImages.Add(image);
         } else if (colour == ColourChangeColours.Green)
         {
-            colourScript.GreenImages.Add(image);
+           GreenImages.Add(image);
         }
-
-        colourScript.UpdateColours();
-
+        UpdateColours();
     }
 
     // Add text to correct list and update its colour
-    public static void AddToTextList(ColourChangeColours colour, TextMeshProUGUI text)
+    public void AddToTextList(ColourChangeColours colour, TextMeshProUGUI text)
     {
-        ColourDropdown colourScript = GameManager.Instance.colourScript;
         if (colour == ColourChangeColours.Red)
         {
-            colourScript.RedText.Add(text);
+            RedText.Add(text);
         }
         else if (colour == ColourChangeColours.Green)
         {
-            colourScript.GreenText.Add(text);
+            GreenText.Add(text);
         }
 
-        colourScript.UpdateColours();
+        UpdateColours();
     }
 
     // Add light to correct list and update its colour
-    public static void AddToLightList(ColourChangeColours colour, Light light)
+    public void AddToLightList(ColourChangeColours colour, Light light)
     {
-        ColourDropdown colourScript = GameManager.Instance.colourScript;
         if (colour == ColourChangeColours.Red)
         {
-            colourScript.RedLights.Add(light);
+            RedLights.Add(light);
         }
-        colourScript.UpdateColours();
+        UpdateColours();
     }
 
     // Called after image/text added to list so it gets the correct colour
-    void UpdateColours()
+    public void UpdateColours()
     {
         switch (GameManager.Instance.colourMode)
         {

@@ -79,6 +79,7 @@ public class CaveScene : MonoBehaviour
     // MiniMap and dialogue at the start of the scene cuts out
     private void Start()
     {
+        GameManager.Instance.CurrentScene = "CaveScene";
         player = GameManager.Instance.player;
         minimap = GameManager.Instance.MinimapCanvas;
         taskManager = GameManager.Instance.taskManager;

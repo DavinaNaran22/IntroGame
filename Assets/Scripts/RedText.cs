@@ -7,6 +7,6 @@ public class RedText : MonoBehaviour
 {
     void Start()
     {
-        ColourDropdown.AddToTextList(ColourChangeColours.Red, GetComponent<TextMeshProUGUI>());
+        GameManager.Instance.colourScript.AddToTextList(ColourChangeColours.Red, GetComponent<TextMeshProUGUI>());
     }
 }
