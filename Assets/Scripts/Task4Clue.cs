@@ -19,12 +19,10 @@ public class Task4Clue : MonoBehaviour
     private int currentDialogueIndex = 0;
     public bool isPlayerNearby = false;
     public static bool Clue_Collected = false;
-
+    private bool clueEquipped = false;
 
     private CharacterController characterController;
     private PlayerInputActions inputActions;
-
-
 
     // New input system for taking photos and dismissing dialogue
     private void Awake()
@@ -61,14 +59,12 @@ public class Task4Clue : MonoBehaviour
     private void Update()
     {
         dialogueText.gameObject.SetActive(true);
-        if (clue.activeSelf == false) 
+        if (clue.activeSelf == false && !clueEquipped) 
         {
             Debug.Log("Clue equipped");
             EquipClue();
         }
-
     }
-
 
     private void ActivateRepairTasksWithDelay()
     {
@@ -79,6 +75,7 @@ public class Task4Clue : MonoBehaviour
     private void EquipClue()
     {
         Debug.Log("Clue equipped");
+        clueEquipped = true;
         clue.SetActive(false);
         HideDialogue();
         //drawingsCompletedText.gameObject.SetActive(true);
