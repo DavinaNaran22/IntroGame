@@ -40,6 +40,10 @@ class PlayerData
     public bool puzzleCompleted;
     public bool complTaskFive;
     public bool completedSceneFive;
+
+    public int medicineCount;
+    public int clueCount;
+    public int herbsCount;
 }
 
 public class GameManager : Singleton<GameManager>
@@ -108,6 +112,11 @@ public class GameManager : Singleton<GameManager>
     [Header("State Managers")]
     public EquipManager equipManager;
     public QuantitySaveManager quantitySaveManager;
+
+    [Header("Quantity State")]
+    public int medicineCount = 0;
+    public int clueCount = 0;
+    public int herbsCount = 0;
 
     private void Start()
     {
@@ -199,6 +208,9 @@ public class GameManager : Singleton<GameManager>
         data.complTaskFour = completedTaskFour;
         data.complTaskFive = completedTaskFive;
         data.completedSceneFive = completedSceneFive;
+        data.medicineCount = medicineCount;
+        data.clueCount = clueCount;
+        data.herbsCount = herbsCount;
 
         bf.Serialize(file, data);
         file.Close();
@@ -236,6 +248,9 @@ public class GameManager : Singleton<GameManager>
             puzzleCompleted = data.puzzleCompleted;
             completedTaskFive = data.complTaskFive;
             completedSceneFive = data.completedSceneFive;
+            medicineCount = data.medicineCount;
+            herbsCount = data.herbsCount;
+            clueCount = data.clueCount;
 
             // Load scene and spawn player in saved position
             SceneManager.LoadScene(CurrentScene);

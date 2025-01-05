@@ -32,7 +32,6 @@ public class QuantityListSerializable
     public List<QuantityData> GetList() { return this.data; }
 }
 
-
 public class QuantitySaveManager : MonoBehaviour
 {
     public List<QuantityData> tileList = new List<QuantityData>();
@@ -62,7 +61,6 @@ public class QuantitySaveManager : MonoBehaviour
         return false; // Just in case not in list
     }
 
-    // Save/Load as json since it's easier to work with for lists?
     public void Save()
     {
         QuantityListSerializable serializableList = new QuantityListSerializable(tileList);
@@ -82,7 +80,7 @@ public class QuantitySaveManager : MonoBehaviour
             QuantityListSerializable list = JsonUtility.FromJson<QuantityListSerializable>(json);
             tileList = list.GetList();
 
-            quantityManager.LoadTileStatus();
+            quantityManager.LoadSavedData();
 
             Debug.Log("Loaded quantity data");
         }

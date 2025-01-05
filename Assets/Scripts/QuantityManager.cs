@@ -68,9 +68,9 @@ public class QuantityManager : MonoBehaviour
     public EquipGunOnClick equipGunScript;
     public EquipKnifeOnClick equipKnifeScript;
 
-    private int medicineCount = 0;
-    private int herbsCount = 0;
-    private int clueCount = 0;
+    private int medicineCount;
+    private int herbsCount;
+    private int clueCount;
 
     private Dictionary<GameObject, bool> medicineStates = new Dictionary<GameObject, bool>();
     private Dictionary<GameObject, bool> herbStates = new Dictionary<GameObject, bool>();
@@ -78,6 +78,10 @@ public class QuantityManager : MonoBehaviour
 
     private void Start()
     {
+        medicineCount = GameManager.Instance.medicineCount;
+        herbsCount = GameManager.Instance.herbsCount;
+        clueCount = GameManager.Instance.clueCount;
+
         AddTilesToSave();
 
         // Initialize single item UI
@@ -105,9 +109,9 @@ public class QuantityManager : MonoBehaviour
         TrackArea3Drops("RepairTask3Manager", "RestrictPlayerCam2", gunImage);
 
         // Initialize collectible item text
-        UpdateText(medicineText, "Medicine", medicineCount);
-        UpdateText(herbsText, "Herbs", herbsCount);
-        UpdateText(clueText, "Clues", clueCount);
+        UpdateText(medicineText, "Medicine", medicineCount, GameManager.Instance.medicineCount);
+        UpdateText(herbsText, "Herbs", herbsCount, GameManager.Instance.herbsCount);
+        UpdateText(clueText, "Clues", clueCount, GameManager.Instance.clueCount);
     }
 
     // So inventory status can be saved between games
@@ -132,9 +136,17 @@ public class QuantityManager : MonoBehaviour
         tileList.Add(new QuantityData(crystalImage, false));
     }
 
-    // Load saved tile status (i.e. active or not)
-    public void LoadTileStatus()
+    // Load saved tile status (i.e. active or not) and item counts + ui
+    public void LoadSavedData()
     {
+        medicineCount = GameManager.Instance.medicineCount;
+        herbsCount = GameManager.Instance.herbsCount;
+        clueCount = GameManager.Instance.clueCount;
+
+        UpdateText(medicineText, "Medicine", medicineCount, GameManager.Instance.medicineCount);
+        UpdateText(herbsText, "Herbs", herbsCount, GameManager.Instance.herbsCount);
+        UpdateText(clueText, "Clues", clueCount, GameManager.Instance.clueCount);
+
         QuantitySaveManager quantManager = GameManager.Instance.quantitySaveManager;
         SetActive(knifeImage, quantManager.GetActiveStatus(knifeImage));
         SetActive(gunImage, quantManager.GetActiveStatus(gunImage));
@@ -320,8 +332,8 @@ public class QuantityManager : MonoBehaviour
         HandleSingleItem(toolbox, toolboxImage);
 
         // Handle collectible items
-        HandleCollectibleItems(medicines, ref medicineCount, medicineText, "Medicine");
-        HandleCollectibleItems(clues, ref clueCount, clueText, "Clues");
+        HandleCollectibleItems(medicines, ref medicineCount, medicineText, "Medicine", GameManager.Instance.medicineCount);
+        HandleCollectibleItems(clues, ref clueCount, clueText, "Clues", GameManager.Instance.clueCount);
 
         // Handle herb state updates
         HandleHerbs();
@@ -398,6 +410,11 @@ public class QuantityManager : MonoBehaviour
             SetActive(knifeImage, true);
         }
 
+
+        // Update game manager counts
+        GameManager.Instance.medicineCount = medicineCount;
+        GameManager.Instance.herbsCount = herbsCount;
+        GameManager.Instance.clueCount = clueCount;
     }
 
 
@@ -609,7 +626,7 @@ public class QuantityManager : MonoBehaviour
         {
             // Increment herb count and update UI
             herbsCount++;
-            UpdateText(herbsText, "Herbs", herbsCount);
+            UpdateText(herbsText, "Herbs", herbsCount, GameManager.Instance.herbsCount);
             Debug.Log($"Herb count incremented. Current count: {herbsCount}");
 
             // Mark herb as processed
@@ -633,7 +650,7 @@ public class QuantityManager : MonoBehaviour
         {
             // Increment clue count and update UI
             clueCount++;
-            UpdateText(clueText, "Clues", clueCount);
+            UpdateText(clueText, "Clues", clueCount, GameManager.Instance.clueCount);
             Debug.Log($"Clue count incremented. Current count: {clueCount}");
 
             // Mark clue as processed
@@ -679,7 +696,7 @@ public class QuantityManager : MonoBehaviour
 
 
 
-    private void HandleCollectibleItems(List<GameObject> items, ref int count, TextMeshProUGUI text, string itemName)
+    private void HandleCollectibleItems(List<GameObject> items, ref int count, TextMeshProUGUI text, string itemName, int GameManagerCount)
     {
         foreach (GameObject item in items)
         {
@@ -695,7 +712,7 @@ public class QuantityManager : MonoBehaviour
                 if (!item.activeInHierarchy && medicineStates[item])
                 {
                     count++;
-                    UpdateText(text, itemName, count);
+                    UpdateText(text, itemName, count, GameManagerCount);
 
                     // Mark the item as processed
                     medicineStates[item] = false;
@@ -705,7 +722,7 @@ public class QuantityManager : MonoBehaviour
     }
 
     // Helper to set text
-    private void UpdateText(TextMeshProUGUI text, string itemName, int count)
+    private void UpdateText(TextMeshProUGUI text, string itemName, int count, int GameManagerCount)
     {
         if (text != null)
         {
@@ -746,7 +763,7 @@ public class QuantityManager : MonoBehaviour
                     medicineCount--;
 
                     // Update the medicine count in the UI
-                    UpdateText(medicineText, "Medicine", medicineCount);
+                    UpdateText(medicineText, "Medicine", medicineCount, GameManager.Instance.medicineCount);
 
                     // Increase the fill amount, clamping it to a maximum of 1
                     healthBarImage.fillAmount = Mathf.Clamp(healthBarImage.fillAmount + healthIncreaseAmount, 0f, 1f);
@@ -843,8 +860,8 @@ public class QuantityManager : MonoBehaviour
         {
             herbsCount -= 2;
             medicineCount++;
-            UpdateText(medicineText, "Medicine", medicineCount);
-            UpdateText(herbsText, "Herbs", herbsCount);
+            UpdateText(medicineText, "Medicine", medicineCount, GameManager.Instance.medicineCount);
+            UpdateText(herbsText, "Herbs", herbsCount, GameManager.Instance.herbsCount);
             ShowCraftingMessage("Medicine crafted successfully!");
         }
         else
