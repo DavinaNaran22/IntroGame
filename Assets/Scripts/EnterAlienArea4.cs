@@ -51,7 +51,7 @@ public class EnterAlienArea4 : MonoBehaviour
     {
         "ALIEN: I have heard so much about you.",
         "ALIEN: You are the one killing my friends.",
-        "ALIEN: Now it’s your turn to die.",
+        "ALIEN: Now it's your turn to die.",
         "YOU: I don't think so.",
     };
 
