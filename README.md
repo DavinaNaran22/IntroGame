@@ -65,3 +65,9 @@ However, you are able to load the game from checkpoints you have reached in your
 • Terrain Sample Asset Pack – Terrain Package: https://assetstore.unity.com/packages/3d/environments/landscapes/terrain-sample-asset-pack-145808
 • StampIt! Collection – Terrain: https://assetstore.unity.com/packages/tools/terrain/stampit-collection-free-examples-218286
 • FREE Lomo Camera – 3D model: https://assetstore.unity.com/packages/3d/props/electronics/free-lomo-camera-186797
+• Hi-Rez Spaceships Creator Free Sample – 3D model: https://assetstore.unity.com/packages/p/hi-rez-spaceships-creator-free-sample-153363
+• Carpentry Tools – 3D model: https://assetstore.unity.com/packages/p/carpentry-tools-118471
+• Tools Wooden Boxes – 3D model: https://assetstore.unity.com/packages/3d/props/tools/tools-wooden-boxes-185738
+• Industrial Props Kit – 3D model: https://assetstore.unity.com/packages/p/industrial-props-kit-84745
+• Small Survival Pack – 3D model: https://assetstore.unity.com/packages/p/small-survival-pack-20565
+• Low-Poly 3D Lockers – 3D model: https://assetstore.unity.com/packages/p/low-poly-3d-lockers-239681
