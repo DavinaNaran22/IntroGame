@@ -7,6 +7,6 @@ public class RedLight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ColourDropdown.AddToLightList(ColourChangeColours.Red, GetComponent<Light>());
+        GameManager.Instance.colourScript.AddToLightList(ColourChangeColours.Red, GetComponent<Light>());
     }
 }

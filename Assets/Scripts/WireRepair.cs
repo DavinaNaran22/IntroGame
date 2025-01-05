@@ -44,6 +44,9 @@ public class WireRepair : MonoBehaviour
         if (playerin == true && wing_attached.WingTask == true)
         {
             GameManager.StartClueActive = true;
+            // Unlock cursor (e.g. if they were holding knife before)
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene("Game");
             SceneManager.sceneLoaded += OnSceneLoad;
             Debug.Log("Loading game scene");

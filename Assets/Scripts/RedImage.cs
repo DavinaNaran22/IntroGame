@@ -8,6 +8,6 @@ public class RedImage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ColourDropdown.AddToImageList(ColourChangeColours.Red, GetComponent<Image>());
+        GameManager.Instance.colourScript.AddToImageList(ColourChangeColours.Red, GetComponent<Image>());
     }
 }
