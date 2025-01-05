@@ -9,6 +9,7 @@
 - I key to open inventory
 - Right click to open some doors
 - Q to exit chairs
+- Escape to make cursor appear for buttons, then Escape and click on game to make cursor disappear
 
 ## How to Save Game:
 
