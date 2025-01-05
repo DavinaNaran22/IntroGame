@@ -19742,7 +19742,7 @@ MonoBehaviour:
   turnOffText: {fileID: 574984652}
   turnOffText2: {fileID: 1891343434}
   turnOffText3: {fileID: 2045668583}
-  taskManager: {fileID: 0}
+  taskManager: {fileID: 251013341}
 --- !u!1 &1511153325
 GameObject:
   m_ObjectHideFlags: 0
