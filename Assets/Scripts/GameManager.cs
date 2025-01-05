@@ -105,8 +105,9 @@ public class GameManager : Singleton<GameManager>
     public bool completedTaskFive = false;
     public bool completedSceneFive = false;
 
-    [Header("Equip Manager")]
+    [Header("State Managers")]
     public EquipManager equipManager;
+    public QuantitySaveManager quantitySaveManager;
 
     private void Start()
     {
@@ -204,6 +205,7 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("Player progess saved at " + filename);
 
         equipManager.Save();
+        quantitySaveManager.Save();
     }
 
     public void Load()
@@ -246,6 +248,7 @@ public class GameManager : Singleton<GameManager>
         }
 
         equipManager.Load();
+        quantitySaveManager.Load();
     }
 
     private void OnSavedSceneLoad(Scene scene, LoadSceneMode mode)

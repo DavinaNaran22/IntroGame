@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System.Data;
 public class QuantityManager : MonoBehaviour
 {
     [Header("Single Items")]
@@ -67,7 +68,6 @@ public class QuantityManager : MonoBehaviour
     public EquipGunOnClick equipGunScript;
     public EquipKnifeOnClick equipKnifeScript;
 
-
     private int medicineCount = 0;
     private int herbsCount = 0;
     private int clueCount = 0;
@@ -76,10 +76,10 @@ public class QuantityManager : MonoBehaviour
     private Dictionary<GameObject, bool> herbStates = new Dictionary<GameObject, bool>();
     private Dictionary<GameObject, bool> clueStates = new Dictionary<GameObject, bool>(); // Track state of clues
 
-
-
     private void Start()
     {
+        AddTilesToSave();
+
         // Initialize single item UI
         SetActive(knifeImage, false);
         SetActive(gunImage, false);
@@ -108,6 +108,48 @@ public class QuantityManager : MonoBehaviour
         UpdateText(medicineText, "Medicine", medicineCount);
         UpdateText(herbsText, "Herbs", herbsCount);
         UpdateText(clueText, "Clues", clueCount);
+    }
+
+    // So inventory status can be saved between games
+    private void AddTilesToSave()
+    {
+        List<QuantityData> tileList = GameManager.Instance.quantitySaveManager.tileList;
+        // Probably a better way...
+        tileList.Add(new QuantityData(knifeImage, false));
+        tileList.Add(new QuantityData(gunImage, false));
+        tileList.Add(new QuantityData(swordImage, false));
+        tileList.Add(new QuantityData(alienAlloyImage, false));
+        tileList.Add(new QuantityData(alienSkinImage, false));
+        tileList.Add(new QuantityData(toolboxImage, false));
+        tileList.Add(new QuantityData(shovelImage, false));
+        tileList.Add(new QuantityData(metalsDroppedImage, false));
+        tileList.Add(new QuantityData(woodImage, false));
+        tileList.Add(new QuantityData(craftingMessageCanvas, false));
+        tileList.Add(new QuantityData(shovelParent, false));
+        tileList.Add(new QuantityData(swordParent, false));
+        tileList.Add(new QuantityData(stoneImage, false));
+        tileList.Add(new QuantityData(clueImage, false));
+        tileList.Add(new QuantityData(crystalImage, false));
+    }
+
+    // Load saved tile status (i.e. active or not)
+    public void LoadTileStatus()
+    {
+        QuantitySaveManager quantManager = GameManager.Instance.quantitySaveManager;
+        SetActive(knifeImage, quantManager.GetActiveStatus(knifeImage));
+        SetActive(gunImage, quantManager.GetActiveStatus(gunImage));
+        SetActive(swordImage, quantManager.GetActiveStatus(swordImage));
+        SetActive(alienAlloyImage, quantManager.GetActiveStatus(alienAlloyImage));
+        SetActive(toolboxImage, quantManager.GetActiveStatus(toolboxImage));
+        SetActive(shovelImage, quantManager.GetActiveStatus(shovelImage));
+        SetActive(metalsDroppedImage, quantManager.GetActiveStatus(metalsDroppedImage));
+        SetActive(woodImage, quantManager.GetActiveStatus(woodImage));
+        SetActive(craftingMessageCanvas, quantManager.GetActiveStatus(craftingMessageCanvas));
+        SetActive(shovelParent, quantManager.GetActiveStatus(shovelParent));
+        SetActive(swordParent, quantManager.GetActiveStatus(swordParent));
+        SetActive(stoneImage, quantManager.GetActiveStatus(stoneImage));
+        SetActive(clueImage, quantManager.GetActiveStatus(clueImage));
+        SetActive(crystalImage, quantManager.GetActiveStatus(crystalImage));
     }
 
     private void OnEnable()
@@ -367,10 +409,15 @@ public class QuantityManager : MonoBehaviour
             if (!isActive)
             {
                 image.SetActive(true); // Show the UI element if the item is inactive
+                // Update state in QuantitySaveManager
+                GameManager.Instance.quantitySaveManager.UpdateActiveStatus(image, true);
+
             }
             else
             {
                 image.SetActive(false); // Hide the UI element if the item is active
+                // Update state in QuantitySaveManager
+                GameManager.Instance.quantitySaveManager.UpdateActiveStatus(image, false);
             }
         }
     }
@@ -462,8 +509,6 @@ public class QuantityManager : MonoBehaviour
             alienRestrictScene = childObject.GetComponent<AlienRestrictScene2>();
         }
     }
-
-
 
     private System.Collections.IEnumerator WaitForItemStateChange(GameObject item, GameObject image)
     {
@@ -674,6 +719,8 @@ public class QuantityManager : MonoBehaviour
         if (obj != null && obj.activeSelf != state)
         {
             obj.SetActive(state);
+            // Update state in QuantitySaveManager
+            GameManager.Instance.quantitySaveManager.UpdateActiveStatus(obj, state);
         }
     }
 

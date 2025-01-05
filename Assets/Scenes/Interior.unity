@@ -2573,6 +2573,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6789054464662359471, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 644578576}
+    - targetCorrespondingSourceObject: {fileID: 6789054464662359471, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1100659026}
     - targetCorrespondingSourceObject: {fileID: 2685986396538119853, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2036355420}
@@ -14784,6 +14787,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d09c225a8aed9f4a8469c4dc4f08903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1100659026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644578565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebec72d5aaed2f3489c1e52df92f6c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileList: []
+  quantityManager: {fileID: 644578572}
 --- !u!1 &1103854952 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4154383487739904953, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
@@ -17794,6 +17811,7 @@ MonoBehaviour:
   completedTaskFive: 0
   completedSceneFive: 0
   equipManager: {fileID: 1684844126}
+  quantitySaveManager: {fileID: 1100659026}
 --- !u!4 &1352790603
 Transform:
   m_ObjectHideFlags: 0
