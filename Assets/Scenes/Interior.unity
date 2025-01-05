@@ -428,7 +428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -24.999878, y: 55}
+  m_AnchoredPosition: {x: -24.999756, y: 55}
   m_SizeDelta: {x: -950, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &19701281
@@ -1873,6 +1873,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -185
       objectReference: {fileID: 0}
+    - target: {fileID: 5571642611007362291, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 9.889893
+      objectReference: {fileID: 0}
     - target: {fileID: 5702164223971388279, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_Color.a
       value: 0.87058824
@@ -2216,6 +2220,10 @@ PrefabInstance:
     - target: {fileID: 6886682888397592288, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 670.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942754065328372697, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -12.589966
       objectReference: {fileID: 0}
     - target: {fileID: 7008734550767129030, guid: 35d5b9b5d97e93e4599e79db9104131d, type: 3}
       propertyPath: m_IsActive
@@ -2651,7 +2659,7 @@ PlayableDirector:
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
-  m_InitialTime: 0
+  m_InitialTime: 122
   m_SceneBindings:
   - key: {fileID: 4328387496966043073, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
     value: {fileID: 1482992026}
