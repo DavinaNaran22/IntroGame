@@ -6,8 +6,6 @@ public abstract class UISlider : MonoBehaviour, ISlider
 {
     public Slider slider;
     public abstract void AddDelegate(Slider slider);
-
-
     public abstract void OnValueChanged();
 
     protected void UpdateRefs(Slider slider, float gmRef, string tagToFind)

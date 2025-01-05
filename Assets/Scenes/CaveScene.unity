@@ -11638,6 +11638,18 @@ MonoBehaviour:
   task4Completed: 0
   ShowClueScript: {fileID: 0}
   triggerEnding: 0
+  shownClue: 0
+  canEnableShowClue: 0
+  interiorTaskOne: 0
+  interiorTaskTwo: 0
+  completedTaskOne: 0
+  completedTaskTwo: 0
+  completedTaskThree: 0
+  completedTaskFour: 0
+  puzzleCompleted: 0
+  completedTaskFive: 0
+  completedSceneFive: 0
+  equipManager: {fileID: 0}
 --- !u!114 &444127644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45893,6 +45905,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -9181892908506501681, guid: 7965e55e17644450197bef8ae6595113, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1915877423}
+    - targetCorrespondingSourceObject: {fileID: -9181892908506501681, guid: 7965e55e17644450197bef8ae6595113, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1915877426}
   m_SourcePrefab: {fileID: 100100000, guid: 7965e55e17644450197bef8ae6595113, type: 3}
 --- !u!1 &1915877422 stripped
 GameObject:
@@ -45947,6 +45962,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quantityManager: {fileID: 0}
+--- !u!114 &1915877426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915877422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b25c9423c9cba49aff06d4d371963e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: Press E to equip Crystal
+  sphereRadius: 3
+  equipableObject: {fileID: 1915877422}
 --- !u!1 &1917209434 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8430508194340108916, guid: c6ee9a3b02d704893981ff5f6a5b6c2a, type: 3}

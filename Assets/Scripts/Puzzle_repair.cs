@@ -15,7 +15,7 @@ public class Puzzle_repair : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GameManager.Instance.complTaskFive) transform.parent.gameObject.SetActive(false);
+        if (GameManager.Instance.completedTaskFive) transform.parent.gameObject.SetActive(false);
         //showClue.SetActive(GameManager.ShowClueActive);
     }
     private void Awake()
@@ -42,6 +42,7 @@ public class Puzzle_repair : MonoBehaviour
         {
             Debug.Log("PUZZLE");
             MessagePuzzle.SetActive(false);
+            GameManager.Instance.puzzleCompleted = true;
             //GameManager.ShowClueActive = true;
             SceneManager.LoadScene("Puzzle");
             SceneManager.sceneLoaded += OnSceneLoad;
@@ -55,7 +56,7 @@ public class Puzzle_repair : MonoBehaviour
     { // if the puzzle is  complete show the clue to pickup, deactivte previous scene/ activate next
         if (Puzzle.Puzzle_Complete == true)
         {
-            GameManager.Instance.complTaskFour = true;
+            GameManager.Instance.completedTaskFour = true;
             ClueTask.SetActive(false);
             MessagePuzzle.SetActive(false);
             repair4.SetActive(false);
