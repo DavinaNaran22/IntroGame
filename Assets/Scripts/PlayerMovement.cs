@@ -123,15 +123,22 @@ public class PlayerMovement : MonoBehaviour
         isCrouching = !isCrouching; // Toggle crouching state
     }
 
+    // Enable player movement - quick bug fix method
+    public void EnableMovement()
+    {
+        canMove = true;
+        inputActions.Player.Move.Enable();
+        inputActions.Player.Jump.Enable();
+        inputActions.Player.Crouch.Enable();
+    }
+
     // Toggle whether play is allowed to move
     public void ToggleMovement()
     {
         canMove = !canMove;
         if (canMove)
         {
-            inputActions.Player.Move.Enable();
-            inputActions.Player.Jump.Enable();
-            inputActions.Player.Crouch.Enable();
+            EnableMovement();
         }
         else
         {

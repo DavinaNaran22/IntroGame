@@ -53,7 +53,6 @@ public class KeypadDoor : PlayerSceneTransition
                 base.LoadOtherScene(Player);
             }
             else if (!keypadShowing)
-            // Show them keypad
             {
                 ShowKeypad();
             }
