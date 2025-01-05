@@ -47,6 +47,7 @@ MonoBehaviour:
   shootRate: 0.3
   m_shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
   equipGunOnClick: {fileID: 0}
+  inventoryManager: {fileID: 0}
 --- !u!1001 &2192913056035143632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60,8 +61,16 @@ PrefabInstance:
       value: Gun
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}
+      propertyPath: m_TagString
+      value: WeaponCursor
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}
       propertyPath: m_LocalScale.x
@@ -213,6 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a508f8468c624c41b46b63b2ba52441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quantityManager: {fileID: 0}
 --- !u!4 &2192913056035267920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 584761fab006d6d42b4d0d8c56a51241, type: 3}

@@ -8,6 +8,9 @@ public class CursorToggle : MonoBehaviour
     public bool lockCursor = true;
     public bool forceCursorVisible = false;
     public PlayerInputActions inputActions;
+    [SerializeField] EquipGunOnClick equipGun;
+    [SerializeField] EquipSwordOnClick equipSword;
+    [SerializeField] EquipKnifeOnClick equipKnife;
 
     private void Awake()
     {
@@ -31,7 +34,8 @@ public class CursorToggle : MonoBehaviour
     // Need cursor to always be enabled in the scenes;
     private void CheckCursorScene(Scene cur, Scene next)
     {
-        if (next.name == "Game" || next.name == "Puzzle")
+        // If scene is wire or puzzle game, or they haven't done the drag/drop task
+        if (next.name == "Game" || next.name == "Puzzle" || next.name == "landscape" && GameManager.Instance.completedTaskThree && !GameManager.Instance.completedTaskFour)
         {
             forceCursorVisible = true;
             lockCursor = false;
@@ -39,6 +43,7 @@ public class CursorToggle : MonoBehaviour
         else
         {
             forceCursorVisible = false;
+            lockCursor = true;
         }
     }
 
@@ -51,6 +56,7 @@ public class CursorToggle : MonoBehaviour
 
     void Update()
     {
+        // These need to have cursor visible for better gameplay or for gameplay to work
         if (
             !forceCursorVisible && (GameObject.FindWithTag("EndingButton") != null && GameObject.FindWithTag("EndingButton").activeSelf 
             || GameObject.FindWithTag("PauseMenu") != null && GameObject.FindWithTag("PauseMenu").activeSelf 
@@ -59,13 +65,11 @@ public class CursorToggle : MonoBehaviour
         {
             lockCursor = false;
         } 
+        else if (!forceCursorVisible && (equipKnife.IsKnifeEquipped || equipGun.IsGunEquipped || equipSword.IsSwordEquipped))
+        {
+            lockCursor = true;
+        }
         Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !lockCursor;
-        // (Below) would prevent player from clicking pause/progress buttons 
-        // Or cursor showing in wire/puzzle game
-        //else
-        //{
-        //    lockCursor = true;
-        //}
     }
 }
