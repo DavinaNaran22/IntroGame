@@ -62,3 +62,4 @@ However, you are able to load the game from checkpoints you have reached in your
 • Wooden Spikes – 3D model: https://sketchfab.com/3d-models/wooden-spikes-fca76e93d1c4455b8d4de9ef667c685d
 • Terrain Sample Asset Pack – Terrain Package: https://assetstore.unity.com/packages/3d/environments/landscapes/terrain-sample-asset-pack-145808
 • StampIt! Collection – Terrain: https://assetstore.unity.com/packages/tools/terrain/stampit-collection-free-examples-218286
+• FREE Lomo Camera – 3D model: https://assetstore.unity.com/packages/3d/props/electronics/free-lomo-camera-186797
