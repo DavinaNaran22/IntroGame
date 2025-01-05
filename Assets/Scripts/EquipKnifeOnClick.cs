@@ -79,7 +79,6 @@ public class EquipKnifeOnClick : MonoBehaviour
 
     void EquipKnife()
     {
-        GameManager.Instance.GetComponent<CursorToggle>().lockCursor = true;
         // Check if the gun is equipped and unequip it
         if (gunScript != null && gunScript.IsGunEquipped)
         {

@@ -2670,7 +2670,7 @@ PlayableDirector:
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
-  m_InitialTime: 122
+  m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 4328387496966043073, guid: b9a846395167e9f43a49467acba7f61c, type: 2}
     value: {fileID: 1482992026}
@@ -17895,6 +17895,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockCursor: 1
   forceCursorVisible: 0
+  equipGun: {fileID: 644578567}
+  equipSword: {fileID: 644578576}
+  equipKnife: {fileID: 644578571}
 --- !u!1 &1352841177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9187140238586950442, guid: 8525dc686e398dd4b8dc52c5a94dce02, type: 3}

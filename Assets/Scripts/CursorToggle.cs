@@ -8,6 +8,9 @@ public class CursorToggle : MonoBehaviour
     public bool lockCursor = true;
     public bool forceCursorVisible = false;
     public PlayerInputActions inputActions;
+    [SerializeField] EquipGunOnClick equipGun;
+    [SerializeField] EquipSwordOnClick equipSword;
+    [SerializeField] EquipKnifeOnClick equipKnife;
 
     private void Awake()
     {
@@ -62,13 +65,11 @@ public class CursorToggle : MonoBehaviour
         {
             lockCursor = false;
         } 
+        else if (!forceCursorVisible && (equipKnife.IsKnifeEquipped || equipGun.IsGunEquipped || equipSword.IsSwordEquipped))
+        {
+            lockCursor = true;
+        }
         Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !lockCursor;
-        // (Below) would prevent player from clicking pause/progress buttons 
-        // Or cursor showing in wire/puzzle game
-        //else
-        //{
-        //    lockCursor = true;
-        //}
     }
 }
